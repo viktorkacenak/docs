@@ -1,0 +1,87 @@
+---
+title: "Course Enrollments: Access, Progress, and the Student View"
+sidebarTitle: "Enrollments"
+description: "Understand how enrollments work, how students get access to courses, and what students see in their learning dashboard after they enroll."
+---
+
+An enrollment is the record that grants a specific student access to a specific course in your academy. Without an enrollment, a student cannot open or progress through a course, even if the course is published. Every time a student gains access to a course — whether by purchasing it, subscribing, being manually added, or joining a free academy — Fayne creates an enrollment for them automatically.
+
+## How students get enrolled
+
+Enrollments are created in three ways depending on how you have priced your academy.
+
+<AccordionGroup>
+  <Accordion title="Free access">
+    When a course is set to free, any student who signs into your academy is automatically enrolled in it. No payment step, no manual action from you required.
+  </Accordion>
+  <Accordion title="Per-course purchase">
+    When a course has a price, the student pays through Stripe Checkout. Fayne creates the enrollment as soon as the payment is confirmed. If the payment fails, no enrollment is created.
+  </Accordion>
+  <Accordion title="Full-access subscription">
+    When your academy uses subscription pricing, an active subscriber is enrolled in all published courses in your academy. Enrollments stay active for as long as the subscription is active. If a subscription lapses or is cancelled, those enrollments are revoked.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+All published courses are immediately accessible once a student is enrolled. Fayne does not support drip-feed scheduling or course prerequisites — a student can start any lesson in any order on day one.
+</Note>
+
+## Manually enrolling a student
+
+You can add an enrollment from the owner dashboard at any time, regardless of how your academy is priced. This is useful for comping a student, granting early access, or adding a student to a course that is not part of their current plan.
+
+<Steps>
+  <Step title="Open the student detail panel">
+    Go to **Students**, find the student in the roster, and click their row to open the detail panel.
+  </Step>
+  <Step title="Go to the Enrollments tab">
+    In the left sidebar of the panel, click **Enrollments**.
+  </Step>
+  <Step title="Click Enroll in course">
+    Click the **Enroll in course** button in the top-right corner of the tab.
+  </Step>
+  <Step title="Select a course and confirm">
+    Choose the course from the dropdown and click **Add**. The enrollment is created immediately and the student can start the course right away.
+  </Step>
+</Steps>
+
+You can also pre-enroll a student in courses at the moment you invite them. When sending an invitation, use the course picker to select one or more courses. Those enrollments are created as soon as the student accepts the invitation.
+
+## Revoking a single enrollment
+
+To remove a student's access to one course without removing them from your academy:
+
+1. Open the student detail panel and go to the **Enrollments** tab.
+2. Find the course and click the actions menu (the three-dot icon on the right).
+3. Select **Revoke access**.
+
+The enrollment is removed and the student can no longer open that course. Their progress for that course is not deleted — if you re-enroll them later, their completed lessons are still recorded.
+
+## What students see: the My Learning dashboard
+
+Once a student has at least one enrollment, their home screen in your academy becomes a personalized learning dashboard.
+
+<CardGroup cols={2}>
+  <Card title="Progress overview" icon="bar-chart-2">
+    Each enrolled course appears as a card with a progress bar showing how many lessons have been completed out of the total.
+  </Card>
+  <Card title="Continue where you left off" icon="play">
+    A prominent prompt links directly to the last lesson the student was working on, so they can pick up without searching.
+  </Card>
+  <Card title="Bookmarks and favorites" icon="bookmark">
+    Students can bookmark specific lessons and mark courses as favorites for quick access from the dashboard.
+  </Card>
+  <Card title="Course cards" icon="graduation-cap">
+    Each card shows the course title, thumbnail, and current progress. Clicking a card opens the course viewer.
+  </Card>
+</CardGroup>
+
+## The course viewer
+
+Inside a course, students see a full-screen reading experience. The lesson sidebar on the left lists every lesson in order. Completed lessons display a checkmark. The student's current lesson is highlighted.
+
+At the bottom of each lesson, **Previous** and **Next** buttons move through the course in sequence. Fayne marks a lesson as complete when the student navigates away from it or explicitly marks it done.
+
+<Tip>
+Students are not locked into a linear path. They can click any lesson in the sidebar to jump directly to it, regardless of whether they have completed earlier lessons.
+</Tip>

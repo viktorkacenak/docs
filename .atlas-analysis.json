@@ -1,0 +1,104 @@
+{
+  "projectType": "saas",
+  "projectName": "Fayne Academy",
+  "projectDescription": "A white-label academy platform that lets coaches, consultants, and experts launch a branded online school in days, pre-loaded with professional courses and AI-powered customization.",
+  "theme": "almond",
+  "primaryColor": "#d5074a",
+  "lightColor": "#1c1c1c",
+  "darkColor": "#f17cac",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Your Academy",
+            "pages": [
+              "academy/branding",
+              "academy/courses",
+              "academy/pricing",
+              "academy/custom-domain"
+            ]
+          },
+          {
+            "group": "Content",
+            "pages": [
+              "content/block-editor",
+              "content/ai-customization",
+              "content/interactive-widgets",
+              "content/course-library"
+            ]
+          },
+          {
+            "group": "Students",
+            "pages": [
+              "students/managing-students",
+              "students/enrollments",
+              "students/certificates"
+            ]
+          },
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/stripe-connect",
+              "payments/pricing-models"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "analytics/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Authentication",
+            "pages": [
+              "api-reference/authentication"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/courses",
+              "api-reference/students",
+              "api-reference/enrollments"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Pre-loaded curated library of professional business courses organized into Tracks",
+    "AI-powered lesson customization using Claude Sonnet 4.6",
+    "25+ block types in the visual TipTap editor (quizzes, flashcards, widgets, media)",
+    "Full white-label branding: custom domain, logo, colors, email sender",
+    "Stripe Connect payments with free, per-course, and subscription pricing models",
+    "Student management with enrollment, progress tracking, and auto-issued certificates",
+    "Multi-academy support: run multiple branded academies from one account",
+    "AI-assisted interactive widgets (calculators, scorecards, diagnostic quizzes)",
+    "Master library with forking: lessons stay synced unless customized",
+    "Onboarding engineered to go live in under 15 minutes"
+  ],
+  "publicApiSurface": [
+    "GET /api/v1/courses — List published courses in an academy",
+    "POST /api/v1/students — Add a student to an academy",
+    "GET /api/v1/students — List students with pagination",
+    "GET /api/v1/students/:studentId — Get student detail with enrollment progress",
+    "DELETE /api/v1/students/:studentId — Remove student and revoke access",
+    "POST /api/v1/students/:studentId/enrollments — Enroll student in a course",
+    "API key authentication via Bearer token (prefix: fa_live_)"
+  ]
+}

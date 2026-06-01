@@ -1,0 +1,70 @@
+---
+title: "Authenticate Requests to the Fayne Academy REST API"
+sidebarTitle: "Authentication"
+description: "Learn how to authenticate API requests using Bearer tokens, generate API keys from your dashboard, and handle authentication errors."
+---
+
+All requests to the Fayne Academy REST API must include an API key. The API uses Bearer token authentication — you pass your key in the `Authorization` header on every request. Each key is scoped to a single academy, so the API automatically infers your `academyId` from the key you provide. You never need to pass an academy identifier separately.
+
+## Generating an API key
+
+Open your academy owner dashboard and navigate to **Settings → API Keys**. Click **New API key**, give it a name, and copy the full key immediately — it is only shown once.
+
+<Warning>
+Store your API key in an environment variable or secrets manager. Never commit it to source control or expose it in client-side code.
+</Warning>
+
+## Key format
+
+Every API key begins with the prefix `fa_live_` followed by 32 lowercase hexadecimal characters, making the full key 40 characters long.
+
+```
+fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+         └─────────── 32 hex chars ─────────┘
+```
+
+## Sending the Authorization header
+
+Include your key as a Bearer token in the `Authorization` header of every request.
+
+```
+Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+### Example request
+
+```bash
+curl https://yourname.academylive.co/api/v1/courses \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+## Rate limiting
+
+Requests are rate-limited per API key. When you exceed the limit, the API returns a `429` response with a `Retry-After` header indicating how many seconds to wait before retrying.
+
+## Error codes
+
+The table below covers authentication and common resource errors you may encounter across all endpoints.
+
+| HTTP status | Code | When it occurs |
+|---|---|---|
+| `401` | `unauthorized` | Missing or invalid `Authorization` header |
+| `401` | `unauthorized` | API key does not start with `fa_live_` |
+| `401` | `unauthorized` | API key is revoked or does not exist |
+| `400` | `invalid_course` | Only published courses can be assigned to a student |
+| `404` | `not_found` | Student not found in this academy |
+| `404` | `not_found` | Course not found |
+| `429` | `rate_limit_exceeded` | Too many requests — check the `Retry-After` header |
+
+### Authentication failure response
+
+When authentication fails, the API returns a JSON body with an `error` object containing a `code` and a human-readable `message`.
+
+```json
+{
+  "error": {
+    "code": "unauthorized",
+    "message": "Invalid API key"
+  }
+}
+```

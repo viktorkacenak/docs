@@ -1,0 +1,92 @@
+---
+title: "Edit Lessons with AI and Natural Language Commands"
+sidebarTitle: "AI Customization"
+description: "Use plain English to rewrite, expand, or restructure any lesson. Fayne's AI runs on Claude Sonnet 4.6 and understands your academy's context."
+---
+
+Every lesson in your academy can be edited using plain English instructions. Instead of manually rewriting paragraphs, you type what you want in the AI chat bar at the bottom of the editor and Fayne applies the changes for you. The AI powering this feature is Claude Sonnet 4.6. It reads the lesson you are working on, the course outline, your academy's industry and segment, and the block structure of the page before making any edits. That context means the changes it suggests fit naturally into what is already there.
+
+## How to use the AI editor
+
+Open any lesson in your course editor. The AI chat input appears as a floating bar at the bottom of the screen. Type your instruction and press **Enter**. The AI reads your request and the current lesson content, then proposes a set of changes. You can accept all changes at once, reject all of them, or review each block-level change individually before committing.
+
+<Steps>
+  <Step title="Open the lesson editor">
+    Navigate to **Courses**, select a course, and click any lesson in the left sidebar.
+  </Step>
+  <Step title="Type your instruction">
+    Click the AI chat bar at the bottom of the screen and describe what you want. No special syntax required.
+  </Step>
+  <Step title="Review the proposed changes">
+    The editor highlights each affected block. You can accept or reject the changes one at a time, or use **Accept all** and **Reject all** to decide in bulk.
+  </Step>
+  <Step title="Continue editing">
+    After accepting, the lesson reflects your changes. You can keep sending instructions, undo any step, or switch to manual editing at any time.
+  </Step>
+</Steps>
+
+## Natural language editing examples
+
+You can write instructions in any phrasing that makes sense to you. Here are the kinds of requests the AI handles well:
+
+<CardGroup cols={2}>
+  <Card title="Tone adjustments" icon="message-circle">
+    "Rewrite this in a more conversational tone" or "make this sound more direct and confident."
+  </Card>
+  <Card title="Adding content" icon="plus">
+    "Add a quiz at the end" or "add a pros and cons block after the third section."
+  </Card>
+  <Card title="Expanding content" icon="expand">
+    "Expand this with a B2B example" or "add a real-world case study to illustrate this point."
+  </Card>
+  <Card title="Restructuring" icon="layout">
+    "Turn this paragraph into a stepper guide" or "break this section into two shorter ones."
+  </Card>
+  <Card title="Tightening content" icon="scissors">
+    "Shorten this section" or "remove the introduction and get straight to the point."
+  </Card>
+  <Card title="Voice alignment" icon="mic">
+    "Rewrite this to sound like advice from a sales coach" or "use a more formal, consulting tone."
+  </Card>
+</CardGroup>
+
+## Block-level AI operations
+
+Every edit targets specific blocks in the lesson rather than rewriting the whole document at once. The operations available are:
+
+| Operation | What it does |
+|---|---|
+| **Replace** | Rewrites the content of an existing block in place. |
+| **Expand** | Adds more content to an existing block, making it longer and more detailed. |
+| **Insert** | Adds a new block before or after an existing one. |
+| **Delete** | Removes a block from the lesson entirely. |
+| **Append** | Adds a new block at the end of the lesson. |
+
+Each proposed change is shown as a tracked edit so you can see exactly what will change before committing.
+
+## Context the AI uses
+
+The AI does not edit blindly. Before generating any response, it reads:
+
+- The full content of the current lesson
+- The course outline (all lesson titles and their order)
+- Your academy's segment (coach, consultant, agency, or SaaS)
+- Your industry, if provided during onboarding
+
+This means when you ask for "a B2B example," the AI draws on your specific industry rather than producing a generic one. When you ask it to "add a quiz," it writes questions relevant to the lesson topic, not placeholder text.
+
+<Note>
+  AI edits preserve your formatting. Output stays clean: no rogue HTML, no inline styles, no extra markup. Every change uses the same block structure as the rest of your lesson.
+</Note>
+
+## AI editing and the master library
+
+Lessons you add from the course library start as references to master content. The moment you send an AI instruction for a lesson, Fayne creates a fork: your own private copy of that lesson, detached from the master version.
+
+- Forked lessons carry a **Customized** badge in the editor sidebar.
+- Master lessons (unedited) continue to receive automatic updates as the content improves.
+- You can reset a forked lesson back to the master version at any time from the lesson settings.
+
+<Tip>
+  If you want a lesson to stay synced with master updates, hold off on AI editing until you are ready to lock in your customizations. Once you fork, you own that version.
+</Tip>

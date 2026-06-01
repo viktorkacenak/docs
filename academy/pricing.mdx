@@ -1,0 +1,98 @@
+---
+title: "Set Pricing and Accept Payments in Your Academy"
+sidebarTitle: "Pricing"
+description: "Choose between free, per-course, or full-access subscription pricing. Connect Stripe to receive payments directly in your own account."
+---
+
+Fayne uses Stripe Connect to handle payments. When a student pays for a course or a subscription, the money goes directly into your Stripe account. Fayne does not sit in the middle of the transaction. You connect your own Stripe account once, choose a pricing model, and start selling.
+
+## Connect your Stripe account
+
+Before you can accept payments, you need to connect a Stripe account. In your owner dashboard, go to **Pricing** and click **Connect Stripe**. You will be redirected to Stripe's onboarding flow. Once complete, you are returned to your dashboard and your account is linked.
+
+<Note>
+  You need a Stripe account to accept paid enrollments. If you are offering your academy for free, you can skip the Stripe connection.
+</Note>
+
+## Choose a pricing model
+
+<Tabs>
+  <Tab title="Free">
+    Your academy is open to anyone. Students enroll without entering payment details.
+
+    **When to use this model:**
+    - You are using your academy as a lead magnet or value-add for existing clients.
+    - You want to offer free access during a launch period before switching to paid.
+    - Your revenue comes from services, not the academy directly.
+
+    **How to set it up:**
+
+    In **Pricing**, set the access model to **Free**. No Stripe connection is required. Students click **Enroll** and are taken directly into the course without a checkout step.
+  </Tab>
+  <Tab title="Per-course">
+    Each course has its own price. Students pay once per course and get permanent access to that course.
+
+    **When to use this model:**
+    - You have courses at different price points for different audience segments.
+    - You want students to be able to buy individual courses without committing to a subscription.
+    - You are building a catalog where students can pick and choose.
+
+    **How to set it up:**
+
+    In **Pricing**, set the access model to **Per-course**. Then open each course and set a price in the course settings. Prices are stored in cents (for example, 4900 = $49.00). Students who purchase a course go through Stripe Checkout, which is hosted by Stripe and branded with your academy's primary color.
+
+    <Tip>
+      You can mix free and paid courses in the same academy. Set a course's price to zero to make it free even in per-course mode.
+    </Tip>
+  </Tab>
+  <Tab title="Full-access subscription">
+    Students pay a recurring subscription fee for unlimited access to all courses in your academy.
+
+    **When to use this model:**
+    - You want predictable monthly or annual recurring revenue.
+    - You plan to keep adding courses over time and want students to benefit automatically.
+    - You are positioning your academy as an ongoing learning membership.
+
+    **How to set it up:**
+
+    In **Pricing**, set the access model to **Full-access subscription** and set your monthly or annual price. Students subscribe through Stripe Checkout. Once subscribed, they have access to every published course in your academy.
+
+    Stripe manages subscription billing automatically. Students can manage, pause, or cancel their subscription through the Stripe Customer Portal, which is linked from within your academy.
+
+    <Warning>
+      If a student's payment fails, they receive an automatic alert from Stripe. Access is not immediately revoked, but continued non-payment will eventually result in subscription cancellation per your Stripe settings. You will also receive a failed payment alert in your Stripe dashboard.
+    </Warning>
+  </Tab>
+</Tabs>
+
+## How checkout works for students
+
+When a student pays, they go through Stripe Checkout, a Stripe-hosted payment page. The checkout page displays your academy's primary color so it feels consistent with your brand. After payment, students are redirected back to your academy and their enrollment is activated immediately.
+
+<CardGroup cols={2}>
+  <Card title="Stripe Checkout" icon="credit-card">
+    Stripe's hosted checkout handles card validation, 3D Secure, and international payments. You do not need to build or maintain a payment form.
+  </Card>
+  <Card title="Stripe Customer Portal" icon="settings">
+    Subscribers can view their billing history, update their payment method, and cancel their subscription from the Stripe Customer Portal. A link to the portal is available from within your academy.
+  </Card>
+</CardGroup>
+
+## Revenue and reporting
+
+Your Stripe dashboard is the source of truth for revenue. In your Fayne owner dashboard, the **Analytics** section shows total revenue, a monthly trend chart, and a breakdown by course, with a direct link to your Stripe dashboard for full transaction history.
+
+<AccordionGroup>
+  <Accordion title="Can I change my pricing model after launch?">
+    Yes. You can switch between pricing models at any time. Existing paid students retain their access. Switching from per-course to subscription does not automatically migrate existing customers to a subscription.
+  </Accordion>
+  <Accordion title="Does Fayne take a percentage of my revenue?">
+    Payments go directly to your Stripe account via Stripe Connect. Refer to your Fayne plan for platform fees, and to Stripe's pricing for their processing fees.
+  </Accordion>
+  <Accordion title="Can I offer discount codes or coupons?">
+    Stripe Coupons are supported through your Stripe dashboard. Create a coupon in Stripe and share the code with your students. The coupon is applied at checkout.
+  </Accordion>
+  <Accordion title="What happens when a subscription is cancelled?">
+    When a subscription ends, the student's access is revoked at the end of their current billing period. They receive an email notification from Stripe.
+  </Accordion>
+</AccordionGroup>

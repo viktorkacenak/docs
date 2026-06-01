@@ -1,0 +1,119 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Fayne Academy",
+  "description": "Documentation for Fayne Academy launch a branded online school in days, pre-loaded with professional courses and AI-powered customization.",
+  "colors": {
+    "primary": "#f3305a",
+    "light": "#1c1c1c",
+    "dark": "#f17cac"
+  },
+  "favicon": "https://media.brand.dev/092cb24e-1beb-4188-ba59-45cce85c6f59.png",
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant"]
+  },
+  "logo": {
+    "light": "/images/fayne-logo.png",
+    "dark": "/images/fayne-logomark.png",
+    "href": "https://fayneos.com"
+  },
+  "navbar": {
+    "links": [],
+    "primary": {
+      "type": "button",
+      "label": "Launch your academy",
+      "href": "https://fayne.co"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Your Academy",
+            "pages": [
+              "academy/branding",
+              "academy/courses",
+              "academy/pricing",
+              "academy/custom-domain"
+            ]
+          },
+          {
+            "group": "Content",
+            "pages": [
+              "content/block-editor",
+              "content/ai-customization",
+              "content/interactive-widgets",
+              "content/course-library"
+            ]
+          },
+          {
+            "group": "Students",
+            "pages": [
+              "students/managing-students",
+              "students/enrollments",
+              "students/certificates"
+            ]
+          },
+          {
+            "group": "Payments",
+            "pages": [
+              "payments/stripe-connect",
+              "payments/pricing-models"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "analytics/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Authentication",
+            "pages": [
+              "api-reference/authentication"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/courses",
+              "api-reference/students",
+              "api-reference/enrollments"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "appearance": {
+    "default": "light",
+    "strict": false
+  },
+  "fonts": {
+    "family": "Geist",
+    "weight": 400
+  },
+  "background": {
+    "decoration": "gradient"
+  }
+}

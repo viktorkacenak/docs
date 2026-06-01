@@ -1,0 +1,51 @@
+---
+title: "Use a Custom Domain for Your Fayne Academy"
+sidebarTitle: "Custom Domain"
+description: "Use your default academylive.co subdomain or connect a custom domain so students arrive at a URL that reflects your brand, not Fayne's."
+---
+
+Every academy on Fayne gets a subdomain on `academylive.co` by default. You choose the name, and your academy is immediately reachable at that address. If you want students to visit a domain you already own, such as `learn.yourcompany.com`, you can connect it through the Custom Domain settings.
+
+## Your default subdomain
+
+When you create your academy, a subdomain is generated from your academy name. You can change it at any time in **Settings > Domain**.
+
+The format is:
+
+```
+yourname.academylive.co
+```
+
+Only lowercase letters, numbers, and hyphens are allowed. The subdomain must be unique across all academies on Fayne. An availability check runs as you type so you know immediately whether the name is taken.
+
+This URL is not a placeholder. It is the real, live address your students visit. It powers your student landing page, your individual course pages, and your authentication screens (signup, login, magic link, and password reset).
+
+<Note>
+  Changing your subdomain updates your academy's URL immediately. If you have shared the old URL with students, they will need the new one to access your academy.
+</Note>
+
+## Connect a custom domain
+
+If you want students to reach your academy at a domain you own, such as `learn.yourcompany.com`, you can connect it in **Settings > Domain**.
+
+<Steps>
+  <Step title="Enter your domain">
+    In the Custom domain field, enter the subdomain you want to use. Apex domains (for example, `yourcompany.com` without a subdomain) are not supported. Use a subdomain such as `learn.yourcompany.com` or `academy.yourcompany.com`.
+  </Step>
+  <Step title="Add DNS records">
+    After you click **Add domain**, Fayne shows you the DNS records you need to add. Log in to your DNS provider (Cloudflare, GoDaddy, Namecheap, Route 53, and others all work) and add each record exactly as shown.
+  </Step>
+  <Step title="Verify DNS">
+    Click **Check DNS**. Fayne polls your DNS provider automatically every 15 seconds while verification is pending, so the status flips to "Live" within seconds of DNS propagating. You can also click **Check DNS** manually at any time.
+
+    <Info>
+      DNS changes typically propagate in a few minutes, though it can take up to 24 hours in some cases depending on your DNS provider and TTL settings.
+    </Info>
+  </Step>
+</Steps>
+
+Once your custom domain is verified, it becomes the primary URL for your academy. Your default `fayneos.com` subdomain remains active as a fallback.
+
+<Warning>
+  Your academy must be published before students can reach it at either URL. If DNS is verified but your academy is not published, the domain status shows "Ready" rather than "Live." Publish your academy from the **Settings > General** tab.
+</Warning>

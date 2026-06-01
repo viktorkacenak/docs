@@ -1,0 +1,123 @@
+---
+title: "Enroll a Student in a Published Course via the API"
+sidebarTitle: "Enrollments"
+description: "Grant a student access to a published course with a single API call. Re-enrolling a student who already has access restores their active status."
+---
+
+The enrollments endpoint lets you grant a student access to a specific course. You can call this endpoint multiple times for the same student and course — it is idempotent. If the student already has an enrollment record for that course (including a previously revoked one), the API sets their access status back to `active` rather than creating a duplicate record. Both the student and the course must exist in your academy, and the course must be published.
+
+## Enroll a student
+
+```
+POST /api/v1/students/:studentId/enrollments
+```
+
+### Path parameters
+
+<ParamField path="studentId" type="string" required>
+  UUID of the student to enroll. The student must already be a member of your academy — add them first using [POST /api/v1/students](/api-reference/students) if needed.
+</ParamField>
+
+### Body parameters
+
+<ParamField body="course_id" type="string" required>
+  UUID of the course to enroll the student in. The course must belong to your academy and be published. Draft courses return a `400` error.
+</ParamField>
+
+### Constraints
+
+- The student identified by `studentId` must be an active member of your academy. A `404` is returned if they are not found.
+- The course identified by `course_id` must exist in your academy and have a published status. A `404` is returned if it does not exist; a `400` is returned if it exists but is not published.
+
+### Response fields
+
+Returns the enrollment record with a `201` status code.
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="id" type="string" required>
+      UUID of the enrollment record. If re-enrolling, this is the ID of the existing record.
+    </ResponseField>
+    <ResponseField name="course_id" type="string" required>
+      UUID of the course the student was enrolled in.
+    </ResponseField>
+    <ResponseField name="course_title" type="string" required>
+      Display title of the course.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example request
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST \
+  https://yourname.academylive.co/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012/enrollments \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "course_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+  }'
+```
+
+```javascript JavaScript
+const studentId = 'c3d4e5f6-a7b8-9012-cdef-123456789012';
+const response = await fetch(
+  `https://yourname.academylive.co/api/v1/students/${studentId}/enrollments`,
+  {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      course_id: 'a1b2c3d4-e5f6-7890-abcd-ef1234567890'
+    })
+  }
+);
+const { data } = await response.json();
+```
+
+</CodeGroup>
+
+### Example response
+
+```json
+{
+  "data": {
+    "id": "e1f2a3b4-c5d6-7890-efab-123456789abc",
+    "course_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "course_title": "Cold Outreach Mastery"
+  }
+}
+```
+
+### Error responses
+
+```json
+{
+  "error": {
+    "code": "not_found",
+    "message": "Student not found in this academy"
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": "not_found",
+    "message": "Course not found"
+  }
+}
+```
+
+```json
+{
+  "error": {
+    "code": "invalid_course",
+    "message": "Only published courses can be assigned"
+  }
+}
+```

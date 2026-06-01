@@ -1,0 +1,84 @@
+---
+title: "Interactive Widgets: Custom Tools Built Into Your Lessons"
+sidebarTitle: "Widgets"
+description: "Add custom interactive tools to any lesson by describing what you want. Fayne builds ROI calculators, scorecards, and quizzes automatically."
+---
+
+Interactive widgets let you embed custom-built tools directly inside your lessons without writing any code. You describe what you want in plain language, and Fayne generates the component for you. The result is a fully functional, branded interactive element that students can use right inside the lesson viewer. Widgets are useful for any situation where a student needs to calculate, assess, or explore something specific to their own situation, rather than just reading about it.
+
+## What you can build
+
+Widgets work best when the learning involves a decision, calculation, or self-assessment. Common examples include:
+
+<CardGroup cols={2}>
+  <Card title="ROI calculator" icon="calculator">
+    Students enter inputs like budget, expected close rate, or deal size. The widget calculates and displays a result.
+  </Card>
+  <Card title="Lead-fit scorecard" icon="clipboard-check">
+    A set of weighted criteria that helps a student evaluate whether a prospect is a good fit.
+  </Card>
+  <Card title="Pricing estimator" icon="tag">
+    Students configure options and see an estimated price or budget range update in real time.
+  </Card>
+  <Card title="Diagnostic quiz" icon="stethoscope">
+    A series of questions that leads to a personalized recommendation or score.
+  </Card>
+  <Card title="Goal tracker" icon="target">
+    An input-driven widget that shows progress toward a defined outcome.
+  </Card>
+  <Card title="Comparison tool" icon="git-compare">
+    Side-by-side comparison of two options based on student-entered values.
+  </Card>
+</CardGroup>
+
+## How to create a widget
+
+<Steps>
+  <Step title="Open the block menu">
+    In the lesson editor, type `/` to open the slash command menu and search for **Widget**.
+  </Step>
+  <Step title="Describe what you want">
+    A prompt appears. Write a plain-language description of the tool you want to embed. For example: "An ROI calculator where the user enters their monthly ad spend and expected conversion rate, and the widget shows estimated monthly revenue."
+  </Step>
+  <Step title="Review the generated widget">
+    Fayne builds the component and previews it inside the editor. You can see how it looks and interact with it before saving.
+  </Step>
+  <Step title="Adjust or iterate">
+    If the widget is not quite right, describe what to change in the same prompt. For example: "Add a slider for deal size" or "Show the result in a bold card at the bottom."
+  </Step>
+  <Step title="Save and publish">
+    Once you are happy with the widget, save the lesson. The widget appears in the student view exactly as it does in the preview.
+  </Step>
+</Steps>
+
+## How widgets are built and delivered
+
+<Info>
+  Widgets run in a sandboxed iframe inside the lesson viewer. They cannot access data outside their own scope, which keeps your academy secure and your students' inputs private.
+</Info>
+
+Each widget is generated with access to a built-in UI kit that includes:
+
+- **Cards** for displaying results and grouped content
+- **Inputs** for text and numbers
+- **Sliders** for range-based values
+- **Buttons** for triggering calculations or navigation
+- **Badges** for labels, scores, and status indicators
+
+Widgets are automatically themed to match your academy's brand colors. You do not need to configure fonts, button colors, or any visual details: the widget inherits your primary and accent colors as soon as it is generated.
+
+<Tip>
+  Keep your widget description focused on what the student does and what they see as a result. The more specific your description, the more accurate the generated tool.
+</Tip>
+
+## Widgets versus standard interactive blocks
+
+If you need something lighter, the block editor includes standard interactive blocks like multiple-choice quizzes, flashcards, and reflection prompts that do not require any generation step. Widgets are the right choice when the interaction involves custom logic, calculations, or branching based on student input.
+
+| Use case | Best tool |
+|---|---|
+| Simple knowledge check | Multiple-choice quiz block |
+| Key term recall | Flashcard block |
+| Custom calculation | Widget |
+| Self-assessment with scoring | Widget |
+| Step-by-step task completion | Checklist card block |

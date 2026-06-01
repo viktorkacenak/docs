@@ -1,0 +1,132 @@
+---
+title: "Block Editor: 25+ Content Blocks for Your Lessons"
+sidebarTitle: "Block Editor"
+description: "Build rich, interactive lessons with Fayne's visual block editor. Choose from 25+ block types covering text, media, quizzes, flashcards, and more."
+---
+
+The block editor is where you write and arrange your lesson content. It is built on TipTap, a modern rich-text foundation, and gives you more than 25 block types to work with. Every block can be dragged to a new position using the drag handle that appears on the left side when you hover over it. To insert any block, type `/` anywhere in the editor to open the slash command menu and search by name.
+
+## Inserting and reordering blocks
+
+Type `/` at the start of any line to open the block menu. Start typing the name of the block you want and press **Enter** to insert it. To move a block, grab the drag handle on its left edge and drop it where you want it.
+
+<Tip>
+  You can reorder any block type, including interactive learning blocks and media embeds, using drag-and-drop. The handle appears when you hover over the block's left margin.
+</Tip>
+
+## Block categories
+
+<AccordionGroup>
+  <Accordion title="Text and structure">
+    These blocks form the skeleton of a lesson. Use them to organize written content, add structure, and present code or data clearly.
+
+    <CardGroup cols={2}>
+      <Card title="Headings" icon="heading">
+        H1 through H3 for section titles and subsections.
+      </Card>
+      <Card title="Lists" icon="list">
+        Bulleted and numbered lists for steps, items, or options.
+      </Card>
+      <Card title="Tables" icon="table">
+        Multi-column tables with resizable columns. Good for comparisons, pricing tiers, and feature grids.
+      </Card>
+      <Card title="Blockquotes" icon="quote">
+        Pull a key quote or excerpt out of the flow of text.
+      </Card>
+      <Card title="Code" icon="code">
+        Syntax-highlighted code blocks. Supports all major languages.
+      </Card>
+      <Card title="Multi-column layouts" icon="columns">
+        Split your content into two or three side-by-side columns.
+      </Card>
+      <Card title="Collapsible details" icon="chevron-down">
+        Expandable sections that hide content until a student clicks to reveal it.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Interactive learning">
+    These blocks turn passive reading into active learning. Use them to reinforce key ideas, check understanding, and keep students engaged.
+
+    <CardGroup cols={2}>
+      <Card title="Flashcards" icon="layers">
+        A flip-card format where students reveal the answer by clicking. Great for definitions and key terms.
+      </Card>
+      <Card title="Multiple-choice quizzes" icon="circle-check">
+        One question with selectable options and instant feedback.
+      </Card>
+      <Card title="Checklist cards" icon="check-square">
+        A checklist students can tick off as they work through a task or process.
+      </Card>
+      <Card title="Stepper guides" icon="list-ordered">
+        A numbered step-by-step sequence with each step displayed as a distinct card.
+      </Card>
+      <Card title="Reflection prompts" icon="message-square">
+        An open question that invites students to pause and think before moving on.
+      </Card>
+      <Card title="Statement blocks" icon="type">
+        A single bold statement displayed prominently to drive home a key point.
+      </Card>
+      <Card title="Person quotes" icon="user">
+        A quote attributed to a named person, with optional role and avatar.
+      </Card>
+      <Card title="Callouts" icon="triangle-alert">
+        Highlighted boxes for tips, warnings, notes, and important information.
+      </Card>
+      <Card title="Blurb cards" icon="square">
+        A compact card with an icon, title, and short description. Good for feature lists or key principles.
+      </Card>
+      <Card title="Pros and cons" icon="git-compare">
+        A two-column layout that lays out advantages and disadvantages side by side.
+      </Card>
+      <Card title="Stat highlights" icon="trending-up">
+        A large number or metric displayed prominently to anchor a data point.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Media">
+    Use media blocks to break up text, illustrate concepts, and give students downloadable resources.
+
+    <CardGroup cols={2}>
+      <Card title="Image" icon="image">
+        Upload any image with optional caption and alignment controls (left, center, right, full-width).
+      </Card>
+      <Card title="File download" icon="download">
+        Attach a PDF, spreadsheet, or any file that students can download directly from the lesson.
+      </Card>
+      <Card title="Screenshot" icon="monitor">
+        A framed image styled to look like a screen capture. Useful for software walkthroughs.
+      </Card>
+      <Card title="YouTube / Vimeo embed" icon="play">
+        Paste a YouTube or Vimeo URL to embed the video inline. No native video upload.
+      </Card>
+      <Card title="Bookmark card" icon="bookmark">
+        A link preview card that shows the page title, description, and thumbnail.
+      </Card>
+      <Card title="iFrame embed" icon="frame">
+        Embed any external tool or page that supports iframe embedding.
+      </Card>
+    </CardGroup>
+
+    <Note>
+      Fayne supports video via YouTube and Vimeo embeds. Native video upload and streaming are not available.
+    </Note>
+  </Accordion>
+
+  <Accordion title="Navigation and editor tools">
+    These features help you and your students move through long lessons without getting lost.
+
+    <CardGroup cols={2}>
+      <Card title="Table of contents" icon="list-tree">
+        Auto-generated from your headings. Inserts a navigable outline at the top of the lesson.
+      </Card>
+      <Card title="Drag-handle reordering" icon="grip-vertical">
+        Every block has a drag handle on its left edge. Grab it to move any block to a new position.
+      </Card>
+      <Card title="Slash command menu" icon="slash">
+        Type <code>/</code> anywhere in the editor to search and insert any block type by name.
+      </Card>
+    </CardGroup>
+  </Accordion>
+</AccordionGroup>
