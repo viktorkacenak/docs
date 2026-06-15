@@ -12,7 +12,7 @@ The courses endpoint returns every published course in your academy in display o
   Your API key as a Bearer token. See [Authentication](/api-reference/authentication) for details.
 </ParamField>
 
-```
+```text
 GET /api/v1/courses
 ```
 
@@ -26,28 +26,36 @@ All response data is nested under a top-level `data` object.
   <Expandable title="properties" defaultOpen>
     <ResponseField name="courses" type="object[]" required>
       Array of course objects, ordered by display order set in the dashboard.
+
       <Expandable title="course properties" defaultOpen>
         <ResponseField name="id" type="string" required>
           UUID of the course.
         </ResponseField>
+
         <ResponseField name="title" type="string" required>
           Display title of the course.
         </ResponseField>
+
         <ResponseField name="slug" type="string" required>
           URL-safe identifier for the course, unique within the academy.
         </ResponseField>
+
         <ResponseField name="description" type="string">
           Short description of the course. May be `null` if not set.
         </ResponseField>
+
         <ResponseField name="price_cents" type="number" required>
           Course price in the smallest currency unit (e.g., cents for USD). `0` means the course is free.
         </ResponseField>
+
         <ResponseField name="visibility" type="string" required>
           Visibility setting for the course. Possible values: `public`, `unlisted`, `private`.
         </ResponseField>
+
         <ResponseField name="lesson_count" type="number" required>
           Number of published lessons in the course.
         </ResponseField>
+
         <ResponseField name="total_reading_time_minutes" type="number" required>
           Sum of all published lesson reading times in minutes.
         </ResponseField>
@@ -61,12 +69,12 @@ All response data is nested under a top-level `data` object.
 <CodeGroup>
 
 ```bash cURL
-curl https://yourname.academylive.co/api/v1/courses \
+curl https://yourname.fayneos.com/api/v1/courses \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
 ```javascript JavaScript
-const response = await fetch('https://yourname.academylive.co/api/v1/courses', {
+const response = await fetch('https://yourname.fayneos.com/api/v1/courses', {
   headers: {
     'Authorization': 'Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
   }

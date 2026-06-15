@@ -8,7 +8,7 @@ The enrollments endpoint lets you grant a student access to a specific course. Y
 
 ## Enroll a student
 
-```
+```text
 POST /api/v1/students/:studentId/enrollments
 ```
 
@@ -38,9 +38,11 @@ Returns the enrollment record with a `201` status code.
     <ResponseField name="id" type="string" required>
       UUID of the enrollment record. If re-enrolling, this is the ID of the existing record.
     </ResponseField>
+
     <ResponseField name="course_id" type="string" required>
       UUID of the course the student was enrolled in.
     </ResponseField>
+
     <ResponseField name="course_title" type="string" required>
       Display title of the course.
     </ResponseField>
@@ -53,7 +55,7 @@ Returns the enrollment record with a `201` status code.
 
 ```bash cURL
 curl -X POST \
-  https://yourname.academylive.co/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012/enrollments \
+  https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012/enrollments \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
   -H "Content-Type: application/json" \
   -d '{
@@ -64,7 +66,7 @@ curl -X POST \
 ```javascript JavaScript
 const studentId = 'c3d4e5f6-a7b8-9012-cdef-123456789012';
 const response = await fetch(
-  `https://yourname.academylive.co/api/v1/students/${studentId}/enrollments`,
+  `https://yourname.fayneos.com/api/v1/students/${studentId}/enrollments`,
   {
     method: 'POST',
     headers: {

@@ -12,17 +12,17 @@ The students endpoints let you manage the people who learn in your academy. You 
 
 Returns a paginated list of active students in your academy.
 
-```
+```text
 GET /api/v1/students
 ```
 
 ### Query parameters
 
-<ParamField query="limit" type="number" default="50">
+<ParamField query="limit" default="50" type="number">
   Number of students to return. Minimum `1`, maximum `100`.
 </ParamField>
 
-<ParamField query="offset" type="number" default="0">
+<ParamField query="offset" default="0" type="number">
   Number of students to skip before returning results. Use with `limit` for pagination.
 </ParamField>
 
@@ -32,37 +32,48 @@ GET /api/v1/students
   <Expandable title="properties" defaultOpen>
     <ResponseField name="students" type="object[]" required>
       Array of student objects, ordered by `joined_at` descending.
+
       <Expandable title="student properties" defaultOpen>
         <ResponseField name="id" type="string" required>
           UUID of the student's user account.
         </ResponseField>
+
         <ResponseField name="email" type="string" required>
           Student's email address.
         </ResponseField>
+
         <ResponseField name="name" type="string">
           Student's display name. May be `null` if not set.
         </ResponseField>
+
         <ResponseField name="avatar_url" type="string">
           URL of the student's avatar image. May be `null`.
         </ResponseField>
+
         <ResponseField name="joined_at" type="string" required>
           ISO 8601 timestamp of when the student joined the academy.
         </ResponseField>
+
         <ResponseField name="courses_enrolled" type="number" required>
           Number of active course enrollments.
         </ResponseField>
+
         <ResponseField name="enrollments" type="object[]" required>
           Array of active enrollment summaries.
+
           <Expandable title="enrollment properties">
             <ResponseField name="id" type="string" required>
               UUID of the enrollment record.
             </ResponseField>
+
             <ResponseField name="course_id" type="string" required>
               UUID of the enrolled course.
             </ResponseField>
+
             <ResponseField name="enrolled_at" type="string" required>
               ISO 8601 timestamp of enrollment.
             </ResponseField>
+
             <ResponseField name="completed_at" type="string">
               ISO 8601 timestamp of completion. `null` if not yet completed.
             </ResponseField>
@@ -70,14 +81,17 @@ GET /api/v1/students
         </ResponseField>
       </Expandable>
     </ResponseField>
+
     <ResponseField name="pagination" type="object" required>
       <Expandable title="properties" defaultOpen>
         <ResponseField name="total" type="number" required>
           Total number of students in the academy.
         </ResponseField>
+
         <ResponseField name="limit" type="number" required>
           The `limit` value used for this request.
         </ResponseField>
+
         <ResponseField name="offset" type="number" required>
           The `offset` value used for this request.
         </ResponseField>
@@ -89,7 +103,7 @@ GET /api/v1/students
 ### Example request
 
 ```bash
-curl "https://yourname.academylive.co/api/v1/students?limit=10&offset=0" \
+curl "https://yourname.fayneos.com/api/v1/students?limit=10&offset=0" \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
@@ -132,7 +146,7 @@ curl "https://yourname.academylive.co/api/v1/students?limit=10&offset=0" \
 
 Adds a new student to your academy and optionally enrolls them in one or more courses in a single request.
 
-```
+```text
 POST /api/v1/students
 ```
 
@@ -159,7 +173,7 @@ Returns the newly created student object with a `201` status code. The shape mat
 <CodeGroup>
 
 ```bash cURL
-curl -X POST https://yourname.academylive.co/api/v1/students \
+curl -X POST https://yourname.fayneos.com/api/v1/students \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
   -H "Content-Type: application/json" \
   -d '{
@@ -170,7 +184,7 @@ curl -X POST https://yourname.academylive.co/api/v1/students \
 ```
 
 ```javascript JavaScript
-const response = await fetch('https://yourname.academylive.co/api/v1/students', {
+const response = await fetch('https://yourname.fayneos.com/api/v1/students', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
@@ -193,7 +207,7 @@ const { data } = await response.json();
 
 Returns the full profile and enrollment detail for a single student, including per-course progress.
 
-```
+```text
 GET /api/v1/students/:studentId
 ```
 
@@ -210,45 +224,59 @@ GET /api/v1/students/:studentId
     <ResponseField name="id" type="string" required>
       UUID of the student's user account.
     </ResponseField>
+
     <ResponseField name="email" type="string" required>
       Student's email address.
     </ResponseField>
+
     <ResponseField name="name" type="string">
       Student's display name. May be `null`.
     </ResponseField>
+
     <ResponseField name="avatar_url" type="string">
       URL of the student's avatar image. May be `null`.
     </ResponseField>
+
     <ResponseField name="joined_at" type="string" required>
       ISO 8601 timestamp of when the student joined the academy.
     </ResponseField>
+
     <ResponseField name="enrollments" type="object[]" required>
       Array of active enrollments with full progress detail, ordered by `enrolled_at` descending.
+
       <Expandable title="enrollment properties" defaultOpen>
         <ResponseField name="id" type="string" required>
           UUID of the enrollment record.
         </ResponseField>
+
         <ResponseField name="course_id" type="string" required>
           UUID of the enrolled course.
         </ResponseField>
+
         <ResponseField name="course_title" type="string" required>
           Display title of the course.
         </ResponseField>
+
         <ResponseField name="course_slug" type="string" required>
           URL-safe slug of the course.
         </ResponseField>
+
         <ResponseField name="enrolled_at" type="string" required>
           ISO 8601 timestamp of enrollment.
         </ResponseField>
+
         <ResponseField name="completed_at" type="string">
           ISO 8601 timestamp of course completion. `null` if not yet completed.
         </ResponseField>
+
         <ResponseField name="total_lessons" type="number" required>
           Total number of published lessons in the course.
         </ResponseField>
+
         <ResponseField name="completed_lessons" type="number" required>
           Number of lessons the student has completed.
         </ResponseField>
+
         <ResponseField name="progress" type="number" required>
           Completion percentage from `0` to `100`, rounded to the nearest integer.
         </ResponseField>
@@ -260,7 +288,7 @@ GET /api/v1/students/:studentId
 ### Example request
 
 ```bash
-curl https://yourname.academylive.co/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012 \
+curl https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012 \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
@@ -297,7 +325,7 @@ curl https://yourname.academylive.co/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123
 
 Permanently removes a student from your academy. This revokes all of their course enrollments and deletes all lesson progress. The operation cannot be undone.
 
-```
+```text
 DELETE /api/v1/students/:studentId
 ```
 
@@ -308,7 +336,7 @@ DELETE /api/v1/students/:studentId
 </ParamField>
 
 <Warning>
-Removing a student deletes all of their progress data and revokes access to every course. This cannot be reversed.
+  Removing a student deletes all of their progress data and revokes access to every course. This cannot be reversed.
 </Warning>
 
 ### Response fields
@@ -325,7 +353,7 @@ Removing a student deletes all of their progress data and revokes access to ever
 
 ```bash
 curl -X DELETE \
-  https://yourname.academylive.co/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012 \
+  https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012 \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
