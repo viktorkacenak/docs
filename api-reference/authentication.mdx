@@ -11,14 +11,14 @@ All requests to the Fayne Academy REST API must include an API key. The API uses
 Open your academy owner dashboard and navigate to **Settings → API Keys**. Click **New API key**, give it a name, and copy the full key immediately — it is only shown once.
 
 <Warning>
-Store your API key in an environment variable or secrets manager. Never commit it to source control or expose it in client-side code.
+  Store your API key in an environment variable or secrets manager. Never commit it to source control or expose it in client-side code.
 </Warning>
 
 ## Key format
 
 Every API key begins with the prefix `fa_live_` followed by 32 lowercase hexadecimal characters, making the full key 40 characters long.
 
-```
+```text
 fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
          └─────────── 32 hex chars ─────────┘
 ```
@@ -27,14 +27,14 @@ fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 Include your key as a Bearer token in the `Authorization` header of every request.
 
-```
+```text
 Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ### Example request
 
 ```bash
-curl https://yourname.academylive.co/api/v1/courses \
+curl https://yourname.fayneos.com/api/v1/courses \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
@@ -47,7 +47,7 @@ Requests are rate-limited per API key. When you exceed the limit, the API return
 The table below covers authentication and common resource errors you may encounter across all endpoints.
 
 | HTTP status | Code | When it occurs |
-|---|---|---|
+| --- | --- | --- |
 | `401` | `unauthorized` | Missing or invalid `Authorization` header |
 | `401` | `unauthorized` | API key does not start with `fa_live_` |
 | `401` | `unauthorized` | API key is revoked or does not exist |

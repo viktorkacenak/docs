@@ -1,19 +1,19 @@
 ---
 title: "Use a Custom Domain for Your Fayne Academy"
 sidebarTitle: "Custom Domain"
-description: "Use your default academylive.co subdomain or connect a custom domain so students arrive at a URL that reflects your brand, not Fayne's."
+description: "Use your default fayneos.com subdomain or connect a custom domain so students arrive at a URL that reflects your brand, not Fayne's."
 ---
 
-Every academy on Fayne gets a subdomain on `academylive.co` by default. You choose the name, and your academy is immediately reachable at that address. If you want students to visit a domain you already own, such as `learn.yourcompany.com`, you can connect it through the Custom Domain settings.
+Every academy on Fayne gets a subdomain on `fayneos.com` by default. You choose the name, and your academy is immediately reachable at that address. If you want students to visit a domain you already own, such as `learn.yourcompany.com` or `yourcompany.com`, you can connect it through the Custom Domain settings.
 
 ## Your default subdomain
 
-When you create your academy, a subdomain is generated from your academy name. You can change it at any time in **Settings > Domain**.
+When you create your academy, a subdomain is generated from your academy name. You can change it at any time in **Settings \> Domain**.
 
 The format is:
 
-```
-yourname.academylive.co
+```text
+yourname.fayneos.com
 ```
 
 Only lowercase letters, numbers, and hyphens are allowed. The subdomain must be unique across all academies on Fayne. An availability check runs as you type so you know immediately whether the name is taken.
@@ -26,14 +26,54 @@ This URL is not a placeholder. It is the real, live address your students visit.
 
 ## Connect a custom domain
 
-If you want students to reach your academy at a domain you own, such as `learn.yourcompany.com`, you can connect it in **Settings > Domain**.
+If you want students to reach your academy at a domain you own, connect it in **Settings \> Domain**. Both a subdomain (`learn.yourcompany.com`) and a root domain (`yourcompany.com`) are supported.
 
 <Steps>
   <Step title="Enter your domain">
-    In the Custom domain field, enter the subdomain you want to use. Apex domains (for example, `yourcompany.com` without a subdomain) are not supported. Use a subdomain such as `learn.yourcompany.com` or `academy.yourcompany.com`.
+    In the Custom domain field, type the address you want students to use, then click **Add domain**. Fayne then shows you the exact DNS records to add.
   </Step>
-  <Step title="Add DNS records">
-    After you click **Add domain**, Fayne shows you the DNS records you need to add. Log in to your DNS provider (Cloudflare, GoDaddy, Namecheap, Route 53, and others all work) and add each record exactly as shown.
+  <Step title="Add the DNS records at your provider">
+    Log in to your DNS provider (Cloudflare, GoDaddy, Namecheap, Route 53, and others all work) and add each record exactly as shown on the Domain page.
+
+    Every record has a **Name** and a **Value**. Copy them into the matching fields at your provider:
+
+    - **Name** goes into your provider's "Name" or "Host" field.
+    - **Value** goes into the "Value" or "Points to" field.
+
+    <Warning>
+      Enter the **Name** exactly as shown, including a bare `@`. A Name of `@` means the root of your domain. Most providers automatically add your domain to the end of the Name, so do **not** retype your full domain there. Typing `yourcompany.com` into the Name field usually creates `yourcompany.com.yourcompany.com`, which is the most common reason a domain fails to connect.
+    </Warning>
+
+    <Tabs>
+      <Tab title="Root domain (yourcompany.com)">
+        A root domain cannot use a CNAME, so Fayne gives you an **A record**:
+
+        | Type | Name | Value |
+        | --- | --- | --- |
+        | A | `@` | the IP address shown on the Domain page |
+
+        We also show an optional **CNAME** for `www` so visitors who type `www.yourcompany.com` are redirected to your root domain:
+
+        | Type | Name | Value |
+        | --- | --- | --- |
+        | CNAME | `www` | `cname.vercel-dns.com` |
+      </Tab>
+      <Tab title="Subdomain (learn.yourcompany.com)">
+        A subdomain uses a single **CNAME** record:
+
+        | Type | Name | Value |
+        | --- | --- | --- |
+        | CNAME | `learn` | `cname.vercel-dns.com` |
+
+        The Name is just the subdomain label (`learn`), not the full `learn.yourcompany.com`.
+      </Tab>
+    </Tabs>
+
+    <Tip>
+      **GoDaddy:** if the domain currently shows a parked page or uses domain forwarding, turn that off first. The forwarding rule conflicts with the records above.
+
+      **Cloudflare:** set each record to **DNS only** (grey cloud), not Proxied, so verification can complete.
+    </Tip>
   </Step>
   <Step title="Verify DNS">
     Click **Check DNS**. Fayne polls your DNS provider automatically every 15 seconds while verification is pending, so the status flips to "Live" within seconds of DNS propagating. You can also click **Check DNS** manually at any time.
@@ -47,5 +87,5 @@ If you want students to reach your academy at a domain you own, such as `learn.y
 Once your custom domain is verified, it becomes the primary URL for your academy. Your default `fayneos.com` subdomain remains active as a fallback.
 
 <Warning>
-  Your academy must be published before students can reach it at either URL. If DNS is verified but your academy is not published, the domain status shows "Ready" rather than "Live." Publish your academy from the **Settings > General** tab.
+  Your academy must be published before students can reach it at either URL. If DNS is verified but your academy is not published, the domain status shows "Ready" rather than "Live." Publish your academy from the **Settings \> General** tab.
 </Warning>
