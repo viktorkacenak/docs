@@ -1,0 +1,183 @@
+---
+title: "Connect Claude, Cursor, and Other AI Tools to Your Academy"
+sidebarTitle: "Connect AI Tools (MCP)"
+description: "Connect any MCP-compatible AI tool to your academy to read, search, and edit course content live, with no copy and paste."
+icon: "plug"
+---
+
+Fayne runs an [MCP](https://modelcontextprotocol.io) server so you can connect AI tools like Claude, Claude Code, and Cursor directly to your academy. Once connected, your AI assistant can browse your courses, read and search lessons, and make edits in your academy without you copying and pasting content back and forth. Everything it does is scoped to the one academy you choose during sign-in, and every change lands as a draft you review before publishing.
+
+This is the same content engine that powers Fayne's built-in [AI editor](/content/ai-customization), exposed to the AI tool you already use. You stay in your editor of choice; Fayne handles the reading and writing.
+
+## What your AI tool can do
+
+After connecting, your assistant gains a set of tools scoped to your academy:
+
+<CardGroup cols={2}>
+  <Card title="Browse courses" icon="folder-open">
+    List every course in your academy and read a course outline: each lesson's title, order, and length.
+  </Card>
+
+  <Card title="Read and search lessons" icon="magnifying-glass">
+    Open any lesson block by block, or run a full-text search across every lesson title and body in a course.
+  </Card>
+
+  <Card title="Edit lessons" icon="pen-to-square">
+    Make surgical, block-level edits or rewrite a whole lesson. Edits are saved to your draft, never published automatically.
+  </Card>
+
+  <Card title="Create and remove" icon="plus">
+    Create a new course or lesson, or remove a lesson you no longer need. Plan limits are enforced just like in the dashboard.
+  </Card>
+
+  <Card title="Search your knowledge" icon="book-open">
+    Ground new content in your own material by searching the sources you have added to your academy's knowledge base.
+  </Card>
+
+  <Card title="Ready-made prompts" icon="wand-magic-sparkles">
+    Use built-in prompts to draft a new lesson, critique an existing one, or expand every stub in a course outline.
+  </Card>
+</CardGroup>
+
+## Before you start
+
+<Steps>
+  <Step title="You have a Fayne account with an academy">
+    You sign in with your normal Fayne login during setup, then pick which academy to connect. If you manage more than one academy, you choose one per connection.
+  </Step>
+  <Step title="You use an MCP-compatible AI tool">
+    Claude (desktop and web), Claude Code, and Cursor all support remote MCP servers. Any other client that supports a remote MCP server over HTTP with OAuth will work too.
+  </Step>
+</Steps>
+
+## The connection URL
+
+Every client connects to the same address:
+
+```text
+https://mcp.fayneos.com/mcp
+```
+
+There is no API key to copy or paste. The first time your client connects, it opens a browser window where you log in to Fayne and choose which academy to connect. Your client stores the resulting access securely and reuses it on every future request.
+
+## Connect your tool
+
+<Tabs>
+  <Tab title="Claude">
+    Works in both the Claude desktop app and Claude on the web.
+
+    <Steps>
+      <Step title="Open Connectors">
+        Go to **Settings \> Connectors** and click **Add custom connector**.
+      </Step>
+      <Step title="Add the Fayne server">
+        Give it a name like `Fayne` and paste the connection URL:
+
+        ```text
+        https://mcp.fayneos.com/mcp
+        ```
+
+        Click **Add**.
+      </Step>
+      <Step title="Sign in and pick your academy">
+        Claude opens a Fayne sign-in window. Log in, choose which academy to connect, and click **Allow**. The connector now shows as connected.
+      </Step>
+      <Step title="Use it in a chat">
+        Start a new conversation and ask Claude to work with your academy, for example: "List the courses in my academy and summarize the outline of the first one."
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Claude Code">
+    Add the server from your terminal with the `http` transport:
+
+    ```bash
+    claude mcp add --transport http fayne https://mcp.fayneos.com/mcp
+    ```
+
+    Then start Claude Code and run `/mcp` to begin authentication. A browser window opens where you log in to Fayne and choose your academy. Once it shows as connected, Claude Code can call the Fayne tools directly.
+
+    <Tip>
+      Add `--scope project` to share the connection with your team through a checked-in `.mcp.json`, or `--scope user` to make it available across all of your own projects. Each teammate still signs in with their own Fayne account.
+    </Tip>
+  </Tab>
+  <Tab title="Cursor">
+    <Steps>
+      <Step title="Open MCP settings">
+        Go to **Settings \> MCP** and click **Add new MCP server**.
+      </Step>
+      <Step title="Add the Fayne server">
+        Add Fayne as an HTTP server. In your `mcp.json`, that looks like:
+
+        ```json
+        {
+          "mcpServers": {
+            "fayne": {
+              "url": "https://mcp.fayneos.com/mcp"
+            }
+          }
+        }
+        ```
+      </Step>
+      <Step title="Sign in and pick your academy">
+        Cursor prompts you to authenticate. A browser window opens where you log in to Fayne and choose your academy. The server then shows a green dot in MCP settings.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Note>
+  One connection is scoped to one academy. To work with a second academy, add a second connection and choose that academy when you sign in.
+</Note>
+
+## How edits stay safe
+
+Letting an AI tool write to your live academy sounds risky, so Fayne builds in guardrails.
+
+<CardGroup cols={2}>
+  <Card title="Drafts, not live pages" icon="file-pen">
+    Every edit is saved to your lesson draft. Nothing your AI tool writes is visible to students until you publish it from the editor.
+  </Card>
+
+  <Card title="Conflict protection" icon="shield-check">
+    If a lesson changed since your AI tool last read it, the write is rejected and the tool is told to re-read before trying again. You never silently overwrite a newer version.
+  </Card>
+
+  <Card title="Scoped access" icon="lock">
+    A connection can only touch the single academy you chose at sign-in. It cannot see your other academies or any other owner's content.
+  </Card>
+
+  <Card title="Plan limits enforced" icon="gauge">
+    Creating courses and lessons respects the same plan limits as the dashboard. Requests are also rate limited to keep your academy responsive.
+  </Card>
+</CardGroup>
+
+## Tips for good results
+
+- **Ask it to read before it writes.** "Read lesson 3, then tighten the introduction" produces better edits than asking blind. Your tool is built to read first, but naming the lesson helps it target the right one.
+- **Point it at your knowledge base.** If you have added sources to your academy, ask the assistant to ground a draft in them: "Draft a lesson on discovery calls using my frameworks."
+- **Use the built-in prompts.** Most clients surface Fayne's ready-made prompts (draft a lesson, critique a lesson, expand an outline) in their prompt or slash-command menu.
+- **Review before publishing.** Open the lesson in the Fayne editor, read the AI's changes, and publish when you are happy. The [block editor](/content/block-editor) shows exactly what changed.
+
+<Warning>
+  Edits made through a connected tool follow the same forking rules as the built-in AI editor. The first time a library lesson is edited, Fayne forks it into your own private copy and it stops receiving master updates. See [AI Customization](/content/ai-customization) for how forking works.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The browser sign-in window never appears">
+    Your client may have cached a failed attempt. Remove the Fayne server from your client and add it again. In Claude Code, run `claude mcp remove fayne` and re-add it, then run `/mcp` to retry authentication.
+  </Accordion>
+
+  <Accordion title="The tool says it cannot find my course or lesson">
+    Connections are scoped to a single academy. Confirm you chose the right academy during sign-in. If you picked the wrong one, remove the connection and add it again, then select the correct academy.
+  </Accordion>
+
+  <Accordion title="My edits are not showing up for students">
+    Edits are saved as drafts. Open the lesson in the Fayne editor and publish it. Students only ever see published content.
+  </Accordion>
+
+  <Accordion title="I get a rate limit or plan limit error">
+    Requests are rate limited to keep your academy responsive, and course and lesson creation respects your plan limits. Wait a moment and retry, or upgrade your plan if you have hit a course or lesson cap.
+  </Accordion>
+</AccordionGroup>
