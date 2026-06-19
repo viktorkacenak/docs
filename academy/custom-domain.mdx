@@ -90,3 +90,23 @@ Once your custom domain is verified, it becomes the primary URL for your academy
 <Warning>
   Your academy must be published before students can reach it at either URL. If DNS is verified but your academy is not published, the domain status shows "Ready" rather than "Live." Publish your academy from the **Settings \> General** tab.
 </Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My provider shows more than one A record, or a different IP">
+    Use only the A record Fayne shows on the Domain page, and point the root (`@`) at the exact IP listed there. If your provider pre-filled other A records (often left over from a parked page or a previous host), delete them so the root resolves to a single, correct IP. Several A records pointing at different IPs will make verification fail or flap.
+  </Accordion>
+
+  <Accordion title="The domain is stuck on Pending or will not verify">
+    Three usual causes: (1) the **Name** field is wrong. Retyping your full domain creates `yourcompany.com.yourcompany.com`; use a bare `@` for the root, or just the label (like `learn`) for a subdomain. (2) A parked page or domain forwarding is still on, common on GoDaddy. Turn it off. (3) On Cloudflare the record is Proxied; switch it to **DNS only** (grey cloud) so verification can complete. Then click **Check DNS** again.
+  </Accordion>
+
+  <Accordion title="DNS is verified but the domain shows Ready instead of Live">
+    Your academy must be published. A verified domain on an unpublished academy shows **Ready**; publish from **Settings \> General** and it flips to **Live**.
+  </Accordion>
+
+  <Accordion title="How long does DNS take to propagate?">
+    Usually a few minutes, though it can take up to 24 hours depending on your provider and TTL. Fayne re-checks automatically every 15 seconds while verification is pending, and you can click **Check DNS** at any time.
+  </Accordion>
+</AccordionGroup>
