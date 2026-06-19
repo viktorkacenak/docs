@@ -4,11 +4,15 @@ sidebarTitle: "Authentication"
 description: "Learn how to authenticate API requests using Bearer tokens, generate API keys from your dashboard, and handle authentication errors."
 ---
 
-All requests to the Fayne Academy REST API must include an API key. The API uses Bearer token authentication — you pass your key in the `Authorization` header on every request. Each key is scoped to a single academy, so the API automatically infers your `academyId` from the key you provide. You never need to pass an academy identifier separately.
+All requests to the Fayne Academy REST API must include an API key. The API uses Bearer token authentication: you pass your key in the `Authorization` header on every request. Each key is scoped to a single academy, so the API infers your academy from the key you provide. You never pass an academy identifier separately, and the host you call does not matter because the academy comes from the key.
+
+<Note>
+  The REST API is available on Fayne's paid plans. On a free or trial plan, API requests are rejected with a `402` (`trial_api_unavailable`). Upgrade to enable API access.
+</Note>
 
 ## Generating an API key
 
-Open your academy owner dashboard and navigate to **Settings → API Keys**. Click **New API key**, give it a name, and copy the full key immediately — it is only shown once.
+Open your academy owner dashboard and navigate to **Settings \> API Keys**. Click **New API key**, give it a name, and copy the full key immediately. It is shown only once.
 
 <Warning>
   Store your API key in an environment variable or secrets manager. Never commit it to source control or expose it in client-side code.
@@ -51,14 +55,20 @@ The table below covers authentication and common resource errors you may encount
 | `401` | `unauthorized` | Missing or invalid `Authorization` header |
 | `401` | `unauthorized` | API key does not start with `fa_live_` |
 | `401` | `unauthorized` | API key is revoked or does not exist |
-| `400` | `invalid_course` | Only published courses can be assigned to a student |
-| `404` | `not_found` | Student not found in this academy |
-| `404` | `not_found` | Course not found |
-| `429` | `rate_limit_exceeded` | Too many requests — check the `Retry-After` header |
+| `402` | `trial_api_unavailable` | API access requires a paid plan |
+| `402` | `academy_locked` | The academy is locked (for example, billing inactive) |
+| `402` | `limit_exceeded` | A plan limit was reached |
+| `400` | `validation_error` | A path or body value failed validation (for example, a malformed UUID) |
+| `400` | `invalid_course` | Only published courses can be assigned |
+| `400` | `invalid_courses` | Some course IDs are invalid or unpublished |
+| `403` | `forbidden` | The key is not permitted to perform this action |
+| `404` | `not_found` | Student or course not found in this academy |
+| `429` | `rate_limit_exceeded` | Too many requests; check the `Retry-After` header |
+| `500` | `internal_error` | An unexpected server error occurred |
 
-### Authentication failure response
+### Error response shape
 
-When authentication fails, the API returns a JSON body with an `error` object containing a `code` and a human-readable `message`.
+When a request fails, the API returns a JSON body with an `error` object containing a `code` and a human-readable `message`.
 
 ```json
 {

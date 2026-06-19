@@ -1,14 +1,14 @@
 ---
 title: "Edit Lessons with AI and Natural Language Commands"
 sidebarTitle: "AI Customization"
-description: "Use plain English to rewrite, expand, or restructure any lesson. Fayne's AI runs on Claude Sonnet 4.6 and understands your academy's context."
+description: "Use plain English to rewrite, expand, or restructure any lesson. Fayne's AI editor reads your lesson and your academy's context before making changes."
 ---
 
-Every lesson in your academy can be edited using plain English instructions. Instead of manually rewriting paragraphs, you type what you want in the AI chat bar at the bottom of the editor and Fayne applies the changes for you. The AI powering this feature is Claude Sonnet 4.6. It reads the lesson you are working on, the course outline, your academy's industry and segment, and the block structure of the page before making any edits. That context means the changes it suggests fit naturally into what is already there.
+Every lesson in your academy can be edited using plain English instructions. Instead of manually rewriting paragraphs, you type what you want in the AI chat bar at the bottom of the editor and Fayne applies the changes for you. The AI reads the lesson you are working on, the course it belongs to, and the context you have saved for your academy before making any edits. That context means the changes it makes fit naturally into what is already there.
 
 ## How to use the AI editor
 
-Open any lesson in your course editor. The AI chat input appears as a floating bar at the bottom of the screen. Type your instruction and press **Enter**. The AI reads your request and the current lesson content, then proposes a set of changes. You can accept all changes at once, reject all of them, or review each block-level change individually before committing.
+Open any lesson in your course editor. The AI chat input appears as a floating bar at the bottom of the screen. Type your instruction and press **Enter**. The AI reads your request and the current lesson, then applies the changes directly to your lesson as a working draft. You can keep sending instructions, undo a step, or discard your unpublished changes at any time before you publish.
 
 <Steps>
   <Step title="Open the lesson editor">
@@ -17,13 +17,17 @@ Open any lesson in your course editor. The AI chat input appears as a floating b
   <Step title="Type your instruction">
     Click the AI chat bar at the bottom of the screen and describe what you want. No special syntax required.
   </Step>
-  <Step title="Review the proposed changes">
-    The editor highlights each affected block. You can accept or reject the changes one at a time, or use **Accept all** and **Reject all** to decide in bulk.
+  <Step title="See the changes applied">
+    The AI updates the affected blocks in your lesson and the editor reloads to show the result. Read through what changed.
   </Step>
-  <Step title="Continue editing">
-    After accepting, the lesson reflects your changes. You can keep sending instructions, undo any step, or switch to manual editing at any time.
+  <Step title="Keep editing or publish">
+    Send more instructions to refine, undo a step, or switch to manual editing. Your changes stay as a draft until you publish, so nothing reaches students until you are ready.
   </Step>
 </Steps>
+
+<Note>
+  AI changes are applied to your draft, not published automatically. Students see updates only after you publish the lesson. You can always discard unpublished changes and restore your last published version from the editor.
+</Note>
 
 ## Natural language editing examples
 
@@ -33,18 +37,23 @@ You can write instructions in any phrasing that makes sense to you. Here are the
   <Card title="Tone adjustments" icon="message-circle">
     "Rewrite this in a more conversational tone" or "make this sound more direct and confident."
   </Card>
+
   <Card title="Adding content" icon="plus">
     "Add a quiz at the end" or "add a pros and cons block after the third section."
   </Card>
+
   <Card title="Expanding content" icon="expand">
     "Expand this with a B2B example" or "add a real-world case study to illustrate this point."
   </Card>
+
   <Card title="Restructuring" icon="layout">
     "Turn this paragraph into a stepper guide" or "break this section into two shorter ones."
   </Card>
+
   <Card title="Tightening content" icon="scissors">
     "Shorten this section" or "remove the introduction and get straight to the point."
   </Card>
+
   <Card title="Voice alignment" icon="mic">
     "Rewrite this to sound like advice from a sales coach" or "use a more formal, consulting tone."
   </Card>
@@ -52,41 +61,34 @@ You can write instructions in any phrasing that makes sense to you. Here are the
 
 ## Block-level AI operations
 
-Every edit targets specific blocks in the lesson rather than rewriting the whole document at once. The operations available are:
+The AI targets specific blocks in the lesson rather than rewriting the whole document at once. The underlying operations are:
 
 | Operation | What it does |
-|---|---|
-| **Replace** | Rewrites the content of an existing block in place. |
-| **Expand** | Adds more content to an existing block, making it longer and more detailed. |
-| **Insert** | Adds a new block before or after an existing one. |
+| --- | --- |
+| **Replace** | Rewrites the content of an existing block in place. Used for both rewriting and expanding text. |
+| **Insert** | Adds a new block before or after an existing one, or at the top or end of the lesson. |
 | **Delete** | Removes a block from the lesson entirely. |
-| **Append** | Adds a new block at the end of the lesson. |
 
-Each proposed change is shown as a tracked edit so you can see exactly what will change before committing.
+Changes are written straight into your draft. If you do not like a result, send another instruction, undo the step, or discard your unpublished changes.
 
 ## Context the AI uses
 
 The AI does not edit blindly. Before generating any response, it reads:
 
-- The full content of the current lesson
-- The course outline (all lesson titles and their order)
-- Your academy's segment (coach, consultant, agency, or SaaS)
-- Your industry, if provided during onboarding
+- The full content of the lesson you are editing
+- The course the lesson belongs to
+- The context you have saved for your academy: the brand voice, audience, and examples you provide
 
-This means when you ask for "a B2B example," the AI draws on your specific industry rather than producing a generic one. When you ask it to "add a quiz," it writes questions relevant to the lesson topic, not placeholder text.
+This means when you ask for "a B2B example," the AI draws on the context you have given your academy rather than producing a generic one. When you ask it to "add a quiz," it writes questions relevant to the lesson topic, not placeholder text.
 
 <Note>
   AI edits preserve your formatting. Output stays clean: no rogue HTML, no inline styles, no extra markup. Every change uses the same block structure as the rest of your lesson.
 </Note>
 
-## AI editing and the master library
+## AI editing and your content
 
-Lessons you add from the course library start as references to master content. The moment you send an AI instruction for a lesson, Fayne creates a fork: your own private copy of that lesson, detached from the master version.
+Lessons you add from the course library are copied into your academy as your own private versions (see [Course Library](/content/course-library)). When you edit a lesson, whether by hand or with AI, you are editing that copy.
 
-- Forked lessons carry a **Customized** badge in the editor sidebar.
-- Master lessons (unedited) continue to receive automatic updates as the content improves.
-- You can reset a forked lesson back to the master version at any time from the lesson settings.
-
-<Tip>
-  If you want a lesson to stay synced with master updates, hold off on AI editing until you are ready to lock in your customizations. Once you fork, you own that version.
-</Tip>
+- Your edits never affect the master library or any other academy.
+- The master library never overwrites your copy.
+- Until you publish, AI changes live in your draft, and you can discard them to restore your last published version.
