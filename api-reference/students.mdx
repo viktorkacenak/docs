@@ -174,7 +174,7 @@ POST /api/v1/students
 
 ### Response fields
 
-Returns the newly created student object with a `201` status code. The shape matches a single student from the list endpoint, plus a `membershipStatus` field (`created` or `reactivated`). Adding a student who is already an active member of the academy returns `409 already_exists`.
+Returns the newly created student with a `201` status code. The response contains `id`, `email`, `name`, a `membershipStatus` field (`created` or `reactivated`), and an `enrollments` array whose items have `id`, `course_id`, and `course_title`. This is a smaller object than the list endpoint's student: it does not include `avatar_url`, `joined_at`, or `courses_enrolled`. Adding a student who is already an active member of the academy returns `409 already_exists`.
 
 ### Example request
 

@@ -4,21 +4,21 @@ sidebarTitle: "AI Customization"
 description: "Use plain English to rewrite, expand, or restructure any lesson. Fayne's AI editor reads your lesson and your academy's context before making changes."
 ---
 
-Every lesson in your academy can be edited using plain English instructions. Instead of manually rewriting paragraphs, you type what you want in the AI chat bar at the bottom of the editor and Fayne applies the changes for you. The AI reads the lesson you are working on, the course it belongs to, and the context you have saved for your academy before making any edits. That context means the changes it makes fit naturally into what is already there.
+Every lesson in your academy can be edited using plain English instructions. Instead of manually rewriting paragraphs, you open the AI panel in the course editor, type what you want, and Fayne applies the changes for you. The assistant works across the whole course: it reads the lesson you have open, the rest of the course it belongs to, and the context you have saved for your academy before making any edits. That context means the changes it makes fit naturally into what is already there.
 
 ## How to use the AI editor
 
-Open any lesson in your course editor. The AI chat input appears as a floating bar at the bottom of the screen. Type your instruction and press **Enter**. The AI reads your request and the current lesson, then applies the changes directly to your lesson as a working draft. You can keep sending instructions, undo a step, or discard your unpublished changes at any time before you publish.
+Open any lesson in your course editor. The AI lives in a panel on the right side of the editor, which you open from the editor's bottom toolbar. Type your instruction in the composer at the bottom of the panel and press **Enter**. The AI reads your request, the current lesson, and the rest of the course, then applies the changes directly to your lesson as a working draft. You can keep sending instructions, undo a step, or discard your unpublished changes at any time before you publish.
 
 <Steps>
   <Step title="Open the lesson editor">
     Navigate to **Courses**, select a course, and click any lesson in the left sidebar.
   </Step>
-  <Step title="Type your instruction">
-    Click the AI chat bar at the bottom of the screen and describe what you want. No special syntax required.
+  <Step title="Open the AI panel and type your instruction">
+    Open the AI panel from the editor's bottom toolbar, then describe what you want in the composer at the bottom of the panel. No special syntax required.
   </Step>
   <Step title="See the changes applied">
-    The AI updates the affected blocks in your lesson and the editor reloads to show the result. Read through what changed.
+    The AI updates the affected blocks (or lessons) and the editor reloads to show the result. Read through what changed.
   </Step>
   <Step title="Keep editing or publish">
     Send more instructions to refine, undo a step, or switch to manual editing. Your changes stay as a draft until you publish, so nothing reaches students until you are ready.
@@ -26,8 +26,12 @@ Open any lesson in your course editor. The AI chat input appears as a floating b
 </Steps>
 
 <Note>
-  AI changes are applied to your draft, not published automatically. Students see updates only after you publish the lesson. You can always discard unpublished changes and restore your last published version from the editor.
+  AI changes are applied to your draft, not published automatically. Each edit is saved to the draft immediately, with no per-edit accept or reject step; to back out, use the editor's undo or discard your unpublished changes. Students see updates only after you publish the lesson.
 </Note>
+
+## What the assistant can edit
+
+The assistant operates over the whole course, with the lesson you have open as the default target for an instruction like "tighten this section." You can also point it at other lessons in the course, ask it to add brand-new lessons, or restructure across several lessons in a single request.
 
 ## Natural language editing examples
 
@@ -59,15 +63,25 @@ You can write instructions in any phrasing that makes sense to you. Here are the
   </Card>
 </CardGroup>
 
-## Block-level AI operations
+## Editing operations
 
-The AI targets specific blocks in the lesson rather than rewriting the whole document at once. The underlying operations are:
+The AI targets specific blocks within a lesson, and it can also work at the lesson level across the course.
+
+Block-level edits within a lesson:
 
 | Operation | What it does |
 | --- | --- |
 | **Replace** | Rewrites the content of an existing block in place. Used for both rewriting and expanding text. |
 | **Insert** | Adds a new block before or after an existing one, or at the top or end of the lesson. |
 | **Delete** | Removes a block from the lesson entirely. |
+
+Lesson-level actions across the course:
+
+| Action | What it does |
+| --- | --- |
+| **Add a lesson** | Creates a new lesson and appends it to the course. |
+| **Rewrite a lesson** | Replaces a lesson's entire body in one pass, useful for large restructures or translations. |
+| **Delete a lesson** | Removes a whole lesson from the course. |
 
 Changes are written straight into your draft. If you do not like a result, send another instruction, undo the step, or discard your unpublished changes.
 
@@ -76,8 +90,8 @@ Changes are written straight into your draft. If you do not like a result, send 
 The AI does not edit blindly. Before generating any response, it reads:
 
 - The full content of the lesson you are editing
-- The course the lesson belongs to
-- The context you have saved for your academy: the brand voice, audience, and examples you provide
+- The course the lesson belongs to, including its other lessons
+- The context you have saved for your academy: the brand voice, audience, examples, and sources in your Knowledge
 
 This means when you ask for "a B2B example," the AI draws on the context you have given your academy rather than producing a generic one. When you ask it to "add a quiz," it writes questions relevant to the lesson topic, not placeholder text.
 
@@ -89,6 +103,6 @@ This means when you ask for "a B2B example," the AI draws on the context you hav
 
 Lessons you add from the course library are copied into your academy as your own private versions (see [Course Library](/content/course-library)). When you edit a lesson, whether by hand or with AI, you are editing that copy.
 
-- Your edits never affect the master library or any other academy.
-- The master library never overwrites your copy.
+- Your edits never affect the Explore Library or any other academy.
+- The Explore Library never overwrites your copy.
 - Until you publish, AI changes live in your draft, and you can discard them to restore your last published version.
