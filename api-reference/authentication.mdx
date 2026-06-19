@@ -81,3 +81,11 @@ When a request fails, the API returns a JSON body with an `error` object contain
   }
 }
 ```
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Can I connect my CRM or other tools?">
+    Yes. Use this REST API to sync people from your CRM or funnel: call [POST /api/v1/students](/api-reference/students) to add a student and enroll them in courses in one request, or manage [lists](/api-reference/lists) so course access follows list membership (add someone in your tool and they get access; remove them and it is revoked). To let an AI assistant like Claude or Cursor read and edit your course content directly, see [Connect AI Tools](/content/connect-ai-tools).
+  </Accordion>
+</AccordionGroup>
