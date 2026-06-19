@@ -2,6 +2,7 @@
 title: "Course Pricing: Free or One-Time Price"
 sidebarTitle: "Pricing Models"
 description: "Offer each course for free or with a one-time price. Set prices per course and connect Stripe to receive payments directly in your own account."
+icon: "circle-dollar-sign"
 ---
 
 Fayne prices courses individually. Each course in your academy is either free or has a one-time price. There is no single academy-wide pricing switch: you decide course by course, so you can mix free and paid courses in the same academy. You set a course's price in that course's **Access** settings, and you can change it at any time.
@@ -36,12 +37,13 @@ Fayne prices courses individually. Each course in your academy is either free or
 
     **What you need:**
 
+    - A paid plan (Pro or Scale); free and trial academies cannot connect Stripe
     - A connected Stripe account (**Settings \> Payments**)
     - A price set on the course (prices start at a $1 minimum, stored in cents, e.g. 4900 = $49.00)
 
     **Good to know:**
 
-    You can mix free and paid courses in the same academy. Fayne takes a platform fee per sale based on your plan (10% free/trial, 3% Pro, 0% Premium); see [Stripe Connect](/payments/stripe-connect).
+    You can mix free and paid courses in the same academy. Fayne takes a platform fee per sale based on your plan (3% on Pro, 0% on Scale), and connecting Stripe to sell requires a paid plan (Pro or Scale); see [Stripe Connect](/payments/stripe-connect).
 
     <Tip>
       One-time pricing fits courses at different price points for different audiences, for example a free "Getting Started" course leading into a paid flagship course.
@@ -56,7 +58,7 @@ Two settings work together but are separate:
 - **Course pricing** decides what each course costs: free or a one-time price.
 - **Academy access** decides who can join your academy at all: **Open** (anyone can sign up) or **Invite only** (students join by invitation). You set this in **Settings**.
 
-A course can be free in an invite-only academy, or paid in an open one. The two settings are independent.
+Paid courses require an **Open** academy: invite-only academies support free courses only. Aside from that, course pricing and academy access are set separately.
 
 ## Comparing course pricing
 

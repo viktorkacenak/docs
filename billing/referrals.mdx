@@ -1,0 +1,112 @@
+---
+title: "Referrals"
+sidebarTitle: "Referrals"
+description: "How the owner referral program works: get your link, earn Stripe credits when referred owners subscribe and stay, and the per-year cap and attribution window"
+icon: "gift"
+---
+
+Refer another coach, consultant, or agency to Fayne and earn account credit when they become a paying customer. Each successful referral applies a one-month credit to your own Fayne subscription invoice. You manage everything from **Settings \> Referrals**.
+
+This program is about your Fayne subscription (what you pay Fayne). It is separate from how you charge your own students, which is handled through [Stripe Connect](/payments/stripe-connect).
+
+## Who can use it
+
+The Referrals page is available only when both of these are true:
+
+<CardGroup cols={2}>
+  <Card title="You are the primary owner" icon="shield-check">
+    The referral program is scoped to the academy's primary owner. Team members and other roles do not see the page.
+  </Card>
+
+  <Card title="You have an active paid subscription" icon="badge-check">
+    Your Fayne plan must be active (an active or past-due paid subscription). Free and trial academies do not have access.
+  </Card>
+</CardGroup>
+
+<Note>
+  If you do not meet both conditions, the Referrals link is hidden and deep links redirect you to your general settings. See [Plans](/billing/plans) and [Subscription](/billing/subscription) for how to upgrade.
+</Note>
+
+## Get your referral link
+
+Your academy has one permanent referral code. The page shows it as a ready-to-share link.
+
+<Steps>
+  <Step title="Open Settings > Referrals">
+    The page generates your code automatically the first time you visit, so there is nothing to set up.
+  </Step>
+  <Step title="Copy your referral link">
+    Use the **Copy link** button next to **Your referral link**. The link points at the Fayne signup page with your code attached.
+  </Step>
+  <Step title="Share it">
+    Send the link to another professional who would run their own branded academy. When they sign up through it, the referral is attributed to you.
+  </Step>
+</Steps>
+
+<Tip>
+  Your friend gets an extended free trial when they start from your link (21 days instead of the standard 7), which gives them more time to launch before deciding to subscribe.
+</Tip>
+
+## How you earn a credit
+
+A referral moves through a few stages before it pays out. You can watch the status of each one in the **Your referrals** list on the same page.
+
+<Steps>
+  <Step title="They sign up (Pending)">
+    When someone creates an academy through your link, a referral is recorded as **Pending**. To count, they must be a genuinely new customer (no prior referral and no existing subscription).
+  </Step>
+  <Step title="They subscribe and stay (Qualified)">
+    Once they are on a paid plan and have stayed paid for at least 30 days, the referral flips to **Qualified**.
+  </Step>
+  <Step title="Your credit is applied (Credited)">
+    A qualified referral becomes **Credited**, and a one-month credit is added to your Stripe customer balance. It is applied automatically against your next Fayne invoice.
+  </Step>
+</Steps>
+
+<Info>
+  The credit equals one month of your current plan. If you are on an annual plan, it is one-twelfth of your annual price (one month's worth).
+</Info>
+
+### Status reference
+
+<AccordionGroup>
+  <Accordion title="Pending">
+    The referred owner has signed up but has not yet completed the 30-day paid qualification period.
+  </Accordion>
+
+  <Accordion title="Qualified">
+    They have stayed on a paid plan for at least 30 days. The credit is queued to be applied to your account.
+  </Accordion>
+
+  <Accordion title="Credited">
+    Your one-month credit has been applied to your Stripe balance and will reduce your next invoice.
+  </Accordion>
+
+  <Accordion title="Expired">
+    The referral never converted within the attribution window, or an applied credit was not used before it expired.
+  </Accordion>
+
+  <Accordion title="Rejected">
+    The referral was disqualified, for example a self-referral detected by a shared payment method.
+  </Accordion>
+</AccordionGroup>
+
+## Limits and timing
+
+<CardGroup cols={2}>
+  <Card title="Up to 3 credits per year" icon="gift">
+    You can earn a maximum of 3 referral credits per calendar year. The page shows how many you have left this year. Additional qualified referrals stay queued and do not pay out beyond the cap.
+  </Card>
+
+  <Card title="90-day attribution window" icon="clock">
+    A pending referral must convert to a paying subscription within 90 days of signing up. If the referred owner does not start paying in that window, the referral expires.
+  </Card>
+</CardGroup>
+
+<Warning>
+  Self-referrals do not count. If the referred account and your account share the same payment method, the referral is rejected. Referring yourself, or referring someone who already has a Fayne subscription, will not earn a credit.
+</Warning>
+
+<Note>
+  Credits are applied as a balance on your Fayne Stripe customer and are consumed by your invoices. An applied credit that goes unused expires after a set period and is removed from your balance. For where your invoices and balance appear, see [Subscription](/billing/subscription).
+</Note>

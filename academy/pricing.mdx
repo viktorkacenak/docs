@@ -2,6 +2,7 @@
 title: "Set Pricing and Accept Payments in Your Academy"
 sidebarTitle: "Pricing"
 description: "Offer courses for free or with a one-time price. Connect Stripe to receive payments directly in your own account."
+icon: "tag"
 ---
 
 Fayne uses Stripe Connect to handle payments. When a student buys a course, the money goes directly into your Stripe account. You connect your own Stripe account once, set a price on the courses you want to sell, and start accepting payments. Fayne charges a small platform fee per sale depending on your plan (see [Platform fees](#platform-fees) below).
@@ -11,7 +12,7 @@ Fayne uses Stripe Connect to handle payments. When a student buys a course, the 
 Before you can accept payments, you need to connect a Stripe account. In your owner dashboard, go to **Settings \> Payments** and click **Connect Stripe**. You are redirected to Stripe to authorize the connection to your existing Stripe account. Once you approve, you are returned to your dashboard and your account is linked.
 
 <Note>
-  You need a connected Stripe account to sell paid courses. If all of your courses are free, you can skip the Stripe connection.
+  Connecting Stripe requires a paid plan (Pro or Scale); free and trial academies cannot connect Stripe. You need a connected Stripe account to sell paid courses, so if all of your courses are free, you can skip the Stripe connection.
 </Note>
 
 ## How course pricing works
@@ -61,7 +62,7 @@ Stripe's own processing fees apply separately and are set by Stripe. Your Stripe
 
 ## Revenue and reporting
 
-Your owner dashboard shows your revenue under **Payments** and **Insights**: gross sales, your net after fees, refunds, a revenue-over-time chart, and a per-course breakdown for the period you select. For full transaction history, disputes, and payout schedules, open your Stripe dashboard.
+Your owner dashboard shows your revenue under **Sales** and **Insights**: gross sales, your net after fees, refunds, a revenue-over-time chart, and a per-course breakdown for the period you select. For full transaction history, disputes, and payout schedules, open your Stripe dashboard.
 
 <AccordionGroup>
   <Accordion title="Can I change a course's price after launch?">
@@ -69,7 +70,7 @@ Your owner dashboard shows your revenue under **Payments** and **Insights**: gro
   </Accordion>
 
   <Accordion title="Does Fayne take a percentage of my revenue?">
-    Yes. Payments go directly to your Stripe account, and Fayne deducts an application fee per sale: 3% on Pro, and 0% on Premium. Stripe's processing fees are separate.
+    Yes. Payments go directly to your Stripe account, and Fayne deducts an application fee per sale: 3% on Pro, and 0% on Scale. Stripe's processing fees are separate.
   </Accordion>
 
   <Accordion title="Can I make a paid course free later?">

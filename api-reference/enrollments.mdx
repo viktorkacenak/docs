@@ -2,9 +2,10 @@
 title: "Enroll a Student in a Published Course via the API"
 sidebarTitle: "Enrollments"
 description: "Grant a student access to a published course with a single API call. Re-enrolling a student who already has access restores their active status."
+icon: "user-check"
 ---
 
-The enrollments endpoint lets you grant a student access to a specific course. You can call this endpoint multiple times for the same student and course — it is idempotent. If the student already has an enrollment record for that course (including a previously revoked one), the API sets their access status back to `active` rather than creating a duplicate record. Both the student and the course must exist in your academy, and the course must be published.
+The enrollments endpoint lets you grant a student access to a specific course. You can call this endpoint multiple times for the same student and course, it is idempotent. If the student already has an enrollment record for that course (including a previously revoked one), the API sets their access status back to `active` rather than creating a duplicate record. Both the student and the course must exist in your academy, and the course must be published.
 
 ## Enroll a student
 
@@ -15,7 +16,7 @@ POST /api/v1/students/:studentId/enrollments
 ### Path parameters
 
 <ParamField path="studentId" type="string" required>
-  UUID of the student to enroll. The student must already be a member of your academy — add them first using [POST /api/v1/students](/api-reference/students) if needed.
+  UUID of the student to enroll. The student must already be a member of your academy, add them first using [POST /api/v1/students](/api-reference/students) if needed.
 </ParamField>
 
 ### Body parameters

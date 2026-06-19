@@ -1,0 +1,84 @@
+---
+title: "Book a Call: Add a Scheduling CTA"
+sidebarTitle: "Book a Call"
+description: "Turn engaged students into booked calls with a white-labeled scheduling button placed across your academy"
+icon: "calendar-check"
+---
+
+Your most engaged students are your warmest leads. Meetings lets you drop a "Book a call" button into your academy that opens your own scheduling tool (Calendly, Cal.com, Acuity, SavvyCal, or any link) in a popup, without sending students to a new tab. The button renders in your academy's brand color and uses your own wording, so it reads as part of your offering, not ours.
+
+You control exactly where it appears with independent toggles, and a single master switch turns the whole thing on or off.
+
+## How it works
+
+Meetings has three moving parts: a master switch, your scheduling link, and per-surface placement toggles. The button only shows up when the master switch is on, you have saved a link, and the specific surface is turned on. If any one of those is missing, that surface stays clean.
+
+<CardGroup cols={3}>
+  <Card title="Strike at the peak" icon="zap">
+    Show the CTA the moment a student finishes a course, when they are most invested.
+  </Card>
+
+  <Card title="Zero friction" icon="hand-pointer">
+    The link opens in a popup on click. No new tabs, no leaving your academy.
+  </Card>
+
+  <Card title="Your brand" icon="sparkles">
+    Your scheduling tool, your button label, your academy's color.
+  </Card>
+</CardGroup>
+
+## Set it up
+
+Open the Meetings page in your academy (the `/convert` route). On a brand-new academy you will see a short intro screen with an **Enable Meetings** button. Once you have anything saved, you land straight in the editor.
+
+<Steps>
+  <Step title="Turn Meetings on">
+    Flip the **Meetings are on** master switch. This is the master control: when it is off, the button never appears anywhere, even if individual placements are on.
+  </Step>
+  <Step title="Paste your scheduling link">
+    In the **Scheduling link** field, paste a link from Calendly, Cal.com, Acuity, SavvyCal, or any scheduling tool. The link must be a full `https://` URL (for example, `https://calendly.com/your-name/intro-call`).
+  </Step>
+  <Step title="Write your button label">
+    Set the **Button label** that students see on the button. It defaults to "Book a call" and can be up to 80 characters. This is your voice, so use whatever fits your brand ("Book a strategy call", "Schedule your session", and so on).
+  </Step>
+  <Step title="Choose where it shows">
+    Under **Where it shows**, turn on the surfaces where you want the button to appear. Nothing displays until you enable at least one. See [Placements](#placements) below.
+  </Step>
+  <Step title="Save">
+    Click **Save changes**. A live preview labeled "Students see" shows the exact button your students will get, rendered in your academy's brand color.
+  </Step>
+</Steps>
+
+<Note>
+  You can save a link and keep it paused: leave the master switch off (or all placements off) and your settings are preserved for when you are ready to go live.
+</Note>
+
+## Placements
+
+Each surface is an independent opt-in. Turn on any combination.
+
+<AccordionGroup>
+  <Accordion title="Course completion" icon="circle-check">
+    Shown the moment a student finishes a course. This is the highest-intent placement: they just got value from you, so it is the natural moment to invite a conversation.
+  </Accordion>
+
+  <Accordion title="Academy home" icon="house">
+    Shown on the main course catalog page that students land on, so it is visible across their whole visit rather than tied to one course.
+  </Accordion>
+
+  <Accordion title="Feed" icon="megaphone">
+    Shown at the top of your academy feed. This placement only appears when the feed itself is enabled. See [Newsfeed](/engagement/newsfeed) for how to turn the feed on.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Start with **Course completion** alone. It targets students at peak intent and keeps the rest of the experience uncluttered. Layer in **Academy home** or **Feed** once you want broader reach.
+</Tip>
+
+## White-label behavior
+
+Everything students see is yours. The button text is whatever you typed, the button renders in your academy's primary color, and clicking it opens your scheduling tool in a popup. Students book without ever leaving your branded academy.
+
+<Warning>
+  The button will not appear if the master switch is off, if the scheduling link is empty, or if no placement is turned on. If your CTA is not showing up, check all three.
+</Warning>

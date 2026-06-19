@@ -1,0 +1,144 @@
+---
+title: "Subscription and Billing"
+sidebarTitle: "Subscription and Billing"
+description: "How your own Fayne subscription works: the 7-day preview, subscribing to Pro or Scale, switching plans, and managing billing"
+icon: "credit-card"
+---
+
+This page covers the subscription you pay Fayne to run your academy. You manage it from your owner dashboard under Settings \> Billing. This is separate from [Stripe Connect](/payments/stripe-connect), which is how you collect payments from your own students. Connecting Stripe to charge students requires a paid plan (Pro or Scale), so subscribing here is the first step toward selling.
+
+<Info>
+  Billing is managed by the academy's primary owner. Team admins can run the academy day to day, but only the owner sees and changes the plan.
+</Info>
+
+## How your account starts: the 7-day preview
+
+When you sign up and finish onboarding, your academy goes live immediately on its `*.fayne.co` address with a 7-day preview. No card is required to start, and the preview is your trial.
+
+During the preview you get the real product: you can build and brand your academy, edit lessons, generate a course with AI, and invite a small group of students to try it. A few depth features stay walled behind an "Unlock with Pro" prompt during the preview:
+
+<CardGroup cols={2}>
+  <Card title="Custom domain" icon="globe">
+    Connecting your own domain unlocks on a paid plan.
+  </Card>
+
+  <Card title="Custom sending domain" icon="mail">
+    Sending email from your own domain unlocks on a paid plan.
+  </Card>
+
+  <Card title="API access" icon="key">
+    API keys and the API unlock on a paid plan.
+  </Card>
+
+  <Card title="Stripe Connect" icon="credit-card">
+    Charging students for courses unlocks on a paid plan.
+  </Card>
+</CardGroup>
+
+<Note>
+  The preview is one per owner, ever. It runs for 7 days from when your academy is created, and your dashboard shows a countdown as the date approaches.
+</Note>
+
+### What happens when the preview ends
+
+If you have not subscribed by the time the preview ends, your academy goes dormant. Your data is preserved in full. You can still log in, browse, preview your academy as a student, and reach billing, but editing, publishing, inviting, and AI are paused. To students, the academy shows a "temporarily unavailable" page. Subscribing at any point lifts everything instantly and drops you back into the editor with all your content intact.
+
+## Subscribing to Pro or Scale
+
+Fayne has two paid plans, Pro and Scale. For a feature and limit comparison, see [Plans and Limits](/billing/plans). Scale is the plan that removes Fayne's per-transaction fee on student payments you collect through Stripe Connect.
+
+You can subscribe from active preview or from dormant. The flow is the same:
+
+<Steps>
+  <Step title="Open Settings > Billing">
+    From your owner dashboard, go to Settings \> Billing and choose to subscribe or upgrade.
+  </Step>
+  <Step title="Pick a plan and billing period">
+    Choose Pro or Scale, then choose monthly or annual billing. Annual is billed once per year.
+  </Step>
+  <Step title="Complete Stripe Checkout">
+    You are sent to Stripe's hosted checkout to enter your card and billing address. Stripe collects the address so tax (VAT where applicable) is calculated correctly, and EU business buyers can enter a VAT ID.
+  </Step>
+  <Step title="Land back in your academy">
+    On success, your plan activates, every wall lifts, and you return to your academy.
+  </Step>
+</Steps>
+
+<Warning>
+  Subscribing charges your card immediately. There is no second free trial at checkout: the 7-day preview is your trial, and it is consumed before you reach checkout. Subscribing turns your card on right away.
+</Warning>
+
+### Converting from preview to paid
+
+When you subscribe during your preview, you are moved straight onto the plan you pick and charged at that point. You do not need to wait for the preview to end, and converting early is the way to unlock the walled features before your 7 days are up.
+
+### Founding-member discount
+
+A founding-member discount applies automatically at checkout while the launch window is open (through June 30, 2026). You do not need a promo code: if the window is open, the matching discount is applied to your plan and period for you.
+
+<AccordionGroup>
+  <Accordion title="How the founding discount behaves">
+    On monthly plans the discount repeats for the first several months and then your plan reverts to the standard monthly price. On annual plans the discount applies to your first annual invoice, and renewals are at the standard annual price. The discount is applied automatically by Fayne when the window is open; once the window closes, new subscriptions are at standard pricing.
+  </Accordion>
+</AccordionGroup>
+
+## Changing plans
+
+### Upgrading or switching period
+
+If you are on a plan and want to move up (for example Pro to Scale) or switch between monthly and annual, Fayne updates your existing subscription in place. You do not go back through full checkout. If you upgrade while still inside your preview window, your preview days are preserved, so you are not charged immediately mid-preview.
+
+### Downgrading
+
+Downgrading to a lower plan walks you through a short reconcile step first. Because plan limits are counted across all of the academies on your billing account, Fayne shows you anything that is over the lower plan's limits, most importantly your published courses, and lets you choose which courses to keep published. Students and academies over the new limit are shown for your awareness but are never removed automatically: existing students keep access, and existing academies stay live. Once you confirm, Fayne unpublishes the courses you did not keep and switches your subscription to the lower plan.
+
+<Tip>
+  Downgrades do not carry the founding discount forward. Keep your current plan if you want to hold onto a founding price.
+</Tip>
+
+## Managing billing in the Stripe portal
+
+For payment method and invoice management, Settings \> Billing opens the Stripe billing portal. There you can:
+
+<CardGroup cols={2}>
+  <Card title="Update your card" icon="credit-card">
+    Change the payment method on file.
+  </Card>
+
+  <Card title="View invoices and receipts" icon="file-text">
+    Download past invoices and billing history.
+  </Card>
+
+  <Card title="Update billing details" icon="building">
+    Manage the billing address and tax details on your account.
+  </Card>
+</CardGroup>
+
+## Cancelling and resuming
+
+You can cancel from Settings \> Billing. Cancellation is scheduled for the end of your current billing period rather than taking effect immediately, so your academy stays active and paid through the date you already paid for. Fayne confirms the date access continues until.
+
+If you change your mind before that date, you can resume the subscription from the same screen and your plan continues uninterrupted, with no new charge until the next normal renewal.
+
+<Note>
+  Cancellation is the standard way to stop paying. After the period ends without resuming, your academy moves to the locked, students-can't-access state, but your content is preserved and resubscribing brings it back.
+</Note>
+
+## If a payment fails (past-due grace)
+
+If a renewal payment fails, your subscription enters a past-due state. Fayne keeps your academy fully working during a 7-day grace period so a temporary card problem does not take your academy offline. Update your card in the Stripe portal within that window to settle the invoice and keep things running. If the invoice is still unpaid after the grace period, your academy moves to the locked state until billing is resolved.
+
+<Warning>
+  The grace period only protects against a failed charge on an active subscription. It does not extend a subscription you have cancelled.
+</Warning>
+
+## Fayne billing vs. Stripe Connect
+
+These are two different things and it is worth keeping them straight:
+
+|  | What it is | Who pays whom |
+| --- | --- | --- |
+| Subscription (this page) | Your Pro or Scale plan for running your academy | You pay Fayne |
+| [Stripe Connect](/payments/stripe-connect) | Selling courses to your audience | Your students pay you |
+
+A paid subscription is the prerequisite for connecting Stripe to charge students. Once you are on Pro or Scale, head to [Stripe Connect](/payments/stripe-connect) to start selling.

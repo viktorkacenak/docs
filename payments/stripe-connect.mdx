@@ -2,6 +2,7 @@
 title: "Connect Stripe to Accept Payments in Your Academy"
 sidebarTitle: "Stripe Connect"
 description: "Link your own Stripe account so payments go directly to you. You stay in control of every transaction, minus a per-sale platform fee."
+icon: "credit-card"
 ---
 
 Fayne uses Stripe Connect to process payments, which means every payment a student makes goes directly into your Stripe account. There is no middleman holding your revenue or batching payouts. When you connect your Stripe account, you own the payment relationship with your students. Fayne charges a per-sale platform fee based on your plan (see [Platform fees](#platform-fees)).
@@ -24,7 +25,7 @@ Fayne uses Stripe Connect to process payments, which means every payment a stude
 </Steps>
 
 <Note>
-  You only need to connect Stripe if you plan to sell paid courses. If all of your courses are free, you can skip this step entirely.
+  Connecting Stripe requires a paid plan (Pro or Scale); free and trial academies cannot connect Stripe. You only need to connect Stripe if you plan to sell paid courses, so if all of your courses are free, you can skip this step.
 </Note>
 
 ## How Stripe Checkout works
@@ -51,15 +52,14 @@ Payments are made directly on your connected Stripe account. Fayne deducts an ap
 
 | Plan | Fayne fee per sale |
 | --- | --- |
-| Free / trial | 10% |
 | Pro | 3% |
-| Premium | 0% |
+| Scale | 0% |
 
-Stripe's own processing fees apply separately and are set by Stripe.
+Connecting Stripe and selling paid courses requires a paid plan (Pro or Scale). Free and trial academies cannot connect Stripe. Stripe's own processing fees apply separately and are set by Stripe.
 
 ## Revenue dashboard
 
-Your owner dashboard includes a revenue summary under **Payments** and **Insights** that gives you a quick view of how your academy is performing financially.
+Your owner dashboard includes a revenue summary under **Sales** and **Insights** that gives you a quick view of how your academy is performing financially.
 
 <CardGroup cols={2}>
   <Card title="Gross sales and net" icon="circle-dollar-sign">
