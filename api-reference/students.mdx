@@ -4,7 +4,7 @@ sidebarTitle: "Students"
 description: "List, add, retrieve, and remove students in your academy. Supports bulk course enrollment on creation and detailed progress tracking per student."
 ---
 
-The students endpoints let you manage the people who learn in your academy. You can list all students with pagination, add new students and optionally enroll them in courses at the same time, retrieve a single student's profile and detailed progress, and permanently remove a student. All endpoints require your API key in the `Authorization` header — see [Authentication](/api-reference/authentication).
+The students endpoints let you manage the people who learn in your academy. You can list all students with pagination, add new students and optionally enroll them in courses at the same time, retrieve a single student's profile and detailed progress, and remove a student from your academy. All endpoints require your API key in the `Authorization` header. See [Authentication](/api-reference/authentication).
 
 ---
 
@@ -323,7 +323,7 @@ curl https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456
 
 ## Remove a student
 
-Permanently removes a student from your academy. This revokes all of their course enrollments and deletes all lesson progress. The operation cannot be undone.
+Removes a student from your academy. This revokes all of their course enrollments and deletes all of their lesson progress, and cannot be undone. The student's Fayne account itself is not deleted; they are only removed from this academy.
 
 ```text
 DELETE /api/v1/students/:studentId
@@ -336,7 +336,7 @@ DELETE /api/v1/students/:studentId
 </ParamField>
 
 <Warning>
-  Removing a student deletes all of their progress data and revokes access to every course. This cannot be reversed.
+  Removing a student deletes all of their progress data in this academy and revokes access to every course. This cannot be reversed. Their Fayne account is not deleted.
 </Warning>
 
 ### Response fields

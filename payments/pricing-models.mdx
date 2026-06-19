@@ -1,18 +1,18 @@
 ---
-title: "Compare Pricing Models: Free, Per-Course, Subscription"
+title: "Course Pricing: Free or One-Time Price"
 sidebarTitle: "Pricing Models"
-description: "Choose between free, per-course, or full-access subscription pricing for your academy. Switch models any time without losing existing student access."
+description: "Offer each course for free or with a one-time price. Set prices per course and connect Stripe to receive payments directly in your own account."
 ---
 
-Fayne gives you three ways to price your academy: free, per-course, and full-access subscription. You set the model once in **Settings > Payments**, and you can change it at any time. Existing students who have already paid keep their access when you switch models, so you can evolve your pricing strategy as your academy grows.
+Fayne prices courses individually. Each course in your academy is either free or has a one-time price. There is no single academy-wide pricing switch: you decide course by course, so you can mix free and paid courses in the same academy. You set a course's price in that course's **Access** settings, and you can change it at any time.
 
 <Tabs>
   <Tab title="Free">
-    Your academy is open to anyone. Students enroll without entering payment details or going through checkout.
+    A free course has no price and no checkout step. Students enroll and go straight into the course.
 
     **How it works:**
 
-    Set the access model to **Free** in **Settings > Payments**. No Stripe connection is required. When a student visits a course page and clicks **Enroll**, they are taken directly into the course.
+    Set the course to free in its **Access** settings. No Stripe connection is required for free courses. When a student clicks **Enroll**, they are taken directly into the course.
 
     **What you need:**
 
@@ -21,73 +21,56 @@ Fayne gives you three ways to price your academy: free, per-course, and full-acc
 
     **Good to know:**
 
-    You can still invite specific students by email and manage their enrollments manually from your Students page. The free model does not mean your academy is fully open to the public — you control who gets access through your enrollment settings.
+    Free courses work well as a lead magnet, a value-add for coaching clients, or an introductory course that leads into your paid ones. Whether your academy is open to anyone or invite only is a separate setting (see below).
 
     <Tip>
-      The free model works well if your revenue comes from services rather than the academy itself. Use it as a value-add for coaching clients, a lead magnet for your email list, or a free trial before you switch to a paid model.
+      Use a free introductory course to build trust before pointing students toward a paid flagship course in the same academy.
     </Tip>
   </Tab>
-  <Tab title="Per-course">
-    Each course has its own price. Students pay once for a course and get permanent access to that course.
+  <Tab title="One-time price">
+    A paid course has a one-time price. Students pay once and get permanent access to that course.
 
     **How it works:**
 
-    Set the access model to **Per-course** in **Settings > Payments**. Then open each course and set a price in the course settings. Students who click **Enroll** on a paid course are sent through Stripe Checkout. After payment, their enrollment is activated immediately and does not expire.
+    Set a price in the course's **Access** settings. Students who click **Enroll** on a paid course are sent through Stripe Checkout. After payment, their enrollment is activated immediately and does not expire.
 
     **What you need:**
 
-    - A connected Stripe account
-    - A price set on each course you want to sell
+    - A connected Stripe account (**Settings \> Payments**)
+    - A price set on the course (prices start at a $1 minimum, stored in cents, e.g. 4900 = $49.00)
 
     **Good to know:**
 
-    In per-course mode, you can make individual courses free by setting their price to zero. This lets you mix free introductory courses with paid advanced ones in the same academy.
+    You can mix free and paid courses in the same academy. Fayne takes a platform fee per sale based on your plan (10% free/trial, 3% Pro, 0% Premium); see [Stripe Connect](/payments/stripe-connect).
 
     <Tip>
-      Per-course pricing is a strong fit if you have courses at different price points for different audiences — for example, a free "Getting Started" course that leads into a paid flagship course.
+      One-time pricing fits courses at different price points for different audiences, for example a free "Getting Started" course leading into a paid flagship course.
     </Tip>
-  </Tab>
-  <Tab title="Full-access subscription">
-    Students pay a recurring fee for unlimited access to every published course in your academy.
-
-    **How it works:**
-
-    Set the access model to **Full-access subscription** in **Settings > Payments** and enter a monthly or annual price. Students who click **Enroll** are sent through Stripe Checkout to start a subscription. Once subscribed, they can access every published course in your academy for as long as their subscription is active.
-
-    Stripe manages billing automatically. Students can update their payment method or cancel through the Stripe Customer Portal, which is linked from within your academy.
-
-    **What you need:**
-
-    - A connected Stripe account
-    - A subscription price set in your payment settings
-
-    **Good to know:**
-
-    When you publish new courses, subscribers immediately gain access without any additional charge or re-enrollment step.
-
-    <Tip>
-      Full-access subscription works best if you plan to keep adding courses over time. The ongoing value of new content justifies the recurring price and gives students a reason to stay subscribed.
-    </Tip>
-
-    <Warning>
-      If a student's subscription payment fails, Stripe retries the charge automatically according to your retry settings. Continued non-payment results in subscription cancellation, after which the student loses access at the end of their current billing period.
-    </Warning>
   </Tab>
 </Tabs>
 
-## Comparing the models
+## Course pricing vs academy access
 
-| | Free | Per-course | Full-access subscription |
-|---|---|---|---|
-| Stripe required | No | Yes | Yes |
-| Student pays | Never | Once per course | Recurring |
-| Access duration | Permanent | Permanent | Active subscription only |
-| Best for | Lead magnets, client value-adds | Mixed catalogs, varied price points | Membership communities, growing course libraries |
+Two settings work together but are separate:
 
-## Changing your pricing model
+- **Course pricing** decides what each course costs: free or a one-time price.
+- **Academy access** decides who can join your academy at all: **Open** (anyone can sign up) or **Invite only** (students join by invitation). You set this in **Settings**.
 
-You can switch pricing models at any time from **Settings > Payments**. Students who have already paid for a course or hold an active subscription keep their existing access when you switch. Switching models does not automatically migrate existing paid customers to a new payment type — for example, switching from per-course to subscription does not enroll previous buyers in the subscription.
+A course can be free in an invite-only academy, or paid in an open one. The two settings are independent.
+
+## Comparing course pricing
+
+|  | Free | One-time price |
+| --- | --- | --- |
+| Stripe required | No | Yes |
+| Student pays | Never | Once per course |
+| Access duration | Permanent | Permanent |
+| Best for | Lead magnets, client value-adds | Flagship courses, paid catalog |
+
+## Changing a course's price
+
+You can change a course's price at any time in its **Access** settings. Students who have already paid keep their access; a price change only affects new purchases. Switching a paid course to free lets new students enroll without paying, and does not affect existing purchasers.
 
 <Info>
-  After changing your pricing model, verify that your published courses are configured correctly. In per-course mode, courses without a price set will default to free.
+  After changing pricing, double-check the course's Access settings. A course with no price set is free.
 </Info>

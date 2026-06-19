@@ -1,10 +1,10 @@
 ---
 title: "Connect Stripe to Accept Payments in Your Academy"
 sidebarTitle: "Stripe Connect"
-description: "Link your own Stripe account so payments go directly to you. Fayne never touches your money — you stay in full control of every transaction."
+description: "Link your own Stripe account so payments go directly to you. You stay in control of every transaction, minus a per-sale platform fee."
 ---
 
-Fayne uses Stripe Connect to process payments, which means every payment a student makes goes directly into your Stripe account. Fayne is never in the money flow — there is no middleman holding your revenue or batching payouts. When you connect your Stripe account, you own the full payment relationship with your students.
+Fayne uses Stripe Connect to process payments, which means every payment a student makes goes directly into your Stripe account. There is no middleman holding your revenue or batching payouts. When you connect your Stripe account, you own the payment relationship with your students. Fayne charges a per-sale platform fee based on your plan (see [Platform fees](#platform-fees)).
 
 ## Connect your Stripe account
 
@@ -13,72 +13,78 @@ Fayne uses Stripe Connect to process payments, which means every payment a stude
     In your owner dashboard, open **Settings** and click the **Payments** tab.
   </Step>
   <Step title="Click Connect Stripe">
-    Click the **Connect Stripe** button. You will be redirected to Stripe's secure onboarding flow.
+    Click the **Connect Stripe** button. You are redirected to Stripe to authorize the connection.
   </Step>
-  <Step title="Complete Stripe onboarding">
-    Stripe will ask for your business details, bank account, and identity verification. This is Stripe's standard process and is required to enable payouts. The steps vary depending on your country and business type.
+  <Step title="Authorize the connection">
+    Sign in to your existing Stripe account and approve the connection to Fayne. If you do not have a Stripe account yet, you can create one during this step. Stripe, not Fayne, handles your business and payout details.
   </Step>
   <Step title="Return to your Fayne dashboard">
-    Once you finish onboarding, Stripe redirects you back to your dashboard automatically. Your account appears as connected, and you are ready to accept payments.
+    Once you approve, Stripe redirects you back to your dashboard automatically. Your account appears as connected, and you are ready to accept payments.
   </Step>
 </Steps>
 
 <Note>
-  You only need to connect Stripe if you plan to charge for your academy. If your access model is set to **Free**, you can skip this step entirely.
+  You only need to connect Stripe if you plan to sell paid courses. If all of your courses are free, you can skip this step entirely.
 </Note>
 
 ## How Stripe Checkout works
 
-When a student pays for a course or subscribes, they go through Stripe Checkout — a hosted payment page served directly by Stripe. You do not build or maintain a payment form. Stripe handles card validation, 3D Secure authentication, and international card support automatically.
-
-The checkout page displays your academy's primary brand color, so it feels consistent with the rest of your academy even though it is hosted on Stripe's infrastructure.
+When a student buys a paid course, they go through Stripe Checkout, a hosted payment page served directly by Stripe. You do not build or maintain a payment form. Stripe handles card validation, 3D Secure authentication, and international card support automatically.
 
 <CardGroup cols={2}>
   <Card title="Stripe Checkout" icon="credit-card">
-    A secure, hosted payment page branded with your academy's primary color. Stripe handles the form, card processing, and fraud detection.
+    A secure, hosted payment page. Stripe handles the form, card processing, and fraud detection.
   </Card>
+
   <Card title="Global payments" icon="globe">
-    Stripe Checkout supports major card networks and local payment methods across more than 195 countries.
+    Stripe Checkout supports major card networks and local payment methods across many countries.
   </Card>
 </CardGroup>
 
-## Subscription management via Stripe Customer Portal
+<Note>
+  Checkout is hosted by Stripe. To control how the checkout page looks, use the branding settings in your own Stripe dashboard, which apply to your connected account.
+</Note>
 
-For students on a full-access subscription, Stripe's Customer Portal handles self-service billing management. Students can access the portal through a link inside your academy. From the portal they can:
+## Platform fees
 
-- View their billing history and download invoices
-- Update their payment method
-- Cancel or pause their subscription
+Payments are made directly on your connected Stripe account. Fayne deducts an application fee on each paid sale based on your plan:
 
-You do not need to build any of this yourself. Stripe manages the portal, and any changes students make are reflected in your Stripe dashboard immediately.
+| Plan | Fayne fee per sale |
+| --- | --- |
+| Free / trial | 10% |
+| Pro | 3% |
+| Premium | 0% |
+
+Stripe's own processing fees apply separately and are set by Stripe.
 
 ## Revenue dashboard
 
-Your owner dashboard includes a revenue summary that gives you a quick view of how your academy is performing financially.
+Your owner dashboard includes a revenue summary under **Payments** and **Insights** that gives you a quick view of how your academy is performing financially.
 
 <CardGroup cols={2}>
-  <Card title="Total revenue" icon="circle-dollar-sign">
-    The cumulative revenue collected across all paid enrollments and subscriptions.
+  <Card title="Gross sales and net" icon="circle-dollar-sign">
+    Gross sales and your net after Fayne and Stripe fees, for the period you select.
   </Card>
-  <Card title="Monthly trend" icon="chart-line">
-    A chart showing revenue by month so you can spot growth patterns or seasonal dips.
+
+  <Card title="Revenue over time" icon="chart-line">
+    A chart of revenue across the selected period so you can spot growth and seasonal patterns.
   </Card>
-  <Card title="Breakdown by course" icon="book-open">
-    Revenue attributed to each individual course, so you can see which courses are driving the most sales.
+
+  <Card title="Per-course breakdown" icon="book-open">
+    Revenue attributed to each course, so you can see which courses are driving the most sales.
   </Card>
-  <Card title="Stripe dashboard link" icon="arrow-up-right">
-    A direct link to your full Stripe dashboard for detailed transaction history, dispute management, and payout schedules.
+
+  <Card title="Refunds" icon="rotate-left">
+    Refunds are tracked and deducted from your net revenue figures.
   </Card>
 </CardGroup>
 
-<Tip>
-  Use the per-course revenue breakdown to decide which courses to promote more heavily or to identify candidates for bundling.
-</Tip>
+For full transaction history, disputes, and payout schedules, open your Stripe dashboard from the Payments page.
 
-## Failed payment alerts
+## Failed and refunded payments
 
-If a student's payment fails — whether for a one-time purchase or a recurring subscription — you will receive a failed payment alert.
+If a student's payment fails, no enrollment is created. Stripe handles card-failure notifications according to your Stripe settings.
 
 <Warning>
-  Stripe sends automatic email alerts to both you and the student when a payment fails. For subscriptions, Stripe retries the charge according to your retry settings before marking the subscription as past due. Check your Stripe dashboard's **Radar** and **Billing** settings to configure how many retries occur and how long before access is affected.
+  Refunds are issued from your Stripe dashboard. When a payment is refunded or disputed, Fayne reflects it in your revenue figures (a dedicated Refunds total, deducted from net). Check your Stripe dashboard for the complete record, including disputes and payouts.
 </Warning>

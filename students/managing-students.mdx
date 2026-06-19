@@ -1,90 +1,74 @@
 ---
 title: "Managing Your Students: Roster, Progress, and Access"
 sidebarTitle: "Students"
-description: "View your full student roster, track per-course progress, invite new students by email, revoke access, and export your roster — all from one place."
+description: "View your student roster, track per-course progress, invite new students by email, manage enrollments, and remove access, all from one place."
 ---
 
-The **Students** page in your owner dashboard gives you a complete picture of everyone learning in your academy. You can see who has enrolled, how far they have progressed across every course, invite new students by email, and remove access when needed. Each academy you run has its own independent roster, so students in one of your academies are never mixed with students in another.
+The **People** page in your owner dashboard gives you a complete picture of everyone learning in your academy. You can see who has enrolled, how far they have progressed across every course, invite new students by email, and remove access when needed. Each academy you run has its own independent roster, so students in one of your academies are never mixed with students in another.
 
 ## The student roster
 
-The roster table lists every active student in the current academy. Each row shows:
+The roster table lists the active students in the current academy. Each row shows:
 
-- **Name and email** — the student's display name and the address they signed up with.
+- **Name** and **Email** — the student's display name and the address they signed up with, in separate sortable columns.
 - **Joined** — the date they first accepted an invitation or created an account in your academy.
 - **Courses** — the number of courses they are currently enrolled in.
 - **Progress** — an overall progress bar calculated across all their active enrollments.
 
-You can sort any column by clicking its header. The most recently joined students appear at the top by default.
+You can sort any column by clicking its header. The most recently joined students appear first by default.
 
 <Note>
-Each academy has its own student roster. If you run multiple academies from one account, switching academies in the top bar switches to that academy's separate roster and progress data.
+  Each academy has its own student roster. If you run multiple academies from one account, switching academies in the top bar switches to that academy's separate roster and progress data.
 </Note>
 
 ## Viewing a student's detail
 
-Click any row in the roster to open a student's detail panel. The panel has three sections.
+Click any row in the roster to open a student's detail panel. The panel has several tabs.
 
-**Overview** shows contact info, join date, and three summary stats: total courses enrolled, courses completed, and overall progress percentage.
+**Overview** shows contact info, join date, and summary stats: total courses enrolled, courses completed, and overall progress percentage.
 
-**Enrollments** lists every course the student is enrolled in, with a per-course progress indicator showing completed lessons out of total lessons. A checkmark replaces the progress ring when the student has finished all lessons. From this tab you can also:
+**Enrollments** lists every course the student is enrolled in, with a per-course progress indicator showing completed lessons out of total lessons. A checkmark appears when the student has finished all lessons. From this tab you can also:
 
 - **Enroll in a course** — manually add the student to any course they are not already in.
 - **Reset progress** — clear a student's completed lessons for a specific course so they can start over.
 - **Revoke access** — remove the student's enrollment in one course without removing them from the academy.
 
-**Danger Zone** contains the option to remove the student from the academy entirely. See the warning below before using this.
+**Certificates** shows any completion certificates the student has earned, and lets you revoke or restore them. You can also organize students into audiences (lists) for your own segmentation.
+
+**Danger Zone** contains the option to remove the student from the academy entirely. See the warning below before using it.
 
 <Warning>
-Removing a student from your academy is permanent. It revokes all their course enrollments, deletes their lesson progress, and cannot be undone. The student's account is not deleted — they can still sign into other Fayne academies they belong to — but all their data in your academy is gone.
+  Removing a student from your academy revokes all their course enrollments and deletes their lesson progress, and cannot be undone. The student's account is not deleted, so they can still sign into other Fayne academies they belong to, but all their progress data in your academy is gone. (Certificates they already earned are not deleted by this action; revoke those separately from the Certificates tab if needed.)
 </Warning>
 
 ## Inviting students
 
-You invite students to your academy by sending them a verification email. The invite links their address to your academy and, optionally, pre-enrolls them in courses you select.
+You invite students to your academy by sending them an invitation email. The invite links their address to your academy and, optionally, pre-enrolls them in courses you select.
 
 <Steps>
   <Step title="Open the invite dialog">
-    On the **Students** page, click **Invite students**.
+    On the **People** page, click **Invite students**.
   </Step>
   <Step title="Add email addresses">
-    Type an address and press **Enter** or **,** to add it. Paste a comma- or newline-separated list to add multiple addresses at once. Each address appears as a chip you can remove before sending.
+    Type an address and press **Enter**, **comma**, or **Tab** to add it. Paste a comma-, space-, or newline-separated list to add multiple addresses at once. Each address appears as a chip you can remove before sending.
   </Step>
-  <Step title="Select courses (optional)">
-    Use the course picker to choose one or more courses. Students will be automatically enrolled in those courses as soon as they accept the invitation. You can leave this empty if you want them to access only what your pricing model already grants.
+  <Step title="Grant course access (optional)">
+    Use the course picker to choose one or more courses. Students are automatically enrolled in those courses as soon as they accept the invitation. You can leave this empty if you want them to access only what your academy already grants.
   </Step>
   <Step title="Send invitations">
-    Click **Send invitation** (or **Send N invitations** for bulk sends). Each recipient gets a branded email from your academy asking them to verify their address and join.
+    Click **Send invitation** (or **Send N invitations** for bulk sends). Each recipient gets a branded email from your academy inviting them to join.
   </Step>
 </Steps>
 
 <Tip>
-If a student's invitation email is already associated with an account, accepting the invite adds them to your academy without requiring them to create a new account.
+  If a student's invitation email is already associated with an account, accepting the invite adds them to your academy without requiring them to create a new account.
 </Tip>
 
 ## How students sign in
 
-When a student visits your academy for the first time, they choose their preferred sign-in method. Fayne supports three options:
+Students sign in with a **magic link**. They enter their email and receive a one-time sign-in link, with no password to set or remember. The link signs them straight into your academy.
 
-<CardGroup cols={3}>
-  <Card title="Magic link" icon="mail">
-    The student enters their email and receives a one-time sign-in link. No password required.
-  </Card>
-  <Card title="Email and password" icon="lock">
-    The student creates a password and signs in with their email and password on future visits.
-  </Card>
-  <Card title="Google" icon="chrome">
-    The student authenticates with their Google account using OAuth. No password is stored in Fayne.
-  </Card>
-</CardGroup>
-
-The student picks their method once. You do not control which method they use, and you do not need to configure anything for these options to work.
-
-## Bulk operations and roster export
-
-The roster supports bulk actions when you select multiple students using the checkboxes. Available bulk operations include revoking access for a group of students and exporting the selected rows.
-
-Use the **Export** option to download a CSV of your roster. The export includes name, email, join date, number of enrolled courses, and overall progress for each student.
+You do not need to configure anything for sign-in to work. Every student uses the same passwordless flow.
 
 ## Multi-academy isolation
 
