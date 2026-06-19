@@ -49,7 +49,9 @@
               "academy/branding",
               "academy/courses",
               "academy/pricing",
-              "academy/custom-domain"
+              "academy/custom-domain",
+              "academy/team",
+              "academy/email-domain"
             ]
           },
           {
@@ -59,7 +61,18 @@
               "content/ai-customization",
               "content/interactive-widgets",
               "content/course-library",
-              "content/connect-ai-tools"
+              "content/connect-ai-tools",
+              "content/ai-course-generation",
+              "content/knowledge"
+            ]
+          },
+          {
+            "group": "Learning Assistant",
+            "icon": "bot",
+            "pages": [
+              "learning-assistant/overview",
+              "learning-assistant/customization",
+              "learning-assistant/conversations"
             ]
           },
           {
@@ -67,7 +80,17 @@
             "pages": [
               "students/managing-students",
               "students/enrollments",
-              "students/certificates"
+              "students/certificates",
+              "students/audiences",
+              "students/student-experience"
+            ]
+          },
+          {
+            "group": "Engagement",
+            "icon": "megaphone",
+            "pages": [
+              "engagement/newsfeed",
+              "engagement/book-a-call"
             ]
           },
           {
@@ -75,6 +98,15 @@
             "pages": [
               "payments/stripe-connect",
               "payments/pricing-models"
+            ]
+          },
+          {
+            "group": "Billing & Plans",
+            "icon": "credit-card",
+            "pages": [
+              "billing/plans",
+              "billing/subscription",
+              "billing/referrals"
             ]
           },
           {

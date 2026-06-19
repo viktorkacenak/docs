@@ -1,0 +1,115 @@
+---
+title: "Customize Your Learning Assistant"
+sidebarTitle: "Customization"
+description: "Configure the Learning Assistant's identity, voice, teaching style, and limits, then test it in the live preview"
+---
+
+The Learning Assistant settings screen is where you decide how the in-course chat helper presents itself to your students and how it talks. You set its name and avatar, tune its voice with a few sliders, pick how directly it answers, and watch every change in a live preview before you save. Nothing here is visible to students until you turn the assistant on and save.
+
+For what the assistant is and how students use it, see the [Overview](/learning-assistant/overview). To read what students have been asking, see [Conversations](/learning-assistant/conversations).
+
+## Open the settings
+
+The settings screen has two halves: a configuration panel on the left and a live preview on the right. Changes you make on the left appear in the preview immediately, and a "Unsaved changes" hint shows in the footer until you press **Save**.
+
+<Note>
+  Configuring the assistant is a write action. If your plan has lapsed and the academy is paused, you keep read-only access to past conversations, but the settings screen shows a reactivation prompt instead of the editor until you reactivate.
+</Note>
+
+## Turn it on
+
+At the top of the panel is the **Enabled** toggle, described as "Show the chat bubble to enrolled students." Leave it off while you set things up; flip it on and save when you are ready for students to see the assistant. When you save with it enabled, you get a confirmation that the assistant is live on your course pages.
+
+## Identity
+
+The Identity group controls how the assistant introduces itself in the chat header and the first bubble.
+
+<CardGroup cols={2}>
+  <Card title="Avatar" icon="image">
+    Upload a square PNG, JPG, WebP, or SVG. If you skip it, the assistant shows the initials of its name in a circle tinted with your brand color. You can replace or remove it at any time.
+  </Card>
+
+  <Card title="Name" icon="user">
+    The assistant's display name, up to 60 characters. A name is required to save.
+  </Card>
+
+  <Card title="Title" icon="tag">
+    A short subtitle shown under the name in the chat header, up to 60 characters (for example "Learning assistant" or "Your Cold Outreach coach"). Optional.
+  </Card>
+
+  <Card title="First message" icon="message-circle">
+    The opening greeting shown when a student starts a new chat, up to 300 characters. Optional. If left blank, no greeting bubble appears.
+  </Card>
+</CardGroup>
+
+## Voice and style
+
+Three sliders shape the assistant's tone. Each runs from 0 to 100 and shows a live band label as you drag.
+
+| Slider | Low end (0) | High end (100) | Band labels |
+| --- | --- | --- | --- |
+| **Warmth** | Warm & encouraging | Direct & no-fluff | Encouraging / Balanced / Direct |
+| **Answer length** | Brief | Thorough | Brief / Standard / Thorough |
+| **Tone** | Casual | Professional | Casual / Balanced / Professional |
+
+<Tip>
+  The band labels switch at the thirds of the slider: roughly the first third reads as the low band, the middle third as balanced, and the top third as the high band. Use the preview to feel out where each setting lands before saving.
+</Tip>
+
+## Teaching style
+
+Below the sliders, pick how the assistant handles exercise and quiz answers, and how much it leads versus tells.
+
+<AccordionGroup>
+  <Accordion title="Just answer">
+    Gives exercise and quiz answers directly. The assistant gives the answer, then briefly explains the reasoning behind it.
+  </Accordion>
+
+  <Accordion title="Guide with hints">
+    Nudges toward answers instead of handing them over. It leads with a hint or first step and confirms the full answer once the student is close, and never hands over exercise or quiz answers outright. This is the default.
+  </Accordion>
+
+  <Accordion title="Socratic">
+    Leads with questions; answers only when the student is truly stuck. The assistant opens with a guiding question or pointed hint and keeps each turn short, giving a direct answer only after the student has attempted it or explicitly asks.
+  </Accordion>
+</AccordionGroup>
+
+## Advanced
+
+The Advanced section is collapsed by default. Expand it for two extra controls.
+
+### Custom instructions
+
+A free-text field (up to 2000 characters) added to every conversation. Use it to weave in things specific to your academy, for example reminding students about your weekly office hours when they seem stuck. The preview reflects unsaved custom instructions as you type.
+
+### Messages per student per day
+
+A numeric cap on how many messages a single student can send each day. The default is **50** and you can set it anywhere from **1** to **500**.
+
+<Info>
+  The cap is per student, per day, and resets daily. It is a guardrail against runaway usage, not a per-conversation limit.
+</Info>
+
+## Live preview
+
+The right side of the screen is a working copy of the student chat widget, themed with your academy's brand color. It always reflects your current settings, including unsaved changes, so you can test before committing.
+
+<Steps>
+  <Step title="Pick a course">
+    Use the "Student is in" dropdown to choose which published course the preview simulates. The assistant answers only from published course content, so you need at least one published course for the preview to work.
+  </Step>
+  <Step title="Ask a question">
+    Type something a student would ask. The reply uses your current name, avatar, greeting, sliders, teaching style, and custom instructions.
+  </Step>
+  <Step title="Iterate">
+    Adjust the knobs and ask again. Use **Clear** to start a fresh conversation.
+  </Step>
+</Steps>
+
+<Warning>
+  The preview is a test surface only. Your changes do not affect students until you press **Save**. If you have no published courses yet, the preview prompts you to publish one first.
+</Warning>
+
+## Save
+
+Press **Save** in the footer to apply everything at once. The footer shows "Unsaved changes" whenever the panel differs from what is stored, and clears once the save succeeds.

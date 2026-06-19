@@ -1,0 +1,114 @@
+---
+title: "Send Email from Your Own Domain"
+sidebarTitle: "Email Sending Domain"
+description: "Verify your own sending domain so academy emails reach students from your address instead of a shared one"
+---
+
+Every academy already sends email under your own sender name. By default those emails go out over a shared Fayne sending domain, so the visible "From" name is yours but the underlying address is not. Verifying your own sending domain closes that gap: transactional emails to your students leave from your domain, which improves deliverability and reinforces that the academy is entirely your brand.
+
+This page covers how the default works, how to verify your own domain, and which emails it affects. Sender name and reply-to address are configured on the same screen and are covered under [Branding](/academy/branding).
+
+## How sending works by default
+
+Open **Settings \> Email** (the "Email Sending" screen) to manage all of this.
+
+Out of the box, student-facing emails use:
+
+- **Your sender name**, taken from the **From name** field (it falls back to your academy name if left blank).
+- **Your reply-to address**, so replies reach a real inbox. This resolves from your **Reply-to email** setting, or your account email if you have not set one.
+- **A shared Fayne sending domain** for the actual envelope address, until you verify your own.
+
+<Note>
+  Students never see "Fayne" in these emails. The shared sending domain only affects the technical envelope address, not the sender name or branding your students read.
+</Note>
+
+To check how your emails look right now, use **Send test email** on the same screen. It sends a sample to your account.
+
+## Why verify your own domain
+
+<CardGroup cols={2}>
+  <Card title="Better deliverability" icon="shield-check">
+    Mailbox providers trust mail that is authenticated against your own domain, so more of your emails land in the inbox instead of spam.
+  </Card>
+
+  <Card title="Full white-label" icon="sparkles">
+    The envelope address matches your brand end to end, not just the visible sender name.
+  </Card>
+</CardGroup>
+
+## Plan requirement
+
+Verifying a custom sending domain requires a paid plan (**Pro** or **Scale**). On the trial or free tier, the **Custom sending domain** card is shown behind an unlock overlay, and your academy keeps using the shared sending domain in the meantime. Upgrading unlocks the setup card immediately.
+
+<Info>
+  This is a different capability from connecting Stripe. Both require a paid plan, but they are configured separately. See [Stripe Connect](/payments/stripe-connect) for payments setup.
+</Info>
+
+## Verify your sending domain
+
+<Steps>
+  <Step title="Enter your domain">
+    In the **Custom sending domain** card, type the domain you want to send from in the **Domain** field. Use a dedicated subdomain such as `mail.youracademy.com` or `academy.yourcompany.com` rather than your root domain.
+  </Step>
+  <Step title="Create the domain">
+    Click **Create domain**. Fayne registers the domain with the email provider and returns the DNS records you need to add.
+  </Step>
+  <Step title="Add the DNS records">
+    Log in to your DNS provider (Cloudflare, GoDaddy, Namecheap, Route 53, or whichever you use) and add each record shown, exactly as listed. Each record card shows its type, name, value, and TTL, along with a short note on what it does (for example, records that prove your mail is authentic and tell inboxes which servers may send as your domain).
+  </Step>
+  <Step title="Check DNS">
+    Back in Fayne, click **Check DNS**. DNS changes usually propagate within a few minutes. The card also re-checks automatically about every 15 seconds while it is waiting, so you can leave it open.
+  </Step>
+  <Step title="Confirm it is live">
+    When the records are found, the status badge flips to **Live** and the card confirms that emails now send from your domain.
+  </Step>
+</Steps>
+
+<Tip>
+  If verification does not complete right away, give DNS a little more time, then click **Re-check DNS**. Some providers take longer to propagate than others.
+</Tip>
+
+### Status badges
+
+While your domain is being set up, the card shows where it stands:
+
+| Badge | Meaning |
+| --- | --- |
+| Waiting for DNS | The domain is created and Fayne is waiting for your records to appear. |
+| Checking DNS | A check is in progress. |
+| Live | The domain is verified and emails are now sent from it. |
+| DNS not found | The expected records were not found yet. Re-add or wait, then re-check. |
+
+### Removing a domain
+
+To stop using a custom domain, open the card and choose **Delete domain**. You will be asked to confirm. After removal, emails fall back to the shared sending domain until you add and verify a new one.
+
+## Which emails this affects
+
+Once your domain is **Live**, it is used for the transactional emails that are branded to your academy and sent to your audience. At a high level, this includes:
+
+<AccordionGroup>
+  <Accordion title="Student emails">
+    Invitations, welcome emails, course-assigned and course-purchased notices, access-removed and access-revoked notices, new-course announcements, and certificate-ready emails.
+  </Accordion>
+
+  <Accordion title="Team and account emails">
+    Invitations to team members helping run your academy, and sign-in and account emails (such as confirmation codes and email-change confirmations) sent under your academy.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Fayne's own messages to you as the owner (your platform welcome, trial and billing notices, and milestone alerts) always come from Fayne and are not affected by your sending domain.
+</Note>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Branding" icon="palette" href="/academy/branding">
+    Set your sender name, reply-to address, logo, and colors.
+  </Card>
+
+  <Card title="Stripe Connect" icon="credit-card" href="/payments/stripe-connect">
+    Connect payments to sell courses (paid plan required).
+  </Card>
+</CardGroup>

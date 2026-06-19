@@ -1,0 +1,163 @@
+---
+title: "Plans and Limits"
+sidebarTitle: "Plans and Limits"
+description: "How the Pro and Scale plans you pay Fayne work, including limits, AI credits, the Stripe platform fee, and what happens when a plan lapses"
+---
+
+Your Fayne plan is the subscription you pay to run your academy. It sets how much you can build (academies, courses, students, Knowledge sources), how many AI credits you get each billing period, and which capabilities are unlocked (custom domain, custom sending domain, selling, REST API). This is separate from any payments you collect from your own students.
+
+There are two paid plans, **Pro** and **Scale**, plus a free 7-day preview trial that needs no card. Both paid plans unlock every feature; they differ only in their numeric limits and the Stripe platform fee.
+
+<Info>
+  This page is about what you pay Fayne. For collecting money from your students, see [Stripe Connect](/payments/stripe-connect). To change, upgrade, or cancel your plan, see [Subscription](/billing/subscription).
+</Info>
+
+## The plans
+
+<CardGroup cols={2}>
+  <Card title="Pro" icon="user">
+    For coaches and consultants running one academy. $99/month**, or **$**79/month** billed yearly.
+  </Card>
+
+  <Card title="Scale" icon="users">
+    For agencies and teams running multiple academies. $199/month**, or **$**159/month** billed yearly. Scale removes the Stripe platform fee entirely.
+  </Card>
+</CardGroup>
+
+### What each plan includes
+
+|  | Trial (7 days, no card) | Pro | Scale |
+| --- | --- | --- | --- |
+| Academies | 1 | 1 | 5 |
+| Published courses | 8 | 20 | 100 |
+| Draft courses | up to 8 total | effectively unlimited | effectively unlimited |
+| Lessons per course | 25 | 25 | 50 |
+| Students per academy | 5 | 500 | 2,000 |
+| Knowledge sources | 3 | 50 | 250 |
+| Extra admin seats | 0 | 0 | 3 |
+| AI credits | 10 (one-time) | 100 / period | 300 / period |
+| AI course generation | Yes | Yes | Yes |
+| Custom domain | No | Yes | Yes |
+| Custom sending domain | No | Yes | Yes |
+| Sell with Stripe Connect | No | Yes | Yes |
+| REST API access | No | Yes | Yes |
+| Stripe platform fee | n/a | 3% | 0% |
+
+<Note>
+  Published-course and student counts are tracked **account-wide** across every academy you own, not per academy. On Scale, running multiple academies shares one pool of student slots and published courses rather than multiplying them.
+</Note>
+
+<Note>
+  Draft courses are not capped on a paid plan, so you can keep as many works-in-progress as you like. The published-course limit is what gates how many are live for students at once.
+</Note>
+
+## The free preview trial
+
+New owners start on a 7-day preview that needs no credit card. The editor and course builder feel fully unlocked so you can shape real content, but depth is walled: one academy, up to 8 courses, up to 5 students, 3 Knowledge sources, and a one-time pool of 10 AI credits.
+
+<Steps>
+  <Step title="Build during the trial">
+    You can generate a course with AI, edit lessons, and add a few students to see the full flow end to end.
+  </Step>
+  <Step title="What stays locked">
+    Custom domain, custom sending domain, selling with Stripe, and REST API access are reserved for paid plans. Trying one shows an upgrade prompt.
+  </Step>
+  <Step title="Subscribe to keep going">
+    When the 7 days end, pick Pro or Scale from the pricing modal to convert. Everything you built carries over.
+  </Step>
+</Steps>
+
+<Warning>
+  Trial AI credits are a single pool of 10 that does **not** refill. They are meant to let you feel the AI features, not run on them. Paid plans get a fresh credit allowance every billing period.
+</Warning>
+
+## AI credits
+
+AI work draws from a credit pool. On paid plans the pool refills at the start of each monthly billing period (yearly subscribers still get a fresh monthly allowance). Pro includes 100 credits per period; Scale includes 300.
+
+Credits are spent per AI operation:
+
+<AccordionGroup>
+  <Accordion title="What costs a credit">
+    - **Generating a course** costs 1 credit per lesson drafted. A 10-lesson course uses about 10 credits.
+    - **A course-level AI assistant turn** costs 1 credit, no matter how many lessons it edits in that turn.
+    - **A bulk transform** costs 1 credit.
+  </Accordion>
+
+  <Accordion title="What is free">
+    Lighter operations such as generating diagrams or building interactive widget code do not draw from your credit pool on a paid plan. The quality and repair passes that run inside course generation are also free; you are only charged for the lessons produced.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  A simple way to budget: one full AI-generated course costs roughly one credit per lesson. Pro's 100 credits per period covers several full courses plus ongoing AI edits.
+</Tip>
+
+When your credits for the period run out, AI operations are paused with a message pointing you to upgrade, and they resume when the next period starts (or immediately if you move to a higher plan).
+
+## Usage meters
+
+Your billing area shows live usage meters so you can see how much of each limit you have used. The account-wide meters track:
+
+- **Published courses** used against your plan's published-course limit.
+- **Students** used against your plan's student limit (this also counts pending invitations that have not yet been accepted, since they hold a slot).
+- **AI credits** used in the current period.
+
+Each meter fills as you approach its limit. If a count goes over (for example after a downgrade), the meter flags **Over your plan limit** so you know which area to resolve.
+
+## When a plan is paused or lapses
+
+If a subscription is cancelled, or a payment stays unpaid past the grace period, the academy moves into a locked state.
+
+<Steps>
+  <Step title="Grace period first">
+    A failed renewal does not lock you immediately. There is a short grace window (about a week) where the plan keeps working while Stripe retries the payment.
+  </Step>
+  <Step title="Then the academy pauses">
+    After that, the academy is paused: the student site shows a temporarily-unavailable page, any custom domain is detached, and no new enrollments are taken.
+  </Step>
+  <Step title="High-value pages are gated">
+    On the owner side, the most valuable pages (analytics, sales, content preview, and AI generation) show a **Reactivate plan** screen instead of their data. The rest of the app stays viewable so you can check your settings.
+  </Step>
+  <Step title="Reactivate to restore">
+    Choosing a plan again unlocks everything and brings your student site back. Your courses, students, and content are kept while paused.
+  </Step>
+</Steps>
+
+## The Stripe platform fee (when you sell)
+
+If you charge your students, Fayne applies a platform fee on top of Stripe's own processing fees. The fee depends on your plan:
+
+<CardGroup cols={2}>
+  <Card title="Pro" icon="percent">
+    A **3%** Fayne platform fee on each sale.
+  </Card>
+
+  <Card title="Scale" icon="badge-check">
+    **0%** Fayne platform fee. You keep the full amount after Stripe's processing fees.
+  </Card>
+</CardGroup>
+
+<Warning>
+  Selling requires a paid plan. Free and trial academies cannot connect Stripe, so the platform fee only applies once you are on Pro or Scale and have connected Stripe. See [Stripe Connect](/payments/stripe-connect) for setup.
+</Warning>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Manage your subscription" icon="credit-card" href="/billing/subscription">
+    Upgrade, downgrade, switch billing period, or cancel.
+  </Card>
+
+  <Card title="Sell to your students" icon="hand-coins" href="/payments/stripe-connect">
+    Connect Stripe and start charging for courses.
+  </Card>
+
+  <Card title="Knowledge sources" icon="book-open" href="/content/knowledge">
+    What counts toward your Knowledge sources limit.
+  </Card>
+
+  <Card title="Course Library" icon="library" href="/content/course-library">
+    Add courses from Explore that count toward your course limits.
+  </Card>
+</CardGroup>

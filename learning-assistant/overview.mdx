@@ -1,0 +1,108 @@
+---
+title: "Learning Assistant: An AI Tutor for Your Students"
+sidebarTitle: "Overview"
+description: "The Learning Assistant is an opt-in, course-grounded AI tutor that students chat with inside your academy, branded as your own"
+---
+
+The Learning Assistant is an AI tutor your students can chat with while they work through your courses. It answers only from your published course content (and any [Knowledge](/content/knowledge) sources you choose to expose), so replies stay on-topic and grounded in what you actually teach. It is branded as part of your academy: students see your name, your colors, and your voice, never any underlying AI provider.
+
+The assistant is **off by default**. Each academy turns it on deliberately, then configures how it looks and sounds.
+
+<Note>
+  The Learning Assistant is academy-wide: once you enable it, it becomes available across every course in that academy (per student, only for courses they are actively enrolled in).
+</Note>
+
+## What your students get
+
+When enabled, students see a floating chat bubble in the bottom corner of your course and lesson pages. It works like a friendly support widget: they open it, ask a question in plain language, and get an answer drawn from the course they are reading.
+
+<CardGroup cols={2}>
+  <Card title="Course-grounded answers" icon="book-open">
+    The assistant searches and reads your published lessons before answering, and it answers only from what it finds. It does not fall back to generic AI knowledge.
+  </Card>
+
+  <Card title="Cited sources" icon="quote">
+    Each answer ends with a "Sources" list naming the lessons used. Lesson citations link straight back to the lesson, so students can go read the original.
+  </Card>
+
+  <Card title="Fully branded" icon="palette">
+    The bubble uses your academy color, your assistant's name and avatar, and a greeting you write. Students never see "Fayne" in the chat.
+  </Card>
+
+  <Card title="Remembers conversations" icon="messages-square">
+    Students can revisit recent threads from the assistant's home screen and pick up where they left off.
+  </Card>
+</CardGroup>
+
+### Where it appears
+
+The chat bubble only mounts on course pages: the course overview and the lesson viewer. It is shown to a student only for courses they are actively enrolled in. On other pages (the dashboard, profile, browse) there is no bubble.
+
+When a student opens the assistant from inside a lesson, that lesson becomes the default context: if they say "this lesson" or ask without naming a topic, the assistant reads that lesson first.
+
+<Info>
+  If a question is on-topic but genuinely not covered by your course content, the assistant says so honestly rather than inventing an answer. These "unanswered" moments are recorded for you to review, which is a useful signal about gaps in your material.
+</Info>
+
+## Privacy and transparency for students
+
+The chat shows students a short notice so they always know what they are talking to and who can see it:
+
+> AI answers from your course content and can make mistakes. Conversations may be reviewed by \[your academy name\].
+
+This makes two things clear at all times: answers come from an AI (and may not be perfect), and you, the owner, may review conversations. You can read those transcripts on your side. See [Conversations](/learning-assistant/conversations) for what you can see and how to use it.
+
+## Pulling in your Knowledge sources
+
+Beyond course lessons, the assistant can also answer from your [Knowledge](/content/knowledge) sources: your own talks, articles, guides, references, and policies that live outside the course curriculum.
+
+This is opt-in per source. Only sources you have explicitly marked as available to the tutor are searchable, and only when they have finished processing. If you have not enabled any sources for the tutor, the assistant simply stays grounded in your course lessons.
+
+<Tip>
+  Knowledge sources are a first-class place for the assistant to answer from, not just a fallback. They are how you teach the tutor your perspective: your methodology, your take on a topic, or people and references you mention but never wrote a full lesson about.
+</Tip>
+
+When an answer draws on a source, the source is named in the answer and listed in the "Sources" footer (as a plain entry, since sources have no in-app page to link to).
+
+## How to turn it on
+
+The assistant is off until you enable it. You enable and configure everything from one place.
+
+<Steps>
+  <Step title="Open the Learning Assistant settings">
+    Go to your academy's Learning Assistant settings.
+  </Step>
+  <Step title="Enable it and brand it">
+    Turn the assistant on, then set its name, optional subtitle, avatar, greeting, and voice so it feels like part of your academy. See [Customization](/learning-assistant/customization) for every option.
+  </Step>
+  <Step title="(Optional) Expose Knowledge sources">
+    In [Knowledge](/content/knowledge), mark any sources you want the assistant to be able to answer from as tutor-enabled.
+  </Step>
+  <Step title="Launch">
+    Once enabled, the bubble appears for enrolled students on your course and lesson pages automatically.
+  </Step>
+</Steps>
+
+<Warning>
+  The assistant goes quiet whenever an academy is paused (for example, a lapsed trial or plan). Existing transcripts stay readable, but students cannot start new turns until the academy is active again.
+</Warning>
+
+## Good to know
+
+<AccordionGroup>
+  <Accordion title="Does it ever use lessons a student hasn't unlocked?">
+    No. The assistant only reads published lessons in the course the student is enrolled in, and access is checked against their active enrollment before any answer is generated. Drafts are never used.
+  </Accordion>
+
+  <Accordion title="Can a student spam it?">
+    There is a per-student daily message limit as an abuse backstop. When a student hits it, they are told to come back tomorrow. The limit is owner-configurable in the assistant settings.
+  </Accordion>
+
+  <Accordion title="What language does it answer in?">
+    It replies in the same language the student writes in.
+  </Accordion>
+
+  <Accordion title="What can I see and configure?">
+    You can review student conversations (see [Conversations](/learning-assistant/conversations)) and shape the assistant's identity and teaching style (see [Customization](/learning-assistant/customization)).
+  </Accordion>
+</AccordionGroup>

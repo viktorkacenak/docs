@@ -1,0 +1,100 @@
+---
+title: "Review Learning Assistant Conversations"
+sidebarTitle: "Conversations"
+description: "Use the owner Learning Assistant inbox to read student conversations, follow lesson citations, and spot questions your course content could not answer"
+---
+
+Every chat your students have with the Learning Assistant lands in one place: the **Learning Assistant** inbox in your owner sidebar (the `/tutor` page). It works like a messenger. A list of student conversations sits on the left, and the full transcript opens on the right. This is where you see what your audience is actually asking, which lessons the answers came from, and where your course content has gaps.
+
+For setup and behavior, see the [Learning Assistant overview](/learning-assistant/overview). To change how it sounds and what it knows, see [Customization](/learning-assistant/customization).
+
+## Open the inbox
+
+<Steps>
+  <Step title="Go to Learning Assistant">
+    Click **Learning Assistant** in the sidebar (under the audience section, near People). It opens the conversation inbox for the academy you are currently in.
+  </Step>
+  <Step title="Pick a conversation">
+    The newest thread opens automatically so the right pane is never empty. Click any row in the left list to open a different transcript.
+  </Step>
+</Steps>
+
+<Note>
+  Conversations appear here as soon as a student starts asking. If no one has chatted yet, the inbox shows a prompt explaining what will appear once students begin.
+</Note>
+
+## The conversation list
+
+The left panel (titled **Chats**) lists your student conversations, newest activity first. Each row shows:
+
+<CardGroup cols={2}>
+  <Card title="Student and preview" icon="users">
+    The student's initials, their name, and a one-line preview of the most recent message in the thread.
+  </Card>
+
+  <Card title="Recency" icon="clock">
+    A short relative timestamp (for example `2h` or `3d`) for the last message.
+  </Card>
+
+  <Card title="Unanswered marker" icon="circle-alert">
+    An amber dot on the avatar when that conversation contains questions the assistant could not answer from your lessons.
+  </Card>
+
+  <Card title="Search" icon="search">
+    A **Search conversations** field that filters the list as you type, matching on student name, email, and message text.
+  </Card>
+</CardGroup>
+
+## Read a transcript
+
+Selecting a conversation opens the full back-and-forth on the right. Student questions appear in your academy's brand color, and the assistant's replies appear as plain bubbles, so the view mirrors what the student sees in the live chat bubble.
+
+### Conversation header
+
+The top bar identifies the student and the context of the chat:
+
+- **Student name and email.** Click the name or avatar to open the same student detail view you get from the [People](/audience/people) page, so you can check enrollment and progress without leaving the inbox.
+- **Course link.** When the conversation is tied to a specific course, the course title appears next to the email and links straight to that course in your owner area.
+- **Unanswered count.** If the conversation has questions the assistant could not cover, a badge in the header shows the count (for example `2 unanswered`).
+
+### Lesson citations
+
+The assistant answers strictly from your course content, and it shows its work. Below each reply, citation chips list the lessons the answer drew from, each with a book icon and the lesson title. When the conversation is attached to a course, clicking a chip jumps to that course so you can review or improve the cited lesson.
+
+<Tip>
+  Citations are the fastest way to audit quality. If an answer feels off, open the cited lesson and tighten the source content. The next student gets the better answer.
+</Tip>
+
+### "Not covered by course content"
+
+When a student asks something the assistant cannot answer from your lessons, that reply is flagged with a **Not covered by course content** badge and a subtle amber outline. These are your content gaps made visible: real questions your audience has that your current lessons do not address yet.
+
+<Info>
+  Treat flagged questions as a backlog. Each one is a prompt to add a lesson, expand an existing one, or add a source in [Knowledge](/content/knowledge) so the assistant can answer it next time.
+</Info>
+
+## When the assistant is off
+
+If the Learning Assistant is turned off, students never see the chat bubble on your course pages, so no new conversations come in. The inbox shows a banner at the top of the list with a link to turn it on. Any conversations from when it was previously on remain readable.
+
+<Warning>
+  While the assistant is off, students cannot ask questions and you will not collect new transcripts or gap signals. Turn it back on from the settings link in the banner when you are ready.
+</Warning>
+
+## How this fits your AI usage
+
+Assistant replies run on your academy's AI. Each turn is recorded against your AI usage, and the same quota check that protects your other AI features also gates the assistant: if your academy's AI pool is fully drained, the assistant pauses until it refreshes. To bound spend per learner regardless of the pool, set a per-student daily message cap in [Customization](/learning-assistant/customization).
+
+<AccordionGroup>
+  <Accordion title="Can I filter to only conversations with gaps?">
+    Conversations with unanswered questions are marked with an amber dot in the list and an unanswered count in the transcript header, so they are easy to spot while scanning. Use the search field to jump to a specific student or topic.
+  </Accordion>
+
+  <Accordion title="Does each academy have its own inbox?">
+    Yes. The inbox shows conversations for the academy you are currently in. Switch academies to see another academy's conversations.
+  </Accordion>
+
+  <Accordion title="What does a citation chip without a link mean?">
+    If a conversation is not tied to a specific course, its citation chips still name the lessons the answer used, but they appear as plain labels rather than clickable links.
+  </Accordion>
+</AccordionGroup>

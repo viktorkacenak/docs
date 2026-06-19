@@ -1,0 +1,149 @@
+---
+title: "Knowledge: Teach the AI Your Expertise"
+sidebarTitle: "Knowledge"
+description: "How the Knowledge page teaches your academy AI your expertise, through an always-applied Identity blob and searchable Sources with per-source Course AI and Learning Assistant scopes"
+---
+
+Knowledge is where you teach your academy what you know, so every piece of AI in the product sounds like you instead of a generic assistant. It has two parts: your **Identity** (a short profile applied to every AI generation) and your **Sources** (documents and pages the AI searches when it needs your specifics). You will find it under **Knowledge** in the Content group of your academy sidebar.
+
+Everything here grounds the AI that writes your courses, edits your lessons, and answers your students. The better your Knowledge, the more your courses read like you wrote them yourself.
+
+## The two parts
+
+<CardGroup cols={2}>
+  <Card title="Identity" icon="brain">
+    A free-text profile of who you are, who you serve, and how you write. It is **always applied**: every AI generation in this academy receives it as context, automatically.
+  </Card>
+
+  <Card title="Sources" icon="files">
+    Discrete documents you import (pages, videos, files, pasted text). The AI **searches them on demand** and pulls in the relevant passages when a task calls for your specifics.
+  </Card>
+</CardGroup>
+
+Think of Identity as the standing brief the AI never forgets, and Sources as your reference shelf it reaches for when it needs detail.
+
+## Identity
+
+Identity is a single block of text that is spliced into every AI generation in your academy. Use it for the things that should color everything: your business, your ideal client, your brand voice and tone, and your signature frameworks.
+
+When you first onboard, Fayne seeds Identity for you from your onboarding answers and, when your website was readable, your site's niche and description. You can edit or replace that seed at any time.
+
+<Steps>
+  <Step title="Open the Identity card">
+    On the Knowledge page, the **Identity** card sits first in the grid, marked **Always applied**. Click **Set up** (or **Customize** if it already has content).
+  </Step>
+  <Step title="Write your profile">
+    Add your ICP, brand voice, tone, and signature frameworks. A character counter shows your length against a soft cap of 8,000 characters; the hard limit is 10,000.
+  </Step>
+  <Step title="Save">
+    Click **Save changes**. From that point, every AI course draft, lesson edit, and student answer is written with your profile in context.
+  </Step>
+</Steps>
+
+<Tip>
+  Keep Identity tight and durable: who you are, who you serve, how you sound. Put one-off reference material (a specific framework doc, a transcript, a client FAQ) into Sources instead, so it stays out of every prompt and only shows up when relevant.
+</Tip>
+
+## Sources
+
+Sources are individual documents you bring into your academy. Each one is read, cleaned into plain text, summarized, and made searchable. The Knowledge page shows every source as a card with its type, title, a one-line snippet, and its scope toggles.
+
+### Adding a source
+
+Click **Add source** and pick where the content comes from.
+
+<CardGroup cols={2}>
+  <Card title="Webpage" icon="globe">
+    Paste a link to any page. Fayne reads its main content.
+  </Card>
+
+  <Card title="YouTube" icon="youtube">
+    Paste a video link. Fayne reads its transcript. Videos without captions cannot be imported.
+  </Card>
+
+  <Card title="File" icon="file-up">
+    Upload a PDF, Word document (.docx, .doc, .odt, .rtf), or Excel spreadsheet (.xlsx, .xls). Files can be up to 15 MB.
+  </Card>
+
+  <Card title="Paste text" icon="clipboard">
+    Drop in notes, a transcript, or any reference material directly, with an optional title.
+  </Card>
+</CardGroup>
+
+Extraction runs immediately when you add a source. Pasted text is instant; pages, videos, and files take a few seconds. When it finishes, the card shows the source as ready, with a generated title, a short summary, and a word count. Failed imports show the reason on the card instead.
+
+<Note>
+  Each source is capped at 200,000 characters of extracted text. Longer documents are truncated to that limit. If a page blocks automated reading or a video has no captions, the import will tell you, and pasting the content in is the reliable fallback.
+</Note>
+
+<Info>
+  Adding the same web link twice reuses the existing source rather than creating a duplicate, so re-adding a page you already imported is safe.
+</Info>
+
+### Refreshing a source
+
+Webpage and YouTube sources keep their original link, so you can re-pull them later. Open the card menu and choose **Refresh** to re-read the page or transcript in place. If nothing has changed since the last import, you will see "No changes since last import"; the same source card is updated either way, so its scope settings are preserved. Pasted text and uploaded files have no live original to re-read, so they cannot be refreshed.
+
+## Scopes: control where each source is used
+
+This is the most important control on the page. Every source has two independent toggles that decide which AI is allowed to see it. They are a privacy and data-exposure control: they let you keep private reference material out of anything your students can reach.
+
+<CardGroup cols={2}>
+  <Card title="Course AI" icon="sparkles">
+    **On by default.** Lets the AI use this source when writing and editing **your** courses and lessons. This is owner-private AI that only you operate.
+  </Card>
+
+  <Card title="Learning Assistant" icon="users">
+    **Off by default.** Lets the student-facing Learning Assistant answer **your students** from this source. This crosses the student boundary, so you must opt each source in deliberately.
+  </Card>
+</CardGroup>
+
+<Warning>
+  Turning on **Learning Assistant** for a source means your students can receive answers drawn from it. Only enable it for material you are comfortable exposing to your audience. Internal pricing notes, raw client transcripts, or unpolished drafts should stay **Course AI** only.
+</Warning>
+
+The defaults are deliberate: new sources help you author right away (Course AI on) but never reach students until you say so (Learning Assistant off). Importing a source never turns on student exposure on its own.
+
+## How Knowledge feeds the rest of the product
+
+Knowledge is not a standalone library; it is the grounding layer that the rest of your AI reads from.
+
+<AccordionGroup>
+  <Accordion title="AI course generation">
+    When you generate a course, the AI is grounded in your Identity, and you can attach specific ready sources to the job so the draft is built from your material. See [AI Course Generation](/content/ai-course-generation).
+  </Accordion>
+
+  <Accordion title="The lesson AI editor">
+    While editing a lesson, the AI can search your Course-AI sources on demand to pull in your facts, examples, and frameworks as it writes. Only sources with **Course AI** enabled are searched. See [AI Customization](/content/ai-customization).
+  </Accordion>
+
+  <Accordion title="The student Learning Assistant">
+    Your students' Learning Assistant can answer from sources you have enabled for it. It only draws on a source when that source has **Learning Assistant** turned on, and that scope is re-checked every time it reads. See [Learning Assistant overview](/learning-assistant/overview).
+  </Accordion>
+
+  <Accordion title="External AI tools over MCP">
+    Tools you connect over MCP operate against the same academy context and Knowledge you manage here. See [Connect AI Tools](/content/connect-ai-tools).
+  </Accordion>
+</AccordionGroup>
+
+## Source limits by plan
+
+The number of sources you can keep per academy depends on your plan. The Knowledge page shows a live count, for example `4/50 sources`, and the **Add source** button is disabled once you reach your cap.
+
+<Tabs>
+  <Tab title="Trial">
+    3 sources. Enough to feel how Knowledge works, not to run your whole academy on it.
+  </Tab>
+  <Tab title="Pro">
+    50 sources.
+  </Tab>
+  <Tab title="Scale">
+    250 sources.
+  </Tab>
+</Tabs>
+
+The per-plan cap and the per-source 200,000-character limit are separate guards: one bounds how many sources you keep, the other how much text a single source contributes.
+
+<Note>
+  Deleting a source removes it from Knowledge going forward. Courses you already generated from it are unaffected, since their content was written at generation time.
+</Note>

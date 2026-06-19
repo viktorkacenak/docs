@@ -1,0 +1,130 @@
+---
+title: "What Your Students Experience"
+sidebarTitle: "Student Experience"
+description: "A tour of the branded learning experience your students get, from the My Learning dashboard through the course viewer, achievements, study tools, and certificates"
+---
+
+Everything your students see is your academy: your name, your logo, your colors, your subdomain. This page walks through what that experience feels like from their side so you know exactly what you are handing them. It covers the dashboard they land on, the lesson viewer they learn in, the study tools they collect along the way, and the finish line when they complete a course.
+
+For who can see what (open signup, invitations, paid courses), see [Enrollments](/students/enrollments). For the optional in-lesson study helper, see the [Learning Assistant](/learning-assistant/overview).
+
+## My Learning dashboard
+
+My Learning is the student's home base. It groups their enrolled courses into **In Progress** and **Completed**, each shown as a course card with a progress count. Any certificates they have earned appear in a **Certificates** section lower on the same page.
+
+At the top, when a student has started but not finished a course, a **Continue learning** banner highlights the course they are partway through, names the next lesson ("Up next: ..."), shows a progress ring, and gives them a single **Continue** button straight to that lesson. It points at the first lesson they have not yet completed, so a returning student is one click from where they left off.
+
+<Note>
+  If a student has not enrolled in anything yet, My Learning shows a friendly empty state with a **Browse Courses** button instead of cards.
+</Note>
+
+## The course viewer
+
+Inside a course, students read lessons in a focused viewer.
+
+<CardGroup cols={2}>
+  <Card title="Lesson sidebar" icon="list">
+    An ordered list of every lesson in the course. The header shows the course title and a live completion percentage with a progress bar. Each row shows a checkmark for completed lessons, a small progress gauge for the lesson currently open, and the estimated reading time in minutes for the rest.
+  </Card>
+
+  <Card title="Previous / Next" icon="arrow-right">
+    A footer with the previous lesson on the left and the next lesson on the right. On the final lesson, the forward button becomes **Complete Course**.
+  </Card>
+</CardGroup>
+
+### How lessons get marked complete
+
+Students do not have to hunt for a button. A lesson is marked complete automatically in two ways:
+
+<Steps>
+  <Step title="Scrolling to the end">
+    When the student reads to the bottom of a lesson, it is marked complete and the sidebar checkmark animates in. There is a small guard so this only fires after they have actually scrolled through the lesson, not the instant the page loads.
+  </Step>
+  <Step title="Moving to the next lesson">
+    Clicking **Next Lesson** (or **Complete Course** on the last one) also marks the current lesson complete, so students who skim still get credit for what they moved past.
+  </Step>
+</Steps>
+
+The course-level progress bar in the sidebar updates as lessons are completed, and that same progress is what drives the Continue banner and the course cards on My Learning.
+
+## In-lesson study tools
+
+While reading, students get a small toolbar for capturing what matters. Everything they save is private to them.
+
+<CardGroup cols={2}>
+  <Card title="Save (bookmark)" icon="bookmark">
+    One tap saves the current lesson so they can return to it later.
+  </Card>
+
+  <Card title="Notes" icon="sticky-note">
+    A free-form note per lesson. It autosaves as they type, so there is no save button to remember.
+  </Card>
+
+  <Card title="Highlights" icon="highlighter">
+    Students highlight passages as they read. Highlights are course-wide and grouped by lesson in the panel, so they can jump back to any highlighted spot across the whole course.
+  </Card>
+
+  <Card title="Reflections" icon="pencil">
+    When a lesson includes an authored reflection prompt, the student's written answer is captured with it.
+  </Card>
+</CardGroup>
+
+### The Saved page
+
+All of the above is gathered in one place: a page labeled **Saved** in the student navigation. It reads as a single workbook stream of their bookmarks, notes, highlights, and reflection answers, each linking back to the lesson it came from. Items tied to a course the student no longer has access to are quietly dropped, so the workbook stays clean.
+
+<Tip>
+  Saved is a strong retention surface. The more a student annotates, the more reason they have to come back to your academy rather than re-finding the content elsewhere.
+</Tip>
+
+## Achievements and collectible cards
+
+The **Achievements** page turns finishing a course into something tangible. Every course in your academy has its own collectible card:
+
+- Courses the student has **completed** show their earned card, personalized with the student's name, the course title, lesson count, total minutes, and completion date, all on your academy branding.
+- Courses they have **not** finished show a **locked** placeholder card, so students can see the full set there is to collect.
+
+The page header tracks the count, for example "You've collected 3 of 12 course cards." Earned certificates also surface here in a Certificates section.
+
+## Certificates
+
+When a course is set up to issue a certificate, completing it generates one for the student. Certificates appear on My Learning, on the Achievements page, and on the student's profile, each linking to a public verification page. Students can download the certificate as a PDF.
+
+For how you turn certificates on and what they contain, see [Certificates](/students/certificates).
+
+## The completion moment
+
+Finishing a course drops the student onto a celebratory completion screen: "Well done, \[name\]!", the course title, and their collectible card. From here they can:
+
+<CardGroup cols={2}>
+  <Card title="Download the certificate" icon="download">
+    A download button appears when the course issued a certificate. (No certificate, no button: the social shares still work.)
+  </Card>
+
+  <Card title="Share the achievement" icon="share-2">
+    LinkedIn and X share buttons open a prefilled share dialog pointing at the certificate verification page (or the course page if there is no certificate).
+  </Card>
+</CardGroup>
+
+If you have enabled the completion-page placement for booking a call, a **Book a call** button also shows here, making the moment of highest momentum into a conversion opportunity. A quiet **Back to My Learning** link rounds out the page.
+
+## Student account and Purchases
+
+Students get a profile page (their name, avatar, a preview of their achievements, and certificates) and an account area scoped to your academy.
+
+- **Purchases** lists any paid courses the student has bought, each with its status, the date and amount, an invoice number when present, an **Invoice PDF** button, and a **View receipt** link. Students who have not bought anything see an empty state.
+- **Account** lets a student leave your academy. Leaving is confirmation-gated (they type their email) and only removes them from this academy; their underlying account and any other academies they belong to are untouched, and their progress is kept in case you invite them back.
+
+<Info>
+  Purchases and receipts only come into play once you sell courses, which requires a connected Stripe account on a paid plan. See [Stripe Connect](/payments/stripe-connect).
+</Info>
+
+## Guest browsing on open academies
+
+On an open (non-invite) academy, a visitor without an account is not slammed into a login wall. They can browse the course catalog and individual course pages, and they can look at the **My Learning**, **Achievements**, and **Saved** sections too. Instead of personal data, those sections render a clean sign-in nudge ("Your courses live here", "Start your collection", "Build your personal workbook") with **Sign up free** and **Sign in** buttons.
+
+This means a shared academy link shows off a real, branded product, what there is to learn and what there is to earn, before anyone commits to an account.
+
+<Warning>
+  Guest browsing applies to open academies. Invite-only academies show a private-academy screen to anyone who is not a signed-in, invited student, and the profile and account pages always require sign-in. Enrolling and opening actual lesson content always require an account.
+</Warning>
