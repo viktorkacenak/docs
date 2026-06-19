@@ -2,6 +2,7 @@
 title: "Authenticate Requests to the Fayne Academy REST API"
 sidebarTitle: "Authentication"
 description: "Learn how to authenticate API requests using Bearer tokens, generate API keys from your dashboard, and handle authentication errors."
+icon: "key"
 ---
 
 All requests to the Fayne Academy REST API must include an API key. The API uses Bearer token authentication: you pass your key in the `Authorization` header on every request. Each key is scoped to a single academy, so the API infers your academy from the key you provide. You never pass an academy identifier separately, and the host you call does not matter because the academy comes from the key.
