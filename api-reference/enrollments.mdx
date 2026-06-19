@@ -123,3 +123,62 @@ const { data } = await response.json();
   }
 }
 ```
+
+---
+
+## Revoke an enrollment
+
+Removes a student's access to a single course by revoking the enrollment. The enrollment record is kept but its access status is set to `revoked`, so the student loses access while the record is preserved. Re-enrolling later through [POST /api/v1/students/:studentId/enrollments](/api-reference/enrollments) restores access on the same record.
+
+```text
+DELETE /api/v1/students/:studentId/enrollments/:enrollmentId
+```
+
+### Path parameters
+
+<ParamField path="studentId" type="string" required>
+  UUID of the student whose enrollment you are revoking.
+</ParamField>
+
+<ParamField path="enrollmentId" type="string" required>
+  UUID of the enrollment record to revoke. This is the `id` returned when the enrollment was created.
+</ParamField>
+
+### Response fields
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="revoked" type="boolean" required>
+      Always `true` when the operation succeeds.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example request
+
+```bash
+curl -X DELETE \
+  https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012/enrollments/e1f2a3b4-c5d6-7890-efab-123456789abc \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+### Example response
+
+```json
+{
+  "data": {
+    "revoked": true
+  }
+}
+```
+
+### Error responses
+
+```json
+{
+  "error": {
+    "code": "not_found",
+    "message": "Enrollment not found"
+  }
+}
+```
