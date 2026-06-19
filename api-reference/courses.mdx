@@ -1,10 +1,10 @@
 ---
 title: "List All Published Courses in Your Academy via API"
 sidebarTitle: "Courses"
-description: "Retrieve all published courses in your academy, including pricing, visibility, lesson count, and total reading time for each course."
+description: "Retrieve all published courses in your academy, including visibility, lesson count, and total reading time for each course."
 ---
 
-The courses endpoint returns every published course in your academy in display order. You can use this to build custom catalog pages, sync course data to an external system, or display pricing programmatically. Only published courses are returned — drafts are never included.
+The courses endpoint returns every published course in your academy in display order. You can use this to build custom catalog pages or sync course data to an external system. Only published courses are returned — drafts are never included.
 
 ## List courses
 
@@ -44,12 +44,8 @@ All response data is nested under a top-level `data` object.
           Short description of the course. May be `null` if not set.
         </ResponseField>
 
-        <ResponseField name="price_cents" type="number" required>
-          Course price in the smallest currency unit (e.g., cents for USD). `0` means the course is free.
-        </ResponseField>
-
         <ResponseField name="visibility" type="string" required>
-          Visibility setting for the course. Possible values: `public`, `unlisted`, `private`.
+          Whether the course is listed in the academy catalog. Either `published` (listed) or `hidden`.
         </ResponseField>
 
         <ResponseField name="lesson_count" type="number" required>
@@ -95,8 +91,7 @@ const { data } = await response.json();
         "title": "Cold Outreach Mastery",
         "slug": "cold-outreach-mastery",
         "description": "Master the full cold outreach workflow from prospecting to reply.",
-        "price_cents": 4900,
-        "visibility": "public",
+        "visibility": "published",
         "lesson_count": 12,
         "total_reading_time_minutes": 95
       },
@@ -105,8 +100,7 @@ const { data } = await response.json();
         "title": "First-Time Manager Foundations",
         "slug": "first-time-manager-foundations",
         "description": "Core skills every new manager needs in their first 90 days.",
-        "price_cents": 0,
-        "visibility": "public",
+        "visibility": "published",
         "lesson_count": 8,
         "total_reading_time_minutes": 60
       }

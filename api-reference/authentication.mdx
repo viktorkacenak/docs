@@ -51,6 +51,9 @@ The table below covers authentication and common resource errors you may encount
 | `401` | `unauthorized` | Missing or invalid `Authorization` header |
 | `401` | `unauthorized` | API key does not start with `fa_live_` |
 | `401` | `unauthorized` | API key is revoked or does not exist |
+| `402` | `academy_locked` | The academy is paused — reactivate the plan to use the API |
+| `402` | `trial_api_unavailable` | API access requires a paid plan — preview/trial academies cannot use the API |
+| `402` | `limit_exceeded` | A plan limit was reached (for example, the student cap when adding a student) |
 | `400` | `invalid_course` | Only published courses can be assigned to a student |
 | `404` | `not_found` | Student not found in this academy |
 | `404` | `not_found` | Course not found |
