@@ -1,0 +1,419 @@
+---
+title: "Manage Student Lists and Cohort-Based Course Access"
+sidebarTitle: "Lists"
+description: "Create lists of students, add and remove members by email, and use list membership to drive which courses students can access."
+---
+
+A **list** is a named group of students in your academy (a "cohort", "tier", or "segment"). Lists do two jobs:
+
+- **Group students** so you can manage them in bulk from your own tools.
+- **Drive course access.** When a course grants access to a list, every member of that list can access the course. Add someone to the list and they get access; remove them and the access is revoked. You configure which courses a list grants from your dashboard; this API manages the list and its membership.
+
+<Note>
+  List access is **dynamic** and follows membership. This is different from an [enrollment](/api-reference/enrollments), which is a permanent per-course grant. Use a list for cohort or tier access you may want to revoke later; use an enrollment for a one-off grant that should persist.
+</Note>
+
+All endpoints require your API key in the `Authorization` header. See [Authentication](/api-reference/authentication).
+
+---
+
+## List all lists
+
+Returns every list in your academy, newest first, each with its active member count.
+
+```text
+GET /api/v1/lists
+```
+
+### Response fields
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="lists" type="object[]" required>
+      <Expandable title="list properties" defaultOpen>
+        <ResponseField name="id" type="string" required>
+          UUID of the list.
+        </ResponseField>
+
+        <ResponseField name="name" type="string" required>
+          Display name of the list, unique within the academy.
+        </ResponseField>
+
+        <ResponseField name="description" type="string">
+          Optional description. May be `null`.
+        </ResponseField>
+
+        <ResponseField name="member_count" type="number" required>
+          Number of active members.
+        </ResponseField>
+
+        <ResponseField name="created_at" type="string" required>
+          ISO 8601 creation timestamp.
+        </ResponseField>
+
+        <ResponseField name="updated_at" type="string" required>
+          ISO 8601 last-updated timestamp.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example request
+
+```bash
+curl https://yourname.fayneos.com/api/v1/lists \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+### Example response
+
+```json
+{
+  "data": {
+    "lists": [
+      {
+        "id": "56b4c1c0-27e1-4bf5-ab8a-bca651aef88a",
+        "name": "VIP Clients",
+        "description": "For our VIPs",
+        "member_count": 2,
+        "created_at": "2026-05-28T21:19:08Z",
+        "updated_at": "2026-05-28T21:19:08Z"
+      }
+    ]
+  }
+}
+```
+
+---
+
+## Create a list
+
+```text
+POST /api/v1/lists
+```
+
+### Body parameters
+
+<ParamField body="name" type="string" required>
+  Name of the list. 1 to 100 characters. Must be unique within the academy (case-insensitive); a duplicate returns `409 already_exists`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  Optional description. Maximum 500 characters.
+</ParamField>
+
+### Response
+
+Returns the created list (`member_count` is `0`) with a `201` status code.
+
+### Example request
+
+```bash
+curl -X POST https://yourname.fayneos.com/api/v1/lists \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "Premium Cohort", "description": "Paying members" }'
+```
+
+### Example response
+
+```json
+{
+  "data": {
+    "id": "9b34bee2-c132-4374-9c3f-d1e24817a301",
+    "name": "Premium Cohort",
+    "description": "Paying members",
+    "member_count": 0,
+    "created_at": "2026-06-19T11:12:52Z",
+    "updated_at": "2026-06-19T11:12:52Z"
+  }
+}
+```
+
+---
+
+## Get a list
+
+```text
+GET /api/v1/lists/:listId
+```
+
+### Path parameters
+
+<ParamField path="listId" type="string" required>
+  UUID of the list. Returns `404 not_found` if it does not exist in this academy.
+</ParamField>
+
+Returns the same list object shape as the list endpoint.
+
+---
+
+## Update a list
+
+Rename a list or change its description. Provide at least one of `name` or `description`.
+
+```text
+PATCH /api/v1/lists/:listId
+```
+
+### Body parameters
+
+<ParamField body="name" type="string">
+  New name. 1 to 100 characters. A duplicate name returns `409 already_exists`.
+</ParamField>
+
+<ParamField body="description" type="string">
+  New description, or `null` to clear it. Maximum 500 characters.
+</ParamField>
+
+Returns the updated list object.
+
+### Example request
+
+```bash
+curl -X PATCH https://yourname.fayneos.com/api/v1/lists/9b34bee2-c132-4374-9c3f-d1e24817a301 \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "Premium Cohort 2026" }'
+```
+
+---
+
+## Delete a list
+
+Deletes the list and removes the course-access grants that target it. Members are not removed from the academy, but they lose any course access that this list was granting.
+
+```text
+DELETE /api/v1/lists/:listId
+```
+
+### Example response
+
+```json
+{ "data": { "deleted": true } }
+```
+
+---
+
+## List members
+
+Returns the active members of a list, newest first.
+
+```text
+GET /api/v1/lists/:listId/members
+```
+
+### Query parameters
+
+<ParamField query="limit" default="50" type="number">
+  Number of members to return. Minimum `1`, maximum `100`.
+</ParamField>
+
+<ParamField query="offset" default="0" type="number">
+  Number of members to skip. Use with `limit` for pagination.
+</ParamField>
+
+### Response fields
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="members" type="object[]" required>
+      <Expandable title="member properties" defaultOpen>
+        <ResponseField name="id" type="string" required>
+          UUID of the student's user account.
+        </ResponseField>
+
+        <ResponseField name="email" type="string" required>
+          Student's email address.
+        </ResponseField>
+
+        <ResponseField name="name" type="string">
+          Display name. May be `null`.
+        </ResponseField>
+
+        <ResponseField name="avatar_url" type="string">
+          Avatar URL. May be `null`.
+        </ResponseField>
+
+        <ResponseField name="joined_at" type="string" required>
+          ISO 8601 timestamp of when they joined the list.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="pagination" type="object" required>
+      <Expandable title="properties">
+        <ResponseField name="total" type="number" required>
+          Total active members.
+        </ResponseField>
+
+        <ResponseField name="limit" type="number" required>
+          The `limit` used.
+        </ResponseField>
+
+        <ResponseField name="offset" type="number" required>
+          The `offset` used.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+---
+
+## Add members
+
+Adds students to a list **by email**. This endpoint is an upsert: if an email does not yet belong to a student in your academy, the student is created first, then added to the list. Calling it again for someone already on the list is a safe no-op.
+
+```text
+POST /api/v1/lists/:listId/members
+```
+
+### Body parameters
+
+<ParamField body="email" type="string">
+  A single student email. Provide either `email` or `emails`.
+</ParamField>
+
+<ParamField body="emails" type="string[]">
+  A batch of student emails. Maximum 100 per request. Provide either `email` or `emails`.
+</ParamField>
+
+<ParamField body="send_welcome_email" default="true" type="boolean">
+  Whether to send the magic-link welcome email to students who are newly created by this call. Set to `false` for silent bulk syncs. Has no effect on people who are already members.
+</ParamField>
+
+### Response fields
+
+Returns `200` with a per-email result array, so a single failure (such as a plan-limit hit) does not fail the whole batch.
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="results" type="object[]" required>
+      <Expandable title="result properties" defaultOpen>
+        <ResponseField name="email" type="string" required>
+          The email from the request.
+        </ResponseField>
+
+        <ResponseField name="status" type="string" required>
+          One of: `created` (a new student was provisioned and added), `added` (an existing student was added to the list), `already_member` (already on the list, no change), or `error`.
+        </ResponseField>
+
+        <ResponseField name="student_id" type="string">
+          UUID of the student. Present unless `status` is `error`.
+        </ResponseField>
+
+        <ResponseField name="code" type="string">
+          Error code (for example `limit_exceeded`). Present only when `status` is `error`.
+        </ResponseField>
+
+        <ResponseField name="message" type="string">
+          Human-readable error detail. Present only when `status` is `error`.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example request
+
+```bash
+curl -X POST https://yourname.fayneos.com/api/v1/lists/9b34bee2-c132-4374-9c3f-d1e24817a301/members \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{ "emails": ["jamie@example.com", "alex@example.com"], "send_welcome_email": false }'
+```
+
+### Example response
+
+```json
+{
+  "data": {
+    "results": [
+      { "email": "jamie@example.com", "status": "created", "student_id": "6bf451b8-765c-412c-a707-e4d0c6b4de2f" },
+      { "email": "alex@example.com", "status": "already_member", "student_id": "c0b9a270-b89a-425a-80e0-869dfdc3d6d5" }
+    ]
+  }
+}
+```
+
+---
+
+## Remove a member
+
+Removes a student from a list. They remain in your academy, but they lose any course access this list was granting. The student's enrollments and progress are untouched.
+
+```text
+DELETE /api/v1/lists/:listId/members/:userId
+```
+
+### Path parameters
+
+<ParamField path="userId" type="string" required>
+  UUID of the student to remove (the `id` from the members list). Returns `404 not_found` if they are not an active member of the list.
+</ParamField>
+
+### Example response
+
+```json
+{ "data": { "removed": true } }
+```
+
+---
+
+## Courses a list grants
+
+Returns the courses this list grants access to, derived from the course-access rules that target it. This is read-only; attach or detach courses from a list in your dashboard.
+
+```text
+GET /api/v1/lists/:listId/courses
+```
+
+### Response fields
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="courses" type="object[]" required>
+      <Expandable title="course properties" defaultOpen>
+        <ResponseField name="course_id" type="string" required>
+          UUID of the course.
+        </ResponseField>
+
+        <ResponseField name="title" type="string" required>
+          Course title.
+        </ResponseField>
+
+        <ResponseField name="slug" type="string" required>
+          URL-safe course slug.
+        </ResponseField>
+
+        <ResponseField name="term" type="string" required>
+          How the list grants the course: `free`, `one_time`, or `included`.
+        </ResponseField>
+
+        <ResponseField name="price_cents" type="number">
+          One-time price in cents when `term` is `one_time`; otherwise `null`.
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+### Example response
+
+```json
+{
+  "data": {
+    "courses": [
+      {
+        "course_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        "title": "Cold Outreach Mastery",
+        "slug": "cold-outreach-mastery",
+        "term": "free",
+        "price_cents": null
+      }
+    ]
+  }
+}
+```

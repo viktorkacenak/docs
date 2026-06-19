@@ -99,7 +99,8 @@
             "pages": [
               "api-reference/courses",
               "api-reference/students",
-              "api-reference/enrollments"
+              "api-reference/enrollments",
+              "api-reference/lists"
             ]
           }
         ]

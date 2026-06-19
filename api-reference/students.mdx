@@ -161,12 +161,20 @@ POST /api/v1/students
 </ParamField>
 
 <ParamField body="course_ids" type="string[]">
-  Array of course UUIDs to enroll the student in. Maximum 50 course IDs per request. Each course must be published. Optional.
+  Array of course UUIDs to enroll the student in. Maximum 50 course IDs per request. Each course must be published. Optional. Creates a permanent enrollment per course.
+</ParamField>
+
+<ParamField body="list_ids" type="string[]">
+  Array of [list](/api-reference/lists) UUIDs to add the student to. Maximum 50 per request. Each list must exist in this academy, or the request returns `400 invalid_lists`. Use `list_ids` for cohort or tier access you may want to revoke later, and `course_ids` for a permanent per-course grant. Optional.
+</ParamField>
+
+<ParamField body="send_welcome_email" default="true" type="boolean">
+  Whether to send the magic-link welcome email to the new student. Set to `false` for silent imports. Optional.
 </ParamField>
 
 ### Response fields
 
-Returns the newly created student object with a `201` status code. The shape matches a single student from the list endpoint.
+Returns the newly created student object with a `201` status code. The shape matches a single student from the list endpoint, plus a `membershipStatus` field (`created` or `reactivated`). Adding a student who is already an active member of the academy returns `409 already_exists`.
 
 ### Example request
 
