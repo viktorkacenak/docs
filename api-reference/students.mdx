@@ -189,7 +189,7 @@ POST /api/v1/students
 </ParamField>
 
 <ParamField body="list_ids" type="string[]">
-  Array of [list](/api-reference/lists) UUIDs to add the student to. Maximum 50 per request. Each list must exist in this academy, or the request returns `400 invalid_lists`. Use `list_ids` for cohort or tier access you may want to revoke later, and `course_ids` for a permanent per-course grant. Optional.
+  Array of [list](/api-reference/lists) UUIDs to add the student to. Maximum 50 per request. Each list must exist in this academy, or the request returns `400 invalid_lists`. Offer-managed lists return `400 list_managed_by_offer`; grant the offer instead. All ids are validated before the student account is created, so a rejected request creates nothing. Use `list_ids` for cohort or tier access you may want to revoke later, and `course_ids` for an individual course assignment. Optional.
 </ParamField>
 
 <ParamField body="send_welcome_email" default="true" type="boolean">
