@@ -5,7 +5,7 @@ description: "Everything you sell is an Offer: a single course, a bundle with it
 icon: "hand-coins"
 ---
 
-Everything you sell in your academy is an **Offer**. An offer wraps one or more courses with a price and a way in: students buy it (or claim it for free), and holding it unlocks every course it covers. You manage all of this from **Offers** in the owner sidebar.
+Everything you sell in your academy is an **Offer**. An offer wraps one or more courses with a price and a way in: students buy it (or claim it for free), and holding it unlocks every course it covers. You manage all of this from **Sell** in the owner sidebar.
 
 Offers make monetization composable without complicating the simple case. If you just want to charge for one course, set a price on the course and you are done: Fayne manages the offer behind the scenes. Bundles and the Academy Pass are there when you want more.
 
@@ -27,15 +27,15 @@ Offers make monetization composable without complicating the simple case. If you
 
 Any offer can also be **free**. A free bundle makes a strong lead magnet: students claim it without a payment step and it shows up in their access like any purchase.
 
-## The Offers hub
+## The Sell area
 
-The **Offers** area in your sidebar is the home for everything sellable:
+The **Sell** area in your sidebar is the home for everything sellable:
 
-- **Dashboard**: revenue at a glance, recent sales, your Stripe connection status, and health alerts.
-- **Products**: every offer you have created, with status, price, and holder counts.
-- **Pass**: create or edit your Academy Pass.
-- **Pricing**: a bulk table of all your courses where you can set each one to Free, Paid, or Members-only in one place.
-- **Sales**: the transaction ledger, with per-sale status, gross, fees, and net, plus CSV export.
+- **Overview**: revenue at a glance, recent sales, your Stripe connection status, and health alerts.
+- **Offers**: every offer you have created, with status, price, and holder counts.
+- **Academy pass**: create or edit your Academy Pass.
+- **Course pricing**: a bulk table of all your courses where you can set each one to Free, Paid, or Members-only in one place.
+- **Transactions**: the transaction ledger, with per-sale status, gross, fees, and net, refunds you can issue in place, plus CSV export.
 - **Settings**: defaults applied to newly created courses, including offers a new course joins automatically.
 
 ## How students get an offer
@@ -50,27 +50,19 @@ The **Offers** area in your sidebar is the home for everything sellable:
   </Accordion>
 
   <Accordion title="You grant it">
-    From a student's detail panel (**Access** tab) or when inviting them, you can hand any active offer to a specific person, no payment involved.
-  </Accordion>
-
-  <Accordion title="They are on a list the offer is free for">
-    An offer can name one of your [Lists](/students/audiences) as its grants-to list. Everyone on that list holds the offer for as long as they are on the list. Add someone to your "VIP clients" list and they get the bundle; remove them and it ends. This is the mechanism for cohort or tier access.
+    From a student's detail panel (**Access** tab) or when inviting them, you can hand any active offer to a specific person, no payment involved. To comp a whole cohort, grant the offer to each member or attach it to their invitations.
   </Accordion>
 </AccordionGroup>
 
 <Note>
-  Access through an offer is live. It lasts exactly as long as the student holds the offer: a refund, a revoke, or leaving the grants-to list ends it, and there is nothing to clean up.
+  Access through an offer is live. It lasts exactly as long as the student holds the offer: a refund or a revoke ends it, and there is nothing to clean up.
 </Note>
 
 ## Product pages and the storefront
 
 Bundles and the Pass get their own **product page** at `yourname.fayneos.com/o/your-offer`, with the cover, description, what is included, and a purchase button. It is a shareable sales link that works in emails, socials, and funnels.
 
-Offers can also appear as cards in your student-facing catalog. Students see an **Unlock more** shelf with offers they could buy, and a **Your access** section listing offers they already hold. On a locked course page with several ways in, students see a "choose how you want in" comparison instead of a single buy button.
-
-## Group pricing
-
-An offer can limit who may buy it to members of a specific list. Use this for special pricing: create a "\$49 alumni price" offer buyable only by your Alumni list, while everyone else sees the standard offer.
+Offers can also appear as cards in your student-facing catalog. Students see a shelf of offers they could buy, and a **Your access** section listing offers they already hold. On a locked course page with several ways in, students see a "choose how you want in" comparison instead of a single buy button.
 
 ## Where course pricing fits
 

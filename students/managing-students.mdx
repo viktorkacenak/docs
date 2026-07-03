@@ -14,7 +14,7 @@ The roster table lists the active students in the current academy. Each row show
 - **Name** and **Email**: the student's display name and the address they signed up with, in separate sortable columns.
 - **Joined**: the date they first accepted an invitation or created an account in your academy.
 - **Access**: what they hold through your offers, shown as a **Pass** badge for Academy Pass holders or an offer count.
-- **Courses**: the number of courses they have started.
+- **Started**: the number of courses they have started.
 - **Progress**: an overall progress bar calculated across the courses they have started.
 
 You can sort any column by clicking its header. The most recently joined students appear first by default.
@@ -33,7 +33,7 @@ Click any row in the roster to open a student's detail panel. The panel has seve
 
 - **Offers held**: the bundles or Academy Pass they hold, how they got each one (purchase, your grant, or a List that carries it), with a revoke action. Use **Grant offer** to hand them one.
 - **Course access**: personal course grants from you, with **Grant course** to assign another and a revoke action on each. Revoking warns you if the course stays open through another path (a free course, a purchase, or a held offer).
-- **Purchases**: their payment history, read-only. Purchases end through refunds in Stripe, not from here.
+- **Purchases**: their payment history, with a **Refund payment** action on each paid row. A full refund returns the money and ends whatever the purchase unlocked.
 
 **Progress** lists every course the student has started, with completed lessons out of total lessons and a checkmark when a course is finished. From here you can also **reset progress** on a course so they can start over.
 
@@ -72,7 +72,7 @@ You invite students to your academy by sending them an invitation email. The inv
 
 ## How students sign in
 
-Students sign in with a **magic link**. They enter their email and receive a one-time sign-in link, with no password to set or remember. The link signs them straight into your academy.
+Students sign in with a **one-time code**. They enter their email, receive a 6-digit code, and type it in, with no password to set or remember.
 
 You do not need to configure anything for sign-in to work. Every student uses the same passwordless flow.
 

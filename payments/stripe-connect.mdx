@@ -59,7 +59,7 @@ Connecting Stripe and selling paid courses requires a paid plan (Pro or Scale). 
 
 ## Revenue dashboard
 
-Your owner dashboard includes a revenue summary in two places: **Offers → Sales** (the per-transaction ledger, with CSV export) and **Insights** (trends and per-course breakdowns).
+Your owner dashboard includes a revenue summary in two places: **Sell → Transactions** (the per-transaction ledger, with CSV export) and **Insights** (trends and per-course breakdowns).
 
 <CardGroup cols={2}>
   <Card title="Gross sales and net" icon="circle-dollar-sign">
@@ -86,7 +86,7 @@ For full transaction history, disputes, and payout schedules, open your Stripe d
 If a student's payment fails, they get nothing: no access is granted until Stripe confirms the payment. Stripe handles card-failure notifications according to your Stripe settings.
 
 <Warning>
-  Refunds are issued from your Stripe dashboard. When a payment is **fully refunded or disputed**, Fayne automatically ends the access that purchase granted and reflects it in your revenue figures (a dedicated Refunds total, deducted from net). A partial refund records the amount but leaves access intact. Check your Stripe dashboard for the complete record, including disputes and payouts.
+  You can refund a payment in place from **Sell → Transactions** or from the student's detail panel, or issue it from your Stripe dashboard. When a payment is **fully refunded or disputed**, Fayne automatically ends the access that purchase granted and reflects it in your revenue figures (a dedicated Refunds total, deducted from net). A partial refund records the amount but leaves access intact. Check your Stripe dashboard for the complete record, including disputes and payouts.
 </Warning>
 
 ## Common questions

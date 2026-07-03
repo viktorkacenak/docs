@@ -56,20 +56,20 @@ From a list's detail page, use **Add members** to choose how members join:
 To remove someone, use the remove control on their row. Removing a member, or deleting the whole list, never touches the student's account, enrollments, or course progress. It only changes who the list targets, and you can add a member back at any time.
 
 <Note>
-  A list shows a source badge of **Manual**, **CSV import**, or **Synced** depending on how it was populated. Lists created and managed through the API show as synced.
+  Lists populated by CSV or from outside the app show a source badge (**CSV import** or **Synced**); hand-curated lists show no badge. Lists created and managed through the API show as **Synced**.
 </Note>
 
-### Let a list grant course access
+### Lists and course access
 
-Lists are most powerful when they drive access, and they do it through [Offers](/payments/offers). An offer (a bundle, the Academy Pass, or a single-course offer) can name one of your Lists as the group it is **free for**. From then on, access follows list membership: add a student to the list and every course the offer covers unlocks for them; remove them and it ends. This lets you run cohort or tier access in one place instead of granting people course by course.
+To give a group of students course access, grant them an [offer](/payments/offers): from each student's **Access** tab, or by attaching the offer to their invitations so they arrive with it. Access granted this way is per student, so you stay in control of exactly who holds what.
 
-You set this up on the offer, in the Offers hub, by pointing it at the list. A typical pattern: a "VIP clients" list that holds your flagship bundle, maintained by hand here or synced from your CRM through the [Lists API](/api-reference/lists).
+Some academies also have offers wired directly to a list, so that everyone on the list holds the offer for as long as they are a member (access rules configured before the offer model, or set up with Fayne's help). Where that is in place, membership drives access: add someone and the covered courses unlock; remove them and it ends. Making this self-serve on the offer editor is planned.
 
 <Warning>
-  Because a list can carry access, deleting one ends whatever its members were getting through it. The delete dialog warns you before you confirm.
+  Because a list can carry access this way, deleting one ends whatever its members were getting through it.
 </Warning>
 
-Two related mechanisms also live on offers rather than lists: an offer can be **buyable only by** a specific list (group pricing, for example an alumni discount), and offers students purchase manage their own member lists automatically. See [Managing Students](/students/managing-students) for access and progress.
+Offers students purchase manage their own member lists automatically; those do not appear here. See [Managing Students](/students/managing-students) for access and progress.
 
 ## Segments
 
@@ -125,7 +125,7 @@ Once a list or segment exists, you can target it in two places:
 
 <CardGroup cols={2}>
   <Card title="Course access (Lists only)" icon="shield-check">
-    Make an [offer](/payments/offers) free for a List, so membership drives who holds it and the courses it covers. Segments cannot gate access; they are for messaging and insight.
+    A List can carry an [offer](/payments/offers) so membership drives who holds it (see above). Segments cannot gate access; they are for messaging and insight.
   </Card>
 
   <Card title="Newsfeed posts" icon="megaphone">
