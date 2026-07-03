@@ -1,72 +1,79 @@
 ---
-title: "Course Enrollments: Access, Progress, and the Student View"
-sidebarTitle: "Enrollments"
-description: "Understand how enrollments work, how students get access to courses, and what students see in their learning dashboard after they enroll."
+title: "Course Access and Progress: How Students Get In"
+sidebarTitle: "Access & Progress"
+description: "How course access works (free courses, purchases, offers, and grants), how it differs from enrollment progress, and what students see in My Learning."
 icon: "user-check"
 ---
 
-An enrollment is the record that grants a specific student access to a specific course in your academy. Without an enrollment, a student cannot open or progress through a course, even if the course is published. Every time a student gains access to a course, whether by buying it, being manually added, or enrolling in a free course, Fayne creates an enrollment for them.
+Whether a student can open a course is decided live, every time they try. There is no enrollment step to manage and nothing to sync: a student has access to a course when any one of these is true.
 
-## How students get enrolled
+<CardGroup cols={2}>
+  <Card title="The course is free" icon="gift">
+    A course set to **Free** is open to everyone in your academy. Students click **Start Learning** and go straight in, with no enroll or payment step.
+  </Card>
 
-Enrollments are created in a few ways.
+  <Card title="They bought it" icon="credit-card">
+    A completed purchase of the course (or of a bundle or the Academy Pass covering it) unlocks it permanently. A full refund or dispute ends that access automatically.
+  </Card>
 
-<AccordionGroup>
-  <Accordion title="Free courses">
-    When a course is free, a student who is signed into your academy enrolls by opening the course and clicking **Enroll**. No payment step is involved. (Signing in alone does not auto-enroll a student in every free course; they enroll in the courses they choose.)
-  </Accordion>
+  <Card title="They hold an offer that covers it" icon="ticket">
+    Holding a bundle or the Pass unlocks every covered course for as long as they hold it, including offers you granted or made free for one of your Lists. See [Offers](/payments/offers).
+  </Card>
 
-  <Accordion title="Paid courses">
-    When a course has a price, the student pays through Stripe Checkout. Fayne creates the enrollment as soon as the payment is confirmed. If the payment fails, no enrollment is created.
-  </Accordion>
-
-  <Accordion title="Manual and invitation enrollment">
-    You can enroll a student in a course directly from the owner dashboard, and you can pre-enroll students in courses when you invite them. Those enrollments are created when you add them (or when the student accepts the invitation).
-  </Accordion>
-</AccordionGroup>
+  <Card title="You assigned it to them" icon="user-check">
+    A personal course grant from you, given from the student's detail panel, an invitation, or the API. It lasts until you revoke it.
+  </Card>
+</CardGroup>
 
 <Note>
-  All published courses a student is enrolled in are immediately accessible. Fayne does not support drip-feed scheduling or course prerequisites, so a student can start any lesson in any order on day one.
+  Access is layered: a student can have several of these at once. Revoking one path (say, a personal grant) does not lock the course if another still applies (say, the course is free, or they hold the Pass).
 </Note>
 
-## Manually enrolling a student
+## Access vs progress
 
-You can add an enrollment from the owner dashboard at any time, regardless of how a course is priced. This is useful for comping a student, granting early access, or adding a student to a course they have not bought.
+Fayne tracks two different things, and it helps to keep them straight:
+
+- **Access** is whether a student may open a course. It is computed live from the sources above.
+- **Progress** is what they have done inside it: which lessons are complete, when they started, whether they finished. A course appears in a student's **My Learning** once they start it.
+
+Starting a course records it automatically; there is nothing for you or the student to activate. A student can have access to many courses they have not started yet, so the courses on their My Learning page are the ones they have opened, not everything they could open.
+
+## Giving a student a course
+
+To hand a specific student a course (a comp, early access, or client onboarding):
 
 <Steps>
   <Step title="Open the student detail panel">
-    Go to **People**, find the student in the roster, and click their row to open the detail panel.
+    Go to **People**, find the student in the roster, and click their row.
   </Step>
-  <Step title="Go to the Enrollments tab">
-    In the panel, open the **Enrollments** tab.
+  <Step title="Go to the Access tab">
+    The **Access** tab shows everything they hold: offers, personal course grants, and purchases.
   </Step>
-  <Step title="Click Enroll in course">
-    Click the **Enroll in course** button.
-  </Step>
-  <Step title="Select a course and confirm">
-    Choose the course and click **Add**. The enrollment is created immediately and the student can start the course right away.
+  <Step title="Grant a course or an offer">
+    Use **Grant course** to assign one course, or **Grant offer** to hand them a bundle or the Pass. The student can start immediately, and the course shows up in their My Learning right away.
   </Step>
 </Steps>
 
-You can also pre-enroll a student in courses at the moment you invite them. When sending an invitation, use the course picker to select one or more courses. Those enrollments are created as soon as the student accepts the invitation.
+You can also attach courses and offers to an [invitation](/students/managing-students#inviting-students), so new students arrive with their access already in place. The same grants can be automated through the [API](/api-reference/enrollments).
 
-## Revoking a single enrollment
+## Revoking access
 
-To remove a student's access to one course without removing them from your academy:
+From the same **Access** tab, each grant and held offer has a revoke action. Two things are worth knowing:
 
-1. Open the student detail panel and go to the **Enrollments** tab.
-2. Find the course and open its actions menu (the three-dot icon).
-3. Select **Revoke access**.
+- **Revoking is per path.** If the student also has another way in (the course is free, they purchased it, or another offer covers it), the course stays open, and the panel tells you so before you confirm.
+- **Progress is kept.** Revoking access does not delete their completed lessons. If they regain access later, they continue where they stopped.
 
-The enrollment is revoked and the student can no longer open that course. Their progress for that course is not deleted, so if you re-enroll them later, their completed lessons are still recorded.
+<Note>
+  Purchases are not revocable from the panel; they end through a refund or dispute in Stripe, which ends the access automatically.
+</Note>
 
 ## What students see: the My Learning dashboard
 
-Once a student has at least one enrollment, their home screen in your academy becomes a personalized learning dashboard.
+Once a student has started at least one course, their home screen in your academy becomes a personalized learning dashboard.
 
 <CardGroup cols={2}>
   <Card title="Progress overview" icon="bar-chart-2">
-    Each enrolled course appears as a card with a progress bar showing how many lessons have been completed out of the total.
+    Each started course appears as a card with a progress bar showing how many lessons have been completed out of the total.
   </Card>
 
   <Card title="Continue where you left off" icon="play">
@@ -81,6 +88,10 @@ Once a student has at least one enrollment, their home screen in your academy be
     Each card shows the course title, thumbnail, and current progress. Clicking a card opens the course viewer.
   </Card>
 </CardGroup>
+
+<Note>
+  Every course a student can open is immediately fully available. Fayne does not support drip-feed scheduling or course prerequisites, so a student can start any lesson in any order on day one.
+</Note>
 
 ## The course viewer
 

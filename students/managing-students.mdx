@@ -5,7 +5,7 @@ description: "View your student roster, track per-course progress, invite new st
 icon: "users"
 ---
 
-The **People** page in your owner dashboard gives you a complete picture of everyone learning in your academy. You can see who has enrolled, how far they have progressed across every course, invite new students by email, and remove access when needed. Each academy you run has its own independent roster, so students in one of your academies are never mixed with students in another.
+The **People** page in your owner dashboard gives you a complete picture of everyone learning in your academy. You can see who has joined, what they can access, how far they have progressed across every course, invite new students by email, and remove access when needed. Each academy you run has its own independent roster, so students in one of your academies are never mixed with students in another.
 
 ## The student roster
 
@@ -13,8 +13,9 @@ The roster table lists the active students in the current academy. Each row show
 
 - **Name** and **Email**: the student's display name and the address they signed up with, in separate sortable columns.
 - **Joined**: the date they first accepted an invitation or created an account in your academy.
-- **Courses**: the number of courses they are currently enrolled in.
-- **Progress**: an overall progress bar calculated across all their active enrollments.
+- **Access**: what they hold through your offers, shown as a **Pass** badge for Academy Pass holders or an offer count.
+- **Courses**: the number of courses they have started.
+- **Progress**: an overall progress bar calculated across the courses they have started.
 
 You can sort any column by clicking its header. The most recently joined students appear first by default.
 
@@ -26,13 +27,15 @@ You can sort any column by clicking its header. The most recently joined student
 
 Click any row in the roster to open a student's detail panel. The panel has several tabs.
 
-**Overview** shows contact info, join date, and summary stats: total courses enrolled, courses completed, and overall progress percentage.
+**Overview** shows contact info, join date, and summary stats: courses started, courses completed, and overall progress percentage.
 
-**Enrollments** lists every course the student is enrolled in, with a per-course progress indicator showing completed lessons out of total lessons. A checkmark appears when the student has finished all lessons. From this tab you can also:
+**Access** shows everything that lets this student open courses, and is where you change it:
 
-- **Enroll in a course**: manually add the student to any course they are not already in.
-- **Reset progress**: clear a student's completed lessons for a specific course so they can start over.
-- **Revoke access**: remove the student's enrollment in one course without removing them from the academy.
+- **Offers held**: the bundles or Academy Pass they hold, how they got each one (purchase, your grant, or a List that carries it), with a revoke action. Use **Grant offer** to hand them one.
+- **Course access**: personal course grants from you, with **Grant course** to assign another and a revoke action on each. Revoking warns you if the course stays open through another path (a free course, a purchase, or a held offer).
+- **Purchases**: their payment history, read-only. Purchases end through refunds in Stripe, not from here.
+
+**Progress** lists every course the student has started, with completed lessons out of total lessons and a checkmark when a course is finished. From here you can also **reset progress** on a course so they can start over.
 
 **Audiences** lets you add the student to or remove them from your Lists, and shows which auto-updating Segments they match, for your own segmentation.
 
@@ -41,7 +44,7 @@ Click any row in the roster to open a student's detail panel. The panel has seve
 **Danger Zone** contains the option to remove the student from the academy entirely. See the warning below before using it.
 
 <Warning>
-  Removing a student from your academy revokes all their course enrollments and deletes their lesson progress, and cannot be undone. The student's account is not deleted, so they can still sign into other Fayne academies they belong to, but all their progress data in your academy is gone. (Certificates they already earned are not deleted by this action; revoke those separately from the Certificates tab if needed.)
+  Removing a student from your academy ends the course access you granted them and deletes their lesson progress, and cannot be undone. The student's account is not deleted, so they can still sign into other Fayne academies they belong to, but all their progress data in your academy is gone. (Certificates they already earned are not deleted by this action; revoke those separately from the Certificates tab if needed.)
 </Warning>
 
 ## Inviting students
@@ -55,8 +58,8 @@ You invite students to your academy by sending them an invitation email. The inv
   <Step title="Add email addresses">
     Type an address and press **Enter**, **comma**, or **Tab** to add it. Paste a comma-, space-, or newline-separated list to add multiple addresses at once. Each address appears as a chip you can remove before sending.
   </Step>
-  <Step title="Grant course access (optional)">
-    Use the course picker to choose one or more courses. Students are automatically enrolled in those courses as soon as they accept the invitation. You can leave this empty if you want them to access only what your academy already grants.
+  <Step title="Grant access (optional)">
+    Use the pickers to attach one or more **courses** or **offers** (a bundle or the Academy Pass) to the invitation. Whatever you attach unlocks for the student the moment they accept. You can leave this empty if you want them to access only what your academy already grants.
   </Step>
   <Step title="Send invitations">
     Click **Send invitation** (or **Send N invitations** for bulk sends). Each recipient gets a branded email from your academy inviting them to join.

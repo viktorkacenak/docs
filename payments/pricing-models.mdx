@@ -1,19 +1,15 @@
 ---
-title: "Course Pricing: Free or One-Time Price"
+title: "Course Pricing: Free, Paid, or Members-Only"
 sidebarTitle: "Pricing Models"
-description: "Offer each course for free or with a one-time price. Set prices per course and connect Stripe to receive payments directly in your own account."
+description: "Every course has one access setting: free for your members, sold for a one-time price, or reserved for bundles, the Academy Pass, and personal grants."
 icon: "circle-dollar-sign"
 ---
 
-Fayne prices courses individually. Each course in your academy is either free or has a one-time price. There is no single academy-wide pricing switch: you decide course by course, so you can mix free and paid courses in the same academy. You set a course's price in that course's **Access** settings, and you can change it at any time.
+Fayne prices courses individually. Each course's **Access** setting has three options: **Free**, **Paid**, or **Members-only**. There is no academy-wide pricing switch: you decide course by course, so free, paid, and members-only courses can live side by side in the same academy. You set it in the course's settings, or for all courses at once from **Offers → Pricing**, and you can change it at any time.
 
 <Tabs>
   <Tab title="Free">
-    A free course has no price and no checkout step. Students enroll and go straight into the course.
-
-    **How it works:**
-
-    Set the course to free in its **Access** settings. No Stripe connection is required for free courses. When a student clicks **Enroll**, they are taken directly into the course.
+    A free course is open to everyone in your academy. There is no price, no checkout, and no enroll step: students open the course and click **Start Learning**.
 
     **What you need:**
 
@@ -28,51 +24,58 @@ Fayne prices courses individually. Each course in your academy is either free or
       Use a free introductory course to build trust before pointing students toward a paid flagship course in the same academy.
     </Tip>
   </Tab>
-  <Tab title="One-time price">
-    A paid course has a one-time price. Students pay once and get permanent access to that course.
-
-    **How it works:**
-
-    Set a price in the course's **Access** settings. Students who click **Enroll** on a paid course are sent through Stripe Checkout. After payment, their enrollment is activated immediately and does not expire.
+  <Tab title="Paid">
+    A paid course is sold on its own for a one-time price. Students pay once through Stripe Checkout and keep access permanently.
 
     **What you need:**
 
-    - A paid plan (Pro or Scale); free and trial academies cannot connect Stripe
+    - A paid plan (Pro or Scale); trial academies cannot connect Stripe
     - A connected Stripe account (**Settings \> Payments**)
-    - A price set on the course (prices start at a $1 minimum, stored in cents, e.g. 4900 = $49.00)
+    - A price on the course, between $1 and $999 (see [Stripe Connect](/payments/stripe-connect) for fees)
 
     **Good to know:**
 
-    You can mix free and paid courses in the same academy. Fayne takes a platform fee per sale based on your plan (3% on Pro, 0% on Scale), and connecting Stripe to sell requires a paid plan (Pro or Scale); see [Stripe Connect](/payments/stripe-connect).
+    Setting a course to Paid creates a single-course [offer](/payments/offers) behind the scenes, sold right on the course page. The same course can also be part of a bundle or the Academy Pass at the same time. Fayne takes a platform fee per sale based on your plan (3% on Pro, 0% on Scale).
+  </Tab>
+  <Tab title="Members-only">
+    A members-only course is not sold on its own and is not open to everyone. Students get it through something that grants it: a bundle, the Academy Pass, or a personal grant from you.
 
-    <Tip>
-      One-time pricing fits courses at different price points for different audiences, for example a free "Getting Started" course leading into a paid flagship course.
-    </Tip>
+    **What you need:**
+
+    - At least one path in: put the course in a [bundle or the Pass](/payments/offers), grant it to students directly, or make an offer free for one of your Lists
+
+    **Good to know:**
+
+    This is the setting for premium content you only want reachable through a bigger purchase, a cohort, or your own say-so. Students without access see how to get in if a purchasable offer covers the course, or a note that access is managed by the academy when none does.
   </Tab>
 </Tabs>
+
+## Beyond single courses
+
+Individual course pricing is the simplest layer. To sell several courses as one product, or your whole catalog, create an [Offer](/payments/offers): bundles get their own product page and storefront card, and the Academy Pass covers everything you publish. Offers can also be free (lead magnets, cohort access via Lists).
 
 ## Course pricing vs academy access
 
 Two settings work together but are separate:
 
-- **Course pricing** decides what each course costs: free or a one-time price.
+- **Course access** decides what each course costs: free, a one-time price, or members-only.
 - **Academy access** decides who can join your academy at all: **Open** (anyone can sign up) or **Invite only** (students join by invitation). You set this in **Settings**.
 
-Paid courses require an **Open** academy: invite-only academies support free courses only. Aside from that, course pricing and academy access are set separately.
+The two combine freely. An invite-only academy can sell paid courses to its invited members, and an open academy can keep some courses members-only.
 
-## Comparing course pricing
+## Comparing course access settings
 
-|  | Free | One-time price |
-| --- | --- | --- |
-| Stripe required | No | Yes |
-| Student pays | Never | Once per course |
-| Access duration | Permanent | Permanent |
-| Best for | Lead magnets, client value-adds | Flagship courses, paid catalog |
+|  | Free | Paid | Members-only |
+| --- | --- | --- | --- |
+| Stripe required | No | Yes | Only if sold via a paid offer |
+| Student pays | Never | Once per course | Depends on the offer that covers it |
+| Sold on its own | n/a | Yes, on the course page | No |
+| Best for | Lead magnets, client value-adds | Flagship courses, paid catalog | Bundle-only and Pass-only content, cohort access |
 
-## Changing a course's price
+## Changing a course's access
 
-You can change a course's price at any time in its **Access** settings. Students who have already paid keep their access; a price change only affects new purchases. Switching a paid course to free lets new students enroll without paying, and does not affect existing purchasers.
+You can change a course's setting at any time, from its settings or the bulk **Offers → Pricing** table. Students who already have access keep it: purchases are permanent, and grants stay until you revoke them. A price change only affects new purchases, and switching a paid course to free lets new students start it without paying.
 
 <Info>
-  After changing pricing, double-check the course's Access settings. A course with no price set is free.
+  The course settings show which bundles and the Pass a course is included in, so you always see every path into it before changing anything.
 </Info>
