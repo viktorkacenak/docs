@@ -1,13 +1,13 @@
 ---
 title: "Plans and Limits"
 sidebarTitle: "Plans and Limits"
-description: "How the Pro and Scale plans you pay Fayne work, including limits, AI credits, the Stripe platform fee, and what happens when a plan lapses"
+description: "How the Starter, Pro, and Scale plans you pay Fayne work, including limits, AI credits, the Stripe platform fee, and what happens when a plan lapses"
 icon: "gauge"
 ---
 
 Your Fayne plan is the subscription you pay to run your academy. It sets how much you can build (academies, courses, students, Knowledge sources), how many AI credits you get each billing period, and which capabilities are unlocked (custom domain, custom sending domain, selling, REST API). This is separate from any payments you collect from your own students.
 
-There are two paid plans, **Pro** and **Scale**, plus a free 7-day preview trial that needs no card. Both paid plans unlock every feature; they differ only in their numeric limits and the Stripe platform fee.
+There are three paid plans, **Starter**, **Pro**, and **Scale**, plus a free 7-day preview trial that needs no card. All three paid plans unlock every feature; they differ only in their numeric limits and the Stripe platform fee.
 
 <Info>
   This page is about what you pay Fayne. For collecting money from your students, see [Stripe Connect](/payments/stripe-connect). To change, upgrade, or cancel your plan, see [Subscription](/billing/subscription).
@@ -15,37 +15,41 @@ There are two paid plans, **Pro** and **Scale**, plus a free 7-day preview trial
 
 ## The plans
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
+  <Card title="Starter" icon="seedling">
+    For testing the waters with your audience. $49/month, or $39/month billed yearly.
+  </Card>
+
   <Card title="Pro" icon="user">
-    For coaches and consultants running one academy. $99/month**, or **$**79/month** billed yearly.
+    For coaches and consultants whose academy is their business. $99/month, or $79/month billed yearly.
   </Card>
 
   <Card title="Scale" icon="users">
-    For agencies and teams running multiple academies. $199/month**, or **$**159/month** billed yearly. Scale removes the Stripe platform fee entirely.
+    For agencies and teams running academies for others. $249/month, or $199/month billed yearly. Scale removes the Stripe platform fee entirely.
   </Card>
 </CardGroup>
 
 ### What each plan includes
 
-|  | Trial (7 days, no card) | Pro | Scale |
-| --- | --- | --- | --- |
-| Academies | 1 | 1 | 5 |
-| Published courses | 8 | 20 | 100 |
-| Draft courses | up to 8 total | effectively unlimited | effectively unlimited |
-| Lessons per course | 25 | 25 | 50 |
-| Students per academy | 5 | 500 | 2,000 |
-| Knowledge sources | 3 | 50 | 250 |
-| Extra admin seats | 0 | 0 | 3 |
-| AI credits | 10 (one-time) | 100 / period | 300 / period |
-| AI course generation | Yes | Yes | Yes |
-| Custom domain | Yes | Yes | Yes |
-| Custom sending domain | No | Yes | Yes |
-| Sell with Stripe Connect | No | Yes | Yes |
-| REST API access | No | Yes | Yes |
-| Stripe platform fee | n/a | 3% | 0% |
+|  | Trial (7 days, no card) | Starter | Pro | Scale |
+| --- | --- | --- | --- | --- |
+| Academies | 1 | 1 | 1 | Unlimited |
+| Published courses | 8 | 20 | 50 | Unlimited |
+| Draft courses | up to 8 total | Unlimited | Unlimited | Unlimited |
+| Lessons per course | 25 | 25 | 50 | 50 |
+| Students per academy | 5 | Unlimited | Unlimited | Unlimited |
+| Knowledge sources | 3 | 50 | 150 | 500 |
+| Extra admin seats | 0 | 0 | 0 | 3 |
+| AI credits | 100 (one-time) | 1,000 / period | 2,500 / period | 5,000 / period |
+| AI course generation | Yes | Yes | Yes | Yes |
+| Custom domain | Yes | Yes | Yes | Yes |
+| Custom sending domain | No | Yes | Yes | Yes |
+| Sell with Stripe Connect | No | Yes | Yes | Yes |
+| REST API access | No | Yes | Yes | Yes |
+| Stripe platform fee | n/a | 5% | 3% | 0% |
 
 <Note>
-  Published-course and student counts are tracked **account-wide** across every academy you own, not per academy. On Scale, running multiple academies shares one pool of student slots and published courses rather than multiplying them.
+  Published-course counts are tracked **account-wide** across every academy you own, not per academy. Students are unlimited on every paid plan.
 </Note>
 
 <Note>
@@ -54,7 +58,7 @@ There are two paid plans, **Pro** and **Scale**, plus a free 7-day preview trial
 
 ## The free preview trial
 
-New owners start on a 7-day preview that needs no credit card. The editor and course builder feel fully unlocked so you can shape real content, but depth is walled: one academy, up to 8 courses, up to 5 students, 3 Knowledge sources, and a one-time pool of 10 AI credits.
+New owners start on a 7-day preview that needs no credit card. The editor and course builder feel fully unlocked so you can shape real content, but depth is walled: one academy, up to 8 courses, up to 5 students, 3 Knowledge sources, and a one-time pool of 100 AI credits.
 
 <Steps>
   <Step title="Build during the trial">
@@ -64,25 +68,25 @@ New owners start on a 7-day preview that needs no credit card. The editor and co
     Custom sending domain, selling with Stripe, and REST API access are reserved for paid plans; trying one shows an upgrade prompt. Custom domains and AI course generation work during the trial.
   </Step>
   <Step title="Subscribe to keep going">
-    When the 7 days end, pick Pro or Scale from the pricing modal to convert. Everything you built carries over.
+    When the 7 days end, pick Starter, Pro, or Scale from the pricing modal to convert. Everything you built carries over.
   </Step>
 </Steps>
 
 <Warning>
-  Trial AI credits are a single pool of 10 that does **not** refill. They are meant to let you feel the AI features, not run on them. Paid plans get a fresh credit allowance every billing period.
+  Trial AI credits are a single pool of 100 that does **not** refill. They are meant to let you feel the AI features, not run on them. Paid plans get a fresh credit allowance every billing period.
 </Warning>
 
 ## AI credits
 
-AI work draws from a credit pool. On paid plans the pool refills at the start of each monthly billing period (yearly subscribers still get a fresh monthly allowance). Pro includes 100 credits per period; Scale includes 300.
+AI work draws from a credit pool. On paid plans the pool refills at the start of each monthly billing period (yearly subscribers still get a fresh monthly allowance). Starter includes 1,000 credits per period, Pro 2,500, and Scale 5,000.
 
 Credits are spent per AI operation:
 
 <AccordionGroup>
   <Accordion title="What costs a credit">
-    - **Generating a course** costs 1 credit per lesson drafted. A 10-lesson course uses about 10 credits.
-    - **A course-level AI assistant turn** costs 1 credit, no matter how many lessons it edits in that turn.
-    - **A bulk transform** costs 1 credit.
+    - **Generating a course** costs about 10 credits per lesson drafted. A 10-lesson course uses about 100 credits.
+    - **A course-level AI assistant turn** costs 10 credits, no matter how many lessons it edits in that turn.
+    - **A bulk transform** costs 10 credits.
   </Accordion>
 
   <Accordion title="What is free">
@@ -91,7 +95,7 @@ Credits are spent per AI operation:
 </AccordionGroup>
 
 <Tip>
-  A simple way to budget: one full AI-generated course costs roughly one credit per lesson. Pro's 100 credits per period covers several full courses plus ongoing AI edits.
+  A simple way to budget: one full AI-generated course costs roughly 10 credits per lesson, so about 100 credits for a 10-lesson course. Starter's 1,000 credits per period cover several full courses, and Pro's 2,500 cover many more, plus ongoing AI edits.
 </Tip>
 
 When your credits for the period run out, AI operations are paused with a message pointing you to upgrade, and they resume when the next period starts (or immediately if you move to a higher plan).
@@ -129,7 +133,11 @@ If a subscription is cancelled, or a payment stays unpaid past the grace period,
 
 If you charge your students, Fayne applies a platform fee on top of Stripe's own processing fees. The fee depends on your plan:
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
+  <Card title="Starter" icon="percent">
+    A **5%** Fayne platform fee on each sale.
+  </Card>
+
   <Card title="Pro" icon="percent">
     A **3%** Fayne platform fee on each sale.
   </Card>
@@ -140,7 +148,7 @@ If you charge your students, Fayne applies a platform fee on top of Stripe's own
 </CardGroup>
 
 <Warning>
-  Selling requires a paid plan. Free and trial academies cannot connect Stripe, so the platform fee only applies once you are on Pro or Scale and have connected Stripe. See [Stripe Connect](/payments/stripe-connect) for setup.
+  Selling requires a paid plan. Free and trial academies cannot connect Stripe, so the platform fee only applies once you are on a paid plan (Starter, Pro, or Scale) and have connected Stripe. See [Stripe Connect](/payments/stripe-connect) for setup.
 </Warning>
 
 ## Related
