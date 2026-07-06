@@ -96,6 +96,7 @@
           {
             "group": "Payments",
             "pages": [
+              "payments/offers",
               "payments/stripe-connect",
               "payments/pricing-models"
             ]

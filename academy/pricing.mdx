@@ -1,43 +1,51 @@
 ---
 title: "Set Pricing and Accept Payments in Your Academy"
 sidebarTitle: "Pricing"
-description: "Offer courses for free or with a one-time price. Connect Stripe to receive payments directly in your own account."
+description: "Set each course to free, paid, or members-only, sell bundles and the Academy Pass, and connect Stripe to receive payments directly in your own account."
 icon: "tag"
 ---
 
-Fayne uses Stripe Connect to handle payments. When a student buys a course, the money goes directly into your Stripe account. You connect your own Stripe account once, set a price on the courses you want to sell, and start accepting payments. Fayne charges a small platform fee per sale depending on your plan (see [Platform fees](#platform-fees) below).
+Fayne uses Stripe Connect to handle payments. When a student buys from you, the money goes directly into your Stripe account. You connect your own Stripe account once, decide what to sell, and start accepting payments. Fayne charges a small platform fee per sale depending on your plan (see [Platform fees](#platform-fees) below).
 
 ## Connect your Stripe account
 
 Before you can accept payments, you need to connect a Stripe account. In your owner dashboard, go to **Settings \> Payments** and click **Connect Stripe**. You are redirected to Stripe to authorize the connection to your existing Stripe account. Once you approve, you are returned to your dashboard and your account is linked.
 
 <Note>
-  Connecting Stripe requires a paid plan (Pro or Scale); free and trial academies cannot connect Stripe. You need a connected Stripe account to sell paid courses, so if all of your courses are free, you can skip the Stripe connection.
+  Connecting Stripe requires a paid plan (Starter, Pro, or Scale); trial academies cannot connect Stripe. You need a connected Stripe account to sell, so if everything in your academy is free, you can skip the Stripe connection.
 </Note>
 
-## How course pricing works
+## What you can sell
 
-Pricing in Fayne is set per course. Each course is either free or has a one-time price.
+Selling in Fayne is built on [Offers](/payments/offers). The simplest offer is a price on a single course; bundles and the Academy Pass build on the same primitive.
 
 <CardGroup cols={2}>
   <Card title="Free courses" icon="gift">
-    Set a course to free and students enroll without a payment step. No Stripe connection is required for free courses. Good for lead magnets, client value-adds, or an introductory course that leads into your paid ones.
+    Set a course to free and everyone in your academy can start it, with no payment step and no Stripe connection required. Good for lead magnets, client value-adds, or an introductory course that leads into your paid ones.
   </Card>
 
-  <Card title="One-time price" icon="credit-card">
-    Give a course a price and students pay once through Stripe Checkout to get permanent access. Prices are stored in cents (for example, 4900 means $49.00) and start at a $1 minimum.
+  <Card title="Paid courses" icon="credit-card">
+    Give a course a one-time price between $1 and $999. Students pay once through Stripe Checkout and keep access permanently.
+  </Card>
+
+  <Card title="Bundles" icon="boxes">
+    Sell several courses as one product with its own name, cover, and shareable product page. See [Offers](/payments/offers).
+  </Card>
+
+  <Card title="Academy Pass" icon="key-round">
+    One purchase that unlocks every course in your academy, including ones you publish later.
   </Card>
 </CardGroup>
 
-You set a course's price in that course's **Access** settings. You can mix free and paid courses in the same academy, so a free "Getting Started" course can sit alongside a paid flagship course.
+You set a course's access (free, paid, or members-only) in that course's settings, or for all courses at once from **Sell → Course pricing**. See [Pricing Models](/payments/pricing-models) for how the three settings behave.
 
 <Note>
-  Course pricing controls what a course costs. Who can join your academy in the first place is a separate setting: in **Settings**, your academy access model is either **Open** (anyone can sign up) or **Invite only** (students join by invitation). See [Managing students](/students/managing-students) for invitations.
+  Course pricing controls what a course costs. Who can join your academy in the first place is a separate setting: in **Settings**, your academy access model is either **Open** (anyone can sign up) or **Invite only** (students join by invitation). The two combine freely, so an invite-only academy can still sell to its invited members. See [Managing students](/students/managing-students) for invitations.
 </Note>
 
 ## How checkout works for students
 
-When a student buys a paid course, they go through Stripe Checkout, a payment page hosted by Stripe. After payment, they are redirected back to your academy and their enrollment is activated immediately.
+When a student buys, they go through Stripe Checkout, a payment page hosted by Stripe. After payment, they are redirected back to your academy and everything the purchase covers unlocks immediately.
 
 <CardGroup cols={2}>
   <Card title="Stripe Checkout" icon="credit-card">
@@ -55,6 +63,7 @@ Payments go directly to your Stripe account, and Fayne takes an application fee 
 
 | Plan | Fayne fee per sale |
 | --- | --- |
+| Starter | 5% |
 | Pro | 3% |
 | Scale | 0% |
 
@@ -62,18 +71,18 @@ Stripe's own processing fees apply separately and are set by Stripe. Your Stripe
 
 ## Revenue and reporting
 
-Your owner dashboard shows your revenue under **Sales** and **Insights**: gross sales, your net after fees, refunds, a revenue-over-time chart, and a per-course breakdown for the period you select. For full transaction history, disputes, and payout schedules, open your Stripe dashboard.
+Your owner dashboard shows your revenue in two places: **Sell → Transactions** is the ledger (every purchase, refund, and dispute, with gross, fees, and net, refunds you can issue in place, plus CSV export), and **Insights** shows revenue trends and a per-course breakdown for the period you select. For full transaction history, disputes, and payout schedules, open your Stripe dashboard.
 
 <AccordionGroup>
   <Accordion title="Can I change a course's price after launch?">
-    Yes. Update the price in the course's Access settings at any time. Students who have already purchased the course keep their access; a price change only affects new purchases.
+    Yes. Update it in the course's settings or the Sell → Course pricing table at any time. Students who have already purchased keep their access; a price change only affects new purchases.
   </Accordion>
 
   <Accordion title="Does Fayne take a percentage of my revenue?">
-    Yes. Payments go directly to your Stripe account, and Fayne deducts an application fee per sale: 3% on Pro, and 0% on Scale. Stripe's processing fees are separate.
+    Yes. Payments go directly to your Stripe account, and Fayne deducts an application fee per sale: 5% on Starter, 3% on Pro, and 0% on Scale. Stripe's processing fees are separate.
   </Accordion>
 
   <Accordion title="Can I make a paid course free later?">
-    Yes. Set the course back to free in its Access settings. New students enroll without paying. Existing purchasers are unaffected.
+    Yes. Set the course back to free in its settings. New students start it without paying. Existing purchasers are unaffected.
   </Accordion>
 </AccordionGroup>

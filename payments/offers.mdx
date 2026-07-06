@@ -1,0 +1,79 @@
+---
+title: "Offers: Sell Courses, Bundles, and the Academy Pass"
+sidebarTitle: "Offers"
+description: "Everything you sell is an Offer: a single course, a bundle with its own product page, or the Academy Pass covering your whole catalog. Price them, share them, and grant them for free."
+icon: "hand-coins"
+---
+
+Everything you sell in your academy is an **Offer**. An offer wraps one or more courses with a price and a way in: students buy it (or claim it for free), and holding it unlocks every course it covers. You manage all of this from **Sell** in the owner sidebar.
+
+Offers make monetization composable without complicating the simple case. If you just want to charge for one course, set a price on the course and you are done: Fayne manages the offer behind the scenes. Bundles and the Academy Pass are there when you want more.
+
+## The three offer shapes
+
+<CardGroup cols={3}>
+  <Card title="Single course" icon="book-open">
+    A price on one course. No separate product page: it is sold right on the course page. Created for you when you set a course to Paid.
+  </Card>
+
+  <Card title="Bundle" icon="boxes">
+    Several courses sold together, with its own name, cover, product page, and storefront card. "3 courses for \$99" instead of three separate purchases.
+  </Card>
+
+  <Card title="Academy Pass" icon="key-round">
+    One offer that covers every course in your academy, including courses you publish later. Each academy has at most one Pass.
+  </Card>
+</CardGroup>
+
+Any offer can also be **free**. A free bundle makes a strong lead magnet: students claim it without a payment step and it shows up in their access like any purchase.
+
+## The Sell area
+
+The **Sell** area in your sidebar is the home for everything sellable:
+
+- **Overview**: revenue at a glance, recent sales, your Stripe connection status, and health alerts.
+- **Offers**: every offer you have created, with status, price, and holder counts.
+- **Academy pass**: create or edit your Academy Pass.
+- **Course pricing**: a bulk table of all your courses where you can set each one to Free, Paid, or Members-only in one place.
+- **Transactions**: the transaction ledger, with per-sale status, gross, fees, and net, refunds you can issue in place, plus CSV export.
+- **Settings**: defaults applied to newly created courses, including offers a new course joins automatically.
+
+## How students get an offer
+
+<AccordionGroup>
+  <Accordion title="They buy it">
+    Paid offers check out through Stripe on your connected account. After payment the offer is theirs and every covered course unlocks immediately. See [Stripe Connect](/payments/stripe-connect).
+  </Accordion>
+
+  <Accordion title="They claim it (free offers)">
+    A free offer has a claim button instead of a checkout. One click and the covered courses unlock.
+  </Accordion>
+
+  <Accordion title="You grant it">
+    From a student's detail panel (**Access** tab) or when inviting them, you can hand any active offer to a specific person, no payment involved. To comp a whole cohort, grant the offer to each member or attach it to their invitations.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Access through an offer is live. It lasts exactly as long as the student holds the offer: a refund or a revoke ends it, and there is nothing to clean up.
+</Note>
+
+## Product pages and the storefront
+
+Bundles and the Pass get their own **product page** at `yourname.fayneos.com/o/your-offer`, with the cover, description, what is included, and a purchase button. It is a shareable sales link that works in emails, socials, and funnels.
+
+Offers can also appear as cards in your student-facing catalog. Students see a shelf of offers they could buy, and a **Your access** section listing offers they already hold. On a locked course page with several ways in, students see a "choose how you want in" comparison instead of a single buy button.
+
+## Where course pricing fits
+
+Each course has one access setting with three options (see [Pricing Models](/payments/pricing-models)):
+
+- **Free**: anyone in your academy can start it.
+- **Paid**: sold on its own for a one-time price. Fayne manages the single-course offer for you.
+- **Members-only**: not sold on its own. Students get it through a bundle, the Pass, or a grant from you.
+
+A course can be inside any number of offers regardless of its own setting. A paid course can also be in a bundle; a members-only course might be available only through the Pass.
+
+<Tip>
+  A classic setup: a free introductory course, individual courses at $49 to $99, a bundle of your flagship track at a discount, and the Academy Pass for everything. Each layer catches a different buyer.
+</Tip>

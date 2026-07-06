@@ -56,18 +56,20 @@ From a list's detail page, use **Add members** to choose how members join:
 To remove someone, use the remove control on their row. Removing a member, or deleting the whole list, never touches the student's account, enrollments, or course progress. It only changes who the list targets, and you can add a member back at any time.
 
 <Note>
-  A list shows a source badge of **Manual**, **CSV import**, or **Synced** depending on how it was populated. Lists created and managed through the API show as synced.
+  Lists populated by CSV or from outside the app show a source badge (**CSV import** or **Synced**); hand-curated lists show no badge. Lists created and managed through the API show as **Synced**.
 </Note>
 
-### Let a list grant course access
+### Lists and course access
 
-Lists are most powerful when they drive access. On a course's access rules, you can add a rule that targets a List (alongside the default **Everyone** rule) and set its term, for example free or a one-time price. From then on, access follows list membership: add a student to the list and they gain the access that rule grants; remove them and they lose it. This lets you run membership in one place instead of enrolling people course by course.
+To give a group of students course access, grant them an [offer](/payments/offers): from each student's **Access** tab, or by attaching the offer to their invitations so they arrive with it. Access granted this way is per student, so you stay in control of exactly who holds what.
+
+Some academies also have offers wired directly to a list, so that everyone on the list holds the offer for as long as they are a member (access rules configured before the offer model, or set up with Fayne's help). Where that is in place, membership drives access: add someone and the covered courses unlock; remove them and it ends. Making this self-serve on the offer editor is planned.
 
 <Warning>
-  Because a list can gate access, deleting a list also removes any course access rules that targeted it. The delete dialog warns you which courses are affected before you confirm.
+  Because a list can carry access this way, deleting one ends whatever its members were getting through it.
 </Warning>
 
-See [Stripe Connect](/payments/stripe-connect) for how priced access rules are charged, and [Managing Students](/students/managing-students) for enrollment and progress.
+Offers students purchase manage their own member lists automatically; those do not appear here. See [Managing Students](/students/managing-students) for access and progress.
 
 ## Segments
 
@@ -122,12 +124,12 @@ You can build a segment from these rules:
 Once a list or segment exists, you can target it in two places:
 
 <CardGroup cols={2}>
-  <Card title="Course access" icon="shield-check">
-    Add an access rule on a course that targets a List or Segment, so membership drives who can take the course and on what terms.
+  <Card title="Course access (Lists only)" icon="shield-check">
+    A List can carry an [offer](/payments/offers) so membership drives who holds it (see above). Segments cannot gate access; they are for messaging and insight.
   </Card>
 
   <Card title="Newsfeed posts" icon="megaphone">
-    In the [Newsfeed](/engagement/newsfeed) composer, send a post to **Everyone** or scope it to a specific List or Segment.
+    In the [Newsfeed](/engagement/newsfeed) composer, send a post to **Everyone** or scope it to specific Lists or Segments.
   </Card>
 </CardGroup>
 
