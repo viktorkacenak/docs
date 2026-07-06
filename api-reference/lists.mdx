@@ -8,11 +8,15 @@ icon: "list"
 A **list** is a named group of students in your academy (a "cohort", "tier", or "segment"). Lists do two jobs:
 
 - **Group students** so you can manage them in bulk from your own tools.
-- **Drive course access.** When a course grants access to a list, every member of that list can access the course. Add someone to the list and they get access; remove them and the access is revoked. You configure which courses a list grants from your dashboard; this API manages the list and its membership.
+- **Drive course access.** When an offer in your academy grants its courses to a list, every member of that list can access those courses. Add someone to the list and they get access; remove them and the access is revoked. You configure offers in your dashboard; this API manages the list and its membership.
 
 <Note>
-  List access is **dynamic** and follows membership. This is different from an [enrollment](/api-reference/enrollments), which is a permanent per-course grant. Use a list for cohort or tier access you may want to revoke later; use an enrollment for a one-off grant that should persist.
+  List access is **dynamic** and follows membership. This is different from an [enrollment](/api-reference/enrollments), which is a direct per-student course assignment. Use a list for cohort or tier access you may want to revoke later; use an enrollment for an individual assignment.
 </Note>
+
+<Warning>
+  Some lists are **managed by an offer**: when a student buys or claims an offer, they join its member list automatically. Those lists are the offer's source of truth for who holds it, so this API refuses to rename or delete them, or to edit their membership, with a `400 list_managed_by_offer` error. Grant or revoke the offer from your dashboard instead. Reads work on every list.
+</Warning>
 
 All endpoints require your API key in the `Authorization` header. See [Authentication](/api-reference/authentication).
 
@@ -183,7 +187,7 @@ curl -X PATCH https://yourname.fayneos.com/api/v1/lists/9b34bee2-c132-4374-9c3f-
 
 ## Delete a list
 
-Deletes the list and removes the course-access grants that target it. Members are not removed from the academy, but they lose any course access that this list was granting.
+Deletes the list. Members are not removed from the academy, but they lose any course access that this list was granting. Offer-managed lists cannot be deleted through the API (`400 list_managed_by_offer`).
 
 ```text
 DELETE /api/v1/lists/:listId
@@ -265,7 +269,7 @@ GET /api/v1/lists/:listId/members
 
 ## Add members
 
-Adds students to a list **by email**. This endpoint is an upsert: if an email does not yet belong to a student in your academy, the student is created first, then added to the list. Calling it again for someone already on the list is a safe no-op.
+Adds students to a list **by email**. This endpoint is an upsert: if an email does not yet belong to a student in your academy, the student is created first, then added to the list. Calling it again for someone already on the list is a safe no-op. Offer-managed lists cannot be edited through the API (`400 list_managed_by_offer`); grant the offer instead.
 
 ```text
 POST /api/v1/lists/:listId/members
@@ -343,7 +347,7 @@ curl -X POST https://yourname.fayneos.com/api/v1/lists/9b34bee2-c132-4374-9c3f-d
 
 ## Remove a member
 
-Removes a student from a list. They remain in your academy, but they lose any course access this list was granting. The student's enrollments and progress are untouched.
+Removes a student from a list. They remain in your academy, but they lose any course access this list was granting. The student's enrollments and progress are untouched. Offer-managed lists cannot be edited through the API (`400 list_managed_by_offer`); revoke the offer instead.
 
 ```text
 DELETE /api/v1/lists/:listId/members/:userId
@@ -365,7 +369,7 @@ DELETE /api/v1/lists/:listId/members/:userId
 
 ## Courses a list grants
 
-Returns the courses this list grants access to, derived from the course-access rules that target it. This is read-only; attach or detach courses from a list in your dashboard.
+Returns the courses this list grants access to, derived from your academy's active offers. A list grants a course in one of two ways: an offer is free for the list's members (the offer grants to the list), or the list is the offer's member list (the people who bought or claimed it). This is read-only; create or edit offers in your dashboard.
 
 ```text
 GET /api/v1/lists/:listId/courses
@@ -389,12 +393,22 @@ GET /api/v1/lists/:listId/courses
           URL-safe course slug.
         </ResponseField>
 
-        <ResponseField name="term" type="string" required>
-          How the list grants the course: `free`, `one_time`, or `included`.
-        </ResponseField>
+        <ResponseField name="granted_via" type="object[]" required>
+          The offers through which this list grants the course.
 
-        <ResponseField name="price_cents" type="number">
-          One-time price in cents when `term` is `one_time`; otherwise `null`.
+          <Expandable title="granted_via properties">
+            <ResponseField name="offer_id" type="string" required>
+              UUID of the offer.
+            </ResponseField>
+
+            <ResponseField name="offer_name" type="string" required>
+              Display name of the offer.
+            </ResponseField>
+
+            <ResponseField name="role" type="string" required>
+              How the list is attached: `grants_to` (the offer is free for this list's members) or `member` (the list is the offer's member list).
+            </ResponseField>
+          </Expandable>
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -411,8 +425,13 @@ GET /api/v1/lists/:listId/courses
         "course_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
         "title": "Cold Outreach Mastery",
         "slug": "cold-outreach-mastery",
-        "term": "free",
-        "price_cents": null
+        "granted_via": [
+          {
+            "offer_id": "d4e5f6a7-b8c9-0123-def0-456789abcdef",
+            "offer_name": "VIP Bundle",
+            "role": "grants_to"
+          }
+        ]
       }
     ]
   }

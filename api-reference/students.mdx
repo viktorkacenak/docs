@@ -55,12 +55,30 @@ GET /api/v1/students
           ISO 8601 timestamp of when the student joined the academy.
         </ResponseField>
 
+        <ResponseField name="access" type="object" required>
+          Summary of what the student holds through your academy's offers and purchases.
+
+          <Expandable title="access properties">
+            <ResponseField name="holds_pass" type="boolean" required>
+              `true` when the student holds your Academy Pass (access to every course).
+            </ResponseField>
+
+            <ResponseField name="offer_count" type="number" required>
+              Number of active offers the student currently holds, the Pass included.
+            </ResponseField>
+
+            <ResponseField name="has_purchase" type="boolean" required>
+              `true` when the student has at least one paid, non-refunded payment in your academy.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+
         <ResponseField name="courses_enrolled" type="number" required>
           Number of active course enrollments.
         </ResponseField>
 
         <ResponseField name="enrollments" type="object[]" required>
-          Array of active enrollment summaries.
+          Array of active enrollment summaries. An enrollment means the student started the course (it appears in their My Learning); it is not the full picture of what they can open. A student can have access to courses they have not started yet, through free courses, offers they hold, or purchases.
 
           <Expandable title="enrollment properties">
             <ResponseField name="id" type="string" required>
@@ -120,6 +138,11 @@ curl "https://yourname.fayneos.com/api/v1/students?limit=10&offset=0" \
         "name": "Alex Rivera",
         "avatar_url": "https://cdn.example.com/avatars/alex.jpg",
         "joined_at": "2025-03-15T09:22:00Z",
+        "access": {
+          "holds_pass": false,
+          "offer_count": 1,
+          "has_purchase": true
+        },
         "courses_enrolled": 2,
         "enrollments": [
           {
@@ -166,7 +189,7 @@ POST /api/v1/students
 </ParamField>
 
 <ParamField body="list_ids" type="string[]">
-  Array of [list](/api-reference/lists) UUIDs to add the student to. Maximum 50 per request. Each list must exist in this academy, or the request returns `400 invalid_lists`. Use `list_ids` for cohort or tier access you may want to revoke later, and `course_ids` for a permanent per-course grant. Optional.
+  Array of [list](/api-reference/lists) UUIDs to add the student to. Maximum 50 per request. Each list must exist in this academy, or the request returns `400 invalid_lists`. Offer-managed lists return `400 list_managed_by_offer`; grant the offer instead. All ids are validated before the student account is created, so a rejected request creates nothing. Use `list_ids` for cohort or tier access you may want to revoke later, and `course_ids` for an individual course assignment. Optional.
 </ParamField>
 
 <ParamField body="send_welcome_email" default="true" type="boolean">
@@ -250,8 +273,40 @@ GET /api/v1/students/:studentId
       ISO 8601 timestamp of when the student joined the academy.
     </ResponseField>
 
+    <ResponseField name="access" type="object" required>
+      What the student holds through offers, purchases, and course assignments.
+
+      <Expandable title="access properties" defaultOpen>
+        <ResponseField name="holds_pass" type="boolean" required>
+          `true` when the student holds your Academy Pass (access to every course).
+        </ResponseField>
+
+        <ResponseField name="offer_count" type="number" required>
+          Number of active offers the student currently holds, the Pass included.
+        </ResponseField>
+
+        <ResponseField name="has_purchase" type="boolean" required>
+          `true` when the student has at least one paid, non-refunded payment in your academy.
+        </ResponseField>
+
+        <ResponseField name="grants" type="object[]" required>
+          The student's live course assignments (given through this API or the dashboard). A grant can exist before the student has opened the course, so it may not have a matching enrollment yet.
+
+          <Expandable title="grant properties">
+            <ResponseField name="course_id" type="string" required>
+              UUID of the assigned course.
+            </ResponseField>
+
+            <ResponseField name="granted_at" type="string" required>
+              ISO 8601 timestamp of when the course was assigned.
+            </ResponseField>
+          </Expandable>
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+
     <ResponseField name="enrollments" type="object[]" required>
-      Array of active enrollments with full progress detail, ordered by `enrolled_at` descending.
+      Array of active enrollments with full progress detail, ordered by `enrolled_at` descending. An enrollment means the student started the course; access itself can also come from free courses, offers, or purchases that have no enrollment yet.
 
       <Expandable title="enrollment properties" defaultOpen>
         <ResponseField name="id" type="string" required>
@@ -311,6 +366,17 @@ curl https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456
     "name": "Alex Rivera",
     "avatar_url": "https://cdn.example.com/avatars/alex.jpg",
     "joined_at": "2025-03-15T09:22:00Z",
+    "access": {
+      "holds_pass": false,
+      "offer_count": 1,
+      "has_purchase": true,
+      "grants": [
+        {
+          "course_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "granted_at": "2025-03-15T09:22:00Z"
+        }
+      ]
+    },
     "enrollments": [
       {
         "id": "e1f2a3b4-c5d6-7890-efab-123456789abc",

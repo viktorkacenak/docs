@@ -5,7 +5,7 @@ description: "Grant a student access to a published course with a single API cal
 icon: "user-check"
 ---
 
-The enrollments endpoint lets you grant a student access to a specific course. You can call this endpoint multiple times for the same student and course, it is idempotent. If the student already has an enrollment record for that course (including a previously revoked one), the API sets their access status back to `active` rather than creating a duplicate record. Both the student and the course must exist in your academy, and the course must be published.
+The enrollments endpoint lets you assign a course to a student. Assigning does two things at once: it records a course grant (the access itself, the same thing the dashboard's "Assign course" does) and creates an enrollment so the course appears in the student's My Learning immediately. You can call this endpoint multiple times for the same student and course, it is idempotent. Both the student and the course must exist in your academy, and the course must be published.
 
 ## Enroll a student
 
@@ -129,7 +129,9 @@ const { data } = await response.json();
 
 ## Revoke an enrollment
 
-Removes a student's access to a single course by revoking the enrollment. The enrollment record is kept but its access status is set to `revoked`, so the student loses access while the record is preserved. Re-enrolling later through [POST /api/v1/students/:studentId/enrollments](/api-reference/enrollments) restores access on the same record.
+Revokes an assigned course: ends the student's course grant and marks the enrollment record as revoked (the record is preserved). Re-assigning later through [POST /api/v1/students/:studentId/enrollments](/api-reference/enrollments) restores access on the same record.
+
+Access in Fayne is layered. If the course is free for everyone, was purchased by the student, or is covered by an offer they hold, revoking the assignment does not lock the course. The response tells you whether the student can still open the course after the revoke, so your automation never has to guess.
 
 ```text
 DELETE /api/v1/students/:studentId/enrollments/:enrollmentId
@@ -152,6 +154,14 @@ DELETE /api/v1/students/:studentId/enrollments/:enrollmentId
     <ResponseField name="revoked" type="boolean" required>
       Always `true` when the operation succeeds.
     </ResponseField>
+
+    <ResponseField name="still_has_access" type="boolean" required>
+      Whether the student can still open the course after the revoke, computed live. `true` when the course is free for everyone, the student purchased it, or an offer they hold covers it.
+    </ResponseField>
+
+    <ResponseField name="still_has_access_via" type="string">
+      Why access survives when `still_has_access` is `true`: `free`, `purchase`, or `offer`. `null` when the student lost access.
+    </ResponseField>
   </Expandable>
 </ResponseField>
 
@@ -168,7 +178,9 @@ curl -X DELETE \
 ```json
 {
   "data": {
-    "revoked": true
+    "revoked": true,
+    "still_has_access": false,
+    "still_has_access_via": null
   }
 }
 ```

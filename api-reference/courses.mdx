@@ -49,6 +49,10 @@ All response data is nested under a top-level `data` object.
           Visibility setting for the course. Possible values: `published`, `hidden`.
         </ResponseField>
 
+        <ResponseField name="access" type="string" required>
+          The course's access mode. `free` means any member of your academy can open it. `offer_only` means it stays locked unless something grants it: a purchase, a course assignment, or an offer the student holds.
+        </ResponseField>
+
         <ResponseField name="lesson_count" type="number" required>
           Number of published lessons in the course.
         </ResponseField>
@@ -97,6 +101,7 @@ const { data } = await response.json();
         "slug": "cold-outreach-mastery",
         "description": "Master the full cold outreach workflow from prospecting to reply.",
         "visibility": "published",
+        "access": "free",
         "lesson_count": 12,
         "total_reading_time_minutes": 95
       },
@@ -106,6 +111,7 @@ const { data } = await response.json();
         "slug": "first-time-manager-foundations",
         "description": "Core skills every new manager needs in their first 90 days.",
         "visibility": "published",
+        "access": "offer_only",
         "lesson_count": 8,
         "total_reading_time_minutes": 60
       }
