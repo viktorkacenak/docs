@@ -137,6 +137,12 @@
               "api-reference/enrollments",
               "api-reference/lists"
             ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "api-reference/guides"
+            ]
           }
         ]
       }
