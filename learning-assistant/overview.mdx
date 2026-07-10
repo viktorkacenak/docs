@@ -10,7 +10,7 @@ The Learning Assistant is an AI tutor your students can chat with while they wor
 The assistant is **off by default**. Each academy turns it on deliberately, then configures how it looks and sounds.
 
 <Note>
-  The Learning Assistant is academy-wide: once you enable it, it becomes available across every course in that academy (per student, only for courses they are actively enrolled in).
+  The Learning Assistant is academy-wide: once you enable it, the bubble appears on every student surface in that academy, not just course pages. It only ever draws on content a student can actually reach: their enrolled courses and any published course their access unlocks.
 </Note>
 
 ## What your students get
@@ -37,7 +37,9 @@ When enabled, students see a floating chat bubble in the bottom corner of your c
 
 ### Where it appears
 
-The chat bubble only mounts on course pages: the course overview and the lesson viewer. It is shown to a student only for courses they are actively enrolled in. On other pages (the dashboard, profile, browse) there is no bubble.
+The chat bubble mounts on every student surface: the dashboard, the catalog, course pages, and the lesson viewer. Who sees it is set by the audience option you pick when you turn it on (see below).
+
+On a course or lesson page the assistant is anchored to that course, so its answers and citations come from that course's content. Everywhere else (the dashboard, the catalog) the thread is academy-wide, and the assistant draws only on the published courses that student's access unlocks. It never grounds an answer in a course the student cannot open.
 
 When a student opens the assistant from inside a lesson, that lesson becomes the default context: if they say "this lesson" or ask without naming a topic, the assistant reads that lesson first.
 
@@ -76,11 +78,20 @@ The assistant is off until you enable it. You enable and configure everything fr
   <Step title="Enable it and brand it">
     Turn the assistant on, then set its name, optional subtitle, avatar, greeting, and voice so it feels like part of your academy. See [Customization](/learning-assistant/customization) for every option.
   </Step>
+  <Step title="Choose who can use it">
+    Under **Who can use it**, pick the audience:
+
+    - **All signed-in students**: anyone with an account in your academy.
+    - **Enrolled students**: only students enrolled in at least one course.
+    - **Paying customers**: only students who bought at least one course or offer. This option is available once your academy has a paid offer.
+
+    The same rule gates the assistant everywhere, so a student outside the audience never sees the bubble and cannot reach it.
+  </Step>
   <Step title="(Optional) Expose Knowledge sources">
     In [Knowledge](/content/knowledge), mark any sources you want the assistant to be able to answer from as tutor-enabled.
   </Step>
   <Step title="Launch">
-    Once enabled, the bubble appears for enrolled students on your course and lesson pages automatically.
+    Once enabled, the bubble appears for the audience you chose, on every student surface automatically.
   </Step>
 </Steps>
 
@@ -92,7 +103,7 @@ The assistant is off until you enable it. You enable and configure everything fr
 
 <AccordionGroup>
   <Accordion title="Does it ever use lessons a student hasn't unlocked?">
-    No. The assistant only reads published lessons in the course the student is in, and their access to that course is verified live (the same check that gates the course itself) before any answer is generated. Drafts are never used.
+    No. The assistant only reads published lessons from courses the student can already open, and that access is verified live (the same check that gates the course itself) before any answer is generated. Drafts are never used.
   </Accordion>
 
   <Accordion title="Can a student spam it?">

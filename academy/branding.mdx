@@ -1,25 +1,29 @@
 ---
-title: "Customize Your Academy's Branding and Identity"
-sidebarTitle: "Branding"
-description: "Set your academy name, tagline, logo, brand colors, and email sender identity so every student touchpoint reflects your brand, not Fayne's."
+title: "Customize Your Academy's Look and Identity"
+sidebarTitle: "Customize"
+description: "Set your academy name, tagline, logo, brand color, appearance theme, and email sender identity so every student touchpoint reflects your brand, not Fayne's."
 icon: "palette"
 ---
 
-Your branding settings control what students see: the name and tagline on your landing page, your logo in the header, your brand color throughout the site, and the sender name on the emails your academy sends. On a paid plan, every surface is yours, with no Fayne label visible to students. (During the free trial, academies run in preview mode and show a small "Powered by Fayne" badge until you upgrade.)
+Your **Customize** settings control what students see: the name and tagline on your academy, your logo in the header, your brand color throughout the site, whether the academy runs in light or dark mode, and the sender name on the emails your academy sends. On a paid plan, every surface is yours, with no Fayne label visible to students. (During the free trial, academies show a small "Fayne trial preview" badge until you upgrade.)
+
+<Note>
+  Customize groups its settings into two sections: **Branding** (identity, domain, colors, thumbnails, lessons, certificate) and **Pages** (course catalog, About page).
+</Note>
 
 ## What you can configure
 
 <CardGroup cols={2}>
   <Card title="Academy name and tagline" icon="type">
-    The name and tagline appear on your public landing page and in the browser tab. Your tagline is the short line that appears beneath your academy name.
+    The name students see in the header and throughout your academy, plus a short tagline shown beneath it.
   </Card>
 
-  <Card title="Logo" icon="image">
-    Upload a separate logo for light mode and dark mode. Accepted formats are SVG, PNG, JPG, and WEBP, up to 2MB. Your logo appears in the site header and on authentication screens.
+  <Card title="Logo and logo size" icon="image">
+    Upload a separate logo for light mode and dark mode, and set how tall your logo renders in the sidebar and header.
   </Card>
 
-  <Card title="Brand color" icon="palette">
-    Your brand color drives buttons, links, and key highlights across your academy, in both light and dark mode.
+  <Card title="Brand color and theme" icon="palette">
+    Your brand color drives buttons, links, and highlights. The appearance theme sets whether your whole academy runs in light or dark mode.
   </Card>
 
   <Card title="Favicon and social image" icon="aperture">
@@ -27,40 +31,63 @@ Your branding settings control what students see: the name and tagline on your l
   </Card>
 </CardGroup>
 
-## Set up your branding
+## Set up your identity
 
 <Steps>
-  <Step title="Open Branding settings">
-    In your owner dashboard, click **Branding** in the left sidebar. A live preview of your academy appears on the right side of the screen and updates as you make changes.
+  <Step title="Open Customize">
+    In your owner dashboard, click **Customize** in the left sidebar. The panel opens on its menu, grouped into **Branding** and **Pages** sections.
+  </Step>
+  <Step title="Open Identity">
+    Under **Branding**, click **Identity**. This is where your name, logo, tagline, favicon, and social image live.
   </Step>
   <Step title="Set your academy name and tagline">
-    Enter your academy name and a short tagline. The tagline appears directly beneath your name on the public landing page. Keep it to one sentence.
+    Enter your academy name. Add a short tagline in the **Tagline** field: it appears beneath your headline. Keep it to one line.
   </Step>
   <Step title="Upload your logo">
-    Click the logo upload area and select your image file. If you want a different logo to appear in dark mode (for example, a white version of your logo), upload it in the **Dark mode logo** field.
+    Click the logo upload area and select your image. To show a different logo in dark mode (for example, a white version), upload it in the **Dark mode logo** field. (You can set a dark-mode logo once a main logo exists.)
 
     <Tip>
-      SVG files scale cleanly at any size. If you have an SVG version of your logo, use it here.
+      SVG files scale cleanly at any size. If you have an SVG version of your logo, use it here. Accepted formats are SVG, PNG, JPG, and WEBP, up to 2MB.
     </Tip>
   </Step>
-  <Step title="Choose your brand color">
-    Click the color swatch to open the color picker, or enter a hex code directly to match your brand guidelines. The live preview updates immediately.
+  <Step title="Set your logo size">
+    Once a logo is uploaded, a **Logo size** slider appears. Drag it to set how tall your logo renders in the sidebar and header (width adjusts automatically). Click **Reset** to return to the default size.
   </Step>
-  <Step title="Set your subdomain">
-    Your academy's `fayneos.com` subdomain is edited here in Branding, alongside the live preview. Choose a subdomain made of lowercase letters, numbers, and hyphens.
-  </Step>
-  <Step title="Save and preview">
-    Click **Save**. Use the live preview panel or open your academy URL to see the branding applied in full.
+  <Step title="Add a favicon and social image">
+    Upload a square **Favicon** for browser tabs and the sidebar, and a **Social share image** shown when your academy link is shared.
   </Step>
 </Steps>
 
-## Email sender identity
+## Set your color and theme
 
-Transactional emails from your academy are sent under your academy's own sender identity (sender name and, when you verify a sending domain, your own domain), not Fayne's. This covers emails like signup confirmation, magic link sign-in, course access notifications, and academy access changes. Your sender identity is configured in your academy's email settings.
+Open **Colors** under the **Branding** section.
+
+<Steps>
+  <Step title="Choose your brand color">
+    Pick from the quick color row, or open the color picker to enter any color. Your brand color drives buttons, links, and highlights across your academy, in both light and dark mode. The change previews immediately.
+  </Step>
+  <Step title="Choose your appearance">
+    Under **Appearance**, pick how your whole academy renders:
+
+    - **Light**: your academy always runs in light mode.
+    - **Dark**: your academy always runs in dark mode.
+    - **System**: each student's academy follows their own device setting.
+  </Step>
+</Steps>
 
 <Note>
-  Until you verify a custom sending domain, emails still use your academy's sender name but go out from a shared Fayne sending domain. The from-name your students see is always yours.
+  Your brand color applies in both light and dark mode. The difference between modes is your logo: upload a separate dark-mode logo so it always reads clearly against the background.
 </Note>
+
+## Set your subdomain
+
+Your academy's `fayneos.com` subdomain is set under **Domain** in the **Branding** section. Choose a subdomain made of lowercase letters, numbers, and hyphens. This subdomain powers your student landing page, your course detail pages, and your authentication screens.
+
+<Warning>
+  Changing your subdomain breaks existing share and invite links. They will need to be reshared.
+</Warning>
+
+To connect a fully custom domain, see the [Custom Domain](/academy/custom-domain) guide. Once a custom domain is verified, students reach your academy there and the subdomain stays as a fallback.
 
 ## Your academy URL
 
@@ -70,7 +97,21 @@ Your academy is accessible at a subdomain in the format:
 yourname.fayneos.com
 ```
 
-You choose the subdomain in **Branding**, and the subdomain powers your student landing page, your course detail pages, and your authentication screens. To connect a fully custom domain, see the [Custom Domain](/academy/custom-domain) guide (that lives under **Settings \> Domain**, which shows your subdomain read-only and manages custom domains).
+The subdomain you choose under **Domain** powers your student landing page, your course detail pages, and your authentication screens.
+
+## Your About page
+
+The **Pages** section of Customize is where your visitor-facing pages live. Click **About page** to open the full-screen builder for your academy's landing page (the page visitors see first at `/about`). See the [About Page](/academy/about-page) guide for the full walkthrough.
+
+Also under **Pages**, the **Course catalog** panel lets you choose your catalog layout (full width or floating).
+
+## Email sender identity
+
+Transactional emails from your academy are sent under your academy's own sender name, not Fayne's. This covers emails like signup confirmation, magic link sign-in, one-time passcode, course access notifications, and academy access changes. Your sender name is configured in your academy's email settings.
+
+<Note>
+  Until you verify a custom sending domain, emails still use your academy's sender name but go out from a shared Fayne sending domain. The from-name your students see is always yours.
+</Note>
 
 ## White-label
 
@@ -81,11 +122,15 @@ On a paid plan, no Fayne branding appears in the student experience. Your studen
     Your brand color is applied in both modes. The difference between modes is your logo: you can upload a separate light-mode and dark-mode version so the logo always reads clearly against the background.
   </Accordion>
 
+  <Accordion title="What does the appearance theme change?">
+    It sets whether your whole academy renders in light mode, dark mode, or follows each student's device setting (System). It is academy-wide, not a per-student toggle.
+  </Accordion>
+
   <Accordion title="What email flows use my sender identity?">
-    Transactional emails use your sender identity, including signup confirmation, magic link sign-in, one-time passcode, course assigned, course access revoked, and academy access removed.
+    Transactional emails use your sender name, including signup confirmation, magic link sign-in, one-time passcode, course assigned, course access revoked, and academy access removed.
   </Accordion>
 
   <Accordion title="Can I update my branding after I launch?">
-    Yes. Changes take effect immediately. Students who reload the page see the updated branding. There is no re-publishing step for branding changes alone.
+    Yes. Changes take effect immediately. Students who reload the page see the updated branding. There is no re-publishing step for these settings. (Your About page is the exception: it has its own Publish button.)
   </Accordion>
 </AccordionGroup>
