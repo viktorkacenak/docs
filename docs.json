@@ -47,7 +47,7 @@
             "group": "Your Academy",
             "pages": [
               "academy/branding",
-              "academy/about-page",
+              "academy/home-page",
               "academy/courses",
               "academy/pricing",
               "academy/custom-domain",
@@ -160,5 +160,11 @@
     "color": {
       "dark": "#000000"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/academy/about-page",
+      "destination": "/academy/home-page"
+    }
+  ]
 }
