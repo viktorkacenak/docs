@@ -118,7 +118,7 @@ Returns the created list (`member_count` is `0`) with a `201` status code.
 curl -X POST https://yourname.fayneos.com/api/v1/lists \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
   -H "Content-Type: application/json" \
-  -d '{ "name": "Premium Cohort", "description": "Paying members" }'
+  -d '{ "name": "VIP Cohort", "description": "Paying members" }'
 ```
 
 ### Example response
@@ -127,7 +127,7 @@ curl -X POST https://yourname.fayneos.com/api/v1/lists \
 {
   "data": {
     "id": "9b34bee2-c132-4374-9c3f-d1e24817a301",
-    "name": "Premium Cohort",
+    "name": "VIP Cohort",
     "description": "Paying members",
     "member_count": 0,
     "created_at": "2026-06-19T11:12:52Z",
@@ -180,7 +180,7 @@ Returns the updated list object.
 curl -X PATCH https://yourname.fayneos.com/api/v1/lists/9b34bee2-c132-4374-9c3f-d1e24817a301 \
   -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
   -H "Content-Type: application/json" \
-  -d '{ "name": "Premium Cohort 2026" }'
+  -d '{ "name": "VIP Cohort 2026" }'
 ```
 
 ---

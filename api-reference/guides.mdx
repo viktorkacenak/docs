@@ -155,9 +155,9 @@ curl -X DELETE https://yourname.fayneos.com/api/v1/lists/b7c1e0a2-3f4d-4a1b-9c2e
 
 ---
 
-## Sync students from a CRM or funnel
+## Sync students from another business tool
 
-When a contact converts in your CRM or funnel, you have two ways to bring them in. Which one you pick depends on whether the assignment is personal and lasting or cohort-shaped and revocable.
+When someone signs up through another business tool, you have two ways to bring them in. Which one you pick depends on whether the assignment is personal and lasting or cohort-shaped and revocable.
 
 <CardGroup cols={2}>
   <Card title="Enroll them directly" icon="user-plus">
@@ -169,7 +169,7 @@ When a contact converts in your CRM or funnel, you have two ways to bring them i
   </Card>
 </CardGroup>
 
-`POST /api/v1/students` accepts both in one request, so a funnel webhook can provision, enroll, and enlist in a single call:
+`POST /api/v1/students` accepts both in one request, so an automation from your funnel can add the student, assign courses, and place them in Lists in a single step:
 
 ```bash
 curl -X POST https://yourname.fayneos.com/api/v1/students \
