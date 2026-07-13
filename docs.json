@@ -47,6 +47,7 @@
             "group": "Your Academy",
             "pages": [
               "academy/branding",
+              "academy/about-page",
               "academy/courses",
               "academy/pricing",
               "academy/custom-domain",
@@ -97,6 +98,7 @@
             "group": "Payments",
             "pages": [
               "payments/offers",
+              "payments/offer-pages",
               "payments/stripe-connect",
               "payments/pricing-models"
             ]
@@ -134,6 +136,12 @@
               "api-reference/students",
               "api-reference/enrollments",
               "api-reference/lists"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "api-reference/guides"
             ]
           }
         ]

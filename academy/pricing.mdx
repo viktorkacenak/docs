@@ -25,15 +25,15 @@ Selling in Fayne is built on [Offers](/payments/offers). The simplest offer is a
   </Card>
 
   <Card title="Paid courses" icon="credit-card">
-    Give a course a one-time price between $1 and $999. Students pay once through Stripe Checkout and keep access permanently.
+    Give a course a one-time price between \$1 and \$999. Students pay once through Stripe Checkout and keep access permanently.
   </Card>
 
   <Card title="Bundles" icon="boxes">
-    Sell several courses as one product with its own name, cover, and shareable product page. See [Offers](/payments/offers).
+    Sell several courses as one product with its own name, cover, and shareable product page. Charge once or monthly. See [Offers](/payments/offers).
   </Card>
 
   <Card title="Academy Pass" icon="key-round">
-    One purchase that unlocks every course in your academy, including ones you publish later.
+    One offer that unlocks every course in your academy, including ones you publish later. Sell it as a one-time purchase or a subscription.
   </Card>
 </CardGroup>
 
@@ -45,7 +45,7 @@ You set a course's access (free, paid, or members-only) in that course's setting
 
 ## How checkout works for students
 
-When a student buys, they go through Stripe Checkout, a payment page hosted by Stripe. After payment, they are redirected back to your academy and everything the purchase covers unlocks immediately.
+When a student buys, they go through Stripe Checkout, a payment page hosted by Stripe. After payment, they land on a celebration screen that lists exactly what they unlocked, and everything the purchase covers is available immediately.
 
 <CardGroup cols={2}>
   <Card title="Stripe Checkout" icon="credit-card">
@@ -56,6 +56,12 @@ When a student buys, they go through Stripe Checkout, a payment page hosted by S
     Charges are made directly on your connected Stripe account, so payouts and customer records live in your own Stripe dashboard.
   </Card>
 </CardGroup>
+
+<Note>
+  On an academy with open signup, buyers can purchase without creating an account first. They pay, then Fayne creates their account from the email Stripe collected and sends a sign-in link; one click and their access is ready. Invite-only academies keep buyers on the sign-in flow, since access there is tied to their invitation.
+</Note>
+
+For a bundle or the Academy Pass sold as a subscription, the student is billed on the interval you set (monthly or yearly) and manages the subscription from **Purchases** in their account area, where they can cancel or resume. Canceling stops billing but keeps their access until the end of the paid period.
 
 ## Platform fees
 
@@ -71,11 +77,11 @@ Stripe's own processing fees apply separately and are set by Stripe. Your Stripe
 
 ## Revenue and reporting
 
-Your owner dashboard shows your revenue in two places: **Sell → Transactions** is the ledger (every purchase, refund, and dispute, with gross, fees, and net, refunds you can issue in place, plus CSV export), and **Insights** shows revenue trends and a per-course breakdown for the period you select. For full transaction history, disputes, and payout schedules, open your Stripe dashboard.
+Your owner dashboard shows your revenue in two places: **Sell → Transactions** is the ledger (every purchase, refund, and dispute, with gross, fees, and net, refunds you can issue in place, plus CSV export, filterable to a single offer), and **Insights** shows revenue trends and a per-course breakdown for the period you select. Each offer's hub also has an Overview tab with that offer's own revenue and, for subscriptions, its active-subscriber and past-due counts. For full transaction history, disputes, and payout schedules, open your Stripe dashboard.
 
 <AccordionGroup>
   <Accordion title="Can I change a course's price after launch?">
-    Yes. Update it in the course's settings or the Sell → Course pricing table at any time. Students who have already purchased keep their access; a price change only affects new purchases.
+    Yes. Update it in the course's settings or the Sell → Course pricing table at any time. Students who have already purchased keep their access; a price change only affects new purchases. For a subscription offer, existing subscribers keep paying their original price until they cancel.
   </Accordion>
 
   <Accordion title="Does Fayne take a percentage of my revenue?">

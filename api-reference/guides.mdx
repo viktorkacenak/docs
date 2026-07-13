@@ -1,0 +1,262 @@
+---
+title: "Guides: Common Access Workflows"
+sidebarTitle: "Access Workflows"
+description: "Task-oriented recipes for granting, syncing, and auditing course access with the Fayne API and dashboard together."
+icon: "map"
+---
+
+The reference pages describe each endpoint in isolation. This page shows how to combine them, alongside the dashboard, to solve the jobs owners actually have: giving a cohort access to a set of courses, syncing students in from a CRM, and auditing what a list grants.
+
+<Note>
+  Every request uses your academy base URL and a live key:
+
+  ```bash
+  curl https://yourname.fayneos.com/api/v1/lists \
+    -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ```
+
+  API access is a paid capability. On a preview trial the API returns `402 trial_api_unavailable` until you upgrade.
+</Note>
+
+## Choosing between enrollments, lists, and offers
+
+Access in Fayne has three moving parts. Reach for the right one before you write any code.
+
+<CardGroup cols={3}>
+  <Card title="Enrollment" icon="user-check">
+    A permanent, individual assignment. You grant one student one course, and it stays until you revoke it by hand. Good for one-off comps and manual onboarding.
+  </Card>
+
+  <Card title="List" icon="users">
+    A revocable cohort. A student in a list holds every course that an offer grants to that list. Add and remove members freely, and access follows their membership live.
+  </Card>
+
+  <Card title="Offer" icon="tag">
+    The thing that actually grants or sells access to courses. Offers are configured in your dashboard, never created through the API. A list only grants courses because an offer points at it.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Rule of thumb: use an **enrollment** when the assignment is personal and lasting, and a **list** when the assignment is cohort-shaped and you want to revoke it as a group. The API never creates offers, but it fully manages lists and their membership, which is how you drive an offer's access from your own systems.
+</Tip>
+
+---
+
+## Give a cohort access to a set of courses
+
+This is the flagship pattern: you have a group (a paid cohort, a partner's team, a membership tier) that should see a specific set of courses, and you want to add and remove people through the API.
+
+The shape is always the same. In the dashboard you build a **free, hidden offer** that covers the courses and grants them to a **manual list**. Through the API you then manage who is in that list. Membership is the on/off switch for the whole cohort.
+
+<Steps>
+  <Step title="Lock the courses (dashboard)">
+    For each course in the set, open its access controls and set it to require an offer instead of being free to everyone. A locked course is unreachable unless something grants it, so the cohort will be the only way in.
+
+    Optionally, hide each course from the catalog as well. Locking controls **access**; catalog visibility controls **discoverability**. They are separate switches, so lock the courses even if you also hide them.
+  </Step>
+  <Step title="Create a free offer covering the courses (dashboard)">
+    In the Offers hub, create an offer whose items are exactly those courses (a bundle), or an Academy Pass if the cohort should get everything. Leave the price empty so the offer is free. A free offer grants access without any payment or checkout.
+  </Step>
+  <Step title="Hide the offer from your storefront (dashboard)">
+    On the offer, turn off **Show in store** so it never appears as a card students can find and claim on their own. Access will come only from list membership you control, not from public claiming.
+  </Step>
+  <Step title="Grant the offer to a manual list (dashboard)">
+    Open the offer's **Members** tab and use **Grant to a list**, pointing it at a manual list (create one if needed). This is the wire between the offer and the API: every member of that list now holds the offer, and therefore every course the offer covers, live.
+
+    <Warning>
+      Grant to a list only accepts **manual** lists. An offer's own auto-managed member list cannot be used here, and the API refuses to touch it too (see the guard below).
+    </Warning>
+  </Step>
+  <Step title="Manage membership through the API">
+    From here on, adding a student to the list grants the whole course set, and removing them revokes it. That is the rest of this recipe.
+  </Step>
+</Steps>
+
+### Create (or reuse) the list
+
+If you did not already create the manual list in the dashboard, create it through the API and grant the offer to it afterward. Either way, the list must be manual.
+
+```bash
+curl -X POST https://yourname.fayneos.com/api/v1/lists \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{ "name": "Spring 2026 Cohort", "description": "Paid cohort, wave 1" }'
+```
+
+```json
+{
+  "data": {
+    "id": "b7c1e0a2-3f4d-4a1b-9c2e-8d5f6a7b0c11",
+    "name": "Spring 2026 Cohort",
+    "description": "Paid cohort, wave 1",
+    "member_count": 0,
+    "created_at": "2026-07-10T14:02:00.000Z",
+    "updated_at": "2026-07-10T14:02:00.000Z"
+  }
+}
+```
+
+To reuse a list instead, `GET /api/v1/lists` and pick the one you want by `id`. A duplicate name returns `409 already_exists`.
+
+### Add members by email
+
+Add one or many people. Emails that do not yet have an account are provisioned as students, and by default each new student gets a magic-link welcome email. Add `"send_welcome_email": false` for silent backfills.
+
+```bash
+curl -X POST https://yourname.fayneos.com/api/v1/lists/b7c1e0a2-3f4d-4a1b-9c2e-8d5f6a7b0c11/members \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "emails": ["ada@example.com", "grace@example.com"],
+    "send_welcome_email": true
+  }'
+```
+
+The response reports per-email status, so a partial batch never fails as a whole:
+
+```json
+{
+  "data": {
+    "results": [
+      { "email": "ada@example.com",   "status": "created", "student_id": "1f0a9b2c-4d3e-4f56-8a7b-9c0d1e2f3a4b" },
+      { "email": "grace@example.com", "status": "added",   "student_id": "2a1b3c4d-5e6f-4708-9a1b-2c3d4e5f6071" }
+    ]
+  }
+}
+```
+
+- `created`: a new student account was provisioned and added.
+- `added`: an existing student was added to the list.
+- `already_member`: the student was already in the list; nothing changed.
+- `error`: carries a `code` and `message` for that one email; the rest of the batch still runs.
+
+Send up to 100 emails per call, or a single `"email": "..."` string.
+
+### Remove members to revoke
+
+Removing a student from the list ends the access that list was granting, live.
+
+```bash
+curl -X DELETE https://yourname.fayneos.com/api/v1/lists/b7c1e0a2-3f4d-4a1b-9c2e-8d5f6a7b0c11/members/1f0a9b2c-4d3e-4f56-8a7b-9c0d1e2f3a4b \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+```json
+{ "data": { "removed": true } }
+```
+
+<Note>
+  Membership is not the same as identity. Removing someone from a list revokes what that list granted, but keeps their account and their progress. If they hold the same courses another way (a purchase, another list, a free course), they keep access. Removal only takes away what this list was granting.
+</Note>
+
+<Warning>
+  If the target list is managed by an offer rather than manual, both the add and remove endpoints refuse with `400 list_managed_by_offer`. An offer-managed list is the offer's own holder set, so its membership is driven by the offer machinery (payment, grants), not by direct API writes. Point your automation at a **manual** list that an offer grants to, which is exactly what this recipe builds.
+</Warning>
+
+---
+
+## Sync students from a CRM or funnel
+
+When a contact converts in your CRM or funnel, you have two ways to bring them in. Which one you pick depends on whether the assignment is personal and lasting or cohort-shaped and revocable.
+
+<CardGroup cols={2}>
+  <Card title="Enroll them directly" icon="user-plus">
+    Use `POST /api/v1/students` with `course_ids` to provision the student and assign specific courses in a single call. This is a **permanent individual assignment** that stays until you revoke it.
+  </Card>
+
+  <Card title="Add them to a list" icon="layers">
+    Use `list_ids` (same endpoint) or the list members endpoint to place them in a cohort. Access is **revocable as a group** by removing them from the list.
+  </Card>
+</CardGroup>
+
+`POST /api/v1/students` accepts both in one request, so a funnel webhook can provision, enroll, and enlist in a single call:
+
+```bash
+curl -X POST https://yourname.fayneos.com/api/v1/students \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "linus@example.com",
+    "name": "Linus Carlsson",
+    "course_ids": ["9c8b7a65-4d3e-4210-8f9a-1b2c3d4e5f60"],
+    "list_ids": ["b7c1e0a2-3f4d-4a1b-9c2e-8d5f6a7b0c11"],
+    "send_welcome_email": true
+  }'
+```
+
+<Tip>
+  Choose per intent, not per convenience:
+
+  - A lead who bought a single course outright should be **enrolled** in it. The assignment is theirs and should not disappear when a cohort ends.
+  - A lead who joined a program, tier, or timed cohort should be **added to a list**. When they churn or the cohort closes, you remove them from the list and the whole course set revokes at once.
+
+  You can do both for the same person: enroll them in the one course they bought, and list them in the cohort for everything else.
+</Tip>
+
+To revoke an individual enrollment later, delete it:
+
+```bash
+curl -X DELETE https://yourname.fayneos.com/api/v1/students/STUDENT_ID/enrollments/ENROLLMENT_ID \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+The response tells you whether the student still has access another way, so you never wrongly assume they were locked out:
+
+```json
+{
+  "data": {
+    "revoked": true,
+    "still_has_access": true,
+    "still_has_access_via": "offer"
+  }
+}
+```
+
+`still_has_access_via` is `free`, `purchase`, `offer`, or `null`. If it is non-null, the student keeps the course through that path even after this enrollment ended.
+
+---
+
+## Audit what a list grants
+
+To see exactly which courses a list opens up, and why, read its granted courses:
+
+```bash
+curl https://yourname.fayneos.com/api/v1/lists/b7c1e0a2-3f4d-4a1b-9c2e-8d5f6a7b0c11/courses \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+```
+
+```json
+{
+  "data": {
+    "courses": [
+      {
+        "course_id": "9c8b7a65-4d3e-4210-8f9a-1b2c3d4e5f60",
+        "title": "Cold Outreach Mastery",
+        "slug": "cold-outreach-mastery",
+        "granted_via": [
+          {
+            "offer_id": "3d2c1b0a-9f8e-4d7c-8b6a-5e4f3a2b1c0d",
+            "offer_name": "Spring Cohort Bundle",
+            "role": "grants_to"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+This is a read-only, derived view: it computes the same access the live gate enforces, so it reflects only **active** offers. Inactive or deleted offers grant nothing and never appear.
+
+Read `granted_via[].role` to understand the wiring:
+
+- `grants_to`: the offer is granted **to this list**. The list's members hold the offer for free because you pointed the offer's **Grant to a list** at it. This is the role you set up in the flagship recipe.
+- `member`: this list **is** the offer's own holder set (its member list), the set people join by buying or claiming the offer.
+
+<Note>
+  Every course listed is one that members of this list can actually open right now. If a course you expected is missing, check that its offer is active and that the offer really covers that course.
+</Note>
+
+<Warning>
+  Attaching courses to a list (creating or editing offers, choosing what an offer covers, wiring **Grant to a list**) happens in the dashboard, not the API. This endpoint reads that configuration; it does not change it. The API's job is managing the list and its membership, which is how you drive who holds what an offer already grants.
+</Warning>

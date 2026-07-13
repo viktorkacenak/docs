@@ -1,66 +1,125 @@
 ---
 title: "Offers: Sell Courses, Bundles, and the Academy Pass"
 sidebarTitle: "Offers"
-description: "Everything you sell is an Offer: a single course, a bundle with its own product page, or the Academy Pass covering your whole catalog. Price them, share them, and grant them for free."
+description: "Everything you sell is an Offer: a single course, a bundle with its own product page, or the Academy Pass covering your whole catalog. Charge once or monthly, share the page, and grant access for free."
 icon: "hand-coins"
 ---
 
 Everything you sell in your academy is an **Offer**. An offer wraps one or more courses with a price and a way in: students buy it (or claim it for free), and holding it unlocks every course it covers. You manage all of this from **Sell** in the owner sidebar.
 
-Offers make monetization composable without complicating the simple case. If you just want to charge for one course, set a price on the course and you are done: Fayne manages the offer behind the scenes. Bundles and the Academy Pass are there when you want more.
+Offers make monetization composable without complicating the simple case. If you just want to charge for one course, set a price on the course and you are done: Fayne manages the offer behind the scenes. Bundles and the Academy Pass are there when you want more, including selling them as a monthly subscription.
 
 ## The three offer shapes
 
 <CardGroup cols={3}>
   <Card title="Single course" icon="book-open">
-    A price on one course. No separate product page: it is sold right on the course page. Created for you when you set a course to Paid.
+    A price on one course. No separate product page: it is sold right on the course page. Created for you when you set a course to Paid. Always a one-time price.
   </Card>
 
   <Card title="Bundle" icon="boxes">
-    Several courses sold together, with its own name, cover, product page, and storefront card. "3 courses for \$99" instead of three separate purchases.
+    Several courses sold together, with its own name, cover, product page, and storefront card. "3 courses for \$99" instead of three separate purchases. Can bill once or monthly.
   </Card>
 
   <Card title="Academy Pass" icon="key-round">
-    One offer that covers every course in your academy, including courses you publish later. Each academy has at most one Pass.
+    One offer that covers every course in your academy, including courses you publish later. Each academy has at most one Pass. Can bill once or as a subscription.
   </Card>
 </CardGroup>
 
 Any offer can also be **free**. A free bundle makes a strong lead magnet: students claim it without a payment step and it shows up in their access like any purchase.
+
+## One-time or recurring pricing
+
+A bundle or the Academy Pass can be sold as a **one-time purchase** or as a **subscription** that bills every month or every year. Recurring pricing is for membership-shaped offers: it is available on bundles and the Pass, never on a single-course price (single-course offers are always one-time).
+
+You set pricing on the offer's **Details** tab. Each offer can carry more than one pricing option side by side (for example a monthly plan and a discounted yearly plan), and the storefront shows the best-value option as the headline price.
+
+<AccordionGroup>
+  <Accordion title="What students see">
+    A recurring price shows its interval as a suffix: `\$25/mo` for monthly, or the equivalent per-month figure for yearly. One-time offers show a plain price with no suffix. The product page spells out the billing terms ("Billed monthly. Cancel anytime.") next to the price.
+  </Accordion>
+
+  <Accordion title="How students cancel">
+    Subscribers manage their own subscriptions from **Purchases** in their account area, where each subscription shows its status, next renewal date, and a cancel button. Canceling is graceful: billing stops, but the student keeps the access they have paid for until the end of the current period. They can resume before the period ends to stay subscribed.
+  </Accordion>
+
+  <Accordion title="Canceling or refunding as the owner">
+    From a student's detail panel you can cancel their subscription for them (the same graceful stop, access runs to the end of the paid period) or revoke access immediately. Revoking access also cancels the live subscription so the student is not charged again for access you just removed. A refund returns one charge and ends the access that charge granted; issue it from **Sell → Transactions** or the student's panel.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Changing an offer's price never changes what existing subscribers pay. They keep billing at the price they signed up for until they cancel.
+</Note>
 
 ## The Sell area
 
 The **Sell** area in your sidebar is the home for everything sellable:
 
 - **Overview**: revenue at a glance, recent sales, your Stripe connection status, and health alerts.
-- **Offers**: every offer you have created, with status, price, and holder counts.
+- **Offers**: every offer you have created, shown as product cards with price and holder counts. Click any offer to open its hub (below).
 - **Academy pass**: create or edit your Academy Pass.
 - **Course pricing**: a bulk table of all your courses where you can set each one to Free, Paid, or Members-only in one place.
-- **Transactions**: the transaction ledger, with per-sale status, gross, fees, and net, refunds you can issue in place, plus CSV export.
+- **Transactions**: the transaction ledger, with per-sale status, gross, fees, and net, refunds you can issue in place, plus CSV export. You can filter it to a single offer.
 - **Settings**: defaults applied to newly created courses, including offers a new course joins automatically.
+
+## Managing a live offer: the offer hub
+
+Clicking an offer opens its **hub**, a set of tabs for running an offer that is already selling. The hub keeps the Sell sidebar; the full-screen page editor is one click away from the Page tab.
+
+<CardGroup cols={2}>
+  <Card title="Overview" icon="chart-line">
+    How this offer is doing: gross, net, refunds, and purchase count, plus (for subscriptions) active subscribers and any past-due payments. The transactions for this offer sit at the bottom of the tab. Overview is the default once the offer has at least one holder; a brand-new offer with no holders opens on Details instead.
+  </Card>
+
+  <Card title="Details" icon="sliders-horizontal">
+    What the offer is: name, headline, description, cover image, pricing (one-time or recurring), and which courses or collections it includes. Changes here save live, the same as any settings form.
+  </Card>
+
+  <Card title="Members" icon="users">
+    Who holds the offer and how (see below).
+  </Card>
+
+  <Card title="Page" icon="layout-template">
+    The offer's product page: its publish state, share link, store visibility, and the button to open the full-screen editor. See [Offer Pages](/payments/offer-pages).
+  </Card>
+</CardGroup>
+
+## The Members tab
+
+The **Members** tab is the offer's roster: everyone who holds it, when they joined, and how they hold it, shown as **Purchased**, **Granted**, or a subscription with its status and renewal date. Click a row to open the student's detail panel, where every per-person action lives: grant, revoke, refund, and progress.
+
+Two grant controls sit above the roster:
+
+- **Grant access** hands the offer to one specific person, no payment involved.
+- **Grant to a list** links a manual [list](/students/audiences) so that **everyone on that list holds the offer for as long as they stay on it**. Add someone to the list and they gain access; remove them and it ends. This is the way to comp a whole group (a cohort, your VIPs, paying members of another product) in one move. You can only link manual lists you have built yourself.
+
+<Note>
+  Access through an offer is live. It lasts exactly as long as the student holds the offer: leaving a linked list, a revoke, a refund, or a canceled subscription reaching the end of its period all end it, and there is nothing to clean up.
+</Note>
 
 ## How students get an offer
 
 <AccordionGroup>
   <Accordion title="They buy it">
-    Paid offers check out through Stripe on your connected account. After payment the offer is theirs and every covered course unlocks immediately. See [Stripe Connect](/payments/stripe-connect).
+    Paid offers check out through Stripe on your connected account. After payment the offer is theirs and every covered course unlocks immediately, on a celebratory "You're in" screen that lists exactly what they just unlocked. See [Stripe Connect](/payments/stripe-connect).
+  </Accordion>
+
+  <Accordion title="They buy it as a guest">
+    On an academy with open signup, a buyer can purchase a paid offer without creating an account first. They pay, then their account is created from the email Stripe collected and they receive a sign-in link. One click on that link and their access is ready. Guest checkout is not offered on invite-only academies (access there is tied to an invitation the guest does not have yet).
   </Accordion>
 
   <Accordion title="They claim it (free offers)">
-    A free offer has a claim button instead of a checkout. One click and the covered courses unlock.
+    A free offer has a claim button instead of a checkout. One click and the covered courses unlock, on the same celebration screen as a purchase.
   </Accordion>
 
   <Accordion title="You grant it">
-    From a student's detail panel (**Access** tab) or when inviting them, you can hand any active offer to a specific person, no payment involved. To comp a whole cohort, grant the offer to each member or attach it to their invitations.
+    From a student's detail panel, an offer's Members tab, or an invitation, you can hand any active offer to a specific person, no payment involved. To comp a whole cohort at once, link a list to the offer from the Members tab (see above).
   </Accordion>
 </AccordionGroup>
 
-<Note>
-  Access through an offer is live. It lasts exactly as long as the student holds the offer: a refund or a revoke ends it, and there is nothing to clean up.
-</Note>
-
 ## Product pages and the storefront
 
-Bundles and the Pass get their own **product page** at `yourname.fayneos.com/o/your-offer`, with the cover, description, what is included, and a purchase button. It is a shareable sales link that works in emails, socials, and funnels.
+Bundles and the Pass get their own **product page** at `yourname.fayneos.com/o/your-offer`, with the cover, description, what is included, and a purchase button. It is a shareable sales link that works in emails, socials, and funnels. The page has a draft and a published version: your edits are not live until you publish. Building and publishing the page is covered in [Offer Pages](/payments/offer-pages).
 
 Offers can also appear as cards in your student-facing catalog. Students see a shelf of offers they could buy, and a **Your access** section listing offers they already hold. On a locked course page with several ways in, students see a "choose how you want in" comparison instead of a single buy button.
 
@@ -75,5 +134,5 @@ Each course has one access setting with three options (see [Pricing Models](/pay
 A course can be inside any number of offers regardless of its own setting. A paid course can also be in a bundle; a members-only course might be available only through the Pass.
 
 <Tip>
-  A classic setup: a free introductory course, individual courses at $49 to $99, a bundle of your flagship track at a discount, and the Academy Pass for everything. Each layer catches a different buyer.
+  A classic setup: a free introductory course, individual courses at \$49 to \$99, a bundle of your flagship track at a discount, and the Academy Pass (one-time or as a monthly membership) for everything. Each layer catches a different buyer.
 </Tip>
