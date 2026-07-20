@@ -40,31 +40,63 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "quickstart"
+              "quickstart",
+              "academy/owner-dashboard"
             ]
           },
           {
-            "group": "Your Academy",
+            "group": "Build your academy",
             "pages": [
               "academy/branding",
               "academy/home-page",
               "academy/courses",
-              "academy/pricing",
+              "academy/publishing-access",
+              "academy/preview",
               "academy/custom-domain",
+              "academy/email-domain",
               "academy/team",
-              "academy/email-domain"
+              "academy/multiple-academies"
             ]
           },
           {
-            "group": "Content",
+            "group": "Create content",
             "pages": [
+              "content/course-library",
+              "content/ai-course-generation",
               "content/block-editor",
               "content/ai-customization",
+              "content/video-upload",
               "content/interactive-widgets",
-              "content/course-library",
-              "content/connect-ai-tools",
-              "content/ai-course-generation",
               "content/knowledge"
+            ]
+          },
+          {
+            "group": "Sell your courses",
+            "pages": [
+              "academy/pricing",
+              "payments/stripe-connect",
+              "payments/pricing-models",
+              "payments/offers",
+              "payments/offer-pages"
+            ]
+          },
+          {
+            "group": "Manage students",
+            "pages": [
+              "students/managing-students",
+              "students/invitations-emails",
+              "students/enrollments",
+              "students/certificates",
+              "students/audiences",
+              "students/student-experience"
+            ]
+          },
+          {
+            "group": "Engage students",
+            "icon": "megaphone",
+            "pages": [
+              "engagement/newsfeed",
+              "engagement/book-a-call"
             ]
           },
           {
@@ -77,45 +109,27 @@
             ]
           },
           {
-            "group": "Students",
+            "group": "Measure results",
             "pages": [
-              "students/managing-students",
-              "students/enrollments",
-              "students/certificates",
-              "students/audiences",
-              "students/student-experience"
+              "analytics/overview",
+              "engagement/activity"
             ]
           },
           {
-            "group": "Engagement",
-            "icon": "megaphone",
-            "pages": [
-              "engagement/newsfeed",
-              "engagement/book-a-call"
-            ]
-          },
-          {
-            "group": "Payments",
-            "pages": [
-              "payments/offers",
-              "payments/offer-pages",
-              "payments/stripe-connect",
-              "payments/pricing-models"
-            ]
-          },
-          {
-            "group": "Billing & Plans",
+            "group": "Account and plans",
             "icon": "credit-card",
             "pages": [
               "billing/plans",
               "billing/subscription",
-              "billing/referrals"
+              "billing/referrals",
+              "academy/settings",
+              "engagement/whats-new"
             ]
           },
           {
-            "group": "Analytics",
+            "group": "Advanced",
             "pages": [
-              "analytics/overview"
+              "content/connect-ai-tools"
             ]
           }
         ]

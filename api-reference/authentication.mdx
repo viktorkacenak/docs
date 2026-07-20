@@ -5,6 +5,8 @@ description: "Learn how to authenticate API requests using Bearer tokens, genera
 icon: "key"
 ---
 
+This section is for the person or service connecting another tool to your academy. If terms such as request, header, or API key are unfamiliar, create the key in Fayne and share this page with the person building the connection.
+
 All requests to the Fayne Academy REST API must include an API key. The API uses Bearer token authentication: you pass your key in the `Authorization` header on every request. Each key is scoped to a single academy, so the API infers your academy from the key you provide. You never pass an academy identifier separately, and the host you call does not matter because the academy comes from the key.
 
 <Note>
@@ -86,6 +88,6 @@ When a request fails, the API returns a JSON body with an `error` object contain
 
 <AccordionGroup>
   <Accordion title="Can I connect my CRM or other tools?">
-    Yes. Use this REST API to sync people from your CRM or funnel: call [POST /api/v1/students](/api-reference/students) to add a student and enroll them in courses in one request, or manage [lists](/api-reference/lists) so course access follows list membership (add someone in your tool and they get access; remove them and it is revoked). To let an AI assistant like Claude or Cursor read and edit your course content directly, see [Connect AI Tools](/content/connect-ai-tools).
+    Yes. Use this REST API to sync people from your customer management or signup tool: call [POST /api/v1/students](/api-reference/students) to add a student and enroll them in courses in one request, or manage [lists](/api-reference/lists) so course access follows list membership (add someone in your tool and they get access; remove them and it is revoked). To let an AI assistant like Claude or Cursor read and edit your course content directly, see [Connect AI Tools](/content/connect-ai-tools).
   </Accordion>
 </AccordionGroup>

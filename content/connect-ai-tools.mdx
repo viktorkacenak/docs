@@ -5,9 +5,13 @@ description: "Connect any MCP-compatible AI tool to your academy to read, search
 icon: "plug"
 ---
 
-Fayne runs an [MCP](https://modelcontextprotocol.io) server so you can connect AI tools like Claude, Claude Code, and Cursor directly to your academy. Once connected, your AI assistant can browse your courses, read and search lessons, and make edits in your academy without you copying and pasting content back and forth. Everything it does is scoped to the one academy you choose during sign-in, and every change lands as a draft you review before publishing.
+If you already use Claude or Cursor, you can connect it directly to one of your academies. The connection lets that assistant browse your courses, read and search lessons, and save edits as drafts without repeated copying and pasting.
 
-This is the same content engine that powers Fayne's built-in [AI editor](/content/ai-customization), exposed to the AI tool you already use. You stay in your editor of choice; Fayne handles the reading and writing.
+<Note>
+  This is an optional advanced setup. You do not need it to use Fayne's built-in [lesson AI](/content/ai-customization). The connection standard is called MCP, which is why your AI tool labels this area "MCP" or "Connectors."
+</Note>
+
+You choose the academy during sign-in. The connected assistant can work only in that academy, and nothing it writes reaches students until you review and publish it.
 
 ## What your AI tool can do
 
@@ -155,7 +159,7 @@ Letting an AI tool write to your live academy sounds risky, so Fayne builds in g
 - **Review before publishing.** Open the lesson in the Fayne editor, read the AI's changes, and publish when you are happy. The [block editor](/content/block-editor) shows exactly what changed.
 
 <Note>
-  Lessons in your academy are your own copies of the library content. Edits made through a connected tool change your copy only, never the Explore Library or any other academy. See [Course Library](/content/course-library) for how copies work.
+  Lessons you add from the Explore Library become your academy's own copies. Edits made through a connected tool change your copy only, never the Explore Library or any other academy. See [Explore Library](/content/course-library) for how copies work.
 </Note>
 
 ## Troubleshooting
