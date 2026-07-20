@@ -77,7 +77,8 @@
               "payments/stripe-connect",
               "payments/pricing-models",
               "payments/offers",
-              "payments/offer-pages"
+              "payments/offer-pages",
+              "payments/coupons"
             ]
           },
           {
