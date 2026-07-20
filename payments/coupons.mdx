@@ -1,0 +1,53 @@
+---
+title: "Coupons: Discount Codes for Your Offers"
+sidebarTitle: "Coupons"
+description: "Create discount codes for your offers: percentage or fixed amount, one-time or recurring, with optional expiry dates and redemption limits."
+icon: "ticket-percent"
+---
+
+Coupons let you run promotions without changing your prices. You create a code like `LAUNCH20`, share it with your audience, and students enter it at checkout to get the discount. The discounted amount still settles directly in your Stripe account, like every other payment.
+
+## Create a coupon
+
+<Steps>
+  <Step title="Open Sell > Coupons">
+    In your owner dashboard, open **Sell** and click **Coupons** in the sidebar.
+  </Step>
+  <Step title="Choose a code and a discount">
+    Pick the code students will type (letters and numbers, like `LAUNCH20`) and choose the discount: a **percentage** off or a **fixed amount** off. Fixed amounts are in your academy's selling currency.
+  </Step>
+  <Step title="Choose how long the discount lasts">
+    **Once** applies the discount to a single payment. **Forever** keeps applying it to every renewal, which turns a subscription offer into a genuinely discounted membership for as long as the student stays subscribed.
+  </Step>
+  <Step title="Optionally limit the promotion">
+    Set an **expiry date** to create urgency, or a **redemption limit** to cap how many students can use the code. Leave both empty for an open-ended promotion.
+  </Step>
+</Steps>
+
+## How students use a coupon
+
+Students click through to checkout as usual and enter the code in the **promotion code** field on the Stripe checkout page. The discount is applied before they pay, so the order summary always shows the reduced price.
+
+<Note>
+  Coupons apply at checkout. They do not change the price shown on your course pages or offer pages, so your public pricing stays consistent while the promotion runs.
+</Note>
+
+## Track redemptions
+
+The Coupons page shows each coupon's redemption count, so you can see which promotions actually convert. Expired and exhausted coupons stop working automatically; you can also archive a coupon at any time to stop new redemptions without affecting discounts already granted.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Can I use a coupon with a subscription offer?">
+    Yes. A **once** coupon discounts the first payment only, and the subscription renews at full price. A **forever** coupon keeps the discount on every renewal for the life of the subscription.
+  </Accordion>
+
+  <Accordion title="What currency are fixed-amount coupons in?">
+    Fixed-amount coupons are created in your academy's selling currency. If you plan to change your selling currency, do it before creating fixed-amount coupons: the currency switch is not available while fixed-amount coupons are active, because those coupons would stop applying to checkouts in the new currency.
+  </Accordion>
+
+  <Accordion title="Do discounted sales still incur fees?">
+    Yes. The Fayne platform fee and Stripe's processing fee apply to the discounted amount the student actually pays.
+  </Accordion>
+</AccordionGroup>

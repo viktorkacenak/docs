@@ -46,6 +46,23 @@ When a student buys from you, whether a single paid course, a bundle, or the Aca
   Checkout is hosted by Stripe. To control how the checkout page looks, use the branding settings in your own Stripe dashboard, which apply to your connected account.
 </Note>
 
+## Sell in your own currency
+
+By default, academies price and charge in US dollars. If your connected Stripe account settles in a different currency, such as euros or pounds, you can switch your academy to sell in that currency instead.
+
+<Steps>
+  <Step title="Open Settings > Payments">
+    With Stripe connected, the **Selling currency** card appears on the Payments page. It offers exactly two options: USD or your Stripe account's own settlement currency.
+  </Step>
+  <Step title="Pick your currency before your first sale">
+    Choose the currency you want every price in your academy to use. All offers, course prices, and checkout pages follow it.
+  </Step>
+</Steps>
+
+<Warning>
+  The selling currency **locks permanently after your first sale**, so decide before you start selling. The switch is also unavailable while fixed-amount [coupons](/payments/coupons) are active, because those coupons carry a specific currency.
+</Warning>
+
 ## Platform fees
 
 Payments are made directly on your connected Stripe account. Fayne deducts an application fee on each paid sale based on your plan:
