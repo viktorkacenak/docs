@@ -156,7 +156,8 @@
           {
             "group": "Guides",
             "pages": [
-              "api-reference/guides"
+              "api-reference/guides",
+              "api-reference/partner-sso"
             ]
           }
         ]
