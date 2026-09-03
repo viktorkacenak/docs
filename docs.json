@@ -99,8 +99,7 @@
             "group": "Engage students",
             "icon": "megaphone",
             "pages": [
-              "engagement/newsfeed",
-              "engagement/book-a-call"
+              "engagement/newsfeed"
             ]
           },
           {

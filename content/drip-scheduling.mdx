@@ -4,3 +4,67 @@ sidebarTitle: "Drip scheduling"
 description: "Unlock lessons gradually, either a set number of days after each completed lesson or on a fixed calendar from the day a student starts, with unlock and reminder emails."
 icon: "clock"
 ---
+
+Drip scheduling releases a course's lessons gradually instead of all at once. It suits daily programs, habit-building courses, and anything where pacing matters more than binge access. Drip is a per-course setting and is off by default.
+
+Drip is pacing, not a paywall. It decides **when** a student who already has access can open the next lesson. Who can enter the course at all is still set by its access setting and your [offers](/payments/offers).
+
+## Turn on drip for a course
+
+<Steps>
+  <Step title="Open course settings">
+    Go to **Courses**, open the course, and open its settings (the gear in the editor top bar). Choose the **Drip Schedule** tab.
+  </Step>
+  <Step title="Switch on Drip lessons">
+    Turn on **Drip lessons**. The schedule controls appear below.
+  </Step>
+  <Step title="Pick an unlock schedule">
+    - **After each completed lesson**: the timer starts when a student finishes a lesson. Nobody falls behind and nobody binges ahead.
+    - **On a fixed schedule**: lessons unlock at fixed intervals from each student's start date, whether or not they keep up.
+  </Step>
+  <Step title="Set the time between lessons">
+    Enter the interval in days, from 1 to 90. The default is one day.
+  </Step>
+  <Step title="Choose the emails">
+    - **Lesson unlocked**: an email from your academy with a direct link to the newly unlocked lesson. On by default.
+    - **Remind inactive students**: available on the completed-lesson schedule. One reminder after a number of days without activity (default 3, up to 60). Students can opt out of reminders.
+  </Step>
+  <Step title="Save">
+    Use **Save & Close** on the settings dialog. The schedule applies immediately to every student in the course.
+  </Step>
+</Steps>
+
+<Note>
+  Drip is computed live from each student's progress and start date. There is nothing to backfill or resync: change the interval, switch schedules, reorder lessons, or turn drip off, and every student's locks are recalculated on their next visit.
+</Note>
+
+## What students see
+
+- The first lesson is always open.
+- Locked lessons appear in the lesson sidebar and the course outline with a lock, and hovering shows when they unlock ("Unlocks in 2 days", "Unlocks in 3 hours", "Unlocks on your next visit").
+- The lesson footer replaces **Next** with the unlock time while the next lesson is locked. A direct link to a locked lesson sends the student back to their latest available lesson.
+- On the completed-lesson schedule, finishing a lesson is what starts the clock for the next one. Reading ahead is not possible.
+
+## How drip works with other features
+
+<AccordionGroup>
+  <Accordion title="Knowledge checks">
+    A [required knowledge check](/content/knowledge-checks) gates the lessons after it regardless of drip. While the check is unpassed, the check lock shows; once passed, the drip timer takes over.
+  </Accordion>
+
+  <Accordion title="Modules">
+    [Modules](/content/modules) are labels over the lesson order and do not change drip timing. Lessons unlock one at a time in sequence, across module boundaries.
+  </Accordion>
+
+  <Accordion title="The Learning Assistant">
+    The assistant only reads lessons the student can open, so it does not reveal locked content.
+  </Accordion>
+
+  <Accordion title="Certificates and completion">
+    A course completes when every published lesson is finished, as before. Drip only spaces out when those lessons become available.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Preview the schedule from a student's point of view with **Preview** in the owner sidebar, choosing a specific student to see exactly which lessons they can open today.
+</Tip>
