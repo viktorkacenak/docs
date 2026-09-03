@@ -77,7 +77,7 @@ Once a student has started at least one course, their home screen in your academ
   </Card>
 
   <Card title="Continue where you left off" icon="play">
-    A prominent prompt links directly to the next lesson the student should work on, so they can pick up without searching.
+    A prominent prompt links directly to the next lesson the student can open, so they can pick up without searching.
   </Card>
 
   <Card title="Lesson bookmarks" icon="bookmark">
@@ -89,16 +89,21 @@ Once a student has started at least one course, their home screen in your academ
   </Card>
 </CardGroup>
 
-<Note>
-  Every course a student can open is immediately fully available. Fayne does not support drip-feed scheduling or course prerequisites, so a student can start any lesson in any order on day one.
-</Note>
+## Pacing inside a course
+
+By default, every lesson in a course a student can open is available from day one, in any order. Two per-course settings change that:
+
+- [**Drip scheduling**](/content/drip-scheduling) releases lessons on a timer, either a set number of days after each completed lesson or on a fixed schedule from the student's start date.
+- [**Knowledge checks**](/content/knowledge-checks) that are marked required lock the lessons after them until the student passes.
+
+Both show locked lessons in the sidebar with the reason, and both are recalculated live, so changing a setting takes effect on the student's next visit.
 
 ## The course viewer
 
-Inside a course, students see a full-screen reading experience. The lesson sidebar on the left lists every lesson in order. Completed lessons display a checkmark, and the current lesson is highlighted.
+Inside a course, students see a full-screen reading experience. The lesson sidebar on the left lists every lesson in order, grouped under [module](/content/modules) headers when the course has them. Completed lessons display a checkmark, and the current lesson is highlighted.
 
 At the bottom of each lesson, **Previous** and **Next** buttons move through the course in sequence. Fayne marks a lesson complete when the student reads to the end of it (scrolls through the full lesson) or clicks **Next** to advance.
 
 <Tip>
-  Students are not locked into a linear path. They can click any lesson in the sidebar to jump directly to it, regardless of whether they have completed earlier lessons.
+  Without drip or required checks, students are not locked into a linear path. They can click any lesson in the sidebar to jump directly to it.
 </Tip>

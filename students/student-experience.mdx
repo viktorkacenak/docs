@@ -5,7 +5,7 @@ description: "A tour of the branded learning experience your students get, from 
 icon: "eye"
 ---
 
-Everything your students see is your academy: your name, your logo, your colors, your subdomain. This page walks through what that experience feels like from their side so you know exactly what you are handing them. It covers the dashboard they land on, the lesson viewer they learn in, the study tools they collect along the way, and the finish line when they complete a course.
+Everything your students see is your academy: your name, your logo, your colors, your subdomain, and even the word for them (members, clients, students, participants, or learners, as you set under [Customize](/academy/branding)). This page walks through what that experience feels like from their side so you know exactly what you are handing them. It covers the dashboard they land on, the lesson viewer they learn in, the study tools they collect along the way, and the finish line when they complete a course.
 
 For who can see what (open signup, invitations, paid courses), see [Access and Progress](/students/enrollments). For the optional study helper, see the [Learning Assistant](/learning-assistant/overview).
 
@@ -17,7 +17,7 @@ You choose the academy-wide appearance under **Customize → Colors**. Set it to
 
 My Learning is the student's home base. It groups their enrolled courses into **In Progress** and **Completed**, each shown as a course card with a progress count. Any certificates they have earned appear in a **Certificates** section lower on the same page.
 
-At the top, when a student has started but not finished a course, a **Continue learning** banner highlights the course they are partway through, names the next lesson ("Up next: ..."), shows a progress ring, and gives them a single **Continue** button straight to that lesson. It points at the first lesson they have not yet completed, so a returning student is one click from where they left off.
+At the top, when a student has started but not finished a course, a **Continue learning** banner highlights the course they are partway through, names the next lesson ("Up next: ..."), shows a progress ring, and gives them a single **Continue** button straight to that lesson. It points at the first lesson they have not yet completed and can open, so a returning student is one click from where they left off.
 
 <Note>
   If a student has not started anything yet, My Learning shows a friendly empty state with a **Browse Courses** button instead of cards.
@@ -25,7 +25,7 @@ At the top, when a student has started but not finished a course, a **Continue l
 
 ## The course catalog
 
-The catalog shows your courses grouped by your collections. When you sell through [offers](/payments/offers), it grows two extra shelves: one with cards for offers the student could buy (bundles and the Academy Pass link to their product pages), and **Your access**, listing the offers they already hold. On a locked course's page, students see the ways in: a buy button, a comparison of the offers that cover it, or a note that access is managed by the academy when there is nothing to buy.
+The catalog shows your courses grouped by your collections, under the hero you configured (a Continue banner, a featured course, or your own banner). Any custom links you added appear in the sidebar. When you sell through [offers](/payments/offers), it grows two extra shelves: one with cards for offers the student could buy (bundles and the Academy Pass link to their product pages), and **Your access**, listing the offers they already hold. Free courses carry a **Free** chip once the academy sells anything. On a locked course's page, students see the ways in: a buy button, a comparison of the offers that cover it, your custom access link, or a note that access is managed by the academy when there is nothing to buy.
 
 ## The course viewer
 
@@ -33,11 +33,19 @@ Inside a course, students read lessons in a focused viewer.
 
 <CardGroup cols={2}>
   <Card title="Lesson sidebar" icon="list">
-    An ordered list of every lesson in the course. The header shows the course title and a live completion percentage with a progress bar. Each row shows a checkmark for completed lessons, a small progress gauge for the lesson currently open, and the estimated reading time in minutes for the rest.
+    An ordered list of every lesson in the course, grouped under module headers when the course has [modules](/content/modules). The header shows the course title and a live completion percentage with a progress bar. Each row shows a checkmark for completed lessons, a small progress gauge for the lesson currently open, the estimated reading time for the rest, and an icon on lessons that hold a video or are a knowledge check.
   </Card>
 
   <Card title="Previous / Next" icon="arrow-right">
     A footer with the previous lesson on the left and the next lesson on the right. On the final lesson, the forward button becomes **Complete Course**.
+  </Card>
+
+  <Card title="Lesson audio" icon="volume-2">
+    When you have generated [audio](/content/lesson-audio) for a lesson, a player sits above the content with play, scrub, and speed (1x to 2x).
+  </Card>
+
+  <Card title="Locked lessons" icon="lock">
+    With [drip scheduling](/content/drip-scheduling) or a required [knowledge check](/content/knowledge-checks), upcoming lessons show a lock with the reason: when they unlock, or which check to pass first.
   </Card>
 </CardGroup>
 
@@ -53,6 +61,8 @@ Students do not have to hunt for a button. A lesson is marked complete automatic
     Clicking **Next Lesson** (or **Complete Course** on the last one) also marks the current lesson complete, so students who skim still get credit for what they moved past.
   </Step>
 </Steps>
+
+Knowledge checks are the exception: a check completes when the student submits it, and a required check only once they pass.
 
 The course-level progress bar in the sidebar updates as lessons are completed, and that same progress is what drives the Continue banner and the course cards on My Learning.
 
@@ -103,7 +113,7 @@ For how you turn certificates on and what they contain, see [Certificates](/stud
 
 ## The completion moment
 
-Finishing a course drops the student onto a celebratory completion screen: "Well done, \[name\]!", the course title, and their collectible card. From here they can:
+Finishing a course drops the student onto a celebratory completion screen: "Well done, [name]!", the course title, and their collectible card. From here they can:
 
 <CardGroup cols={2}>
   <Card title="Download the certificate" icon="download">
