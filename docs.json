@@ -66,6 +66,8 @@
               "content/block-editor",
               "content/ai-customization",
               "content/modules",
+              "content/knowledge-checks",
+              "content/drip-scheduling",
               "content/video-upload",
               "content/interactive-widgets",
               "content/knowledge"
