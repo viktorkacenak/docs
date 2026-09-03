@@ -1,0 +1,56 @@
+---
+title: "Organize a Course into Modules"
+sidebarTitle: "Modules"
+description: "Group lessons into named modules so long courses read as chapters, in the editor, on the course page, and in the lesson viewer."
+icon: "folder-tree"
+---
+
+Modules group the lessons of a course into named chapters. They are labels painted over the lesson order: the sequence students move through, drip timing, and knowledge-check gates all follow the flat lesson list exactly as before. Modules only change how that list is presented.
+
+Courses without modules look exactly as they always did. Adding your first module is what turns the chaptered view on.
+
+## Add modules in the editor
+
+<Steps>
+  <Step title="Open the course">
+    Go to **Courses** and open the course. The lesson list sits in the left sidebar of the editor.
+  </Step>
+  <Step title="Add your first module">
+    Open the chevron menu next to **Add lesson** at the bottom of the lesson list and choose **Add module**. Your existing lessons become **Module 1** and an empty **Module 2** appears below it, ready for you to drag lessons into.
+  </Step>
+  <Step title="Name and arrange">
+    Click a module title to rename it inline. Drag lessons between modules, or drag an expanded module header to move the boundary between two modules. A collapsed module behaves like a closed folder: dragging it moves all of its lessons together.
+  </Step>
+  <Step title="Add to a specific module">
+    Each module header has its own menu with **Add lesson**, **Add knowledge check**, and **Delete module**, so new content lands where you want it.
+  </Step>
+</Steps>
+
+<Note>
+  Once a course has modules, every lesson belongs to one. Deleting a module merges its lessons into the neighbouring module; deleting the last module returns the course to a flat list. Lessons cannot sit above the first module header.
+</Note>
+
+Structure changes save on their own, and the save indicator in the editor top bar shows when they land. The student preview inside the editor mirrors the module headers as you work.
+
+## What students see
+
+- **The course page** shows module headers as bands in the curriculum, with the lessons of each module listed beneath.
+- **The lesson viewer** shows the same headers in the lesson sidebar, so a student always knows which chapter they are in.
+
+Lesson numbering, **Previous** and **Next**, and any locks from [drip scheduling](/content/drip-scheduling) or [knowledge checks](/content/knowledge-checks) are unchanged by modules.
+
+## Modules from AI generation
+
+When you [generate a course with AI](/content/ai-course-generation), the outline proposes modules for courses of roughly eight lessons or more with distinct phases. Short courses stay flat. You see the module headers on the outline approval screen, so you can rename or reshape them before drafting starts. Knowledge checks placed by the generator sit at module boundaries.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Drip scheduling" icon="clock" href="/content/drip-scheduling">
+    Release lessons over time.
+  </Card>
+
+  <Card title="Knowledge checks" icon="circle-check" href="/content/knowledge-checks">
+    Graded checks that can gate the next module.
+  </Card>
+</CardGroup>
