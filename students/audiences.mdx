@@ -5,7 +5,7 @@ description: "Group students into manually curated Lists and self-updating rule-
 icon: "users-round"
 ---
 
-Audiences let you group your students so you can act on them as a set: grant a group access to a course, or send them a targeted Newsfeed post. You build audiences from the **People** area of your academy, which has three tabs: **Students**, **Lists**, and **Segments**. Lists are groups you curate by hand. Segments are saved filters that recompute themselves as students match your rules.
+Audiences let you group your students so you can act on them as a set: grant a group access to a course, or send them a targeted Newsfeed post. You build audiences from the **People** area of your academy. Lists are groups you curate by hand. Segments are saved filters that recompute themselves as students match your rules.
 
 <CardGroup cols={2}>
   <Card title="Lists" icon="users">
@@ -19,7 +19,7 @@ Audiences let you group your students so you can act on them as a set: grant a g
 
 ## Where to find audiences
 
-Open **People** from the owner sidebar. The tab bar switches between your **Students**, your **Lists**, and your **Segments**. Lists and Segments both live under the same People area, so you are always looking at three views of the same people.
+Open **People** from the owner sidebar. The rail on the left lists **All members**, **Invited**, then every **List** and every **Segment** you have. Each one is a view over the same people, so you never leave the page: click a List or Segment in the rail to see exactly who is in it, in the same table as the full roster. Use the **\+** next to **Lists** or **Segments** to create a new one.
 
 ## Lists
 
@@ -28,8 +28,8 @@ A List is a hand-picked group of students. Use one whenever you want a stable se
 ### Create a list
 
 <Steps>
-  <Step title="Open the Lists tab">
-    In **People**, select **Lists**, then choose **New list**.
+  <Step title="Start a new list">
+    In **People**, click **\+** next to **Lists** in the rail.
   </Step>
   <Step title="Name it">
     Give the list a name (for example, "VIP clients") and an optional description so you remember what it is for.
@@ -41,7 +41,7 @@ A List is a hand-picked group of students. Use one whenever you want a stable se
 
 ### Add and remove members
 
-From a list's detail page, use **Add members** to choose how members join:
+From a list's view, use **Add members** to choose how members join:
 
 <CardGroup cols={2}>
   <Card title="Add students" icon="user-plus">
@@ -52,6 +52,8 @@ From a list's detail page, use **Add members** to choose how members join:
     Upload a CSV with an `email` column (a `name` column is optional). Emails that match an existing academy student are added; any that do not match are reported back to you so you can follow up.
   </Card>
 </CardGroup>
+
+You can also select rows in the **All members** view (or any quick view such as **Stalled 14d+**) and use **Add to list** on the bulk bar to add several people at once.
 
 To remove someone, use the remove control on their row. Removing a member, or deleting the whole list, never touches the student's account, enrollments, or course progress. It only changes who the list targets, and you can add a member back at any time.
 
@@ -73,13 +75,13 @@ Offers students purchase manage their own member lists automatically; those do n
 
 ## Segments
 
-A Segment is a saved filter that defines its membership from rules instead of a hand-picked list. You never add or remove members directly: students fall in and out of a segment automatically as they match (or stop matching) the rules. Segments are computed on demand from current enrollment, progress, and completion data, and they always include only students with active access in your academy.
+A Segment is a saved filter that defines its membership from rules instead of a hand-picked list. You never add or remove members directly: students fall in and out of a segment automatically as they match (or stop matching) the rules. Segments are computed on demand from current enrollment, progress, completion, and welcome-answer data, and they always include only students with active access in your academy.
 
 ### Build a segment
 
 <Steps>
   <Step title="Start a new segment">
-    In **People**, select **Segments**, then choose **New segment**.
+    In **People**, click **\+** next to **Segments** in the rail.
   </Step>
   <Step title="Name it and add conditions">
     Give it a name (for example, "Stalled in Sales 101") and add one or more conditions.
@@ -109,6 +111,10 @@ You can build a segment from these rules:
     - **Completed lesson**: finished a chosen lesson
     - **Course progress**: progress in a chosen course compared against a percentage (for example, less than 25%)
   </Accordion>
+
+  <Accordion title="Welcome questions">
+    - **Answered welcome question**: picked a given option on one of your choice questions. Appears once you have [welcome questions](/academy/welcome-questions) turned on. From the Welcome questions panel, the count beside each option links straight to a segment builder pre-filled with that answer.
+  </Accordion>
 </AccordionGroup>
 
 <Tip>
@@ -116,12 +122,12 @@ You can build a segment from these rules:
 </Tip>
 
 <Note>
-  If a condition points at a course or lesson you later delete, that condition simply matches nobody, and the segment editor flags it so you can fix or remove it.
+  If a condition points at a course, lesson, or question you later delete, that condition simply matches nobody, and the segment editor flags it so you can fix or remove it.
 </Note>
 
 ## Targeting an audience
 
-Once a list or segment exists, you can target it in two places:
+Once a list or segment exists, you can target it in these places:
 
 <CardGroup cols={2}>
   <Card title="Course access (Lists only)" icon="shield-check">
@@ -130,6 +136,14 @@ Once a list or segment exists, you can target it in two places:
 
   <Card title="Newsfeed posts" icon="megaphone">
     In the [Newsfeed](/engagement/newsfeed) composer, send a post to **Everyone** or target specific Lists or Segments.
+  </Card>
+
+  <Card title="Insights" icon="chart-line">
+    Filter the Overview and Audience tabs of [Insights](/analytics/overview) to one or more Lists or Segments.
+  </Card>
+
+  <Card title="Preview" icon="eye">
+    Open your academy as a Segment from [Preview](/academy/preview) to check what that audience sees.
   </Card>
 </CardGroup>
 

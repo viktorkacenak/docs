@@ -49,6 +49,7 @@
             "pages": [
               "academy/branding",
               "academy/home-page",
+              "academy/welcome-questions",
               "academy/courses",
               "academy/publishing-access",
               "academy/preview",
@@ -65,7 +66,11 @@
               "content/ai-course-generation",
               "content/block-editor",
               "content/ai-customization",
+              "content/modules",
+              "content/knowledge-checks",
+              "content/drip-scheduling",
               "content/video-upload",
+              "content/lesson-audio",
               "content/interactive-widgets",
               "content/knowledge"
             ]
@@ -96,8 +101,7 @@
             "group": "Engage students",
             "icon": "megaphone",
             "pages": [
-              "engagement/newsfeed",
-              "engagement/book-a-call"
+              "engagement/newsfeed"
             ]
           },
           {

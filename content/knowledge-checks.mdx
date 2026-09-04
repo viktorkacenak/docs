@@ -1,0 +1,90 @@
+---
+title: "Knowledge Checks: Graded Quizzes That Can Gate Progress"
+sidebarTitle: "Knowledge checks"
+description: "Add graded check lessons with a pass mark, require students to pass before the next lesson unlocks, and read pass rates per check."
+icon: "circle-check"
+---
+
+A knowledge check is a lesson made of quiz blocks that is **graded**. Students submit their answers, Fayne scores them on the server, and the result decides whether they pass. A check can be required, so later lessons stay locked until it is passed, or optional, so it simply records a score.
+
+Checks use the same quiz blocks you already know from lessons: multiple choice, true or false, fill in the blank, ordering, and matching. The difference is what happens on submit. In a normal lesson each block confirms itself instantly. In a check, the answer keys are stripped from what the student receives, and nothing is revealed until they submit the whole check.
+
+## Add a check
+
+<Steps>
+  <Step title="Open the course editor">
+    Go to **Courses** and open the course.
+  </Step>
+  <Step title="Add a knowledge check">
+    Open the chevron menu next to **Add lesson** in the lesson sidebar and choose **Add knowledge check**. If the course has [modules](/content/modules), each module header menu offers the same option, so you can drop a check at the end of a chapter.
+  </Step>
+  <Step title="Write the questions">
+    A check opens in the normal block editor. Type `/` and insert quiz blocks: **Multiple choice**, **True or false**, **Fill in the blank**, **Ordering**, or **Matching**. Anything else you add (headings, a short intro) is shown but not graded.
+  </Step>
+  <Step title="Set the scoring">
+    Open **Check settings** from the check's row in the sidebar.
+
+    - **Pass mark**: the share of questions that must be correct to pass. Default is **70%**.
+    - **Required to advance**: when on, later lessons stay locked until this check is passed. On by default.
+  </Step>
+  <Step title="Publish">
+    Publish the check like any lesson. Checks show a distinct icon in the lesson list so you can tell them apart from lessons.
+  </Step>
+</Steps>
+
+<Tip>
+  A check needs at least one gradeable quiz block. A check with only text has nothing to score, so students cannot pass it.
+</Tip>
+
+## What students experience
+
+<CardGroup cols={2}>
+  <Card title="Submit once, see the result" icon="send">
+    Students answer every question, then press **Submit answers**. They see their score against the pass mark and either **Check passed** or **Not quite there yet**.
+  </Card>
+
+  <Card title="Retake freely" icon="rotate-cw">
+    A failed check can be retaken. The best score is what counts, so a later failed attempt never undoes an earlier pass.
+  </Card>
+
+  <Card title="Locked lessons" icon="lock">
+    When a check is required, the lessons after it show as locked in the sidebar and the course outline with a "Pass ... to continue" note. Passing unlocks them immediately.
+  </Card>
+
+  <Card title="Completion" icon="flag">
+    Passing a required check marks it complete. An optional check counts as complete on submit, whatever the score.
+  </Card>
+</CardGroup>
+
+Checks combine with [drip scheduling](/content/drip-scheduling). If a lesson is behind both a required check and a drip timer, the check wins while it is unpassed; once passed, the drip timer applies as usual. Work a student has already completed never re-locks when you change settings later.
+
+<Note>
+  Answers are graded on the server against the stored check, and the answer keys never reach the browser before submit. Students cannot read the correct answers out of the page.
+</Note>
+
+## Read the results
+
+Open a course's insights (the **Insights** button in the course editor, or **Insights** in the owner sidebar and then the course) and switch to the **Quizzes** tab. A **Knowledge checks** section at the top lists every check with:
+
+- its pass mark and whether it is required to advance
+- **pass rate**: the share of students who have ever passed it
+- **average best score** across students
+- an expandable list of students with their latest score, best score, and number of tries, with students who have not yet passed sorted first
+
+See [Analytics](/analytics/overview) for the rest of the course insights.
+
+## Checks from AI generation
+
+When you [generate a course with AI](/content/ai-course-generation), the outline places one check after each module of three to five lessons on standard courses (short mini-courses get none, and a check is never first or doubled up). The check is written from the finished lessons of its module, so its questions match what was actually taught. Checks appear with a badge on the outline approval screen, and you can remove or move them like any lesson.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Block editor" icon="layout-panel-left" href="/content/block-editor">
+    Every quiz block a check can use.
+  </Card>
+
+  <Card title="Modules" icon="folder-tree" href="/content/modules">
+    Put a check at the end of each chapter.
+  </Card>
+</CardGroup>

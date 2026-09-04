@@ -9,7 +9,7 @@ Open **Courses**, choose a course, and select a lesson to reach the block editor
 
 ## Inserting and reordering blocks
 
-Type `/` at the start of any line to open the block menu. Start typing the name of the block you want and press **Enter** to insert it. To move a block, grab the drag handle on its left edge and drop it where you want it.
+Type `/` at the start of any line to open the block menu. Start typing the name of the block you want and press **Enter** to insert it. To move a block, grab the drag handle on its left edge and drop it where you want it. The drag handle also opens a menu with **Duplicate**, **Copy**, **Paste**, and **Delete**, so a block can be copied from one lesson and pasted into another. As you browse the slash menu, a side card shows a small wireframe of how each block renders for students, so you can pick the right one before inserting it.
 
 <Tip>
   You can reorder any block type, including interactive learning blocks and media embeds, using drag-and-drop. The handle appears when you hover over the block's left margin.
@@ -42,22 +42,44 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
         Syntax-highlighted code blocks. Supports all major languages.
       </Card>
 
-      <Card title="Collapsible details" icon="chevron-down">
-        Expandable toggle sections that hide content until a student clicks to reveal it.
+      <Card title="Toggle list" icon="chevron-down">
+        Expandable sections with a title that hide content until a student clicks to reveal it.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
+  <Accordion title="Quiz blocks">
+    Five question types. In a normal lesson each block checks itself as the student answers. Inside a [knowledge check](/content/knowledge-checks) the same blocks are graded together on submit, with a pass mark.
+
+    <CardGroup cols={2}>
+      <Card title="Multiple choice" icon="circle-check">
+        One question with selectable options and instant feedback.
+      </Card>
+
+      <Card title="True or false" icon="toggle-left">
+        A statement the student marks true or false.
+      </Card>
+
+      <Card title="Fill in the blank" icon="text-cursor-input">
+        A sentence with a missing word or phrase the student types in.
+      </Card>
+
+      <Card title="Ordering" icon="list-ordered">
+        Items the student drags into the correct sequence.
+      </Card>
+
+      <Card title="Matching" icon="git-compare-arrows">
+        Two columns the student pairs up, such as terms and definitions.
       </Card>
     </CardGroup>
   </Accordion>
 
   <Accordion title="Interactive learning">
-    These blocks turn passive reading into active learning. Use them to reinforce key ideas, check understanding, and keep students engaged.
+    These blocks turn passive reading into active learning. Use them to reinforce key ideas and keep students engaged.
 
     <CardGroup cols={2}>
       <Card title="Flashcards" icon="layers">
         A flip-card format where students reveal the answer by clicking. Great for definitions and key terms.
-      </Card>
-
-      <Card title="Multiple-choice quizzes" icon="circle-check">
-        One question with selectable options and instant feedback.
       </Card>
 
       <Card title="Checklist cards" icon="check-square">
@@ -107,7 +129,7 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
 
     <CardGroup cols={2}>
       <Card title="Image" icon="image">
-        Upload a PNG, JPG, WebP, GIF, or SVG image up to 10 MB, or generate one with AI from a short description, then set its caption, alignment, and width.
+        Upload a PNG, JPG, WebP, GIF, or SVG image up to 10 MB, or generate one with AI from a short description (5 credits per image), then set its caption, alignment, and width.
       </Card>
 
       <Card title="File download" icon="download">
@@ -119,7 +141,7 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
       </Card>
 
       <Card title="Video" icon="play">
-        Embed a YouTube or Vimeo link, or upload an MP4, WebM, or Ogg file up to 1 GB. Large uploads show progress and retry failed parts without restarting the whole file.
+        Embed a YouTube, Vimeo, or Loom link, or upload an MP4, WebM, or Ogg file up to 1 GB with an optional `.vtt` captions track. See [Add lesson video](/content/video-upload).
       </Card>
 
       <Card title="Bookmark card" icon="bookmark">
@@ -149,7 +171,7 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
       </Card>
 
       <Card title="Drag-handle reordering" icon="grip-vertical">
-        Every block has a drag handle on its left edge. Grab it to move any block to a new position.
+        Every block has a drag handle on its left edge. Grab it to move any block to a new position, or open its menu to duplicate or delete it.
       </Card>
 
       <Card title="Slash command menu" icon="slash">
@@ -158,3 +180,12 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
     </CardGroup>
   </Accordion>
 </AccordionGroup>
+
+## Beyond blocks
+
+A lesson also carries a few attachments that live outside the block canvas, in the action bar above the editor:
+
+- **Add video** promotes a video to the lesson's hero, shown at the top of the lesson.
+- **Generate audio** creates a read-aloud version of the lesson in a catalog voice or your own cloned voice. See [Lesson audio](/content/lesson-audio).
+
+For structuring a whole course rather than a single lesson, see [Modules](/content/modules), [Knowledge checks](/content/knowledge-checks), and [Drip scheduling](/content/drip-scheduling).

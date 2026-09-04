@@ -1,7 +1,7 @@
 ---
 title: "Add, Organize, and Customize Courses in Your Academy"
 sidebarTitle: "Courses"
-description: "Add courses from Explore, build your own, organize them into collections, choose access, and publish when ready."
+description: "Add courses from Explore, build your own, organize them into collections and modules, choose access, and publish when ready."
 icon: "book-open"
 ---
 
@@ -13,11 +13,11 @@ Content in Fayne follows a four-level hierarchy:
 
 <CardGroup cols={2}>
   <Card title="Lesson" icon="file-text">
-    One focused piece of learning content.A lesson can combine writing, media, questions, downloads, and interactive blocks.
+    One focused piece of learning content. A lesson can combine writing, media, questions, downloads, and interactive blocks. A [knowledge check](/content/knowledge-checks) is a graded lesson.
   </Card>
 
   <Card title="Course" icon="book-open">
-    A sequence of 5 to 15 lessons in a logical progression. For example, "Cold Outreach Mastery."
+    A sequence of lessons in a logical progression, optionally grouped into [modules](/content/modules). For example, "Cold Outreach Mastery."
   </Card>
 
   <Card title="Track" icon="layers">
@@ -91,9 +91,57 @@ Students browsing a catalog with collections get a sticky navigation bar that fo
   Collections organize the catalog only. To control access, set a course to Free, Paid, or Members-only, or include it in an [offer](/payments/offers).
 </Note>
 
+## The course menu
+
+Each course card on the **Courses** page has a menu with everything you can do to the course as a whole:
+
+<CardGroup cols={2}>
+  <Card title="Duplicate" icon="copy">
+    Creates a content-only copy in the same academy, named with "(copy)", as a draft with your default access setting. Lessons, thumbnail, collection, and certificate settings come along; enrollments, pricing, and progress do not. Use it to build a new version of a course without touching the live one.
+  </Card>
+
+  <Card title="Copy to academy" icon="arrow-right-left">
+    Shown when you own more than one academy. Pick a destination and the course is copied there as a draft, keeping its title. The collection is dropped because collections belong to each academy. The success toast offers **Undo** for a moment in case of a mis-click.
+  </Card>
+
+  <Card title="Move to collection" icon="folder">
+    Put the course in a collection, or take it out.
+  </Card>
+
+  <Card title="Delete course" icon="trash">
+    Removes the course. Students who are already enrolled lose access immediately.
+  </Card>
+</CardGroup>
+
+Both copies count toward your course limits. Copy to academy is available to admins as well as the owner, as long as both academies belong to the same owner.
+
+## Course settings
+
+Open a course in the editor and click the gear in the top bar to reach its settings dialog. The tabs are:
+
+| Tab | What it holds |
+| --- | --- |
+| **Access** | Free, Paid, or Members-only, and which offers include the course. See [Pricing Models](/payments/pricing-models). |
+| **Certificate** | Turn on the certificate of completion for this course. See [Certificates](/students/certificates). |
+| **Drip Schedule** | Release lessons over time. See [Drip scheduling](/content/drip-scheduling). |
+| **Design** | The course cover image and thumbnail. |
+| **Source** | Whether the course is custom or based on a library course, and which one. |
+| **Danger zone** | Unpublish or delete the course. |
+
+Next to the gear, the **Insights** button opens the course's own analytics, including quiz and knowledge-check results. See [Analytics](/analytics/overview#course-insights-from-the-editor).
+
+## Structure the lessons
+
+Inside the editor, the lesson sidebar is where you shape the course:
+
+- **Add lesson** creates a blank lesson. The chevron next to it also offers **Add knowledge check** and **Add module**.
+- [**Modules**](/content/modules) group lessons into named chapters that show on the course page and in the lesson viewer.
+- [**Knowledge checks**](/content/knowledge-checks) are graded quiz lessons with a pass mark that can lock the lessons after them.
+- Drag lessons to reorder them. Lessons with a video or a check show an icon in the list.
+
 ## Build your own course
 
-You are not limited to the pre-built courses in the library. You can create your own course from scratch and write its lessons, by hand or with AI.
+You are not limited to the pre-built courses in the library. You can create your own course from scratch and write its lessons, by hand or with AI, or [generate a whole course](/content/ai-course-generation) from a brief.
 
 ## Set what students will learn
 
@@ -109,6 +157,6 @@ Each course detail page shows a "What you'll learn" box. By default it lists you
   </Accordion>
 
   <Accordion title="Can I remove a course from my academy?">
-    Yes. Open the course in your dashboard and select **Delete course**. Students who are already enrolled lose access immediately.
+    Yes. Open the course menu and select **Delete course**, or use the Danger zone in course settings. Students who are already enrolled lose access immediately.
   </Accordion>
 </AccordionGroup>

@@ -11,24 +11,38 @@ The analytics section of your owner dashboard, labeled **Insights**, gives you a
   Insights is available on paid plans and during your trial. If your academy's plan lapses or is paused, the Insights dashboard is locked until you reactivate.
 </Note>
 
-## Filter the dashboard
+## The four tabs
 
-Use the controls at the top of Insights to focus the whole dashboard:
+Insights is organized as four tabs, each answering one question, each showing only the filters it actually uses.
 
-- Choose the last **7**, **30**, or **90 days**.
-- Show **All courses** or select one course.
-- Choose one or more **Lists** or **Segments** from People.
-- For several audiences, choose **Any** to include students in at least one or **All** to include only students in every selected audience.
+<CardGroup cols={2}>
+  <Card title="Overview" icon="layout-dashboard">
+    How is the academy doing? Four tiles (total students, active students, lessons completed, average completion, plus your net when you sell), one trend chart with a metric switcher, and your top five courses.
+  </Card>
 
-The key numbers, charts, revenue, and course table update together.
+  <Card title="Audience" icon="users">
+    Who is showing up? Member growth and lesson activity over the selected range.
+  </Card>
 
-## What the key numbers show
+  <Card title="Courses" icon="book-open">
+    Which courses work? The all-time course leaderboard, sortable, with a drill-down into any course.
+  </Card>
 
-The top cards show **Total Students**, **Active Students**, **Lessons Completed**, and **Average Completion Rate** for the selected period and filters. When a previous-period value is available, the card shows the change.
+  <Card title="Revenue" icon="circle-dollar-sign">
+    What did you earn? Period tiles, revenue over time, and revenue by course. Shown once a connected Stripe account can accept charges.
+  </Card>
+</CardGroup>
+
+## Filters
+
+- **Range**: the last **7**, **30**, or **90 days**, or **All time** (from the day your academy was created). Courses has no range because its leaderboard is all-time.
+- **Audience**: on Overview and Audience, pick one or more **Lists** or **Segments** from People. For several audiences, choose **Any** to include students in at least one, or **All** to include only students in every selected audience. Revenue has no audience filter, since purchases are not member-scoped.
+
+Where a card shows a change against the previous period, completion changes are in percentage points. **Active students** counts people who completed at least one lesson in the period.
 
 ## Course-level analytics
 
-The course view ranks the courses in your academy so you can see which are performing best.
+The **Courses** tab ranks the courses in your academy so you can see which are performing best. Rates drawn from fewer than five students are shown muted, since a small sample says little.
 
 <CardGroup cols={2}>
   <Card title="Enrollment count" icon="users">
@@ -44,13 +58,26 @@ The course view ranks the courses in your academy so you can see which are perfo
   </Card>
 
   <Card title="Revenue per course" icon="book-open">
-    For paid courses, the revenue attributed to each course over the period you select.
+    For paid courses, the revenue attributed to each course. Free courses say **Free**.
   </Card>
 </CardGroup>
+
+Click a course to open its detail. The drill-down lives in the URL, so you can link an admin straight to it and the back button closes it.
 
 <Tip>
   Sort your courses by completion rate to find your strongest and weakest performers. Courses with high enrollment but low completion are the best candidates for a content review.
 </Tip>
+
+## Course insights from the editor
+
+You do not have to leave a course to see how it is doing. In the course editor, the **Insights** button next to the settings gear opens that course's analytics in a dialog with four tabs:
+
+- **Overview**: enrollments, completions, the lesson-by-lesson funnel, and where students drop off.
+- **Students**: every student in the course with their progress; expand a row to see that student's quiz answers across the course.
+- **Quizzes**: results for every quiz block, grouped by lesson, with the first-answer distribution per option and a first-try rate, plus a **Knowledge checks** section at the top with pass rates, average best scores, and per-student attempts. See [Knowledge checks](/content/knowledge-checks).
+- **Revenue**: sales attributed to this course, when you sell.
+
+The same dialog opens from the course leaderboard on the Insights page.
 
 ## Student-level progress
 
@@ -59,13 +86,15 @@ Click any student in the **People** page to open their detail panel, where the *
 - **Courses started, courses completed, and overall progress.**
 - **Per-course progress:** completed lessons out of total lessons for each course they have started, with a checkmark when the course is finished.
 
+The People roster itself carries quick views such as **Stalled 14d+** and **Never started**, so the students behind a weak number are one click away. See [Managing Students](/students/managing-students).
+
 <Info>
   Student progress is based on lesson completions. Fayne tracks which lessons a student has completed; it does not track lesson view counts or time spent.
 </Info>
 
 ## Revenue analytics
 
-The revenue section gives you an at-a-glance view of your academy's financial performance for the period you select. Revenue appears once you have a connected Stripe account that can accept charges.
+The **Revenue** tab gives you an at-a-glance view of your academy's financial performance for the period you select. Revenue appears once you have a connected Stripe account that can accept charges.
 
 <CardGroup cols={2}>
   <Card title="Gross sales and net" icon="circle-dollar-sign">

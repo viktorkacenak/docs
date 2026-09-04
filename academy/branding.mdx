@@ -5,10 +5,10 @@ description: "Set your academy name, tagline, logo, brand color, appearance them
 icon: "palette"
 ---
 
-Your **Customize** settings control what students see: the name and tagline on your academy, your logo in the header, your brand color throughout the site, whether the academy runs in light or dark mode, and the sender name on the emails your academy sends. On a paid plan, every surface is yours, with no Fayne label visible to students. (During the free trial, academies show a small "Fayne trial preview" badge until you upgrade.)
+Your **Customize** settings control what students see: the name and tagline on your academy, your logo in the header, your brand color throughout the site, whether the academy runs in light or dark mode, what you call your audience, and the sender name on the emails your academy sends. On a paid plan, every surface is yours, with no Fayne label visible to students. (During the free trial, academies show a small "Fayne trial preview" badge until you upgrade.)
 
 <Note>
-  Customize groups its settings into two sections: **Branding** (identity, domain, colors, thumbnails, lessons, certificate) and **Pages** (course catalog, home page).
+  Customize groups its settings into two sections. **Branding** holds Identity, Domain, Colors, Course thumbnails, Lessons, and Certificate. **Pages** holds Home page, Course catalog, and Custom links. A live preview of your academy sits beside the panel and mirrors every change before you save.
 </Note>
 
 ## What you can configure
@@ -26,8 +26,16 @@ Your **Customize** settings control what students see: the name and tagline on y
     Your brand color drives buttons, links, and highlights. The appearance theme sets whether your whole academy runs in light or dark mode.
   </Card>
 
+  <Card title="Audience name" icon="users">
+    What your academy calls the people learning in it: Members, Clients, Students, Participants, or Learners.
+  </Card>
+
   <Card title="Favicon and social image" icon="aperture">
     Set a favicon for the browser tab and a social sharing image for when your academy link is shared.
+  </Card>
+
+  <Card title="Thumbnails, lessons, and certificates" icon="paintbrush">
+    Style the generated course thumbnails, choose whether lessons show header images, and design your completion certificate.
   </Card>
 </CardGroup>
 
@@ -38,7 +46,7 @@ Your **Customize** settings control what students see: the name and tagline on y
     In your owner dashboard, click **Customize** in the left sidebar. The panel opens on its menu, grouped into **Branding** and **Pages** sections.
   </Step>
   <Step title="Open Identity">
-    Under **Branding**, click **Identity**. This is where your name, logo, tagline, favicon, and social image live.
+    Under **Branding**, click **Identity**. This is where your name, logo, tagline, favicon, social image, and audience name live.
   </Step>
   <Step title="Set your academy name and tagline">
     Enter your academy name. Add a short tagline in the **Tagline** field: it appears beneath your headline. Keep it to one line.
@@ -56,7 +64,14 @@ Your **Customize** settings control what students see: the name and tagline on y
   <Step title="Add a favicon and social image">
     Upload a square **Favicon** for browser tabs and the sidebar, and a **Social share image** shown when your academy link is shared.
   </Step>
+  <Step title="Choose your audience name">
+    Under **Audience name**, pick what your academy calls the people learning in it: **Members** (the default), **Clients**, **Students**, **Participants**, or **Learners**. The word is used across every page they see and on your own dashboard wherever it talks about them.
+  </Step>
 </Steps>
+
+<Info>
+  This documentation says "students" throughout for consistency. In your academy the word is whatever you chose here. The API keeps its `students` endpoints regardless of the setting.
+</Info>
 
 ## Set your color and theme
 
@@ -79,9 +94,27 @@ Open **Colors** under the **Branding** section.
   Your brand color applies in both light and dark mode. The difference between modes is your logo: upload a separate dark-mode logo so it always reads clearly against the background.
 </Note>
 
+## Course thumbnails, lessons, and certificate
+
+Three more panels under **Branding** style the pieces of your academy that Fayne generates for you.
+
+<AccordionGroup>
+  <Accordion title="Course thumbnails">
+    Every course without an uploaded cover gets a generated thumbnail with the course title. Choose its **Background**, **Text** color, and whether your **Logo** appears on it. The preview shows a sample course title as you adjust.
+  </Accordion>
+
+  <Accordion title="Lessons">
+    Toggle **Lesson header images** on or off. When on, each lesson opens with a header image band; when off, lessons start straight from the title.
+  </Accordion>
+
+  <Accordion title="Certificate">
+    Design the certificate students earn when they complete a course that issues one. Pick a background (**Cream**, **White**, **Charcoal**, or **Brand tint**) and accent color, your logo size and variant (default or dark mode), the border (**Double**, **Single**, or **None**), and the typography (**Classic** serif or **Modern** sans). Under **Signoff**, add who signs the certificate, their title, an optional signature image (a PNG with a transparent background works best), and footer text such as an accreditation note. See [Certificates](/students/certificates) for turning certificates on per course.
+  </Accordion>
+</AccordionGroup>
+
 ## Set your subdomain
 
-Your academy's `fayneos.com` subdomain is set under **Settings \> Domain**. Choose a subdomain made of lowercase letters, numbers, and hyphens. This subdomain powers your student landing page, your course detail pages, and your authentication screens.
+Your academy's `fayneos.com` subdomain is set under **Branding > Domain** (also reachable from **Settings > Domain**). Choose a subdomain made of lowercase letters, numbers, and hyphens. This subdomain powers your student landing page, your course detail pages, and your authentication screens.
 
 <Warning>
   Changing your subdomain breaks existing share and invite links. They will need to be reshared.
@@ -99,11 +132,31 @@ yourname.fayneos.com
 
 The subdomain you choose under **Domain** powers your student landing page, your course detail pages, and your authentication screens.
 
-## Your home page
+## Pages
 
-The **Pages** section of Customize is where your visitor-facing pages live. Click **Home page** to open the full-screen builder for your academy's landing page (the page visitors see first). See the [Home Page](/academy/home-page) guide for the full walkthrough.
+The **Pages** section of Customize is where your visitor-facing pages and navigation live.
 
-Also under **Pages**, the **Course catalog** panel lets you choose your catalog layout (full width or floating).
+### Home page
+
+Click **Home page** to open the full-screen builder for your academy's landing page (the page visitors see first). See the [Home Page](/academy/home-page) guide for the full walkthrough.
+
+### Course catalog
+
+The **Course catalog** panel controls the top of your Courses page.
+
+- **Hero**: what students see above the catalog. **Auto** shows a Continue banner for members mid-course and a plain header otherwise. **Featured course** spotlights one course you pick. **Banner** is your own hero with a headline, subheadline, an image or brand-color background with an overlay slider, and a button that opens a course, an external link, or sign-up. Leave every text field empty for an image-only banner. **Hidden** removes the hero entirely.
+- **Members resume first**: on by default. Members with a course in progress see their personal Continue hero instead of yours; visitors and new members always see yours.
+- **Layout**: **Full width** or **Floating** for the catalog page.
+
+From the same panel you can also manage your collections and their grid or slider layout; see [Courses](/academy/courses#organize-your-catalog-with-collections).
+
+### Welcome questions
+
+Ask new members up to four questions once, right after they join, and read their answers on their profile. See [Welcome questions](/academy/welcome-questions).
+
+### Custom links
+
+Add your own links to the student sidebar: a booking page, a community, your website, anything with an `https` address. Each link has a label, an icon (pick from the icon set or use an emoji), and a URL. Drag to reorder. Links open in a new tab and show a small arrow so students know they are leaving the academy. They save with the rest of your Customize changes.
 
 ## Email sender identity
 
