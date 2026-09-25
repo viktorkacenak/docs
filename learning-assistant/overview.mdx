@@ -110,6 +110,10 @@ The assistant is off until you enable it. You enable and configure everything fr
     No. The assistant only reads published lessons from courses the student can already open, and that access is verified live (the same check that gates the course itself) before any answer is generated. Drafts are never used.
   </Accordion>
 
+  <Accordion title="How does it handle practice blocks?">
+    It sees a [practice block](/content/practice-blocks) only as the student sees it (the prompt, the setup, the lines), plus that student's own results in the lesson they are on. It coaches instead of answering: it will not write the explanation or the drill answers for them, or guess what the checker looks for. This rule holds even if your style settings tell it to just answer.
+  </Accordion>
+
   <Accordion title="Can a student spam it?">
     There is a per-student daily message limit as an abuse backstop. When a student hits it, they are told to come back tomorrow. The limit is owner-configurable in the assistant settings.
   </Accordion>
