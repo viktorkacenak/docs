@@ -96,6 +96,14 @@ Students browsing a catalog with collections get a sticky navigation bar that fo
 Each course card on the **Courses** page has a menu with everything you can do to the course as a whole:
 
 <CardGroup cols={2}>
+  <Card title="Course settings" icon="settings">
+    Opens the course's settings dialog (see [Course settings](#course-settings) below) without opening the editor.
+  </Card>
+
+  <Card title="Edit thumbnail" icon="image">
+    Opens the course settings on the **Design** tab, where you set the cover image and thumbnail.
+  </Card>
+
   <Card title="Duplicate" icon="copy">
     Creates a content-only copy in the same academy, named with "(copy)", as a draft with your default access setting. Lessons, thumbnail, collection, and certificate settings come along; enrollments, pricing, and progress do not. Use it to build a new version of a course without touching the live one.
   </Card>
@@ -108,7 +116,7 @@ Each course card on the **Courses** page has a menu with everything you can do t
     Put the course in a collection, or take it out.
   </Card>
 
-  <Card title="Delete course" icon="trash">
+  <Card title="Delete" icon="trash">
     Removes the course. Students who are already enrolled lose access immediately.
   </Card>
 </CardGroup>
@@ -128,7 +136,7 @@ Open a course in the editor and click the gear in the top bar to reach its setti
 | **Source** | Whether the course is custom or based on a library course, and which one. |
 | **Danger zone** | Unpublish or delete the course. |
 
-Next to the gear, the **Insights** button opens the course's own analytics, including quiz and knowledge-check results. See [Analytics](/analytics/overview#course-insights-from-the-editor).
+Next to the gear, the chart icon (**Course insights**) opens the course's own analytics, including quiz and knowledge-check results. See [Analytics](/analytics/overview#course-insights-from-the-editor).
 
 ## Structure the lessons
 
@@ -157,6 +165,6 @@ Each course detail page shows a "What you'll learn" box. By default it lists you
   </Accordion>
 
   <Accordion title="Can I remove a course from my academy?">
-    Yes. Open the course menu and select **Delete course**, or use the Danger zone in course settings. Students who are already enrolled lose access immediately.
+    Yes. Open the course menu and select **Delete**, or use the Danger zone in course settings. Students who are already enrolled lose access immediately.
   </Accordion>
 </AccordionGroup>

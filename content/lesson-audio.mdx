@@ -11,23 +11,23 @@ Any lesson can carry a spoken version of itself. You generate it once from the e
 
 <Steps>
   <Step title="Open the lesson">
-    Go to **Courses**, open the course, and select the lesson. The lesson action bar above the editor holds **Generate audio**, next to **Add video**.
+    Go to **Courses**, open the course, and select the lesson. The lesson action bar above the editor holds **Generate Audio**, next to **Add video**.
   </Step>
   <Step title="Pick a voice">
     Open the voice picker. Voices are grouped under **Your voice** (once you have cloned one), **Female**, and **Male**. Click a voice to hear a short sample; click it again to stop.
   </Step>
   <Step title="Generate">
-    Choose **Generate audio**. Generation runs in the background and the action bar shows progress. You can keep editing meanwhile.
+    Choose **Generate Audio**. Generation runs in the background and the action bar shows progress. You can keep editing meanwhile.
   </Step>
   <Step title="Publish">
     The audio ships with the lesson. Publish the lesson as usual and the player appears for students.
   </Step>
 </Steps>
 
-Once audio exists, the same control offers **Regenerate** (for example after you edit the text, or to switch voice) and **Remove audio**. Switching to a different voice in the picker regenerates with that voice. Fayne remembers your last-used voice in your browser, so a plain click on **Generate audio** uses it.
+Once audio exists, the same control offers **Regenerate** (for example after you edit the text, or to switch voice) and **Remove audio**. If you edit the lesson after generating, an **Update audio** button appears so you can bring the narration back in line. Switching to a different voice in the picker regenerates with that voice. Fayne remembers your last-used voice in your browser, so a plain click on **Generate Audio** uses it.
 
 <Note>
-  Audio is generated from the lesson text at that moment. If you change the lesson afterwards, regenerate so the narration matches. Interactive blocks (quizzes, widgets, flashcards) are not narrated.
+  Audio is generated from the lesson text at that moment. If you change the lesson afterwards, regenerate so the narration matches. Quiz and knowledge-check blocks, widgets, images, video, embeds, diagrams, code, tables, and file downloads are skipped. Flashcards, pros and cons, blurbs, stat highlights, and callouts are read aloud.
 </Note>
 
 ## Clone your voice
@@ -60,7 +60,7 @@ When a published lesson has audio, a compact player sits above the lesson conten
 
 <CardGroup cols={2}>
   <Card title="Add lesson video" icon="video" href="/content/video-upload">
-    Video embeds, uploads, and captions.
+    Video embeds and uploads.
   </Card>
 
   <Card title="Block editor" icon="layout-panel-left" href="/content/block-editor">

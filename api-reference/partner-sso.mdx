@@ -1,7 +1,7 @@
 ---
 title: "Sign Students In From Your Own App (Partner SSO)"
 sidebarTitle: "Partner Sign-In (SSO)"
-description: "Hand users from your app straight into your academy with one click — no password, no email code — using one-time sign-in links minted through the API."
+description: "Hand users from your app straight into your academy with one click, with no password and no email code, using one-time sign-in links minted through the API."
 icon: "key-round"
 ---
 
@@ -33,7 +33,7 @@ A typical setup: your product has a **Courses** menu item, and every user of you
     The response contains a one-time `url`. Send a `302` redirect to it immediately.
   </Step>
   <Step title="The academy signs them in">
-    The academy verifies the token, sets a session cookie, and lands the user on `/courses` (or the `next` path you passed) — signed in.
+    The academy verifies the token, sets a session cookie, and lands the user, signed in, on `/courses` (or the `next` path you passed). If you have turned on [welcome questions](/academy/welcome-questions) and this member has not answered them yet, the first landing is the welcome screen, which then continues to your `next` path.
   </Step>
 </Steps>
 
@@ -41,8 +41,10 @@ The whole integration is one extra server-to-server call per click. The user see
 
 ## Prerequisites
 
-- **An API key** for the academy — the same `fa_live_` key you use to create students. Server-side only, never in browser or mobile code. See [Authentication](/api-reference/authentication).
+- **An API key** for the academy: the same `fa_live_` key you use to create students. Server-side only, never in browser or mobile code. See [Authentication](/api-reference/authentication).
 - **The student must already exist** in the academy, and you need their `id` from the [`POST /students`](/api-reference/students) response (store it against your own user record at signup).
+- **Create students with `send_welcome_email: false`.** The welcome email carries its own sign-in link, and the first sign-in link you mint invalidates it. If your app is the way in, skip the email.
+- **Backfilling existing members:** `POST /students` returns `409 already_exists` without an `id` for someone who is already a member. Page through [`GET /students`](/api-reference/students#list-students) and match on email to collect their ids.
 
 ## Example: a "Courses" menu handler
 
@@ -67,7 +69,7 @@ export async function GET() {
   )
 
   if (!res.ok) {
-    // Fall back to the academy's normal sign-in page — the user can
+    // Fall back to the academy's normal sign-in page: the user can
     // still get in with an email code.
     redirect("https://yourname.fayneos.com/login")
   }
@@ -86,7 +88,7 @@ To deep-link into a specific course instead, pass its path as `next`, for exampl
 <Warning>
   The returned URL signs a student in with no further checks. Treat it accordingly:
 
-  1. **Mint on click, not on page load.** Each student has at most **one** outstanding sign-in link — minting a new one invalidates any previous one, including a login code the student may have just requested by email.
+  1. **Mint on click, not on page load.** Each student has at most **one** outstanding sign-in link. Minting a new one invalidates any previous one, including a login code the student may have just requested by email.
   2. **Server-side only.** The API key must never reach the browser; the browser only ever sees the one-time URL.
   3. **Redirect immediately; never store the URL.** Don't render it into HTML, cache it, log it, or email it. It is single-use and expires after one hour.
   4. **Handle failure by falling back to `/login`.** Any error from the endpoint should send the user to the academy's normal sign-in page, where an email code still gets them in.
@@ -96,29 +98,33 @@ To deep-link into a specific course instead, pass its path as `next`, for exampl
 
 | Status | Code | What to do |
 | --- | --- | --- |
+| `400` | `validation_error` | The student id isn't a UUID, `next` isn't a string or is over 500 characters, or the body is `null`. Fix the request. |
 | `400` | `invalid_next` | `next` wasn't a relative path. Fix the value. |
 | `401` | `unauthorized` | Bad or missing API key. |
 | `402` | `academy_locked` / `trial_api_unavailable` | The academy's plan doesn't allow API access right now. |
 | `404` | `not_found` | The student isn't an active member of this academy (for example, removed by the owner). Fall back to `/login`. |
-| `429` | `rate_limit_exceeded` | Back off per the `Retry-After` header. |
+| `429` | `rate_limit_exceeded` | The key used up its 100 requests per 60 seconds, shared with every other API call. A user is waiting on this click, so fall back to `/login` rather than waiting out `Retry-After`. |
+| `500` | `internal_error` | Unexpected server error. Fall back to `/login`. |
 | `502` | `link_mint_failed` | Transient failure. Retry once, then fall back to `/login`. |
+
+A successful call returns `201` with `{ "data": { "url", "single_use": true, "expires_in_seconds": 3600 } }`.
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="How long does the user stay signed in?">
-    The link is one-time, but the session it creates is a normal academy session: it persists in that browser until the user signs out. In practice the link only does work on the first click (or a new device, or after logout) — every later click finds a live session and redirects straight through.
+    The link is one-time, but the session it creates is a normal academy session: it persists in that browser until the user signs out. With the handler above, every click still mints and redeems a fresh link, so each click also cancels any email login code the student requested in the meantime. That is harmless for a menu item, and one more reason to mint only on click.
   </Accordion>
 
   <Accordion title="What happens if the user re-opens an old link?">
-    Nothing breaks. A consumed or expired link bounces to the academy's sign-in page with the destination preserved — and if the browser still has a live session (it almost always does), it forwards straight to the destination.
+    A consumed or expired link sends them to the academy's sign-in page. The page shows the message written for invitation links ("This invitation link has expired" or "is no longer valid"), but entering their email and the code still works, and afterwards they land on the `next` path. If that browser is already signed in to the academy, they land on `/courses` instead, and your `next` path is dropped. Minting a fresh link on every click avoids both cases.
   </Accordion>
 
   <Accordion title="Is this secure?">
-    The trust model is: your API key created the student, so your API key may sign the student in. The browser-visible token is single-use, expires in one hour, and only works on the academy's own domain; the academy re-validates the landing path server-side, so the link can never redirect off-site. Guard the API key accordingly — anyone holding it can act as any student in the academy.
+    The trust model is: your API key created the student, so your API key may sign the student in. The browser-visible token is single-use and expires in one hour, and the academy re-validates the landing path server-side, so the link can never redirect off-site. Treat the URL like a password until it is used: anyone who opens it first is signed in as that student. Guard the API key accordingly, because anyone holding it can act as any student in the academy.
   </Accordion>
 
   <Accordion title="Does this work with a custom domain?">
-    Yes — the returned URL always points at the academy's live host: your verified [custom domain](/academy/custom-domain) when one is configured, your fayneos subdomain otherwise.
+    Yes. The returned URL always points at the academy's live host: your verified [custom domain](/academy/custom-domain) when one is configured, your fayneos subdomain otherwise.
   </Accordion>
 </AccordionGroup>

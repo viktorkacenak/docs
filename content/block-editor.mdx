@@ -48,27 +48,27 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
     </CardGroup>
   </Accordion>
 
-  <Accordion title="Quiz blocks">
-    Five question types. In a normal lesson each block checks itself as the student answers. Inside a [knowledge check](/content/knowledge-checks) the same blocks are graded together on submit, with a pass mark.
+  <Accordion title="Knowledge checks">
+    Five question types, grouped under **Knowledge checks** in the `/` menu. In a normal lesson each block checks itself as the student answers. Inside a [knowledge check](/content/knowledge-checks) the same blocks are graded together on submit, with a pass mark.
 
     <CardGroup cols={2}>
-      <Card title="Multiple choice" icon="circle-check">
+      <Card title="Multiple Choice" icon="circle-check">
         One question with selectable options and instant feedback.
       </Card>
 
-      <Card title="True or false" icon="toggle-left">
+      <Card title="True or False" icon="toggle-left">
         A statement the student marks true or false.
       </Card>
 
-      <Card title="Fill in the blank" icon="text-cursor-input">
+      <Card title="Fill in the Blanks" icon="text-cursor-input">
         A sentence with a missing word or phrase the student types in.
       </Card>
 
-      <Card title="Ordering" icon="list-ordered">
+      <Card title="Put in Order" icon="list-ordered">
         Items the student drags into the correct sequence.
       </Card>
 
-      <Card title="Matching" icon="git-compare-arrows">
+      <Card title="Match the Pairs" icon="git-compare-arrows">
         Two columns the student pairs up, such as terms and definitions.
       </Card>
     </CardGroup>
@@ -141,7 +141,7 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
       </Card>
 
       <Card title="Video" icon="play">
-        Embed a YouTube, Vimeo, or Loom link, or upload an MP4, WebM, or Ogg file up to 1 GB with an optional `.vtt` captions track. See [Add lesson video](/content/video-upload).
+        Embed a YouTube, Vimeo, or Loom link, or upload an MP4, WebM, or Ogg file up to 1 GB. See [Add lesson video](/content/video-upload).
       </Card>
 
       <Card title="Bookmark card" icon="bookmark">
@@ -149,7 +149,7 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
       </Card>
 
       <Card title="Embed" icon="frame">
-        Show supported external tools and pages inside a lesson, such as Loom, Figma, and CodePen.
+        Show an external page or tool inside a lesson, such as Loom, Figma, CodePen, Miro, or Google Maps. See [Embed a website](#embed-a-website) below.
       </Card>
     </CardGroup>
   </Accordion>
@@ -181,11 +181,24 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
   </Accordion>
 </AccordionGroup>
 
+## Embed a website
+
+Type `/` and choose **Embed** (searching "iframe" finds it too). The block shows **Embed a website or interactive experience**; click it to open the form.
+
+1. On the **Link** tab, paste the published page URL. Only secure (`https://`) addresses work, and the site must allow being embedded.
+2. Give it a **Title**. The title is required, because screen readers announce it to students. It starts as "Embedded content".
+3. Set the **Height (px)**, between 240 and 1200 pixels. The default is 480.
+4. Click **Embed link**. Fayne checks the URL first and tells you if the page can't be found or the site doesn't allow embedding.
+
+YouTube and Vimeo links are sent to the **Video** block instead. The **Upload** tab turns the block into a file download.
+
+Once the embed is in place, click **Edit embed** under it to change the URL, title, or height. **Open in new tab** opens the original page.
+
 ## Beyond blocks
 
 A lesson also carries a few attachments that live outside the block canvas, in the action bar above the editor:
 
 - **Add video** promotes a video to the lesson's hero, shown at the top of the lesson.
-- **Generate audio** creates a read-aloud version of the lesson in a catalog voice or your own cloned voice. See [Lesson audio](/content/lesson-audio).
+- **Generate Audio** creates a read-aloud version of the lesson in a catalog voice or your own cloned voice. See [Lesson audio](/content/lesson-audio).
 
 For structuring a whole course rather than a single lesson, see [Modules](/content/modules), [Knowledge checks](/content/knowledge-checks), and [Drip scheduling](/content/drip-scheduling).

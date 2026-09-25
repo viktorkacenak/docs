@@ -42,7 +42,7 @@ Drip is pacing, not a paywall. It decides **when** a student who already has acc
 
 - The first lesson is always open.
 - Locked lessons appear in the lesson sidebar and the course outline with a lock, and hovering shows when they unlock ("Unlocks in 2 days", "Unlocks in 3 hours", "Unlocks on your next visit").
-- The lesson footer replaces **Next** with the unlock time while the next lesson is locked. A direct link to a locked lesson sends the student back to their latest available lesson.
+- The lesson footer replaces **Next** with the unlock time while the next lesson is locked. A direct link to a locked lesson sends the student to the course page.
 - On the completed-lesson schedule, finishing a lesson is what starts the clock for the next one. Reading ahead is not possible.
 
 ## How drip works with other features
@@ -57,7 +57,7 @@ Drip is pacing, not a paywall. It decides **when** a student who already has acc
   </Accordion>
 
   <Accordion title="The Learning Assistant">
-    The assistant only reads lessons the student can open, so it does not reveal locked content.
+    The assistant reads every published lesson in the courses a student has access to. Drip does not hide lessons from it, so it can answer questions about a lesson that has not unlocked yet.
   </Accordion>
 
   <Accordion title="Certificates and completion">
@@ -65,6 +65,6 @@ Drip is pacing, not a paywall. It decides **when** a student who already has acc
   </Accordion>
 </AccordionGroup>
 
-<Tip>
-  Preview the schedule from a student's point of view with **Preview** in the owner sidebar, choosing a specific student to see exactly which lessons they can open today.
-</Tip>
+<Note>
+  **Preview** in the owner sidebar shows every lesson open, because drip depends on a real student's progress and start date. To check the schedule, look at what a test student sees after they start the course.
+</Note>

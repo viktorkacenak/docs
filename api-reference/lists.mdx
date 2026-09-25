@@ -369,7 +369,7 @@ DELETE /api/v1/lists/:listId/members/:userId
 
 ## Courses a list grants
 
-Returns the courses this list grants access to, derived from your academy's active offers. A list grants a course in one of two ways: an offer is free for the list's members (the offer grants to the list), or the list is the offer's member list (the people who bought or claimed it). This is read-only; create or edit offers in your dashboard.
+Returns the courses this list grants access to, derived from your academy's active offers. A list grants a course in one of two ways: an offer is free for the list's members (the offer grants to the list), or the list is the offer's member list (the people who bought or claimed it). This is read-only; create or edit offers in your dashboard. The result can include draft courses that an offer covers (for example, through a collection or the Academy Pass), even though students cannot open a draft until it is published.
 
 ```text
 GET /api/v1/lists/:listId/courses

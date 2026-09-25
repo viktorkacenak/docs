@@ -185,6 +185,10 @@
     {
       "source": "/academy/about-page",
       "destination": "/academy/home-page"
+    },
+    {
+      "source": "/engagement/book-a-call",
+      "destination": "/academy/branding#custom-links"
     }
   ]
 }
