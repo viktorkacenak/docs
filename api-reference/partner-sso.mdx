@@ -1,0 +1,124 @@
+---
+title: "Sign Students In From Your Own App (Partner SSO)"
+sidebarTitle: "Partner Sign-In (SSO)"
+description: "Hand users from your app straight into your academy with one click — no password, no email code — using one-time sign-in links minted through the API."
+icon: "key-round"
+---
+
+If your app creates students through the API, it already vouches for who they are. The sign-in link endpoint turns that trust into single sign-on: your server mints a one-time URL, redirects the user's browser to it, and they land inside the academy signed in. No password, no email code, one click.
+
+A typical setup: your product has a **Courses** menu item, and every user of your product is also a student in your academy (created via [`POST /students`](/api-reference/students) at signup). This guide wires that menu item so clicking it drops the user straight into their courses.
+
+<Note>
+  Every request uses your academy base URL and a live key:
+
+  ```bash
+  curl -X POST https://yourname.fayneos.com/api/v1/students/STUDENT_ID/sign-in-link \
+    -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  ```
+
+  API access is a paid capability. On a preview trial the API returns `402 trial_api_unavailable` until you upgrade.
+</Note>
+
+## How it works
+
+<Steps>
+  <Step title="User clicks through in your app">
+    Point your menu item at a route on **your** server (for example `/go/courses`), not at the academy directly.
+  </Step>
+  <Step title="Your server mints a link">
+    That route calls `POST /api/v1/students/{studentId}/sign-in-link` with your API key and the student's ID (which you stored when you created them at signup).
+  </Step>
+  <Step title="Redirect the browser">
+    The response contains a one-time `url`. Send a `302` redirect to it immediately.
+  </Step>
+  <Step title="The academy signs them in">
+    The academy verifies the token, sets a session cookie, and lands the user on `/courses` (or the `next` path you passed) — signed in.
+  </Step>
+</Steps>
+
+The whole integration is one extra server-to-server call per click. The user sees a single redirect.
+
+## Prerequisites
+
+- **An API key** for the academy — the same `fa_live_` key you use to create students. Server-side only, never in browser or mobile code. See [Authentication](/api-reference/authentication).
+- **The student must already exist** in the academy, and you need their `id` from the [`POST /students`](/api-reference/students) response (store it against your own user record at signup).
+
+## Example: a "Courses" menu handler
+
+Any server stack works the same way; here it is as a Next.js route handler.
+
+```ts app/go/courses/route.ts (your app)
+import { redirect } from "next/navigation"
+
+export async function GET() {
+  const studentId = await getFayneStudentIdForCurrentUser() // stored at signup
+
+  const res = await fetch(
+    `https://yourname.fayneos.com/api/v1/students/${studentId}/sign-in-link`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.FAYNE_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ next: "/courses" }),
+    },
+  )
+
+  if (!res.ok) {
+    // Fall back to the academy's normal sign-in page — the user can
+    // still get in with an email code.
+    redirect("https://yourname.fayneos.com/login")
+  }
+
+  const { data } = await res.json()
+  redirect(data.url)
+}
+```
+
+Point your "Courses" menu item at `/go/courses` and you're done.
+
+To deep-link into a specific course instead, pass its path as `next`, for example `{ "next": "/courses/a1b2c3d4-e5f6-7890-abcd-ef1234567890" }`. Course IDs come from [`GET /courses`](/api-reference/courses).
+
+## The rules
+
+<Warning>
+  The returned URL signs a student in with no further checks. Treat it accordingly:
+
+  1. **Mint on click, not on page load.** Each student has at most **one** outstanding sign-in link — minting a new one invalidates any previous one, including a login code the student may have just requested by email.
+  2. **Server-side only.** The API key must never reach the browser; the browser only ever sees the one-time URL.
+  3. **Redirect immediately; never store the URL.** Don't render it into HTML, cache it, log it, or email it. It is single-use and expires after one hour.
+  4. **Handle failure by falling back to `/login`.** Any error from the endpoint should send the user to the academy's normal sign-in page, where an email code still gets them in.
+</Warning>
+
+## Errors
+
+| Status | Code | What to do |
+| --- | --- | --- |
+| `400` | `invalid_next` | `next` wasn't a relative path. Fix the value. |
+| `401` | `unauthorized` | Bad or missing API key. |
+| `402` | `academy_locked` / `trial_api_unavailable` | The academy's plan doesn't allow API access right now. |
+| `404` | `not_found` | The student isn't an active member of this academy (for example, removed by the owner). Fall back to `/login`. |
+| `429` | `rate_limit_exceeded` | Back off per the `Retry-After` header. |
+| `502` | `link_mint_failed` | Transient failure. Retry once, then fall back to `/login`. |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How long does the user stay signed in?">
+    The link is one-time, but the session it creates is a normal academy session: it persists in that browser until the user signs out. In practice the link only does work on the first click (or a new device, or after logout) — every later click finds a live session and redirects straight through.
+  </Accordion>
+
+  <Accordion title="What happens if the user re-opens an old link?">
+    Nothing breaks. A consumed or expired link bounces to the academy's sign-in page with the destination preserved — and if the browser still has a live session (it almost always does), it forwards straight to the destination.
+  </Accordion>
+
+  <Accordion title="Is this secure?">
+    The trust model is: your API key created the student, so your API key may sign the student in. The browser-visible token is single-use, expires in one hour, and only works on the academy's own domain; the academy re-validates the landing path server-side, so the link can never redirect off-site. Guard the API key accordingly — anyone holding it can act as any student in the academy.
+  </Accordion>
+
+  <Accordion title="Does this work with a custom domain?">
+    Yes — the returned URL always points at the academy's live host: your verified [custom domain](/academy/custom-domain) when one is configured, your fayneos subdomain otherwise.
+  </Accordion>
+</AccordionGroup>

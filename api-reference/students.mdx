@@ -396,6 +396,93 @@ curl https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456
 
 ---
 
+## Mint a sign-in link
+
+Mints a one-time authenticated sign-in URL for a student, so your own app can hand a user straight into the academy without a password or email code. Because your API key created the student, it already vouches for who they are — redeeming the link signs the student in directly. See the [Partner sign-in guide](/api-reference/partner-sso) for the full integration recipe.
+
+```text
+POST /api/v1/students/:studentId/sign-in-link
+```
+
+### Path parameters
+
+<ParamField path="studentId" type="string" required>
+  UUID of the student to sign in. Must be an active member of this academy.
+</ParamField>
+
+### Body parameters
+
+<ParamField body="next" default="/courses" type="string">
+  Relative in-academy path to land on after sign-in, for example `/courses/a1b2c3d4-e5f6-7890-abcd-ef1234567890`. Absolute URLs are rejected with `400 invalid_next`. Optional.
+</ParamField>
+
+### Response fields
+
+<ResponseField name="data" type="object" required>
+  <Expandable title="properties" defaultOpen>
+    <ResponseField name="url" type="string" required>
+      The one-time sign-in URL on the academy's live host (your custom domain when one is verified). Redirect the user's browser here immediately.
+    </ResponseField>
+
+    <ResponseField name="single_use" type="boolean" required>
+      Always `true` — the link is consumed on first use.
+    </ResponseField>
+
+    <ResponseField name="expires_in_seconds" type="number" required>
+      Lifetime of the link, currently `3600` (one hour).
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<Warning>
+  Mint on click, server-side only, and redirect immediately. Never render the URL into a page, cache it, log it, or email it. Each student has at most **one** outstanding sign-in link — minting a new one invalidates any previous one, including a login code the student may have just requested by email.
+</Warning>
+
+### Example request
+
+<CodeGroup>
+
+```bash cURL
+curl -X POST https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012/sign-in-link \
+  -H "Authorization: Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" \
+  -H "Content-Type: application/json" \
+  -d '{ "next": "/courses" }'
+```
+
+```javascript JavaScript
+const response = await fetch(
+  'https://yourname.fayneos.com/api/v1/students/c3d4e5f6-a7b8-9012-cdef-123456789012/sign-in-link',
+  {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer fa_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ next: '/courses' })
+  }
+);
+const { data } = await response.json();
+// 302-redirect the user's browser to data.url
+```
+
+</CodeGroup>
+
+### Example response
+
+```json
+{
+  "data": {
+    "url": "https://yourname.fayneos.com/api/auth/confirm?next=%2Fcourses&token_hash=...&type=magiclink",
+    "single_use": true,
+    "expires_in_seconds": 3600
+  }
+}
+```
+
+A consumed or expired link never dead-ends: the student is bounced to the academy's sign-in page with the destination preserved — or straight through if their browser already has a live session. `404 not_found` if the student is not an active member of this academy; `502 link_mint_failed` on a transient auth-service failure (retry once, then fall back to linking `/login`).
+
+---
+
 ## Remove a student
 
 Removes a student from your academy. This revokes all of their course enrollments and deletes all of their lesson progress, and cannot be undone. The student's Fayne account itself is not deleted; they are only removed from this academy.
