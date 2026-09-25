@@ -1,11 +1,11 @@
 ---
 title: "Add video to a lesson"
 sidebarTitle: "Add lesson video"
-description: "Embed or upload lesson video and solve common upload problems."
+description: "Embed a YouTube, Vimeo, or Loom video, upload a video file with optional captions, and solve common upload problems."
 icon: "video"
 ---
 
-Add video from YouTube or Vimeo, or upload a video file directly to a lesson.
+Add video from YouTube, Vimeo, or Loom, or upload a video file directly to a lesson.
 
 ## Add a video
 
@@ -13,11 +13,15 @@ Add video from YouTube or Vimeo, or upload a video file directly to a lesson.
 2. Open the lesson you want to edit.
 3. Type `/` and choose **Video**.
 4. Choose one option:
-   - Paste a YouTube or Vimeo link.
+   - Paste a YouTube, Vimeo, or Loom link. Loom's **Copy link** URL works as is.
    - Upload an MP4, WebM, or Ogg video file.
 5. Wait for the upload to finish, then save the lesson.
 
-Uploaded videos can be up to 1 GB. Keep the editor open while the progress indicator is visible. If an upload is interrupted, use the retry option.
+Uploaded videos can be up to 1 GB. Keep the editor open while the progress indicator is visible. If an upload is interrupted, use the retry option; only the failed parts are re-sent.
+
+## Add captions to an uploaded video
+
+Select an uploaded video block to open its settings and add a **captions** file. Captions must be in WebVTT format (a `.vtt` file). Students get a captions control in the player. Raw `.srt` files are not supported by browsers, so convert them to `.vtt` first.
 
 ## Replace or remove a video
 
@@ -27,13 +31,22 @@ Select the video block to open its settings. Replace the link or file, or remove
 
 A saved lesson can still be a draft. Publish the lesson when it is ready, and confirm that its course is also published.
 
+Lessons that contain a video show a video icon in the course outline and the lesson sidebar, so students can spot them.
+
 ## Troubleshooting
 
 - **The file is rejected:** Use MP4, WebM, or Ogg and keep it at or below 1 GB.
 - **The upload stops:** Check your connection, keep the tab open, and retry.
 - **Students cannot play it:** Confirm the lesson and course are published, then check the student's course access.
-- **A pasted link does not load:** Use the public YouTube or Vimeo video URL rather than an editing or studio URL.
+- **A pasted link does not load:** Use the public YouTube, Vimeo, or Loom video URL rather than an editing or studio URL.
+- **Captions do not show:** Confirm the file is `.vtt`, not `.srt`.
 
-<Card title="Block editor" icon="pen-to-square" href="/content/block-editor">
-  Learn how to add and arrange every lesson block.
-</Card>
+<CardGroup cols={2}>
+  <Card title="Block editor" icon="pen-to-square" href="/content/block-editor">
+    Learn how to add and arrange every lesson block.
+  </Card>
+
+  <Card title="Lesson audio" icon="volume-2" href="/content/lesson-audio">
+    Let students listen to a lesson instead, in a catalog voice or your own.
+  </Card>
+</CardGroup>

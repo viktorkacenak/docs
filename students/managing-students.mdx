@@ -7,17 +7,46 @@ icon: "users"
 
 The **People** page in your owner dashboard gives you a complete picture of everyone learning in your academy. You can see who has joined, what they can access, how far they have progressed across every course, invite new students by email, and remove access when needed. Each academy you run has its own independent roster, so students in one of your academies are never mixed with students in another.
 
-## The student roster
+## The People hub
 
-The roster table lists the active students in the current academy. Each row shows:
+People is one hub with a rail of views on the left, the same layout as the Sell area:
+
+- **All members**: the full roster (the label uses your academy's audience word).
+- **Invited**: pending invitations, with resend and revoke actions and a search by email.
+- **Lists**: each List you have built, as a view of the people on it.
+- **Segments**: each saved Segment, as a live view of who matches it.
+
+Every view shows the same kind of table over a different set of people. Lists and Segments are created from the **\+** next to their heading in the rail. See [Audiences](/students/audiences) for how they work.
+
+## The roster table
+
+Each row shows:
 
 - **Name** and **Email**: the student's display name and the address they signed up with, in separate sortable columns.
 - **Joined**: the date they first accepted an invitation or created an account in your academy.
-- **Access**: what they hold through your offers, shown as a **Pass** badge for Academy Pass holders or an offer count.
-- **Started**: the number of courses they have started.
-- **Progress**: an overall progress bar calculated across the courses they have started.
+- **Access**: what they hold, shown as a chip: **Pass** for Academy Pass holders, an offer count, or **Purchased**.
+- **Started**: the number of courses in which they have completed at least one lesson.
+- **Progress**: the average completion across the courses they have started.
+- **Last active**: when they last completed a lesson.
 
-You can sort any column by clicking its header. The most recently joined students appear first by default.
+Click any column header to sort. The default order is newest joined first. Search by name or email with the field above the table. Your search, view, sort, and page size stay in the URL, so a filtered roster can be bookmarked or shared with an admin.
+
+### Quick views
+
+Above the table, a row of quick views narrows the roster to the people who need attention:
+
+| Quick view | Who it shows |
+| --- | --- |
+| **Everyone** | The whole roster. |
+| **Stalled 14d+** | Started something but nothing completed in two weeks. |
+| **Never started** | Joined, no lesson completed yet. |
+| **Completed everything** | Finished every course they can open. |
+| **No offer yet** | Hold no offer, so nothing to renew or upsell from. |
+| **Joined this month** | Your newest members. |
+
+### Select, act in bulk, export
+
+Tick rows (or **Select everyone on this page**) and a bulk bar appears with **Add to list** and **Grant offer**, so a stalled group can be dropped onto a re-engagement List or comped an offer in one move. **Export CSV** downloads the current view with name, email, join date, access, courses enrolled and completed, average completion, and last active date.
 
 <Note>
   Each academy has its own student roster. If you run multiple academies from one account, switching academies in the top bar switches to that academy's separate roster and progress data.
@@ -25,7 +54,7 @@ You can sort any column by clicking its header. The most recently joined student
 
 ## Viewing a student's detail
 
-Click any row in the roster to open a student's detail panel. The panel has several tabs.
+Click any row in the roster to open a student's detail panel. It loads that person's full record on open. The panel has several tabs.
 
 **Overview** shows contact info, join date, and summary stats: courses started, courses completed, and overall progress percentage.
 
@@ -38,6 +67,8 @@ Click any row in the roster to open a student's detail panel. The panel has seve
 **Progress** lists every course the student has started, with completed lessons out of total lessons and a checkmark when a course is finished. From here you can also **reset progress** on a course so they can start over.
 
 **Audiences** lets you add the student to or remove them from your Lists, and shows which auto-updating Segments they match, for your own segmentation.
+
+**Answers** shows what they said to your [welcome questions](/academy/welcome-questions), question by question. Answers to a question you have since removed are kept and marked **No longer asked**.
 
 **Certificates** shows any completion certificates the student has earned, and lets you revoke or restore them.
 
@@ -66,13 +97,15 @@ You invite students to your academy by sending them an invitation email. The inv
   </Step>
 </Steps>
 
+Pending invitations live in the **Invited** view, where you can **resend** one that got lost or **revoke** one sent by mistake.
+
 <Tip>
   If a student's invitation email is already associated with an account, accepting the invite adds them to your academy without requiring them to create a new account.
 </Tip>
 
 ## How students sign in
 
-Students sign in with a **one-time code**. They enter their email, receive a 6-digit code, and type it in, with no password to set or remember.
+Students sign in with a **one-time code**. They enter their email, receive a 6-digit code, and type it in, with no password to set or remember. If you have turned on [welcome questions](/academy/welcome-questions), a new member answers them right after their first sign-in.
 
 You do not need to configure anything for sign-in to work. Every student uses the same passwordless flow.
 
