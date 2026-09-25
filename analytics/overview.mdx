@@ -62,22 +62,41 @@ The **Courses** tab ranks the courses in your academy so you can see which are p
   </Card>
 </CardGroup>
 
-Click a course to open its detail. The drill-down lives in the URL, so you can link an admin straight to it and the back button closes it.
+Click a course to open its detail. The drill-down lives in the URL (`?course=`), so you can link an admin straight to it and the back button closes it.
 
 <Tip>
   Sort your courses by completion rate to find your strongest and weakest performers. Courses with high enrollment but low completion are the best candidates for a content review.
 </Tip>
 
-## Course insights from the editor
+## Course insights
 
-You do not have to leave a course to see how it is doing. In the course editor, the chart icon (**Course insights**) next to the settings gear opens that course's analytics in a dialog with four tabs:
+Click a course in the course leaderboard on the Insights page, or use the chart icon (**Course insights**) next to the settings gear in the course editor, to open that course's insights. The dialog can show five tabs. **Overview** and **Students** are always there; the others appear when the course has something to show.
 
-- **Overview**: enrollments, completions, the lesson-by-lesson funnel, and where students drop off.
-- **Students**: every student in the course with their progress; expand a row to see that student's quiz answers across the course.
-- **Quizzes**: results for every quiz block, grouped by lesson, with the first-answer distribution per option and a first-try rate, plus a **Knowledge checks** section at the top with pass rates, average best scores, and per-student attempts. See [Knowledge checks](/content/knowledge-checks).
-- **Revenue**: sales attributed to this course, when you sell.
+<CardGroup cols={2}>
+  <Card title="Overview" icon="chart-bar">
+    Enrollments, completions, and the lesson-by-lesson funnel, so you can see where students drop off.
+  </Card>
 
-The same dialog opens from the course leaderboard on the Insights page.
+  <Card title="Students" icon="users">
+    Everyone in the course with their progress. Expand a row to see that student's quiz answers. The tab uses your academy's own word for its audience, such as **Members**.
+  </Card>
+
+  <Card title="Knowledge checks" icon="circle-check">
+    Results for every quiz question, grouped by lesson, with the answer spread and a first-try rate, plus a section for graded [knowledge checks](/content/knowledge-checks) with pass rates, average best scores, and each student's attempts. Appears when the course has quiz questions or graded checks.
+  </Card>
+
+  <Card title="Practice" icon="dumbbell">
+    How students do on the course's practice blocks: key points covered in **Explain it back**, strong answers per line in **Rapid-fire drills**, endings and choices in **Decision scenarios**, and check-ins in **Field missions**. Appears when the published course has practice blocks, so after you add one, republish the lesson before the tab shows up.
+  </Card>
+
+  <Card title="Revenue" icon="circle-dollar-sign">
+    Sales attributed to this course. Appears when you sell it.
+  </Card>
+</CardGroup>
+
+The **Practice** tab can open with short findings (for example, how few students covered a key point, or how many are past their mission date without checking in), then groups results into **Explanations**, **Drills**, **Scenarios**, and **Missions**. Each mission shows the share who checked in, how many **Committed**, **Checked in**, and are **Past their date**, and a **How it went** bar (Done, Partly, Didn't happen yet) from the latest check-ins.
+
+It shows totals across enrolled students, "from signals only, never from what they wrote or said": their explanations, answers, and check-in notes stay private to them. See [Practice blocks](/content/practice-blocks).
 
 ## Student-level progress
 

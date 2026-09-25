@@ -1,7 +1,7 @@
 ---
 title: "Block Editor: Rich Content Blocks for Your Lessons"
 sidebarTitle: "Block Editor"
-description: "Write and arrange lessons with text, media, quizzes, downloads, videos, diagrams, and interactive learning blocks."
+description: "Write and arrange lessons with text, media, quizzes, practice exercises, downloads, videos, diagrams, and interactive learning blocks."
 icon: "layout-panel-left"
 ---
 
@@ -10,6 +10,10 @@ Open **Courses**, choose a course, and select a lesson to reach the block editor
 ## Inserting and reordering blocks
 
 Type `/` at the start of any line to open the block menu. Start typing the name of the block you want and press **Enter** to insert it. To move a block, grab the drag handle on its left edge and drop it where you want it. The drag handle also opens a menu with **Duplicate**, **Copy**, **Paste**, and **Delete**, so a block can be copied from one lesson and pasted into another. As you browse the slash menu, a side card shows a small wireframe of how each block renders for students, so you can pick the right one before inserting it.
+
+The menu groups blocks by what they do: **Format**, **Media**, **Embeds**, **Layout**, **Interactive**, **Knowledge checks** (the quiz questions), and **Practice** (exercises where students rehearse the skill). You can also search by what you want to do, such as "objection", "case study", or "teach back".
+
+Quiz questions, flashcards, reflections, checklist cards, and practice blocks carry a small **label** on top that tells students what to do, such as "Pick one answer" or "Explain it in your words". It appears the same way in the editor and in the lesson.
 
 <Tip>
   You can reorder any block type, including interactive learning blocks and media embeds, using drag-and-drop. The handle appears when you hover over the block's left margin.
@@ -124,6 +128,24 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
     </CardGroup>
   </Accordion>
 
+  <Accordion title="Practice">
+    Practice blocks ask students to use what the lesson taught, with instant feedback and no scores. You see how it went in the course's **Practice** insights, as totals across students, never their words. See [Practice blocks](/content/practice-blocks).
+
+    <CardGroup cols={2}>
+      <Card title="Explain it back" icon="message-circle">
+        The student explains an idea in their own words, typed or spoken, and sees which of your key points they covered.
+      </Card>
+
+      <Card title="Rapid-fire drill" icon="zap">
+        Hard lines such as client objections, one at a time. The student answers fast and sees whether each answer would land.
+      </Card>
+
+      <Card title="Decision scenario" icon="signpost">
+        A short branching case where the student makes the calls, sees the consequences, and reaches an ending.
+      </Card>
+    </CardGroup>
+  </Accordion>
+
   <Accordion title="Media">
     Use media blocks to break up text, illustrate concepts, and give students downloadable resources.
 
@@ -180,6 +202,18 @@ Type `/` at the start of any line to open the block menu. Start typing the name 
     </CardGroup>
   </Accordion>
 </AccordionGroup>
+
+## Block settings panel
+
+When you edit a lesson on a screen at least 1280 pixels wide, block settings open in a **settings panel** docked on the right side of the editor. Click a block, or put your cursor in it, and the panel shows that block's settings, so you can adjust it while you keep writing. Changes apply as you make them. With no block selected, the panel reads **Select a block to edit its settings** and lists the blocks that have settings.
+
+These blocks have settings in the panel: the lesson **Header**, **Callout**, **Image**, **Screenshot**, **Video**, **Button**, **Prompt**, **Bookmark**, and the four [practice blocks](/content/practice-blocks) (**Explain it back**, **Rapid-fire drill**, **Decision scenario**, and **Field mission**).
+
+The panel shares the right side with the lesson AI assistant: opening the assistant hides the panel, and opening a block's settings closes the assistant. The panel is only there while you edit lessons (not in preview).
+
+<Tip>
+  Use **Show block settings** / **Hide block settings** in the editor's top bar to show or hide the panel. Drag its left edge to make it wider or narrower (300 to 440 pixels); double-click the edge to reset it. Fayne remembers your choice in this browser. On smaller screens, open a block's settings from the settings button on its drag handle instead.
+</Tip>
 
 ## Embed a website
 
