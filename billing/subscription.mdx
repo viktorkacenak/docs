@@ -122,7 +122,7 @@ If you change your mind before that date, you can resume the subscription from t
 
 ## If a payment fails (past-due grace)
 
-If a renewal payment fails, your subscription enters a past-due state. Fayne keeps your academy fully working during a 7-day grace period so a temporary card problem does not take your academy offline. Update your card in the Stripe portal within that window to settle the invoice and keep things running. If the invoice is still unpaid after the grace period, your academy moves to the locked state until billing is resolved.
+If a renewal payment fails, your subscription enters a past-due state. Fayne emails you as soon as the charge fails, and keeps your academy fully working during a 7-day grace period so a temporary card problem does not take your academy offline. Update your card in the Stripe portal within that window to settle the invoice and keep things running. If the invoice is still unpaid after the grace period, your academy moves to the locked state until billing is resolved, and you get a second email confirming the subscription has ended. Those unpaid days are not treated as paid time: the academy locks when the grace period runs out, not at the end of a billing period you never paid for.
 
 <Warning>
   The grace period only protects against a failed charge on an active subscription. It does not extend a subscription you have cancelled.
