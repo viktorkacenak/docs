@@ -38,7 +38,7 @@ There are three paid plans, **Starter**, **Pro**, and **Scale**, plus a free 7-d
 | Draft courses | up to 8 total | Unlimited | Unlimited | Unlimited |
 | Lessons per course | 25 | 25 | 50 | 100 |
 | Students per academy | 5 | Unlimited | Unlimited | Unlimited |
-| Knowledge sources | 3 | 50 | 150 | 500 |
+| Knowledge sources | 10 | 50 | 150 | 500 |
 | Extra admin seats | 0 | 0 | 0 | 3 |
 | AI credits | 100 (one-time) | 1,000 / period | 2,500 / period | 5,000 / period |
 | AI course generation | Yes | Yes | Yes | Yes |
@@ -58,11 +58,11 @@ There are three paid plans, **Starter**, **Pro**, and **Scale**, plus a free 7-d
 
 ## The free preview trial
 
-New owners start on a 7-day preview that needs no credit card. The editor and course builder feel fully unlocked so you can shape real content, but depth is walled: one academy, up to 8 courses, up to 5 students, 3 Knowledge sources, and a one-time pool of 100 AI credits.
+New owners start on a 7-day preview that needs no credit card. The editor and course builder feel fully unlocked so you can shape real content, but depth is walled: one academy, up to 8 courses, up to 5 students, 10 Knowledge sources, and a one-time pool of 100 AI credits.
 
 <Steps>
   <Step title="Build during the trial">
-    You can generate a course with AI, edit lessons, and add a few students to see the full flow end to end.
+    Setup builds your first course for you, up to 8 lessons, and it does not use your trial credits (see [Quickstart](/quickstart)). You can edit lessons, try the AI features, and add a few students to see the full flow end to end.
   </Step>
   <Step title="What stays locked">
     Custom sending domain, selling with Stripe, and REST API access are reserved for paid plans; trying one shows an upgrade prompt. Custom domains and AI course generation work during the trial.
@@ -84,17 +84,19 @@ Credits are spent per AI operation:
 
 <AccordionGroup>
   <Accordion title="What costs a credit">
-    - **Generating a course** costs about 10 credits per lesson drafted. A 10-lesson course uses about 100 credits.
+    - **Generating a course** costs about 10 credits per lesson drafted. A 10-lesson course uses about 100 credits. The first course built during setup is free, up to 8 lessons.
     - **A course-level AI assistant turn** costs 10 credits, no matter how many lessons it edits in that turn.
     - **A page assistant turn** (customizing an offer page or your home page with AI) costs 10 credits.
-    - **A course planning chat reply** (the agent on the course generation screen, before a build starts) costs 10 credits. The questions, angles, and outline revisions after the build starts are free.
+    - **A message to Fayne Agent** (the chat on Home, or the brief's side panel in the course builder) costs 2 credits. The brief and the outline are free.
     - **A bulk transform** costs 10 credits.
     - **Generating an image** in the editor costs 5 credits per image.
+    - **A field mission coach note** costs 1 credit each time a student checks in (see [Practice blocks](/content/practice-blocks#ai-credits)).
+    - **Draft with AI** in a decision scenario costs 1 credit per draft (2 if it needs a second pass).
     - **A Learning Assistant reply** to a student costs 1 credit. Because your audience uses it continuously, this is the main way the pool draws down over time rather than in one-off bursts.
   </Accordion>
 
   <Accordion title="What is free">
-    Lighter operations such as generating diagrams or building interactive widget code do not draw from your credit pool on a paid plan. The planning, quality, and repair passes that run inside course generation are also free; you are only charged for the lessons produced.
+    Lighter operations such as generating diagrams or building interactive widget code do not draw from your credit pool on a paid plan. The planning, quality, and repair passes that run inside course generation are also free, and so are a generated course's illustrations; you are only charged for the lessons produced. Checking students' practice answers, transcribing spoken answers, and writing descriptions for your Knowledge sources are free too, so practice keeps working for students even when your pool is empty.
   </Accordion>
 </AccordionGroup>
 
@@ -111,7 +113,7 @@ Fayne emails you before that happens: one heads-up when you have used about 90 p
 Your billing area shows live usage meters so you can see how much of each limit you have used. The account-wide meters track:
 
 - **Published courses** used against your plan's published-course limit.
-- **Students** used against your plan's student limit (this also counts pending invitations that have not yet been accepted, since they hold a slot).
+- **Students** used against your plan's student limit (this also counts pending invitations that have not yet been accepted, since they hold a slot). You and your admins don't count, even if you enroll in your own courses to test them.
 - **AI credits** used in the current period.
 
 Each meter fills as you approach its limit. If a count goes over (for example after a downgrade), the meter flags **Over your plan limit** so you know which area to resolve.

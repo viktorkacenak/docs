@@ -1,102 +1,127 @@
 ---
 title: "Generate a Full Course with AI"
 sidebarTitle: "AI Course Generation"
-description: "Generate a complete, on-brand course from a topic or brief through a guided conversation, then watch the lessons write themselves"
+description: "Describe a course, confirm a short brief, review the outline, and let the lessons write themselves, grounded in your own material"
 icon: "wand-sparkles"
 ---
 
-The AI generator turns a topic, a sentence, or a full brief into a finished course through a short back-and-forth. You answer a few clarifying questions, pick a narrative angle, review a full proposed outline, and approve it. From there the lessons are written for you and appear one by one. You can ground the whole thing in your own PDFs and in your [Knowledge](/content/knowledge) sources so the result sounds like you, not like generic AI filler.
+The AI generator turns a description of a course into a finished draft. You describe it, confirm a short brief, review the outline, and the lessons are written for you and appear one by one. You can ground the whole thing in your own files, links, and [Knowledge](/content/knowledge) sources so the result sounds like you, not like generic AI filler.
 
 <Note>
-  AI course generation runs on AI credits and is included on every plan, the free preview trial included (the trial's one-time pool of 100 credits covers roughly one full course). See [AI credits and access](#ai-credits-and-access) below.
+  AI course generation runs on AI credits and is included on every plan, the free preview trial included. Your very first course, built during setup, is free (see [Quickstart](/quickstart)). See [AI credits and access](#ai-credits-and-access) below.
 </Note>
 
 ## Where to start
 
-Open **Courses** in your academy and start a generation. You land on a full-page chat that asks **"What course are we creating today?"** Type your idea in your own words: a one-line topic or a longer brief both work.
+Open **Courses** and click **Create new course**. The screen is headed **What course are we creating today?**, with **Fayne Agent · Beta** above it. Prefer to build it by hand? **Start with a blank course**, under the description box, creates an empty course instead.
 
-Three quick-start cards sit under the input:
+1. **Add material to build from** (optional): **Choose files**, **Add link**, **Google Drive** (when shown), or **From your Knowledge**. See [Ground it in your own material](#ground-it-in-your-own-material).
+2. **Describe your course**: who it's for, what they'll be able to do afterwards, and what you want to cover. A few sentences is plenty.
+3. Click **Create brief** (or press **Enter**).
 
-<CardGroup cols={3}>
-  <Card title="From my catalog" icon="layers">
-    Asks the agent to suggest a new course that complements what you already teach, grounded in your existing catalog.
-  </Card>
+Prefer to think out loud first? **Talk it through instead** takes what you typed to the chat on Home. See [Talk it through](#talk-it-through) below.
 
-  <Card title="From engagement" icon="trending-up">
-    Turning what your students engage with into a course. Marked **Soon**.
-  </Card>
-
-  <Card title="From scratch" icon="plus">
-    Skip AI and start with a blank course you build yourself.
-  </Card>
-</CardGroup>
+Building one of the courses Fayne planned for you during setup? Open it from the **In the works** row on the **Courses** page: the brief below comes already filled in. See [Courses in the works](/academy/courses#courses-in-the-works).
 
 <Tip>
-  You do not have to write a polished brief. A topic line is enough; the clarifying questions in the next step exist to fill in the rest.
+  You do not have to write a polished description. A few sentences are enough; the brief in the next step fills in the rest, and you can change all of it.
 </Tip>
 
-## The conversation
+## The brief
 
-After you submit, the agent works through a guided sequence. At each step it either shows you selectable cards or waits for your reply. You can always answer in free text instead of clicking a card, and you can steer with a chat message at any gate. Your conversation is saved, so you can close the tab and pick it up later; **New chat** in the top bar starts over.
+Fayne drafts a **Course brief** from what you wrote and attached, which takes a few seconds and costs no credits. Everything on it is editable:
 
-<Steps>
-  <Step title="Clarifying questions">
-    The agent asks up to four short questions to sharpen the course: who it is for, scope, practice style, and anything specific to your topic. Each question renders as a card with selectable options, and every question is skippable. Your answers feed the rest of the build.
-  </Step>
-  <Step title="Narrative angles">
-    The agent proposes three to four angles for the course, each a short bold label with a one-sentence framing. Pick the one that fits, or describe a different direction in chat. If you steer it, the agent proposes a fresh set.
-  </Step>
-  <Step title="Full outline">
-    Once the angle is locked, the agent proposes the complete outline: a genre, a voice card, a structural card, a transformation promise, and the full lesson sequence with each lesson's title and objective. Longer courses come chaptered into [modules](/content/modules), and standard courses get a [knowledge check](/content/knowledge-checks) after each module, shown with a badge. Review it and either approve, or ask for changes (reorder, add or drop lessons, move a check, shift the focus). The agent re-proposes the whole revised outline until you are happy.
-  </Step>
-  <Step title="Approve and draft">
-    When you approve the outline, the lessons are written and saved one at a time, appearing progressively as they complete. Checks are written last, from the finished lessons of their module, so their questions match what was taught. A full course can take roughly ten to thirty minutes depending on length. You can leave the page: drafting continues in the background, and reopening the generation reconnects you to the live progress.
-  </Step>
-</Steps>
+- **Title**
+- **Audience**: who the course is written for and what they struggle with. Every lesson is pitched at this person.
+- **Promise**: the change the course delivers by the end.
+- **Outcomes**: what learners will be able to do. You need at least two, and can add up to eight.
+- **Angle**: the narrative frame that runs through the whole course. Fayne suggests a few and preselects its recommendation; pick one.
 
-<Info>
-  The outline gate is where you do the steering. Nothing is written until you approve, and an approved outline can still be reworked by sending feedback before you approve a revision.
-</Info>
+Open **Advanced settings** to tune the shape of the course:
+
+| Setting | Options |
+| --- | --- |
+| **Lessons** | 3 to 15, including knowledge checks. Prefilled with Fayne's recommendation. |
+| **Lesson length** | **Bite-size** (the default: 2 to 3 minutes each, one idea per lesson), **Standard** (about 5 minutes each), or **In-depth** (8 to 10 minutes each). |
+| **Knowledge checks** | **None**, **Some** (a short check after each module), or **Many** (a check every two or three lessons). See [Knowledge checks](/content/knowledge-checks). |
+| **Your sources** | Shown when you attached material. **My words** keeps your wording and examples, **Adapt** keeps your frameworks but restructures freely, **Inspire** treats your material as background and writes fresh. |
+| **Notes** | Anything else the course must respect: tone, things to avoid, must-have examples. |
+
+When the brief looks right, click **Create outline**.
+
+### Steer with the agent
+
+On a wide screen, a side panel lets you ask for changes in plain words (**Steer the brief here**). Suggestions such as **Shorter course**, **Narrow the audience**, and **Different angle** fill in the message for you. Before the outline exists, changes go to the brief form; after, they revise the outline. Each message costs 2 credits.
+
+## The outline
+
+About a minute later the **Outline** appears: every lesson with its title and objective, grouped into [modules](/content/modules) on longer courses, with knowledge checks marked **Check**. Edit any title or objective inline. For bigger changes (reorder, add or drop lessons, move a check), ask the agent in the side panel.
+
+Nothing is written until you click **Draft N lessons**.
+
+## Drafting
+
+The lessons are written and saved one at a time, and each row shows its progress ("Drafting lesson 3…"). Checks are written last, from the finished lessons of their module, so their questions match what was taught. Fayne also adds up to four illustrations to the course, always including the first lesson and never on a check, at no credit cost.
+
+You can leave the page: drafting continues in the background. Reopen it from the **In the works** row on the **Courses** page, or click **Open the course so far** to go to the editor while it writes. Until the first lesson is saved, the editor shows **Planning your lessons…** or **Writing your first lesson…** and opens by itself when it's ready; later lessons appear in the sidebar as they finish.
+
+<Tip>
+  To cancel, choose **Cancel generation** from the menu at the top right. Lessons already saved are kept, so a partly drafted course is preserved, but the generation can't be resumed.
+</Tip>
+
+### Bite-size lessons
+
+Courses are bite-size unless you choose otherwise, because learners give a lesson two or three minutes and finish what fits. A bite-size lesson teaches one idea in 300 to 500 words: the point up front, headings that state it, short paragraphs, a bold takeaway, and one concrete action to finish. It has at most one interactive block, and a block replaces the prose it came from rather than repeating it. A big topic becomes more lessons, not longer ones. Knowledge checks in a bite-size course have three to five questions (four to eight otherwise).
+
+## Talk it through
+
+**Talk it through instead** takes what you typed to the chat on your [Home](/academy/owner-dashboard#ask-your-academy), where you can think the course through with Fayne Agent first: who it's for, what to cover, what to build first. The agent can look at your [Knowledge](/content/knowledge) and at how your academy is doing. When you're ready, it hands your request, with any files you attached, to the course builder, and you continue from [the brief](#the-brief).
+
+Each message costs 2 credits. Your chats are saved: **New chat** starts over, the recent chats menu reopens an earlier one, and Home picks up where you left off for up to 45 days.
 
 ## Ground it in your own material
 
-The course is far more "yours" when the agent reads your real frameworks, terminology, and examples. You can attach source material from the **\+** (Add source material) control in the chat input before you start, or seed it from what you already have saved.
+The course is far more "yours" when Fayne reads your real frameworks, terminology, and examples. Add material in **Add material to build from** before you create the brief.
 
 <Tabs>
-  <Tab title="PDFs">
-    Upload up to **2 PDFs** per generation, each up to **150 pages** and **25 MB**. Password-protected PDFs are not supported: remove the password and re-upload. The agent can read an attached PDF during the conversation, so you can ask it what a document covers or how to shape the course around it before anything is drafted.
+  <Tab title="Files">
+    Upload up to **2 PDFs**, each up to **150 pages** and **25 MB**, plus other files: Word, PowerPoint, Excel, and EPUB (up to 50 MB). Password-protected PDFs are not supported: remove the password and re-upload.
   </Tab>
-  <Tab title="Links, video, and pasted text">
-    Add a web page URL, a YouTube video (its transcript is pulled), pasted text, or a Word (.docx) document. You can attach up to 5 of these link and document sources per generation.
+  <Tab title="Links and Google Drive">
+    Add a web page or a YouTube video (its transcript is pulled), several at once if you like, or pick files from **Google Drive** when the button is shown.
   </Tab>
-  <Tab title="Your Knowledge base">
-    Pick sources you have already saved to [Knowledge](/content/knowledge). Attaching one here only references it; removing it later detaches it without deleting the underlying source.
+  <Tab title="Your Knowledge">
+    **From your Knowledge** attaches sources you have already saved to [Knowledge](/content/knowledge). Attaching one here only references it; removing it later detaches it without deleting the underlying source.
   </Tab>
 </Tabs>
 
-The agent treats attached material as the authoritative voice and content backbone for the course: frameworks, terminology, examples, and stances in it carry through to the lessons rather than being replaced with generic equivalents. Your saved Knowledge identity (audience, voice, tone) is also folded in so the generation matches how you teach, the same context that powers [AI customization](/content/ai-customization).
+A course takes up to **2 PDFs and 5 other sources**. When it's full, remove one to add another.
+
+The **Your sources** setting on the brief decides how closely the lessons follow your material. With **My words** or **Adapt**, the frameworks, terminology, examples, and stances in it carry through to the lessons rather than being replaced with generic equivalents. Your saved Knowledge identity (audience, voice, tone) is also folded in so the generation matches how you teach, the same context that powers [AI customization](/content/ai-customization).
 
 <Warning>
-  Attached source material is read at generation time. Add or remove sources before you start a generation; sources cannot be attached after drafting has begun.
+  Attached material is read at generation time. Add or remove sources before you create the outline; sources cannot be attached after drafting has begun.
 </Warning>
 
 ## What you get
 
-Generation creates a new draft course in your academy, populated with the drafted lessons, its modules, and its checks. It is a normal course from there: edit any lesson, reorder them, rename modules, adjust a check's pass mark, set access, and publish when ready. Like every course you build, the result is your own editable copy, so refining it never affects anything in the [Explore Library](/content/course-library).
-
-<Tip>
-  Cancel a running generation from the overflow menu at the top right. Cancelling keeps any lessons already saved, so a partially drafted course is preserved rather than thrown away.
-</Tip>
+Generation creates a new draft course in your academy, populated with the drafted lessons, its modules, its checks, and its illustrations. It can also include a few [practice blocks](/content/practice-blocks): an **Explain it back** where students need to explain an idea, and a **Rapid-fire drill** when your material lists real objections to practice. It is a normal course from there: edit any lesson, reorder them, rename modules, adjust a check's pass mark, set access, and publish when ready. Like every course you build, the result is your own editable copy, so refining it never affects anything in the [Explore Library](/content/course-library).
 
 ## AI credits and access
 
 <AccordionGroup>
   <Accordion title="Which plans can generate courses">
-    AI course generation is included on every plan, the preview trial included. What limits you in practice is your AI credit pool: the trial's 100 one-time credits cover roughly one full course, and paid plans refill every billing period (Starter 1,000, Pro 2,500, Scale 5,000). See [AI credits](/billing/plans#ai-credits).
+    AI course generation is included on every plan, the preview trial included. What limits you in practice is your AI credit pool: the trial has a one-time pool of 100 credits (on top of the free first course from setup), and paid plans refill every billing period (Starter 1,000, Pro 2,500, Scale 5,000). See [AI credits](/billing/plans#ai-credits).
   </Accordion>
 
   <Accordion title="How credits are consumed">
-    Generation draws from your monthly AI credit pool, roughly 10 credits per lesson drafted (a check counts as a lesson). Chatting with the agent before the build starts (while it works out what course you want) costs 10 credits per reply. Once generation has started, the clarifying questions, angles, and outline revisions are free; you pay only for the lessons drafted. You can see your remaining balance from the usage gauge in the chat input before you start. If you are out of credits, the generation will not run until your pool refreshes or you upgrade.
+    - **The brief** and **the outline**: free.
+    - **Drafting**: about 10 credits per lesson drafted (a check counts as a lesson), so a 10-lesson course uses about 100 credits.
+    - **Messages to Fayne Agent** (the brief's side panel, or the chat on Home): 2 credits each.
+    - **Illustrations**: free.
+    - **Your first course from setup**: free, up to 8 lessons.
+
+    If you are out of credits, the generation will not run until your pool refreshes or you upgrade.
   </Accordion>
 
   <Accordion title="What students see">

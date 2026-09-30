@@ -31,7 +31,7 @@ When you first onboard, Fayne seeds Identity for you from your onboarding answer
 
 <Steps>
   <Step title="Open the Identity card">
-    On the Knowledge page, the **Identity** card sits first in the grid, marked **Always applied**. Click **Set up** (or **Customize** if it already has content).
+    On the Knowledge page, the **Identity** card sits first in the grid, marked **Always applied** once it has content (**Not set up yet** before that). Click **Set up**, or **Edit** if it already has content.
   </Step>
   <Step title="Write your profile">
     Add your ICP, brand voice, tone, and signature frameworks. A character counter shows your length against a soft cap of 8,000 characters; the hard limit is 10,000.
@@ -47,43 +47,47 @@ When you first onboard, Fayne seeds Identity for you from your onboarding answer
 
 ## Sources
 
-Sources are individual documents you bring into your academy. Each one is read, cleaned into plain text, summarized, and made searchable. The Knowledge page shows every source as a card with its type, title, a one-line snippet, and its usage toggles.
+Sources are individual documents you bring into your academy. Each one is read, cleaned into plain text, described in a sentence, and made searchable. The Knowledge page shows every source as a card with its type, title, a short description, and its usage toggles.
 
-### Adding a source
+### Adding sources
 
-Click **Add source** and pick where the content comes from.
+The top of the Knowledge page is always a drop zone. With no sources yet it reads **Teach your academy what you know**; after that, **Drop files, links or text here**. Drag files, links, or text onto it, paste them anywhere on the page, or use its buttons:
 
 <CardGroup cols={2}>
-  <Card title="Webpage" icon="globe">
-    Paste a link to any page. Fayne reads its main content.
+  <Card title="Choose files" icon="file-up">
+    Pick one file or many. PDF, Word (.docx, .doc, .odt, .rtf), PowerPoint (.pptx, .ppt, .odp), Excel (.xlsx, .xls, .ods), and EPUB, up to **50 MB** per file.
   </Card>
 
-  <Card title="YouTube" icon="youtube">
-    Paste a video link. Fayne reads its transcript. Videos without captions cannot be imported.
-  </Card>
-
-  <Card title="File" icon="file-up">
-    Upload a PDF, Word document (.docx, .doc, .odt, .rtf), or Excel spreadsheet (.xlsx, .xls). Files can be up to 15 MB.
+  <Card title="Add link" icon="globe">
+    A web page or a YouTube video. Paste several at once, one per line. Fayne reads a page's main content, or a video's transcript. Videos without captions can't be imported.
   </Card>
 
   <Card title="Paste text" icon="clipboard">
-    Drop in notes, a transcript, or any reference material directly, with an optional title.
+    Notes, a transcript, an email you're proud of: anything you can copy, with an optional title.
+  </Card>
+
+  <Card title="Google Drive" icon="hard-drive">
+    When shown, opens Google Drive so you can pick files. Google Docs, Sheets, and Slides are imported as Word, Excel, and PowerPoint files. Fayne can only read the files you pick.
   </Card>
 </CardGroup>
 
-Extraction runs immediately when you add a source. Pasted text is instant; pages, videos, and files take a few seconds. When it finishes, the card shows the source as ready, with a generated title, a short summary, and a word count. Failed imports show the reason on the card instead.
+Everything you add goes into one queue, three at a time. Keep the page open until the queue finishes uploading. After that, each file is read in the background: its card says **Reading the file…** (or **Reading the page…** for a link) and updates on its own when it's ready. Pasted text is ready right away. A failed import shows the reason on its card, with **Remove** to clear it.
+
+Click any ready card to preview the text the AI actually reads, with **Copy text** and, for links, **Open original**. Layout and images from the original aren't kept, and the uploaded file itself isn't stored once its text is read.
 
 <Note>
-  Each source is capped at 200,000 characters of extracted text. Longer documents are truncated to that limit. If a page blocks automated reading or a video has no captions, the import will tell you, and pasting the content in is the reliable fallback.
+  Each source can hold up to 200,000 characters of text (about 31,000 words). A longer document is **rejected**, not cut short: split it into parts and add each one. If a page blocks automated reading or a video has no captions, the card tells you, and pasting the content in is the reliable fallback.
 </Note>
 
 <Info>
-  Adding the same web link twice reuses the existing source rather than creating a duplicate, so re-adding a page you already imported is safe.
+  Adding the same link or the same file twice reuses the existing source ("You already have that one"), so re-adding something you already imported is safe.
 </Info>
+
+Fayne writes each source's short description for you, at no credit cost. Search on the page matches titles and descriptions.
 
 ### Refreshing a source
 
-Webpage and YouTube sources keep their original link, so you can re-pull them later. Open the card menu and choose **Refresh** to re-read the page or transcript in place. If nothing has changed since the last import, you will see "No changes since last import"; the same source card is updated either way, so its usage settings are preserved. Pasted text and uploaded files have no live original to re-read, so they cannot be refreshed.
+Webpage and YouTube sources keep their original link, so you can re-pull them later. Open the card menu and choose **Refresh** to re-read the page or transcript in place. If nothing has changed since the last import, you will see "No changes since last import"; the same source card is updated either way, so its usage settings are preserved. If a refresh fails, Fayne keeps the version you already have. Pasted text and uploaded files have no live original to re-read, so they cannot be refreshed.
 
 ## Choose where each source is used
 
@@ -129,16 +133,16 @@ Knowledge is not a standalone library; it is the grounding layer that the rest o
 
 ## Source limits by plan
 
-The number of sources you can keep per academy depends on your plan. The Knowledge page shows a live count, for example `4/50 sources`, and the **Add source** button is disabled once you reach your cap.
+The number of sources you can keep per academy depends on your plan. The Knowledge page shows a live count, for example **4 of 50 sources**. Once you reach your cap, the drop zone reads **You've reached your source limit**: remove a source you no longer need, or upgrade for more.
 
 | Plan | Sources per academy |
 | --- | --: |
-| Trial | 3 |
+| Trial | 10 |
 | Starter | 50 |
 | Pro | 150 |
 | Scale | 500 |
 
-The per-plan cap and the per-source 200,000-character limit are separate guards: one bounds how many sources you keep, the other how much text a single source contributes.
+The per-plan cap and the per-source 200,000-character limit are separate limits: one bounds how many sources you keep, the other how much text a single source contributes.
 
 <Note>
   Deleting a source removes it from Knowledge going forward. Courses you already generated from it are unaffected, since their content was written at generation time.
