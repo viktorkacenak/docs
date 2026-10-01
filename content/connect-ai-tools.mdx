@@ -11,7 +11,7 @@ If you already use Claude or Cursor, you can connect it directly to one of your 
   This is an optional advanced setup. You do not need it to use Fayne's built-in [lesson AI](/content/ai-customization). The connection standard is called MCP, which is why your AI tool labels this area "MCP" or "Connectors."
 </Note>
 
-You choose the academy during sign-in. The connected assistant can work only in that academy, and nothing it writes reaches students until you review and publish it.
+You choose the academy during sign-in. The connected assistant can work only in that academy. Lesson text changes save to drafts, but deleting lessons or changing the course structure affects the live course immediately.
 
 ## What your AI tool can do
 
@@ -46,7 +46,7 @@ After connecting, your assistant gains a set of tools scoped to your academy:
     You sign in with your normal Fayne login during setup, then pick which academy to connect. If you manage more than one academy, you choose one per connection.
   </Step>
   <Step title="You use an MCP-compatible AI tool">
-    Claude (desktop and web), Claude Code, and Cursor all support remote MCP servers. Any other client that supports a remote MCP server over HTTP with OAuth will work too.
+    Claude (desktop and web), Claude Code, and Cursor all support remote MCP servers. Other clients need support for remote MCP over HTTP and OAuth. Availability and setup depend on your client and workspace settings.
   </Step>
 </Steps>
 
@@ -134,12 +134,12 @@ There is no API key to copy or paste. The first time your client connects, it op
 Letting an AI tool write to your live academy sounds risky, so Fayne builds in guardrails.
 
 <CardGroup cols={2}>
-  <Card title="Drafts, not live pages" icon="file-pen">
-    Every edit is saved to your lesson draft. Nothing your AI tool writes is visible to students until you publish it from the editor.
+  <Card title="Review lesson drafts" icon="file-pen">
+    Lesson text changes save to drafts for you to review and publish. Deleting a lesson or reorganizing modules changes the live course, including the order used for drip availability.
   </Card>
 
   <Card title="Conflict protection" icon="shield-check">
-    If a lesson changed since your AI tool last read it, the write is rejected and the tool is told to re-read before trying again. You never silently overwrite a newer version.
+    Fayne checks for concurrent changes during a lesson save. Ask your assistant to read immediately before editing, avoid editing the same lesson in two places at once, and have it re-read before retrying a conflict.
   </Card>
 
   <Card title="Scoped access" icon="lock">
@@ -147,7 +147,7 @@ Letting an AI tool write to your live academy sounds risky, so Fayne builds in g
   </Card>
 
   <Card title="Plan limits enforced" icon="gauge">
-    Creating courses and lessons respects the same plan limits as the dashboard. Requests are also rate limited to keep your academy responsive.
+    Creating courses and lessons respects the same plan limits as the dashboard. Write requests are limited to 100 per 60 seconds per credential. A locked academy remains read-only.
   </Card>
 </CardGroup>
 
@@ -174,10 +174,41 @@ Letting an AI tool write to your live academy sounds risky, so Fayne builds in g
   </Accordion>
 
   <Accordion title="My edits are not showing up for students">
-    Edits are saved as drafts. Open the lesson in the Fayne editor and publish it. Students only ever see published content.
+    Lesson text changes are saved as drafts. Open the lesson in the Fayne editor and publish it. Deletion and course-structure changes take effect immediately.
   </Accordion>
 
   <Accordion title="I get a rate limit or plan limit error">
-    Requests are rate limited to keep your academy responsive, and course and lesson creation respects your plan limits. Wait a moment and retry, or upgrade your plan if you have hit a course or lesson cap.
+    Write requests are limited to 100 per 60 seconds per credential, and course and lesson creation respects your plan limits. For a rate limit, wait for the interval shown in the error. For a plan limit, review your usage in Fayne.
   </Accordion>
 </AccordionGroup>
+
+## Example requests
+
+Use course and lesson names from your own academy:
+
+- "Show me the courses in my academy."
+- "Create a draft course called Client Onboarding with exactly three lessons. Reuse the initial blank lesson."
+- "Read the Attribution lesson in Marketing Metrics, then add a Common mistakes section without removing the existing content."
+- "Group all lessons in Marketing Metrics into Acquisition and Measurement modules without deleting any lessons."
+- "Find how I explain customer acquisition cost in my other courses."
+- "Search my knowledge sources for the client discovery framework, then read the matching source."
+
+Creating a course also creates one blank lesson. Ask your assistant to reuse it when you want an exact lesson count.
+
+## What the connection can access
+
+The assistant can read course outlines, module titles, lesson content, course-page descriptions and authoring-enabled knowledge sources in the academy you authorize. Responses include the identifiers and authoring details needed to locate and edit that content. Source reads may be shortened when a document is long.
+
+The connector has no tools for member records, learner practice responses, payment records, pricing settings or deleting whole courses. Personal information you put in course text or knowledge sources can still be returned to your connected assistant. Only enable a source for authoring when you want it available for these workflows; see [Knowledge](/content/knowledge).
+
+Fayne records activity information for security and support, including the tool called, time, outcome and request metadata. Existing logs can include course titles and search terms. Your assistant provider processes the content it receives under its own privacy policy. See [Fayne's privacy policy](https://fayneos.com/legal/privacy) for Fayne's data-handling and retention terms.
+
+## Disconnect or revoke access
+
+Remove the Fayne connection in your assistant's settings to stop using it there. Removing a connection does not delete content the assistant provider has already retained.
+
+If you use a headless access token, revoke that token in Fayne's **Settings > MCP server**. This token list does not manage OAuth connections. To request server-side revocation of an OAuth grant, contact [Fayne support](/support); include the connected assistant and academy name, but never send an access token or password.
+
+## Get help
+
+For setup problems, missing courses, failed edits or access-revocation requests, visit [Fayne support](/support). Include the assistant name, approximate time and error message, without private lesson content or credentials.

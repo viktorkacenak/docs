@@ -24,7 +24,7 @@
     "href": "https://fayneos.com"
   },
   "navbar": {
-    "links": [],
+    "links": [{ "label": "Support", "href": "/support" }],
     "primary": {
       "type": "button",
       "label": "Launch your academy",
@@ -129,7 +129,8 @@
               "billing/subscription",
               "billing/referrals",
               "academy/settings",
-              "engagement/whats-new"
+              "engagement/whats-new",
+              "support"
             ]
           },
           {
