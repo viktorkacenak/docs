@@ -201,13 +201,15 @@ The assistant can read course outlines, module titles, lesson content, course-pa
 
 The connector has no tools for member records, learner practice responses, payment records, pricing settings or deleting whole courses. Personal information you put in course text or knowledge sources can still be returned to your connected assistant. Only enable a source for authoring when you want it available for these workflows; see [Knowledge](/content/knowledge).
 
-Fayne records activity information for security and support, including the tool called, time, outcome and request metadata. Existing logs can include course titles and search terms. Your assistant provider processes the content it receives under its own privacy policy. See [Fayne's privacy policy](https://fayneos.com/legal/privacy) for Fayne's data-handling and retention terms.
+Fayne records activity information for security and support, including the tool called, time, outcome and request metadata. New MCP activity logs exclude search text, titles and lesson bodies. Historical logs can include course titles and search terms. MCP activity logs have a 90-day retention period, with expired records removed by an hourly cleanup. Your assistant provider processes the content it receives under its own privacy policy. See [Fayne's privacy policy](https://fayneos.com/legal/privacy) for Fayne's data-handling and retention terms.
 
 ## Disconnect or revoke access
 
 Remove the Fayne connection in your assistant's settings to stop using it there. Removing a connection does not delete content the assistant provider has already retained.
 
-If you use a headless access token, revoke that token in Fayne's **Settings > MCP server**. This token list does not manage OAuth connections. To request server-side revocation of an OAuth grant, contact [Fayne support](/support); include the connected assistant and academy name, but never send an access token or password.
+In Fayne, open **Settings > MCP server > Your connected assistants**, choose the assistant and select **Disconnect**. This revokes its current access and refresh tokens. You can connect it again later.
+
+For a headless connection, revoke its access token in the **Access tokens** section of the same page. If you cannot access your settings, contact [Fayne support](/support); include the assistant and academy name, but never send an access token or password.
 
 ## Get help
 
