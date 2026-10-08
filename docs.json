@@ -97,6 +97,7 @@
               "students/certificates",
               "students/audiences",
               "students/cohort-brief",
+              "students/reminder-emails",
               "students/student-experience"
             ]
           },
