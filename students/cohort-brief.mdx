@@ -1,0 +1,100 @@
+---
+title: "Cohort Brief: One Report for a List of Members"
+sidebarTitle: "Cohort brief"
+description: "See how a list of members is doing in a course: who is ready, how they rate themselves before and after, what they said, how they did on checks, and a CSV of it all."
+icon: "chart-pie"
+---
+
+The cohort brief is a report for one [list](/students/audiences) in one course. Use it before a workshop to know the room, during a program to see who needs a nudge, and afterwards to show what changed. It brings together progress, [survey](/content/surveys) answers, shared reflections, checklist ticks, and [knowledge check](/content/knowledge-checks) results for the people on that list.
+
+## Open the brief
+
+<Steps>
+  <Step title="Open the list">
+    Go to **People** and pick a list in the rail.
+  </Step>
+  <Step title="Switch to Brief">
+    Use the **People** / **Brief** switch at the top of the list.
+  </Step>
+  <Step title="Pick the course">
+    If the people on the list have more than one course, choose one from **Course**. The brief starts on the course most of them have.
+  </Step>
+</Steps>
+
+The brief only covers members on the list who have the course. If someone on the list doesn't have it yet, Readiness says how many.
+
+## What the brief shows
+
+Sections appear when there is something to show, in this order.
+
+<AccordionGroup>
+  <Accordion title="Readiness">
+    How far the list is through the course: a split of **Finished**, **In progress**, and **Not started**, and the average progress. Below it, a task row for each survey and each checklist with **Remember ticks** on, showing how many people are done. **Remind** buttons on these rows open a [reminder email](/students/reminder-emails) already set to the people who still need to act, such as those who haven't started or haven't answered a survey.
+  </Accordion>
+
+  <Accordion title="Before and after">
+    Shown when a survey has **Compare with** set. For each paired rating question you see the average before, the average after, and the change, with an average lift across all questions. On named surveys the comparison only counts people who answered both. On anonymous surveys it compares the two group averages.
+  </Accordion>
+
+  <Accordion title="How they rate themselves">
+    One card per rating question: how many people picked each number from 1 to 5, and the average.
+  </Accordion>
+
+  <Accordion title="Tools and habits">
+    One card per choice question, with a bar per option. Shares are a percentage of people, so on pick-any questions they can add up to more than 100%. Answers typed into **Other** are listed too.
+  </Accordion>
+
+  <Accordion title="In their own words">
+    Text answers from the surveys, together with reflections members chose to share with the academy. Named answers carry the member's name. Anonymous answers show without names, in an order unrelated to who answered when.
+  </Accordion>
+
+  <Accordion title="Quick check">
+    How the list did on the course's knowledge checks (pass rate and average best score against the pass mark) and on practice questions in lessons (how many got each one right first try).
+  </Accordion>
+
+  <Accordion title="People">
+    One row per member on the list: progress, best score on each check, whether they answered each survey, and checklist ticks. Click a row to open that person's panel.
+  </Accordion>
+</AccordionGroup>
+
+## The person panel
+
+Clicking a row in **People** opens a panel with that member's progress, check results, checklist ticks, their answers to named surveys, and any reflections they shared. **Open profile** takes you to their full profile in People, where the **Responses** tab holds the same answers.
+
+<Note>
+  Answers to anonymous surveys never appear in the person panel, on a profile, or anywhere next to a name. You see them only as totals and unnamed quotes in the sections above.
+</Note>
+
+## Export CSV
+
+**Export CSV** at the top of the brief downloads one row per member on the list, with:
+
+- name, email, whether they have the course, progress, and completion date
+- for each knowledge check: their best score and whether they passed
+- for each named survey: whether they answered, and their answer to each question (choice answers joined with "; ", with any Other text)
+- each shared reflection
+- for each tracked checklist: how many items they ticked
+
+Anonymous surveys are left out of the file entirely. When a course has one, the first line of the file names the surveys that were left out.
+
+## Who can see what
+
+The brief only shows learner text that members knew the academy would read:
+
+- **Survey answers.** A survey is for the academy by nature. Anonymous surveys show answers without names.
+- **Shared reflections.** Only reflections where you turned on **Share answers with the academy**. Private reflections keep their "Your answers are only visible to you" line and never reach you. See [Block editor](/content/block-editor).
+- **Checklist ticks.** Only on checklists with **Remember ticks** on.
+
+What members write in [practice blocks](/content/practice-blocks) stays private to them, and the brief never shows it.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Surveys" icon="clipboard-list" href="/content/surveys">
+    Build the surveys the brief reports on.
+  </Card>
+
+  <Card title="Reminder emails" icon="bell" href="/students/reminder-emails">
+    Nudge the people who haven't started or answered.
+  </Card>
+</CardGroup>

@@ -96,6 +96,7 @@
               "students/enrollments",
               "students/certificates",
               "students/audiences",
+              "students/cohort-brief",
               "students/student-experience"
             ]
           },
