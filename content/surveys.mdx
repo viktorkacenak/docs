@@ -1,0 +1,136 @@
+---
+title: "Surveys: Ask Members Before and After"
+sidebarTitle: "Surveys"
+description: "Add survey lessons with rating, choice, and text questions. Make them required, keep them anonymous, and pair a follow-up with an earlier survey to see what changed."
+icon: "clipboard-list"
+---
+
+A survey is a lesson made of questions with no right answers. Use one to learn about your members before a workshop or program starts, and a second one afterwards to see what changed. Nothing in a survey is graded, and members never see a score.
+
+Surveys sit in the lesson list like any other lesson, so a course can mix them freely: a survey first, then lessons, a [knowledge check](/content/knowledge-checks), and a follow-up survey at the end. The answers come back to you in the [cohort brief](/students/cohort-brief) for a list, and on each member's profile.
+
+## Add a survey
+
+<Steps>
+  <Step title="Open the course editor">
+    Go to **Courses** and open the course.
+  </Step>
+  <Step title="Add a survey">
+    Open the chevron menu next to **Add lesson** in the lesson sidebar and choose **Add survey**. If the course has [modules](/content/modules), each module header menu offers the same option. A new survey starts with one rating question, so it never opens empty.
+  </Step>
+  <Step title="Write the questions">
+    Type `/` and insert blocks from the **Survey questions** group: **Rating Question**, **Choice Question**, or **Text Question**. Headings and short text in between are fine; they are shown but not collected.
+  </Step>
+  <Step title="Choose the settings">
+    Open **Survey settings** from the survey's row in the sidebar, or from the **Survey settings** chip at the top of the survey. See [Survey settings](#survey-settings) below.
+  </Step>
+  <Step title="Publish">
+    Publish the survey like any lesson. Surveys show their own icon in the lesson list.
+  </Step>
+</Steps>
+
+<Note>
+  Survey questions only work inside survey lessons. The `/` menu offers them only there. If one ends up in a normal lesson (for example after a paste), the editor warns you and members never see it.
+</Note>
+
+## Question types
+
+| Question | What members do | What you set |
+| --- | --- | --- |
+| **Rating Question** | Pick a number from 1 to 5. | The question and a label for each end, such as "Not confident" and "Very confident". |
+| **Choice Question** | Pick one option, or several. | The options, **Answers**: **Single** or **Multiple**, and **Allow Other**, which adds an Other option with a short text field. |
+| **Text Question** | Answer in their own words. | **Answer**: **Short** or **Long**, and an optional **Max length**. Answers are capped at 2,000 characters. |
+
+Every question is required by default. Turn off **Required** in its settings to make it optional; members then see an **Optional** tag on it.
+
+Each question also has a **Question key** under **Advanced**. Fayne creates it for you. It is what answers, before and after comparisons, and exports are matched by, so leave it alone unless you know you need to change it.
+
+## Survey settings
+
+<AccordionGroup>
+  <Accordion title="Required to advance">
+    When on, later lessons stay locked until the member answers this survey, with an "Answer ... first" note in the sidebar. Off by default. Turn it on for a survey that must come first, such as prework before a workshop.
+  </Accordion>
+
+  <Accordion title="Anonymous">
+    You see totals and quotes without names. Answers from an anonymous survey never appear next to a member's name, on their profile, or in the CSV export. Once someone has answered, **Anonymous** can't be turned off, because people answered believing their names were hidden. You can still turn it on later; answers given before stay named.
+  </Accordion>
+
+  <Accordion title="Compare with">
+    Pick an earlier survey in the same course with the same questions. The [cohort brief](/students/cohort-brief) then shows how ratings moved from the first survey to this one.
+  </Accordion>
+</AccordionGroup>
+
+## Before and after
+
+To measure change, ask the same rating questions twice.
+
+<Steps>
+  <Step title="Build the first survey">
+    Add the survey members answer before the program starts, with the self-ratings you care about.
+  </Step>
+  <Step title="Duplicate it as a follow-up">
+    Open the survey's menu in the sidebar and choose **Duplicate as follow-up**. Fayne adds a copy named "... (follow-up)" with the same questions and sets **Compare with** to the first survey for you.
+  </Step>
+  <Step title="Move it into place">
+    Drag the follow-up to where it belongs, usually at the end of the course or after the live session.
+  </Step>
+</Steps>
+
+You can reword the follow-up's questions. Pairing works through each question's key, not its wording, so keep the keys the same.
+
+## What members experience
+
+<CardGroup cols={2}>
+  <Card title="Submit once" icon="send">
+    Members answer the questions and press **Submit answers**. A required question left empty is pointed out before anything is sent.
+  </Card>
+
+  <Card title="Answers are final" icon="lock">
+    Once submitted, a survey can't be changed. Coming back to it shows their answers, read-only. A baseline that can be edited later is no baseline.
+  </Card>
+
+  <Card title="Counts as a lesson" icon="flag">
+    A survey is complete when it is submitted, and it counts toward course progress like any lesson. Scrolling to the end does not complete it.
+  </Card>
+
+  <Card title="Signed-in members only" icon="user">
+    Guests and preview visitors can read a survey but must sign in to submit it.
+  </Card>
+</CardGroup>
+
+A survey goes to your academy by its nature, so there is no separate notice. If a survey is anonymous, or the answers are used in a particular way, say so in the survey's intro text.
+
+## What you can change after answers come in
+
+| Change | Allowed? |
+| --- | --- |
+| Reword a question or its labels | Yes. Earlier answers keep the wording they were given under. |
+| Add a question | Yes. Earlier respondents simply have no answer to it. |
+| Remove a question | Yes. Its answers stay in the brief and the export. |
+| Turn **Anonymous** off | No. |
+| Turn the survey into a lesson | No. **Turn into lesson** disappears once someone has answered. |
+
+## Where the answers go
+
+- **Cohort brief**: put the members on a [list](/students/audiences) and open the list's **Brief** tab for response rates, rating charts, choice results, quotes, and before and after. See [Cohort brief](/students/cohort-brief).
+- **Member profile**: the **Responses** tab on a member's profile shows their answers to named surveys. See [Managing students](/students/managing-students).
+- **Reminders**: email the members who haven't answered yet. See [Reminder emails](/students/reminder-emails).
+
+<Tip>
+  You can ask the AI editor to create a survey for you, for example "add a short survey before the first lesson asking how confident people feel about each topic." Review the questions and settings before you publish. See [AI Customization](/content/ai-customization).
+</Tip>
+
+Surveys are left out of [SCORM exports](/academy/courses), since they need your academy to collect the answers.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Cohort brief" icon="chart-pie" href="/students/cohort-brief">
+    Read a list's answers as one report.
+  </Card>
+
+  <Card title="Knowledge checks" icon="circle-check" href="/content/knowledge-checks">
+    Graded questions with a pass mark.
+  </Card>
+</CardGroup>
