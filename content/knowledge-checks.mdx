@@ -1,13 +1,13 @@
 ---
 title: "Knowledge Checks: Graded Quizzes That Can Gate Progress"
 sidebarTitle: "Knowledge checks"
-description: "Add graded check lessons with a pass mark, require students to pass before the next lesson unlocks, and read pass rates per check."
+description: "Add graded check lessons with a pass mark, require members to pass before the next lesson unlocks, and read pass rates per check."
 icon: "circle-check"
 ---
 
-A knowledge check is a lesson made of quiz blocks that is **graded**. Students submit their answers, Fayne scores them on the server, and the result decides whether they pass. A check can be required, so later lessons stay locked until it is passed, or optional, so it simply records a score.
+A knowledge check is a lesson made of quiz blocks that is **graded**. Members submit their answers, Fayne scores them on the server, and the result decides whether they pass. A check can be required, so later lessons stay locked until it is passed, or optional, so it simply records a score.
 
-Checks use the same quiz blocks you already know from lessons: multiple choice, true or false, fill in the blank, ordering, and matching. The difference is what happens on submit. In a normal lesson each block confirms itself instantly. In a check, the answer keys are stripped from what the student receives, and nothing is revealed until they submit the whole check.
+Checks use the same quiz blocks you already know from lessons: multiple choice, true or false, fill in the blank, ordering, and matching. The difference is what happens on submit. In a normal lesson each block confirms itself instantly. In a check, the answer keys are stripped from what the member receives, and nothing is revealed until they submit the whole check.
 
 ## Add a check
 
@@ -33,14 +33,14 @@ Checks use the same quiz blocks you already know from lessons: multiple choice, 
 </Steps>
 
 <Tip>
-  A check needs at least one gradeable quiz block. A check with only text has nothing to score, so students cannot pass it.
+  A check needs at least one gradeable quiz block. A check with only text has nothing to score, so members cannot pass it.
 </Tip>
 
-## What students experience
+## What members experience
 
 <CardGroup cols={2}>
   <Card title="Submit once, see the result" icon="send">
-    Students answer every question, then press **Submit answers**. They see their score against the pass mark and either **Check passed** or **Not quite there yet**.
+    Members answer every question, then press **Submit answers**. They see their score against the pass mark and either **Check passed** or **Not quite there yet**.
   </Card>
 
   <Card title="Retake freely" icon="rotate-cw">
@@ -56,10 +56,10 @@ Checks use the same quiz blocks you already know from lessons: multiple choice, 
   </Card>
 </CardGroup>
 
-Checks combine with [drip scheduling](/content/drip-scheduling). If a lesson is behind both a required check and a drip timer, the check wins while it is unpassed; once passed, the drip timer applies as usual. Work a student has already completed never re-locks when you change settings later.
+Checks combine with [drip scheduling](/content/drip-scheduling). If a lesson is behind both a required check and a drip timer, the check wins while it is unpassed; once passed, the drip timer applies as usual. Work a member has already completed never re-locks when you change settings later.
 
 <Note>
-  Answers are graded on the server against the stored check, and the answer keys never reach the browser before submit. Students cannot read the correct answers out of the page.
+  Answers are graded on the server against the stored check, and the answer keys never reach the browser before submit. Members cannot read the correct answers out of the page.
 </Note>
 
 ## Read the results
@@ -67,11 +67,22 @@ Checks combine with [drip scheduling](/content/drip-scheduling). If a lesson is 
 Open a course's insights (the chart icon next to the settings gear in the course editor, or **Insights** in the owner sidebar and then the course) and switch to the **Knowledge checks** tab. A **Graded checks** section at the top lists every check with:
 
 - its pass mark and whether it is required to advance
-- **pass rate**: the share of students who have ever passed it
-- **average best score** across students
-- an expandable list of students with their latest score, best score, and number of tries, with students who have not yet passed sorted first
+- **pass rate**: the share of members who have ever passed it
+- **average best score** across members
+- an expandable list of members with their latest score, best score, and number of tries, with members who have not yet passed sorted first
 
 See [Analytics](/analytics/overview) for the rest of the course insights.
+
+## Select all that apply
+
+A **Multiple Choice** question can ask for one answer or several. In the block's settings, set **Answers** to **Single** (the default) or **Multiple**.
+
+- **Single**: members pick one option. If you mark more than one option correct, any one of them counts.
+- **Multiple**: members tick every option that applies and see "Select all that apply" under the question. The answer counts as right only when they pick every correct option and nothing else. They are never told how many options are correct.
+
+In a normal lesson, a member who answers a **Multiple** question sees which picks were wrong and which correct options they **Missed**. Inside a check, nothing is revealed until they submit. Switching between **Single** and **Multiple** keeps the answers you marked.
+
+In course insights, each option a member ticked counts once, so you can see which wrong options people tend to add.
 
 ## Checks from AI generation
 
