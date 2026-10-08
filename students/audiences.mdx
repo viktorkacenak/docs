@@ -1,19 +1,19 @@
 ---
-title: "Audiences: Group Students with Lists and Segments"
+title: "Audiences: Group Members with Lists and Segments"
 sidebarTitle: "Audiences"
-description: "Group students into manually curated Lists and self-updating rule-based Segments, then target them across course access and the Newsfeed"
+description: "Group members into manually curated Lists and self-updating rule-based Segments, then target them across course access and the Newsfeed"
 icon: "users-round"
 ---
 
-Audiences let you group your students so you can act on them as a set: grant a group access to a course, or send them a targeted Newsfeed post. You build audiences from the **People** area of your academy. Lists are groups you curate by hand. Segments are saved filters that recompute themselves as students match your rules.
+Audiences let you group your members so you can act on them as a set: grant a group access to a course, or send them a targeted Newsfeed post. You build audiences from the **People** area of your academy. Lists are groups you curate by hand. Segments are saved filters that recompute themselves as members match your rules.
 
 <CardGroup cols={2}>
   <Card title="Lists" icon="users">
-    A curated group of students you add and remove yourself, by hand or via CSV import. Membership only changes when you change it.
+    A curated group of members you add and remove yourself, by hand or via CSV import. Membership only changes when you change it.
   </Card>
 
   <Card title="Segments" icon="filter">
-    A saved filter (for example, "stalled in Sales 101"). Membership is computed from your rules and stays current as students enroll, progress, and complete.
+    A saved filter (for example, "stalled in Sales 101"). Membership is computed from your rules and stays current as members enroll, progress, and complete.
   </Card>
 </CardGroup>
 
@@ -23,7 +23,7 @@ Open **People** from the owner sidebar. The rail on the left lists **All members
 
 ## Lists
 
-A List is a hand-picked group of students. Use one whenever you want a stable set you control directly, such as VIP clients, a cohort, or a beta group.
+A List is a hand-picked group of members. Use one whenever you want a stable set you control directly, such as VIP clients, a cohort, or a beta group.
 
 ### Create a list
 
@@ -35,7 +35,7 @@ A List is a hand-picked group of students. Use one whenever you want a stable se
     Give the list a name (for example, "VIP clients") and an optional description so you remember what it is for.
   </Step>
   <Step title="Add people">
-    You land on the new list, ready to add students.
+    You land on the new list, ready to add members.
   </Step>
 </Steps>
 
@@ -45,17 +45,17 @@ From a list's view, open **Add people** and choose how people join:
 
 <CardGroup cols={2}>
   <Card title="Add from academy" icon="user-plus">
-    Pick from your existing academy students. Only people who are already students in this academy appear in the picker, and anyone already on the list is filtered out.
+    Pick from your existing academy members. Only people who are already members of this academy appear in the picker, and anyone already on the list is filtered out.
   </Card>
 
   <Card title="Import from CSV" icon="upload">
-    Upload a CSV with an `email` column (a `name` column is optional). Emails that match an existing academy student are added; any that do not match are reported back to you so you can follow up.
+    Upload a CSV with an `email` column (a `name` column is optional). Emails that match an existing academy member are added; any that do not match are reported back to you so you can follow up.
   </Card>
 </CardGroup>
 
 You can also select rows in the **All members** view (or any quick view such as **Stalled 14d+**) and use **Add to list** on the bulk bar to add several people at once.
 
-The list shows its own table of **Person** and **Added** (the date they joined the list), with a search field. To remove someone, use the remove control on their row. Removing a member, or deleting the whole list, never touches the student's account, enrollments, or course progress. It only changes who the list targets, and you can add a member back at any time.
+The list shows its own table of **Person** and **Added** (the date they joined the list), with a search field. To remove someone, use the remove control on their row. Removing a member, or deleting the whole list, never touches the member's account, enrollments, or course progress. It only changes who the list targets, and you can add a member back at any time.
 
 <Note>
   Lists populated by CSV or from outside the app show a source badge (**CSV import** or **Synced**); hand-curated lists show no badge. Lists created and managed through the API show as **Synced**.
@@ -69,7 +69,7 @@ A list doubles as a cohort. Switch a list from **People** to **Brief** to see ho
 
 ### Lists and course access
 
-To give a group of students course access, grant them an [offer](/payments/offers): from each student's **Access** tab, or by attaching the offer to their invitations so they arrive with it. Access granted this way is per student, so you stay in control of exactly who holds what.
+To give a group of members course access, grant them an [offer](/payments/offers): from each member's **Access** tab, or by attaching the offer to their invitations so they arrive with it. Access granted this way is per member, so you stay in control of exactly who holds what.
 
 You can also connect an offer directly to a manual List from the offer's **Members** tab. Everyone on that List holds the offer for as long as they remain a member. Add someone and the covered courses unlock; remove them and that path to access ends.
 
@@ -77,11 +77,11 @@ You can also connect an offer directly to a manual List from the offer's **Membe
   Because a list can carry access this way, deleting one ends whatever its members were getting through it.
 </Warning>
 
-Offers students purchase manage their own member lists automatically; those do not appear here. See [Managing Students](/students/managing-students) for access and progress.
+Offers members purchase manage their own member lists automatically; those do not appear here. See [Managing Members](/students/managing-students) for access and progress.
 
 ## Segments
 
-A Segment is a saved filter that defines its membership from rules instead of a hand-picked list. You never add or remove members directly: students fall in and out of a segment automatically as they match (or stop matching) the rules. Segments are computed on demand from current enrollment, progress, completion, and welcome-answer data, and they always include only students with active access in your academy.
+A Segment is a saved filter that defines its membership from rules instead of a hand-picked list. You never add or remove people directly: members fall in and out of a segment automatically as they match (or stop matching) the rules. Segments are computed on demand from current enrollment, progress, completion, and welcome-answer data, and they always include only members with active access in your academy.
 
 ### Build a segment
 
@@ -93,10 +93,10 @@ A Segment is a saved filter that defines its membership from rules instead of a 
     Give it a name (for example, "Stalled in Sales 101") and add one or more conditions.
   </Step>
   <Step title="Choose how conditions combine">
-    Set **Include students matching** to **All** (students must meet every condition) or **Any** (students who meet at least one).
+    Set **Include members matching** to **All** (members must meet every condition) or **Any** (members who meet at least one).
   </Step>
   <Step title="Check the live preview, then save">
-    As your conditions become valid, a live preview shows how many students currently match plus a small sample. Save when it looks right.
+    As your conditions become valid, a live preview shows how many members currently match plus a small sample. Save when it looks right.
   </Step>
 </Steps>
 
