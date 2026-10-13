@@ -70,6 +70,7 @@
               "content/modules",
               "content/knowledge-checks",
               "content/drip-scheduling",
+              "content/surveys",
               "content/video-upload",
               "content/lesson-audio",
               "content/interactive-widgets",
@@ -95,6 +96,8 @@
               "students/enrollments",
               "students/certificates",
               "students/audiences",
+              "students/cohort-brief",
+              "students/reminder-emails",
               "students/student-experience"
             ]
           },

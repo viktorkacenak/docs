@@ -1,0 +1,85 @@
+---
+title: "Reminder Emails: Nudge a Group Back to Their Next Lesson"
+sidebarTitle: "Reminder emails"
+description: "Email a list or a group of members you pick, narrowed to who hasn't started, finished, or answered a survey, with a button to each person's next lesson."
+icon: "bell"
+---
+
+A reminder email is a short, plain-text message you write to a group of members about one course. Each person gets a button that takes them straight to their own next lesson. Use it to chase prework before a workshop, to get stragglers to finish, or to collect the last survey answers.
+
+Reminders are never sent automatically. You write each one and press Send.
+
+## Where to send from
+
+<CardGroup cols={2}>
+  <Card title="A list" icon="users">
+    Open a [list](/students/audiences) in **People** and click **Email people** at the top. Works from both the **People** and the **Brief** view.
+  </Card>
+
+  <Card title="The cohort brief" icon="chart-pie">
+    The **Remind** buttons in the brief's Readiness section open the same email already set to the right people, such as those who haven't started or haven't answered a survey. See [Cohort brief](/students/cohort-brief).
+  </Card>
+
+  <Card title="People you pick" icon="user-check">
+    Tick rows on the **All members** roster (any quick view works, such as **Stalled 14d+**) and click **Email** on the bulk bar.
+  </Card>
+</CardGroup>
+
+## Write and send a reminder
+
+<Steps>
+  <Step title="Pick the course">
+    If the group has more than one course, choose which one the reminder is about. The button in the email points into this course.
+  </Step>
+  <Step title="Choose who gets it">
+    Under **Who**, pick a filter:
+
+    - **Everyone**
+    - **Hasn't started the course**
+    - **Hasn't finished the course**
+    - **Hasn't answered a survey**, then pick the survey. This option appears when the course has a published [survey](/content/surveys).
+
+    The count underneath updates as you choose ("12 people will get this."), and tells you when this group was last reminded.
+  </Step>
+  <Step title="Edit the message">
+    The **Subject** and **Message** start with a draft that fits the filter you chose. Edit them in your own words. The message is plain text.
+  </Step>
+  <Step title="Send a test">
+    **Send test to me** sends the email as written to your own address, with "[Test]" in front of the subject. Its button opens the course page. A test doesn't count toward the limits below.
+  </Step>
+  <Step title="Send">
+    Click **Send to N people**. The emails go out in the background, so you can close the dialog right away.
+  </Step>
+</Steps>
+
+## What members receive
+
+The email comes from your academy, with your academy name as the sender and your [sending domain](/academy/email-domain) if you have connected one. It carries your message and a **Continue** button for the course. The button opens each person's own next lesson: the first one they haven't completed and can open. Lessons locked by [drip scheduling](/content/drip-scheduling) or a required check or survey are skipped. If nothing is left to open, the button goes to the course page.
+
+## Who is skipped
+
+- **Members who turned off reminder emails.** The **Reminders and nudges** switch in their email settings covers these reminders. Fayne never turns it back on for them.
+- **Anyone who isn't a current member.** People who were invited but haven't joined, removed members, and you and your admins are left out. To chase an invitation, resend it from the **Invited** view instead.
+- **People who already match the filter's goal.** For example, someone who has answered the survey doesn't get the "hasn't answered" reminder.
+
+## Limits
+
+| Limit | Why |
+| --- | --- |
+| One reminder to the same group per 24 hours | The same people, course, and filter can't be reminded twice in a day. |
+| Three reminders per academy per 24 hours | Protects your members' inboxes and your sending reputation. |
+| Up to 2,000 recipients per reminder | Reminders are for a group. For a bigger audience, post to the [Newsfeed](/engagement/newsfeed) with email turned on. |
+
+If you hit a limit, the dialog tells you and you can try again the next day.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Cohort brief" icon="chart-pie" href="/students/cohort-brief">
+    See who needs a reminder.
+  </Card>
+
+  <Card title="Invitations and emails" icon="envelope" href="/students/invitations-emails">
+    Every email your members can receive.
+  </Card>
+</CardGroup>
